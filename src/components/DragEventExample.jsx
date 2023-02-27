@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 import styles from "../css/dragEventExample.module.css";
 
-import DragEvent from "../module/DragEvent";
+import { setDragEvent } from "../module/DragEvent";
 
 class DragEventExample extends Component {
   render() {
@@ -16,7 +16,7 @@ class DragEventExample extends Component {
   componentDidMount() {
     const object = document.getElementById("object");
     const target = document.getElementById("target");
-    new DragEvent(object, target, () => {
+    setDragEvent(object, target, () => {
       object.style.display = "none";
       target.style.background = "gray";
     });

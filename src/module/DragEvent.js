@@ -1,46 +1,73 @@
-class DragEvent {
-  constructor(object, target, callback) {
-    this.object = object;
-    this.target = target;
-
-    let is_dragging = false;
-    const initX = this.object.style.top;
-    const initY = this.object.style.left;
-
-    const App = document.querySelector("#App");
-    App.addEventListener("mousemove", (event) => {
-      if (is_dragging) {
-        this.object.style.left = `${event.clientX - this.object.clientWidth}px`;
-        this.object.style.top = `${
-          event.clientY - this.object.clientHeight / 2
-        }px`;
-      }
-    });
-    App.addEventListener("mouseup", (event) => {
-      if (is_dragging) {
-        if (
-          this.object.style.left >
-            this.target.style.left - this.target.clientWidth / 2 &&
-          this.object.style.left <
-            this.target.style.left + this.target.clientWidth / 2 &&
-          this.object.style.top >
-            this.target.style.top - this.target.clientHeight / 2 &&
-          this.object.style.top <
-            this.target.style.top + this.target.clientHeight / 2
-        ) {
-          callback();
-        }
-      }
-      is_dragging = false;
-      this.object.style.top = initX;
-      this.object.style.left = initY;
-    });
-
-    this.object.onmousedown = () => {
-      is_dragging = true;
-      this.object.style.zIndex = "1000";
-    };
+const find_absoluteStandard = (element) => {
+  let parent = element.parentNode;
+  while (
+    (parent.position === "static" || parent.position === "") &&
+    parent != document.body
+  ) {
+    parent = parent.parentNode;
   }
-}
+  return parent;
+};
 
-export default DragEvent;
+const create_targetListener = (target) => {
+  const targetStyles = window.getComputedStyle(target);
+
+  const listener = document.createElement("div");
+  listener.style.cssText = `
+    position: absolute; 
+    border-radius: 50%;
+    opacity: 0;
+    width: ${targetStyles.width};
+    height: ${targetStyles.height};
+    top: ${targetStyles.top};
+    left: ${targetStyles.left};
+    z-index: 1001;`;
+  find_absoluteStandard(target).append(listener);
+
+  return listener;
+};
+
+export const setDragEvent = (object, target, callback) => {
+  const initPosition = {
+    x: object.style.top,
+    y: object.style.left,
+    z: object.style.zIndex,
+  };
+  const initObject = () => {
+    object.style.top = initPosition.x;
+    object.style.left = initPosition.y;
+    object.style.zIndex = initPosition.z;
+  };
+
+  let is_dragging = false;
+
+  const standard = find_absoluteStandard(object);
+  standard.addEventListener("mousemove", (event) => {
+    const standardClient = standard.getBoundingClientRect();
+    if (is_dragging) {
+      object.style.left = `${
+        event.clientX - standardClient.left - object.clientWidth / 2
+      }px`;
+      object.style.top = `${
+        event.clientY - standardClient.top - object.clientHeight / 2
+      }px`;
+    }
+  });
+
+  const listener = create_targetListener(target);
+  listener.addEventListener("mouseup", () => {
+    if (is_dragging) callback();
+
+    is_dragging = false;
+    initObject();
+  });
+
+  document.body.addEventListener("mouseup", () => {
+    is_dragging = false;
+    initObject();
+  });
+  object.onmousedown = () => {
+    is_dragging = true;
+    object.style.zIndex = "1000";
+  };
+};

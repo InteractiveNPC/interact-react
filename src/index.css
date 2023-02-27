@@ -11,9 +11,12 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+
+  /* position: absolute; */
 }
 
 #App {
   background: white;
   position: relative;
+  overflow: hidden;
 }
