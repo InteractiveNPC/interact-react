@@ -43,7 +43,7 @@
    */
 
   // class component에서 componentDidMount() 함수 내에 작성
-  // (dragEventExample.jsx 참고)
+  // (dragEvent/example.jsx 참고)
   setDragEvent(object, target, callback, [debug]);
   ```
 

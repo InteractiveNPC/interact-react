@@ -11,12 +11,6 @@ const find_absoluteStandard = (element) => {
   return parent;
 };
 
-/**
- * @param {element} 드래그를 할 요소 (position: absolute)
- * @param {element} 드래그를 마칠 목표 위치에 있는 요소 (position: absolute)
- * @param {function()} 드래그를 성공했을 때 실행할 callback 함수
- * @param {boolean} true 설정 시 드래그 성공 인식하는 위치 표시 (생략 가능 default false)
- */
 const create_targetListener = (target, debug) => {
   const targetStyles = window.getComputedStyle(target);
   const opacity = debug ? 0.5 : 0;
@@ -37,6 +31,12 @@ const create_targetListener = (target, debug) => {
   return listener;
 };
 
+/**
+ * @param {element} 드래그를 할 요소 (position: absolute)
+ * @param {element} 드래그를 마칠 목표 위치에 있는 요소 (position: absolute)
+ * @param {function()} 드래그를 성공했을 때 실행할 callback 함수
+ * @param {boolean} true 설정 시 드래그 성공 인식하는 위치 표시 (생략 가능 default false)
+ */
 export const setDragEvent = (object, target, callback, debug) => {
   const initPosition = {
     x: object.style.top,
