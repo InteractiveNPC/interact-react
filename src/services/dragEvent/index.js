@@ -1,3 +1,5 @@
+import { getFrameScale } from "../responsiveFrame";
+
 const find_absoluteStandard = (element) => {
   let parent = element.parentNode;
   while (
@@ -52,12 +54,14 @@ export const setDragEvent = (object, target, callback, debug) => {
   const standard = find_absoluteStandard(object);
   standard.addEventListener("mousemove", (event) => {
     const standardClient = standard.getBoundingClientRect();
+    const scale = getFrameScale();
+    console.log(object.clientWidth * scale);
     if (is_dragging) {
       object.style.left = `${
-        event.clientX - standardClient.left - object.clientWidth / 2
+        event.clientX / scale - standardClient.left - object.clientWidth / 2
       }px`;
       object.style.top = `${
-        event.clientY - standardClient.top - object.clientHeight / 2
+        event.clientY / scale - standardClient.top - object.clientHeight / 2
       }px`;
     }
   });

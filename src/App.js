@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 
-import DragEventExample from "./components/DragEventExample";
+import { getResizeEventListener } from "./services/responsiveFrame";
+import DragEventExample from "./services/dragEvent/example";
 
 class App extends Component {
   render() {
@@ -11,22 +12,7 @@ class App extends Component {
     );
   }
   componentDidMount() {
-    const FixRatio = () => {
-      const root = document.querySelector("#root");
-      const app = document.querySelector("#App");
-
-      let width = root.clientWidth;
-      let height = width * 0.5625;
-
-      if (height > root.clientHeight) {
-        height = root.clientHeight;
-        width = height * 1.7777;
-      }
-
-      app.style.width = `${width}px`;
-      app.style.height = `${height}px`;
-    };
-
+    const FixRatio = getResizeEventListener(1920, 1080);
     window.onresize = FixRatio;
     FixRatio();
   }
