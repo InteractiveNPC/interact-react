@@ -16,15 +16,10 @@ class DragEventExample extends Component {
   componentDidMount() {
     const object = document.getElementById("object");
     const target = document.getElementById("target");
-    setDragEvent(
-      object,
-      target,
-      () => {
-        object.style.display = "none";
-        target.style.background = "gray";
-      },
-      true
-    );
+    setDragEvent(object, target, () => {
+      object.style.display = "none";
+      target.style.background = "gray";
+    });
   }
 }
 
