@@ -14,7 +14,7 @@
   import {
     getResizeEventListener,
     getFrameScale,
-  } from "../module/responsiveFrame";
+  } from "../services/responsiveFrame";
 
   /**
    * @param {number} 원본 화면의 width (px 단위)
@@ -34,7 +34,7 @@
   - [services/dragEvent](./src/services/dragEvent/)
 
   ```javascript
-  import { setDragEvent } from "../module/DragEvent";
+  import { setDragEvent } from "../services/dragEvent";
   /**
    * @param {element} 드래그를 할 요소 (position: absolute)
    * @param {element} 드래그를 마칠 목표 위치에 있는 요소 (position: absolute)
