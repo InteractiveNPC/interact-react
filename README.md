@@ -48,6 +48,10 @@
   ```
 
 - [ ] UI: 설정창
-  - [components/Setting.jsx](./src/components/Setting.jsx)
+
+  - [components/ui](./src/components/ui)
+  - [x] 상단 Nav UI 버튼
+  - [x] 설정창 임시 리소스 배치 & 인터랙
+
 - [ ] 장소 이동
   - [components/LocationMove.jsx](./src/components/LocationMove.jsx)

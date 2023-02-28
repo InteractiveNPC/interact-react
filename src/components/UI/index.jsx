@@ -1,15 +1,7 @@
 import React, { Component } from "react";
 
-import nav_styles from "../../styles/components/ui/nav.module.css";
-const Nav = () => {
-  return (
-    <div className={nav_styles.nav}>
-      <img src={process.env.PUBLIC_URL + "/image/ui/toNote.png"} />
-      <img src={process.env.PUBLIC_URL + "/image/ui/toMain.png"} />
-      <img src={process.env.PUBLIC_URL + "/image/ui/toSetting.png"} />
-    </div>
-  );
-};
+import Nav from "./Nav";
+import Setting from "./Setting";
 
 class UI extends Component {
   constructor(props) {
@@ -19,10 +11,18 @@ class UI extends Component {
       setting: false,
     };
   }
+
+  navEvent = [
+    () => alert("사건 노트로 이동!"),
+    () => alert("홈으로 이동!"),
+    () => this.setState({ ...this.state, setting: !this.state.setting }),
+  ];
+
   render() {
     return (
       <div id="UI">
-        <Nav />
+        <Nav clickEvent={this.navEvent} />
+        {this.state.setting ? <Setting /> : null}
       </div>
     );
   }
