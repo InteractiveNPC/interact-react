@@ -9,14 +9,22 @@ const find_absoluteStandard = (element) => {
   return parent;
 };
 
-const create_targetListener = (target) => {
+/**
+ * @param {element} 드래그를 할 요소 (position: absolute)
+ * @param {element} 드래그를 마칠 목표 위치에 있는 요소 (position: absolute)
+ * @param {function()} 드래그를 성공했을 때 실행할 callback 함수
+ * @param {boolean} true 설정 시 드래그 성공 인식하는 위치 표시 (생략 가능 default false)
+ */
+const create_targetListener = (target, debug) => {
   const targetStyles = window.getComputedStyle(target);
+  const opacity = debug ? 0.5 : 0;
 
   const listener = document.createElement("div");
   listener.style.cssText = `
     position: absolute; 
+    background: green;
     border-radius: 50%;
-    opacity: 0;
+    opacity: ${opacity};
     width: ${targetStyles.width};
     height: ${targetStyles.height};
     top: ${targetStyles.top};
@@ -27,7 +35,7 @@ const create_targetListener = (target) => {
   return listener;
 };
 
-export const setDragEvent = (object, target, callback) => {
+export const setDragEvent = (object, target, callback, debug) => {
   const initPosition = {
     x: object.style.top,
     y: object.style.left,
@@ -54,7 +62,7 @@ export const setDragEvent = (object, target, callback) => {
     }
   });
 
-  const listener = create_targetListener(target);
+  const listener = create_targetListener(target, debug);
   listener.addEventListener("mouseup", () => {
     if (is_dragging) callback();
 
