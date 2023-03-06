@@ -58,6 +58,17 @@
   border-radius: 50%;
 }
 
+.resetButton {
+  position: absolute;
+  width: 216px;
+  height: 52px;
+  left: 392px;
+  top: 564px;
+}
+.resetButton:active {
+  filter: brightness(0.95);
+}
+
 .x {
   position: absolute;
   width: 27.5px;
