@@ -18,7 +18,7 @@
   justify-content: space-between;
 }
 
-.nav img {
+.nav > div {
   width: 213px;
   height: 73px;
 }
@@ -34,4 +34,12 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+}
+
+.x {
+  position: absolute;
+  width: 27.5px;
+  height: 27.5px;
+  left: 1396px;
+  top: 255px;
 }

@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { divToImg } from "../../../services/propsFormat";
 import setting_styles from "../../../styles/components/ui/setting.module.css";
 
 class Credit extends Component {
@@ -6,11 +7,7 @@ class Credit extends Component {
     return (
       <div
         className={setting_styles.window}
-        style={{
-          backgroundImage: `url(${
-            process.env.PUBLIC_URL + "/image/ui/setting/CreditBackground.png"
-          })`,
-        }}
+        {...divToImg("/image/ui/setting/CreditBackground.png")}
       ></div>
     );
   }
