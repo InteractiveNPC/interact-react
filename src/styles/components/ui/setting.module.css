@@ -25,15 +25,37 @@
 
 .audio_inputs {
   position: absolute;
-
   width: 428px;
-  height: 272px;
+  height: 248px;
   left: 379px;
-  top: 152px;
+  top: 163px;
 
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+}
+
+.audio_inputs > input {
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+  cursor: pointer;
+}
+.audio_inputs > input::-webkit-slider-runnable-track {
+  background: #ffffff;
+  height: 6px;
+  border-radius: 0;
+}
+.audio_inputs > input::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  margin-top: -10px;
+
+  background: #666666;
+
+  width: 27px;
+  height: 27px;
+  border-radius: 50%;
 }
 
 .x {
