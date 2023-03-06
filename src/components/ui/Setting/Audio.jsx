@@ -8,7 +8,7 @@ class Audio extends Component {
         className={setting_styles.window}
         style={{
           backgroundImage: `url(${
-            process.env.PUBLIC_URL + "/image/ui/setting/audio.png"
+            process.env.PUBLIC_URL + "/image/ui/setting/AudioBackground.png"
           })`,
         }}
       >

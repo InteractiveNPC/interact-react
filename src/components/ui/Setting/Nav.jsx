@@ -7,8 +7,8 @@ const Nav = ({ selected, clickEvent }) => {
         onClick={clickEvent[0]}
         src={
           process.env.PUBLIC_URL +
-          `/image/ui/setting/audioNav_${
-            selected === "audio" ? "sel" : "nonsel"
+          `/image/ui/setting/AudioButton_${
+            selected === "audio" ? "o" : "x"
           }.png`
         }
       />
@@ -16,8 +16,8 @@ const Nav = ({ selected, clickEvent }) => {
         onClick={clickEvent[1]}
         src={
           process.env.PUBLIC_URL +
-          `/image/ui/setting/creditNav_${
-            selected === "credit" ? "sel" : "nonsel"
+          `/image/ui/setting/CreditButton_${
+            selected === "credit" ? "o" : "x"
           }.png`
         }
       />

@@ -8,7 +8,7 @@ class Credit extends Component {
         className={setting_styles.window}
         style={{
           backgroundImage: `url(${
-            process.env.PUBLIC_URL + "/image/ui/setting/credit.png"
+            process.env.PUBLIC_URL + "/image/ui/setting/CreditBackground.png"
           })`,
         }}
       ></div>
