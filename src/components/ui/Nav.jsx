@@ -5,15 +5,15 @@ const Nav = ({ clickEvent }) => {
     <div className={index_styles.nav}>
       <img
         onClick={clickEvent[0]}
-        src={process.env.PUBLIC_URL + "/image/ui/toNote.png"}
+        src={process.env.PUBLIC_URL + "/image/ui/Note.png"}
       />
       <img
         onClick={clickEvent[1]}
-        src={process.env.PUBLIC_URL + "/image/ui/toMain.png"}
+        src={process.env.PUBLIC_URL + "/image/ui/Home.png"}
       />
       <img
         onClick={clickEvent[2]}
-        src={process.env.PUBLIC_URL + "/image/ui/toSetting.png"}
+        src={process.env.PUBLIC_URL + "/image/ui/Setting.png"}
       />
     </div>
   );
