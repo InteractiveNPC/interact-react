@@ -1,20 +1,12 @@
+import { divToImg } from "../../services/propsFormat";
 import index_styles from "../../styles/components/ui/index.module.css";
 
 const Nav = ({ clickEvent }) => {
   return (
     <div className={index_styles.nav}>
-      <img
-        onClick={clickEvent[0]}
-        src={process.env.PUBLIC_URL + "/image/ui/Note.png"}
-      />
-      <img
-        onClick={clickEvent[1]}
-        src={process.env.PUBLIC_URL + "/image/ui/Home.png"}
-      />
-      <img
-        onClick={clickEvent[2]}
-        src={process.env.PUBLIC_URL + "/image/ui/Setting.png"}
-      />
+      <div onClick={clickEvent[0]} {...divToImg("/image/ui/Note.png")} />
+      <div onClick={clickEvent[1]} {...divToImg("/image/ui/Home.png")} />
+      <div onClick={clickEvent[2]} {...divToImg("/image/ui/Setting.png")} />
     </div>
   );
 };

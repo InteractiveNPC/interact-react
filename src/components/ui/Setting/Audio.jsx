@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { divToImg } from "../../../services/propsFormat";
 import setting_styles from "../../../styles/components/ui/setting.module.css";
 
 class Audio extends Component {
@@ -6,11 +7,7 @@ class Audio extends Component {
     return (
       <div
         className={setting_styles.window}
-        style={{
-          backgroundImage: `url(${
-            process.env.PUBLIC_URL + "/image/ui/setting/AudioBackground.png"
-          })`,
-        }}
+        {...divToImg("/image/ui/setting/AudioBackground.png")}
       >
         <div className={setting_styles.audio_inputs}>
           <input name="background" type="range" min="1" max="100" />

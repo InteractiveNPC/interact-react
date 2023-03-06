@@ -26,7 +26,7 @@ class UI extends Component {
             this.state.setting ? this.navEvent.map(() => {}) : this.navEvent
           }
         />
-        {this.state.setting ? <Setting /> : null}
+        {this.state.setting ? <Setting closeEvent={this.navEvent[2]} /> : null}
       </div>
     );
   }
