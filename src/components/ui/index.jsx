@@ -21,8 +21,12 @@ class UI extends Component {
   render() {
     return (
       <div id="UI">
-        <Nav clickEvent={this.navEvent} />
-        {this.state.setting ? <Setting /> : null}
+        <Nav
+          clickEvent={
+            this.state.setting ? this.navEvent.map(() => {}) : this.navEvent
+          }
+        />
+        {this.state.setting ? <Setting closeEvent={this.navEvent[2]} /> : null}
       </div>
     );
   }
