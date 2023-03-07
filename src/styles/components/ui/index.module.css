@@ -9,7 +9,7 @@
   justify-content: space-between;
 }
 
-.nav img {
+.nav > div {
   width: 65px;
   height: 65px;
 }
