@@ -1,13 +1,13 @@
 import React, { Component } from "react";
 import { divToImg } from "../../../services/propsFormat";
-import setting_styles from "../../../styles/components/ui/setting.module.css";
+import setting_styles from "../../../styles/components/Nav/setting.module.css";
 
 class Audio extends Component {
   render() {
     return (
       <div
         className={setting_styles.window}
-        {...divToImg("/image/ui/setting/AudioBackground.png")}
+        {...divToImg("/image/Nav/setting/AudioBackground.png")}
       >
         <div className={setting_styles.audio_inputs}>
           <input name="background" type="range" min="1" max="100" />
@@ -16,7 +16,7 @@ class Audio extends Component {
         </div>
         <div
           className={setting_styles.resetButton}
-          {...divToImg("/image/ui/setting/SettingResetButton.png")}
+          {...divToImg("/image/Nav/setting/SettingResetButton.png")}
           onClick={() => {
             const inputs = document.querySelectorAll(
               `.${setting_styles.audio_inputs} > input`
