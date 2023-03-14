@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { divToImg } from "../../../services/propsFormat";
 
-import setting_styles from "../../../styles/components/Nav/setting.module.css";
+import setting_styles from "../../../styles/components/setting.module.css";
 
 import Audio from "./Audio";
 import Credit from "./Credit";
