@@ -2,13 +2,13 @@ import React from "react";
 
 import { getWithFullscreen } from "../services/storybookHelper";
 
-import UI from "../components/ui";
+import Nav from "../components/Nav";
 
 export default {
-  title: "UI",
-  component: UI,
+  title: "Nav",
+  component: Nav,
 };
 
 export const all = {
-  render: () => getWithFullscreen(<UI />),
+  render: () => getWithFullscreen(<Nav />),
 };
