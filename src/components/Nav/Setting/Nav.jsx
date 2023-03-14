@@ -1,5 +1,5 @@
 import { divToImg } from "../../../services/propsFormat";
-import setting_styles from "../../../styles/components/ui/setting.module.css";
+import setting_styles from "../../../styles/components/setting.module.css";
 
 const Nav = ({ selected, clickEvent }) => {
   return (
@@ -7,7 +7,7 @@ const Nav = ({ selected, clickEvent }) => {
       <div
         onClick={clickEvent[0]}
         {...divToImg(
-          `/image/ui/setting/AudioButton_${
+          `/image/Nav/setting/AudioButton_${
             selected === "audio" ? "o" : "x"
           }.png`
         )}
@@ -15,7 +15,7 @@ const Nav = ({ selected, clickEvent }) => {
       <div
         onClick={clickEvent[1]}
         {...divToImg(
-          `/image/ui/setting/CreditButton_${
+          `/image/Nav/setting/CreditButton_${
             selected === "credit" ? "o" : "x"
           }.png`
         )}
