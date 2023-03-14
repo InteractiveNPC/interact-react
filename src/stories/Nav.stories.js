@@ -9,6 +9,6 @@ export default {
   component: Nav,
 };
 
-export const all = {
+export const test = {
   render: () => getWithFullscreen(<Nav />),
 };
