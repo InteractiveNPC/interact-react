@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { divToImg } from "../../../services/propsFormat";
 
-import setting_styles from "../../../styles/components/ui/setting.module.css";
+import setting_styles from "../../../styles/components/Nav/setting.module.css";
 
 import Audio from "./Audio";
 import Credit from "./Credit";
@@ -29,7 +29,7 @@ class Setting extends Component {
         {this.state.display === "credit" ? <Credit /> : null}
         <div
           className={setting_styles.x}
-          {...divToImg("/image/ui/setting/Setting_X.png")}
+          {...divToImg("/image/Nav/setting/Setting_X.png")}
           onClick={this.props.closeEvent}
         ></div>
       </div>

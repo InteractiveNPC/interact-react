@@ -3,7 +3,7 @@ import React, { Component } from "react";
 import Setting from "./Setting";
 
 import { divToImg } from "../../services/propsFormat";
-import index_styles from "../../styles/components/ui/index.module.css";
+import index_styles from "../../styles/components/Nav/index.module.css";
 
 class Nav extends Component {
   constructor(props) {
@@ -24,11 +24,17 @@ class Nav extends Component {
     return (
       <div id="UI">
         <div className={index_styles.nav}>
-          <div onClick={this.navEvent[0]} {...divToImg("/image/ui/Note.png")} />
-          <div onClick={this.navEvent[1]} {...divToImg("/image/ui/Home.png")} />
+          <div
+            onClick={this.navEvent[0]}
+            {...divToImg("/image/Nav/Note.png")}
+          />
+          <div
+            onClick={this.navEvent[1]}
+            {...divToImg("/image/Nav/Home.png")}
+          />
           <div
             onClick={this.navEvent[2]}
-            {...divToImg("/image/ui/Setting.png")}
+            {...divToImg("/image/Nav/Setting.png")}
           />
         </div>
         {this.state.setting ? <Setting closeEvent={this.navEvent[2]} /> : null}
