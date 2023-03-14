@@ -3,7 +3,7 @@ import React, { Component } from "react";
 import Setting from "./Setting";
 
 import { divToImg } from "../../services/propsFormat";
-import index_styles from "../../styles/components/Nav/index.module.css";
+import index_styles from "../../styles/components/Nav.module.css";
 
 class Nav extends Component {
   constructor(props) {
