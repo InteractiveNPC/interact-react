@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 
+import Help from "./Help";
 import Setting from "./Setting";
 
 import { divToImg } from "../../services/propsFormat";
@@ -10,11 +11,13 @@ class Nav extends Component {
     super(props);
 
     this.state = {
+      Help: false,
       setting: false,
     };
   }
 
   navEvent = [
+    () => this.setState({ ...this.state, Help: !this.state.Help }),
     () => alert("사건 노트로 이동!"),
     () => alert("홈으로 이동!"),
     () => this.setState({ ...this.state, setting: !this.state.setting }),
@@ -26,18 +29,23 @@ class Nav extends Component {
         <div className={index_styles.nav}>
           <div
             onClick={this.navEvent[0]}
-            {...divToImg("/image/Nav/Note.png")}
+            {...divToImg("/image/Nav/Help.png")}
           />
           <div
             onClick={this.navEvent[1]}
-            {...divToImg("/image/Nav/Home.png")}
+            {...divToImg("/image/Nav/Note.png")}
           />
           <div
             onClick={this.navEvent[2]}
+            {...divToImg("/image/Nav/Home.png")}
+          />
+          <div
+            onClick={this.navEvent[3]}
             {...divToImg("/image/Nav/Setting.png")}
           />
         </div>
-        {this.state.setting ? <Setting closeEvent={this.navEvent[2]} /> : null}
+        {this.state.Help ? <Help closeEvent={this.navEvent[0]} /> : null}
+        {this.state.setting ? <Setting closeEvent={this.navEvent[3]} /> : null}
       </div>
     );
   }
