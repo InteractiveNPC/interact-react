@@ -1,15 +1,17 @@
 .nav {
   position: absolute;
-  width: 233.14px;
   height: 65px;
-  left: 1627px;
+  right: 60px;
   top: 35px;
 
   display: flex;
   justify-content: space-between;
 }
 
-.nav img {
+.nav > div {
   width: 65px;
   height: 65px;
+  margin: 10px;
+
+  cursor: pointer;
 }
