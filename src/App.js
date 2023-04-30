@@ -10,11 +10,5 @@ class App extends Component {
       </div>
     );
   }
-  componentDidMount() {
-    const FixRatio = getResizeEventListener(1920, 1080);
-    window.onresize = FixRatio;
-    FixRatio();
-  }
 }
-
 export default App;
