@@ -12,8 +12,7 @@ class Nav extends Component {
     super(props);
 
     this.state = {
-      Help: false,
-      setting: false,
+      window: null,
     };
 
     this.button = [];
@@ -21,8 +20,8 @@ class Nav extends Component {
 
   navEvent = [
     () => alert("홈으로 이동!"),
-    () => this.setState({ ...this.state, Help: !this.state.Help }),
-    () => this.setState({ ...this.state, setting: !this.state.setting }),
+    () => this.setState({ window: "help" }),
+    () => this.setState({ window: "setting" }),
     () => alert("수사 기록으로 이동!"),
     () => alert("공소장으로 이동!"),
   ];
@@ -43,8 +42,12 @@ class Nav extends Component {
           <div ref={(ref) => (this.button[2] = ref)} />
           <div ref={(ref) => (this.button[3] = ref)} />
         </div>
-        {this.state.Help ? <Help closeEvent={this.navEvent[1]} /> : null}
-        {this.state.setting ? <Setting closeEvent={this.navEvent[2]} /> : null}
+        {this.state.window === "help" ? (
+          <Help closeEvent={() => this.setState({ window: null })} />
+        ) : null}
+        {this.state.window === "setting" ? (
+          <Setting closeEvent={() => this.setState({ window: null })} />
+        ) : null}
       </div>
     );
   }

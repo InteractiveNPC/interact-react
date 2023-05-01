@@ -2,8 +2,6 @@
   position: relative;
   width: 1920px;
   height: 1080px;
-
-  background-color: burlywood;
 }
 
 .home {
@@ -12,6 +10,8 @@
   height: 43.56px;
   left: 54px;
   top: 48px;
+
+  cursor: pointer;
 }
 
 .buttons1 {
@@ -27,6 +27,8 @@
   > div {
     width: 45.85px;
     height: 45.85px;
+
+    cursor: pointer;
   }
 }
 
@@ -44,5 +46,7 @@
   > div {
     width: 67px;
     height: 68px;
+
+    cursor: pointer;
   }
 }
