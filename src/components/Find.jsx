@@ -1,4 +1,3 @@
-
 import {useSpring, animated} from 'react-spring';
 import {useDrag} from 'react-use-gesture';
 import styles from '../styles/findClue.css';
