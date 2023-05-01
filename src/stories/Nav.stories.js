@@ -1,8 +1,23 @@
-import React from "react";
-
-import { getWithFullscreen } from "../services/storybookHelper";
+import React, { Component } from "react";
 
 import Nav from "../components/Nav";
+
+import { getResizeEventListener } from "/src/services/responsiveFrame";
+
+class VirtualApp extends Component {
+  render() {
+    return (
+      <div id="App" style={{ background: "rgb(143, 120, 75)" }}>
+        {this.props.children}
+      </div>
+    );
+  }
+  componentDidMount() {
+    const FixRatio = getResizeEventListener(1920, 1080);
+    window.onresize = FixRatio;
+    FixRatio();
+  }
+}
 
 export default {
   title: "Nav",
@@ -10,5 +25,11 @@ export default {
 };
 
 export const test = {
-  render: () => getWithFullscreen(<Nav />),
+  render: () => (
+    <div id="root">
+      <VirtualApp style={{ background: "black" }}>
+        <Nav />
+      </VirtualApp>
+    </div>
+  ),
 };
