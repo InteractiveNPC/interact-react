@@ -1,3 +1,4 @@
+
 import {useSpring, animated} from 'react-spring';
 import {useDrag} from 'react-use-gesture';
 import styles from '../styles/findClue.css';
@@ -44,7 +45,7 @@ export default function Find(){
                 $('div#background').addClass("active");
             }}></img>
 
-            <div id="background" className="display-none">
+            <div id="background" className="display-none App">
                 <div id="step1">
                     <img src="/image/clothes/ClothesEvidence.png" className="clue" onClick={()=>{
                             $('div#step1').removeClass("active");
@@ -85,49 +86,3 @@ export default function Find(){
         </div>
     );
 }
-
-/*
-
-            <div id="background" className="display-none">
-                <div id="step1">
-                    <img src="/image/clothes/ClothesEvidence.png" className="clue" onClick={()=>{
-                            $('div#step1').removeClass("active");
-                            $('div#step1').addClass("display-none");
-        
-                            $('div#step2').removeClass("display-none");
-                            $('div#step2').addClass("active");
-                    }}></img>
-                    <Draggable onDrag={(e, data) => trackPos(data)} >
-                        <div className="box, obj" >
-                            <div><img src="/image/clothes/Clothes01.png"></img></div>
-                        </div>
-                    </Draggable>
-                    <Draggable onDrag={(e, data) => trackPos(data)} >
-                        <div className="box, obj" >
-                            <div><img src="/image/clothes/Clothes02.png"></img></div>
-                        </div>
-                    </Draggable>
-                    <Draggable onDrag={(e, data) => trackPos(data)} >
-                        <div className="box, obj" >
-                            <div><img src="/image/clothes/Clothes03.png"></img></div>
-                        </div>
-                    </Draggable>
-                    <Draggable onDrag={(e, data) => trackPos(data)} >
-                        <div className="box, obj" >
-                            <div><img src="/image/clothes/Clothes04.png"></img></div>
-                        </div>
-                    </Draggable>
-                    <Draggable onDrag={(e, data) => trackPos(data)} >
-                        <div className="box, obj" >
-                            <div><img src="/image/clothes/Clothes05.png"></img></div>
-                        </div>
-                    </Draggable>
-                    
-                </div>
-                <div id="step2" className="display-none">
-                        <img src="/image/clothes/ClothesEvidence.png" alt="find" className="clue" onClick={()=>{
-                            saveNote('선녀의 날개옷');
-                        }}></img>
-                </div>
-            </div>
-*/
