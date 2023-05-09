@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 
-import { getResizeEventListener } from "./services/responsiveFrame";
+import { getResizeEventListener } from "../responsiveFrame";
 
-class App extends Component {
+class VirtualApp extends Component {
   render() {
-    return <div id="App"></div>;
+    return <div id="App">{this.props.children}</div>;
   }
   componentDidMount() {
     const FixRatio = getResizeEventListener(1920, 1080);
@@ -13,4 +13,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default VirtualApp;

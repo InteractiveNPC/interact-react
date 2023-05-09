@@ -1,0 +1,52 @@
+.Nav {
+  position: relative;
+  width: 1920px;
+  height: 1080px;
+}
+
+.home {
+  position: absolute;
+  width: 205px;
+  height: 43.56px;
+  left: 54px;
+  top: 48px;
+
+  cursor: pointer;
+}
+
+.buttons1 {
+  position: absolute;
+  width: 116.85px;
+  height: 45.85px;
+  right: 59.15px;
+  top: 47.15px;
+
+  display: flex;
+  justify-content: space-between;
+
+  > div {
+    width: 45.85px;
+    height: 45.85px;
+
+    cursor: pointer;
+  }
+}
+
+.buttons2 {
+  position: absolute;
+  width: 67px;
+  height: 152px;
+  right: 49px;
+  top: 123px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  > div {
+    width: 67px;
+    height: 68px;
+
+    cursor: pointer;
+  }
+}
