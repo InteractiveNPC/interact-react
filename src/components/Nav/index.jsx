@@ -28,7 +28,7 @@ class Nav extends Component {
 
   render() {
     return (
-      <div className={index_styles.Nav}>
+      <>
         <div
           className={index_styles.home}
           {...divToImg("/image/Nav/HomeButton.png")}
@@ -48,7 +48,7 @@ class Nav extends Component {
         {this.state.window === "setting" ? (
           <Setting closeEvent={() => this.setState({ window: null })} />
         ) : null}
-      </div>
+      </>
     );
   }
 

@@ -1,69 +1,75 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
-import styles from "../../styles/components/MoveUI.module.css";
+import { useState, useRef } from "react";
+import anime from "animejs/lib/anime.es.js";
+
+import styles from "./styles.module.scss";
 import { divToImg } from "../../services/propsFormat";
 
-class MoveUI extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      dropdown: false,
-    };
-  }
-  moveLocation = (idx) => {
-    if (idx >= 0 && idx < this.props.locationNames.length)
-      this.props.onchange(idx);
-  };
-  dropdownTap = (idx) => {
-    this.moveLocation(idx);
-    this.setState({ dropdown: !this.state.dropdown });
+export default ({ locationNames, idx, setIdx }) => {
+  if (!idx) idx = 0;
+  const [dropdown, setDropdown] = useState(false);
+  const dropdownRef = useRef();
+  const buttonArrow = {
+    false: `${process.env.PUBLIC_URL}/image/MoveUI/MoveToPlace_Button_down.png`,
+    true: `${process.env.PUBLIC_URL}/image/MoveUI/MoveToPlace_Button_up.png`,
   };
 
-  render() {
-    return (
-      <div class={styles.root}>
-        {this.state.dropdown ? (
-          <div class={styles.dropdown}>
-            <div></div>
-            {this.props.locationNames.map((e, idx) =>
-              this.props.idx != idx ? (
-                <div onClick={() => this.dropdownTap(idx)}>{e}</div>
-              ) : null
-            )}
-          </div>
-        ) : null}
-        <div
-          class={styles.location}
-          onClick={() => this.dropdownTap(this.props.idx)}
-        >
-          {this.props.locationNames[this.props.idx]}
+  const displayDropdown = () => {
+    const divs = dropdownRef.current.childNodes;
+
+    divs.forEach((div, i) => {
+      anime({
+        targets: div,
+        top: dropdown ? [`${50 + 45 * i}px`, "0"] : ["0", `${50 + 45 * i}px`],
+        easing: "linear",
+        duration: 100 * (i + 1),
+        delay: dropdown ? 100 * (divs.length - i) : 0,
+      });
+    });
+
+    setDropdown(!dropdown);
+  };
+  return (
+    <>
+      <div className={styles.nav_button}>
+        <div className={styles.dropdown} ref={dropdownRef}>
+          {locationNames.map(
+            (e, i) =>
+              idx != i && (
+                <div
+                  key={`move_dropdown_${i}`}
+                  onClick={() => {
+                    displayDropdown();
+                    setTimeout(function () {
+                      setIdx(i);
+                    }, 100 * locationNames.length);
+                  }}
+                  {...divToImg("/image/MoveUI/MoveToPlace.png")}
+                >
+                  {e}
+                </div>
+              )
+          )}
         </div>
+        <div
+          className={styles.button}
+          onClick={() => displayDropdown()}
+          {...divToImg("/image/MoveUI/MoveToPlace.png")}
+        >
+          {locationNames[idx]}
+          <img className={styles.button_arrow} src={buttonArrow[dropdown]} />
+        </div>
+      </div>
+
+      <div className={styles.nav_arrow}>
         <img
-          class={styles.left}
-          onClick={() => this.moveLocation(this.props.idx - 1)}
-          src={
-            process.env.PUBLIC_URL + "/image/MoveUI/MoveToPlace_ButtonLeft.png"
-          }
+          onClick={() => idx > 0 && setIdx(idx - 1)}
+          src={`${process.env.PUBLIC_URL}/image/MoveUI/MoveToPlace_Left.png`}
         />
         <img
-          class={styles.right}
-          onClick={() => this.moveLocation(this.props.idx + 1)}
-          src={
-            process.env.PUBLIC_URL + "/image/MoveUI/MoveToPlace_ButtonRight.png"
-          }
+          onClick={() => idx < locationNames.length - 1 && setIdx(idx + 1)}
+          src={`${process.env.PUBLIC_URL}/image/MoveUI/MoveToPlace_Right.png`}
         />
       </div>
-    );
-  }
-}
-
-MoveUI.propTypes = {
-  locations: PropTypes.arrayOf(PropTypes.string).isRequired,
-  idx: PropTypes.number,
-  onchange: PropTypes.func.isRequired,
+    </>
+  );
 };
-MoveUI.defaultProps = {
-  idx: 0,
-};
-
-export default MoveUI;
