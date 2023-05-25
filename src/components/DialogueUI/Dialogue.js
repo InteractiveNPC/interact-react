@@ -3,7 +3,7 @@ import axios from 'axios';
 import './Dialogue.css';
 
 function Dialogue(props) {
-  const [ data, setData ] = useState({"id":1, "scene":0, "flag":0, "index":0,
+  const [ data, setData ] = useState({"id":1, "scene":0, "flag":0, "index":0, "size":1,
                                       "name": "", "content": "", "image": "", "choice": null});
   useEffect(() => {
     axios.get('/chapter' + window.location.search)
@@ -31,20 +31,23 @@ function Dialogue(props) {
       setData({"id": res.data.chapter, "scene": res.data.scene,
                 "flag": res.data.flag, "index": res.data.index,
                 "name": res.data.name, "content": res.data.content,
-                "image": res.data.image, "choice": res.data.choice
+                "image": res.data.image, "choice": res.data.choice,
+                "size": res.data.size
               })
     })
     .catch(error => console.log(error))
   }
 
   const answerHandler = (idx) => {
-    axios.get('/chapter?id=' + data.id + "&scene=" + data.scene + "&flag=" + data.flag + "&index=" + idx)
+    var i = idx === 0 ? 1 : 0;
+    axios.get('/chapter?id=' + data.id + "&scene=" + data.scene + "&flag=" + idx + "&index=" + i)
     .then(res => {
       console.log(res);
       setData({"id": res.data.chapter, "scene": res.data.scene,
                 "flag": res.data.flag, "index": res.data.index,
                 "name": res.data.name, "content": res.data.content,
-                "image": res.data.image, "choice": res.data.choice
+                "image": res.data.image, "choice": res.data.choice,
+                "size": res.data.size
               })
     })
     .catch(error => console.log(error))
@@ -56,9 +59,9 @@ function Dialogue(props) {
 
   if (data.choice == null) {
     return (
-        <div>
-          <div id="dialogue" onClick={dialogueHandler}></div>
-          <div className="dialogue_name">{data.name}</div>
+        <div onClick={dialogueHandler}>
+          <div id="dialogue"></div>
+          <div className="dialogue_name"><span>{data.name}</span></div>
           <div className="dialogue_content">{data.content}</div>
           <image id="character" src={data.image}/>
         </div>
@@ -70,7 +73,7 @@ function Dialogue(props) {
         <div className="question"></div>
         {data.choice && Object.values(data.choice).map((entrie, idx) => 
         <div className="answer" id={answerId(idx)} onClick={() => answerHandler(idx)}>
-          {entrie}
+          <span>{entrie}</span>
         </div>
         )}
       </div>
