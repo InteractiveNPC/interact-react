@@ -67,4 +67,8 @@
     "storybook": "^7.0.7",
     "webpack": "^5.75.0"
   }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 51f87af (merge: pull master)
