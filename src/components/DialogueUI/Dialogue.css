@@ -55,10 +55,10 @@
 
 #character {
 	position: absolute;
-	width: 726px;
-	height: 980px;
-	left: 595px;
-	top: 100px;
+	width: 1550px;
+	height: 1080px;
+	left: 185px;
+	bottom: 0px;
 }
 
 .blur {
