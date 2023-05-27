@@ -1,0 +1,125 @@
+@font-face {
+    font-family: 'GyeonggiBatang';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/GyeonggiBatang.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+#dialogue {
+	position: absolute;
+	width: 1716px;
+	height: 215px;
+	left: 102px;
+	top: 828px;
+	background: url("ScriptBackground.png");
+}
+
+.dialogue_name {
+	position: absolute;
+	width: 128px;
+	height: 36px;
+	left: 350px;
+	top: 855px;
+	font-family: 'GyeonggiBatang';
+	font-style: normal;
+	font-weight: 700;
+	font-size: 20px;
+	line-height: 20px;
+	text-align: center;
+	color: #DAD5AB;
+	background: url("CharacterName.png")
+}
+
+.dialogue_name span {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 36px;
+}
+
+.dialogue_content {
+	position: absolute;
+	width: 1200px;
+	height: 111px;
+	left: 350px;
+	top: 907px;
+	font-family: 'GyeonggiBatang';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 18px;
+	line-height: 170%;
+	letter-spacing: -0.025em;
+	color: #F8F1DA;
+	white-space: pre-line;
+}
+
+#character {
+	position: absolute;
+	width: 1550px;
+	height: 1080px;
+	left: 185px;
+	bottom: 0px;
+}
+
+.blur {
+	position: absolute;
+	width: 1920px;
+	height: 1076px;
+	left: 0px;
+	top: 2px;
+	background: rgba(0, 0, 0, 0.6);
+}
+
+.question {
+	position: absolute;
+	width: 232px;
+	height: 39px;
+	left: 844px;
+	top: 270px;
+	font-family: 'Inter';
+	font-style: normal;
+	font-weight: 700;
+	font-size: 32px;
+	line-height: 39px;
+	text-align: center;
+	color: #FFFFFF;
+}
+
+.answer {
+	position: absolute;
+	width: 643px;
+	height: 82px;
+	left: 639px;
+	background: #D9D9D9;
+	border-radius: 7px;
+	font-family: 'Inter';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 24px;
+	line-height: 29px;
+	text-align: center;
+	color: #000000;
+}
+
+.answer span {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 82px;
+}
+
+#answer0 {
+	top: 375px;
+}
+
+#answer1 {
+	top: 499px;
+}
+
+#answer2 {
+	top: 623px;
+}
+
+#answer3 {
+	top: 747px;
+}
