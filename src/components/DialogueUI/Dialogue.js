@@ -12,7 +12,7 @@ function Dialogue(props) {
       setData({"id": res.data.chapter, "scene": res.data.scene,
                 "flag": res.data.flag, "index": res.data.index,
                 "name": res.data.name, "content": res.data.content,
-                "image": res.data.image, "choice": res.data.choice
+                "image": decodeURI(res.data.image), "choice": res.data.choice
               })
     })
     .catch(error => console.log(error))
@@ -31,7 +31,7 @@ function Dialogue(props) {
       setData({"id": res.data.chapter, "scene": res.data.scene,
                 "flag": res.data.flag, "index": res.data.index,
                 "name": res.data.name, "content": res.data.content,
-                "image": res.data.image, "choice": res.data.choice,
+                "image": decodeURI(res.data.image), "choice": res.data.choice,
                 "size": res.data.size
               })
     })
@@ -46,7 +46,7 @@ function Dialogue(props) {
       setData({"id": res.data.chapter, "scene": res.data.scene,
                 "flag": res.data.flag, "index": res.data.index,
                 "name": res.data.name, "content": res.data.content,
-                "image": res.data.image, "choice": res.data.choice,
+                "image": decodeURI(res.data.image), "choice": res.data.choice,
                 "size": res.data.size
               })
     })
@@ -60,15 +60,16 @@ function Dialogue(props) {
   if (data.choice == null) {
     return (
         <div onClick={dialogueHandler}>
+          <img id="character" src={data.image}/>
           <div id="dialogue"></div>
           <div className="dialogue_name"><span>{data.name}</span></div>
           <div className="dialogue_content">{data.content}</div>
-          <image id="character" src={data.image}/>
         </div>
     )
   } else {
     return (
       <div>
+        <img id="character" src={data.image}/>
         <div className="blur"></div>
         <div className="question"></div>
         {data.choice && Object.values(data.choice).map((entrie, idx) => 
