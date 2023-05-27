@@ -12,8 +12,7 @@ function Dialogue(props) {
       setData({"id": res.data.chapter, "scene": res.data.scene,
                 "flag": res.data.flag, "index": res.data.index,
                 "name": res.data.name, "content": res.data.content,
-                "image": res.data.image, "choice": res.data.choice,
-                "size": res.data.size
+                "image": decodeURI(res.data.image), "choice": res.data.choice
               })
     })
     .catch(error => console.log(error))
