@@ -1,12 +1,12 @@
 import React, { Component } from "react";
-import Dialogue from "./components/DialogueUI/Dialogue";
+import Intro from "./components/IntroUI/Intro";
 import { getResizeEventListener } from "./services/responsiveFrame";
 
 class App extends Component {
   render() {
     return (
       <div id="App">
-        <Dialogue />
+        <Intro />
       </div>
     );
   }
