@@ -32,16 +32,18 @@
 	position: absolute;
 	width: 74.87px;
 	height: 73.24px;
-	left: 508.33px;
-	top: 819.94px;
-	transform: rotate(-25.86deg);
+	left: 558.33px;
+	top: 840px;
 }
 
 #res3 {
 	position: absolute;
 	width: 74.87px;
 	height: 73.24px;
-	left: 1053.91px;
-	top: 791.26px;
+	left: 1103.91px;
+	top: 840px;
+}
+
+.rotate {
 	transform: rotate(16.32deg);
 }
