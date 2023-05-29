@@ -21,8 +21,8 @@ export default ({ locationNames, idx, setIdx }) => {
         targets: div,
         top: dropdown ? [`${50 + 45 * i}px`, "0"] : ["0", `${50 + 45 * i}px`],
         easing: "linear",
-        duration: 100 * (i + 1),
-        delay: dropdown ? 100 * (divs.length - i) : 0,
+        duration: dropdown ? 75 * (i + 1) : 100 * (i + 1),
+        delay: dropdown ? 75 * (divs.length - i) : 0,
       });
     });
 
@@ -41,7 +41,7 @@ export default ({ locationNames, idx, setIdx }) => {
                     displayDropdown();
                     setTimeout(function () {
                       setIdx(i);
-                    }, 100 * locationNames.length);
+                    }, 75 * locationNames.length);
                   }}
                   {...divToImg("/image/MoveUI/MoveToPlace.png")}
                 >
