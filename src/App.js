@@ -1,12 +1,12 @@
 import React, { Component } from "react";
-import CourtResult from "./components/CourtResult";
+import Dialogue from "./components/DialogueUI/Dialogue";
 import { getResizeEventListener } from "./services/responsiveFrame";
 
 class App extends Component {
   render() {
     return (
       <div id="App">
-        <CourtResult tale={0} />
+        <Dialogue />
       </div>
     );
   }
