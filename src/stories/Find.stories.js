@@ -8,19 +8,17 @@ export default {
   component: Find,
 };
 
-const props = {
-};
+const props = {};
 
 class Example extends React.Component {
   constructor(props) {
     super(props);
-
   }
 
   render() {
     return (
       <div style={{ width: "100%", height: "100%" }}>
-        <Find/>
+        <Find />
       </div>
     );
   }
