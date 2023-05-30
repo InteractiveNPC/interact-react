@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-import Nav from "../components/Nav";
+import Nav from "../components/Nav/_index";
 
 import { getResizeEventListener } from "/src/services/responsiveFrame";
 

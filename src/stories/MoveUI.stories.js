@@ -2,7 +2,7 @@ import React from "react";
 import { getWithFullscreen } from "../services/storybookHelper";
 
 import MoveUI from "../components/MoveUI";
-import Nav from "../components/Nav";
+import Nav from "../components/Nav/_index";
 
 export default {
   title: "MoveUI",

@@ -1,65 +1,54 @@
-import React, { Component } from "react";
-import { setButtonEvent } from "/src/services/animation";
+import { useEffect, useRef, useState } from "react";
+import { useNavigate } from "react-router-dom";
+
+import { divToImg } from "services/propsFormat";
 
 import Help from "./Help";
 import Setting from "./Setting";
 
-import { divToImg } from "../../services/propsFormat";
+import { setButtonEvent } from "./animation";
 import index_styles from "./style.module.scss";
 
-class Nav extends Component {
-  constructor(props) {
-    super(props);
+export default () => {
+  const navigate = useNavigate();
 
-    this.state = {
-      window: null,
-    };
+  const [window, setWindow] = useState(null);
+  const button = [useRef(), useRef(), useRef(), useRef(), useRef()];
 
-    this.button = [];
-  }
-
-  navEvent = [
-    () => alert("홈으로 이동!"),
-    () => this.setState({ window: "help" }),
-    () => this.setState({ window: "setting" }),
+  const navEvent = [
+    () => navigate("/home"),
+    () => setWindow("help"),
+    () => setWindow("setting"),
     () => alert("수사 기록으로 이동!"),
-    () => alert("공소장으로 이동!"),
+    () => navigate("/document"),
   ];
 
-  render() {
-    return (
-      <>
-        <div
-          className={index_styles.home}
-          {...divToImg("/image/Nav/HomeButton.png")}
-          onClick={this.navEvent[0]}
-        ></div>
-        <div className={index_styles.buttons1}>
-          <div ref={(ref) => (this.button[0] = ref)} />
-          <div ref={(ref) => (this.button[1] = ref)} />
-        </div>
-        <div className={index_styles.buttons2}>
-          <div ref={(ref) => (this.button[2] = ref)} />
-          <div ref={(ref) => (this.button[3] = ref)} />
-        </div>
-        {this.state.window === "help" ? (
-          <Help closeEvent={() => this.setState({ window: null })} />
-        ) : null}
-        {this.state.window === "setting" ? (
-          <Setting closeEvent={() => this.setState({ window: null })} />
-        ) : null}
-      </>
-    );
-  }
+  useEffect(() => {
+    navEvent.slice(1).forEach((e, idx) => (button[idx].current.onclick = e));
 
-  componentDidMount() {
-    this.navEvent.slice(1).forEach((e, idx) => (this.button[idx].onclick = e));
+    setButtonEvent(button[0].current, "/image/Nav/Help");
+    setButtonEvent(button[1].current, "/image/Nav/Setting");
+    setButtonEvent(button[2].current, "/image/Nav/Investigation");
+    setButtonEvent(button[3].current, "/image/Nav/IndictPage");
+  });
 
-    setButtonEvent(this.button[0], "/image/Nav/Help");
-    setButtonEvent(this.button[1], "/image/Nav/Setting");
-    setButtonEvent(this.button[2], "/image/Nav/Investigation");
-    setButtonEvent(this.button[3], "/image/Nav/IndictPage");
-  }
-}
-
-export default Nav;
+  return (
+    <>
+      <div
+        className={index_styles.home}
+        {...divToImg("/image/Nav/HomeButton.png")}
+        onClick={navEvent[0]}
+      ></div>
+      <div className={index_styles.buttons1}>
+        <div ref={button[0]} />
+        <div ref={button[1]} />
+      </div>
+      <div className={index_styles.buttons2}>
+        <div ref={button[2]} />
+        <div ref={button[3]} />
+      </div>
+      {window === "help" && <Help closeEvent={() => setWindow(null)} />}
+      {window === "setting" && <Setting closeEvent={() => setWindow(null)} />}
+    </>
+  );
+};
