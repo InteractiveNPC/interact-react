@@ -10,24 +10,46 @@ function Dialogue(props) {
   const [ data, setData ] = useState({"id":props.idx, "scene":0, "flag":0, "index":0, "size":1,
                                       "name": "", "content": "", "image": "", "choice": null});
   useEffect(() => {
-     axios.get('/chapter?id=' + data.id + "&scene=" + data.scene + "&flag=" + data.flag + "&index=" + data.index)
-    .then(res => {
-      console.log(res.data)
-      setData({"id": res.data.chapter, "scene": res.data.scene,
-                "flag": res.data.flag, "index": res.data.index,
-                "name": res.data.name, "content": res.data.content,
-                "image": decodeURI(res.data.image), "choice": res.data.choice
-              })
-      if(res.data.chapter == -1) {
-        $("#dialogue").fadeOut(2000);
-        setTimeout(function() {
-          setShow(false);
-          setHome(true);
-        }, 2000);
-      }
-    })
-    .catch(error => console.log(error))
+    if(props.idx != null) {
+      setData({"id":props.idx, "scene":props.scene, "flag":props.flag, "index":props.index})
+      axios.get('/chapter?id=' + props.idx + "&scene=" + props.scene + "&flag=" + props.flag + "&index=" + props.index)
+      .then(res => {
+        console.log(res.data)
+        setData({"id": res.data.chapter, "scene": res.data.scene,
+                  "flag": res.data.flag, "index": res.data.index,
+                  "name": res.data.name, "content": res.data.content,
+                  "image": decodeURI(res.data.image), "choice": res.data.choice
+                })
+        if(res.data.chapter == -1) {
+          $("#dialogue").fadeOut(2000);
+          setTimeout(function() {
+            setShow(false);
+            setHome(true);
+          }, 2000);
+        }
+      })
+      .catch(error => console.log(error))
+    } else {
+      axios.get('/chapter?id=' + data.id + "&scene=" + data.scene + "&flag=" + data.flag + "&index=" + data.index)
+      .then(res => {
+        console.log(res.data)
+        setData({"id": res.data.chapter, "scene": res.data.scene,
+                  "flag": res.data.flag, "index": res.data.index,
+                  "name": res.data.name, "content": res.data.content,
+                  "image": decodeURI(res.data.image), "choice": res.data.choice
+                })
+        if(res.data.chapter == -1) {
+          $("#dialogue").fadeOut(2000);
+          setTimeout(function() {
+            setShow(false);
+            setHome(true);
+          }, 2000);
+        }
+      })
+      .catch(error => console.log(error))
+    }      
   }, []);
+
 
   const dialogueHandler = () => {
     axios.get('/chapter?id=' + data.id + "&scene=" + data.scene + "&flag=" + data.flag + "&index=" + data.index)
