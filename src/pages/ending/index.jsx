@@ -17,8 +17,9 @@ const getCourtResult = (tale) => {
   );
 };
 
-export const loader = async () => {
-  return getCourtResult(0);
+export const loader = async ({ params }) => {
+  const fairy = params.fairy ?? 0;
+  return getCourtResult(fairy);
 };
 
 export default () => {
