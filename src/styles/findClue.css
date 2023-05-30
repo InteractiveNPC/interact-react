@@ -75,16 +75,18 @@ div#background{
     text-align: center;
 }
 .button-txt{
+    height: 20px;
     position: absolute; /* 핵심코드 */
-    top: 245px;
+    top: 220px;
     left:238px;
     transform: translate( -50%, -50%); /* 핵심코드 */
     font-style: bold;
     text-align: center;
 }
 .button-txt2{
+    height: 20px;
     position: absolute; /* 핵심코드 */
-    top: 245px;
+    top: 220px;
     left: 580px;
     transform: translate( -50%, -50%); /* 핵심코드 */
     font-style: bold;
