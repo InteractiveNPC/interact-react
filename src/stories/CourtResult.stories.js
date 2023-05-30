@@ -1,7 +1,5 @@
 import React, { Component } from "react";
-
-import Nav from "../components/Nav/_index";
-
+import CourtResult from "../components/Court";
 import { getResizeEventListener } from "/src/services/responsiveFrame";
 
 class VirtualApp extends Component {
@@ -20,15 +18,15 @@ class VirtualApp extends Component {
 }
 
 export default {
-  title: "Nav",
-  component: Nav,
+  title: "CourtResult",
+  component: CourtResult,
 };
 
 export const test = {
   render: () => (
     <div id="root">
       <VirtualApp style={{ background: "black" }}>
-        <Nav />
+        <CourtResult tale={1} />
       </VirtualApp>
     </div>
   ),

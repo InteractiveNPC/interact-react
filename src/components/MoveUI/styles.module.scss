@@ -1,0 +1,64 @@
+.nav_button {
+  position: absolute;
+
+  top: 115px;
+  left: 38px;
+
+  font-size: 16px;
+  font-weight: 700;
+  text-align: center;
+  line-height: 40px;
+
+  .button {
+    position: absolute;
+    width: 241px;
+    height: 40px;
+    color: #fff8e4;
+
+    cursor: pointer;
+
+    > img {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      top: 15px;
+      right: 20px;
+    }
+  }
+
+  .dropdown {
+    position: absolute;
+
+    > div {
+      position: absolute;
+
+      width: 241px;
+      height: 40px;
+
+      color: #9f9478;
+      opacity: 0.5;
+
+      cursor: pointer;
+
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+  }
+}
+
+.nav_arrow {
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  width: 1820px;
+  display: flex;
+  justify-content: space-between;
+
+  > img {
+    cursor: pointer;
+  }
+}
