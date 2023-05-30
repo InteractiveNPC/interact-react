@@ -1,0 +1,146 @@
+div.body {
+    position: relative;
+    width:100%;
+    height: 100%;
+}
+
+.box {
+    position: absolute;
+    color: black;
+    width: 100px;
+    border-radius: 10px;
+    padding: 2em;
+    margin: auto;
+    user-select: none;
+    background: lightgrey;
+  }
+
+div#background{
+    position: absolute;
+    top: 0%;
+    background-color: rgba(0,0,0,0.52);
+    width: 100%;
+    height: 100%;
+}
+
+#step1, #step2, #result, #pop {
+    width:100%;
+    height: 100%;
+}
+.display-none{
+    display: none;
+}
+
+.active {
+    position: absolute;
+    display: block;
+}
+
+.etc{
+    background-color: aqua;
+    position: absolute;
+    width: 370px;
+    height: 250px;
+    top: 60%;
+    left: 0%;
+}
+
+.obj{
+    position: absolute;
+    top: 20%;
+    left: 30%;
+}
+
+.clue{
+    position: absolute;
+    top: 20%;
+    left:30%;
+}
+.btn1{
+    position: absolute;
+    top: 217px;
+    left:108px;
+}
+.btn2{
+    position: absolute;
+    top: 217px;
+    left:453px;
+}
+.button-txtA{
+    position: absolute; /* 핵심코드 */
+    top: 100px;
+    left: 20px;
+    transform: translate( -50%, -50%); /* 핵심코드 */
+    font-style: bold;
+    text-align: center;
+}
+.button-txt{
+    position: absolute; /* 핵심코드 */
+    top: 245px;
+    left:238px;
+    transform: translate( -50%, -50%); /* 핵심코드 */
+    font-style: bold;
+    text-align: center;
+}
+.button-txt2{
+    position: absolute; /* 핵심코드 */
+    top: 245px;
+    left: 580px;
+    transform: translate( -50%, -50%); /* 핵심코드 */
+    font-style: bold;
+    text-align: center;
+}
+.banner {
+    top:380px;
+    left:531px;
+    background-size: cover; /* 핵심코드 */
+    position: relative; /* 핵심코드 */
+    display : inline-block;
+    margin-bottom: 5%;
+    margin-left: 0%;
+    padding-left: 0%;
+    max-width: 100%;
+    background-repeat :no-repeat;
+}
+
+.banner2 {
+    top:800px;
+    left:531px;
+    background-size: cover; /* 핵심코드 */
+    position: relative; /* 핵심코드 */
+    display : inline-block;
+    margin-bottom: 5%;
+    margin-left: 0%;
+    padding-left: 0%;
+    max-width: 100%;
+    background-repeat :no-repeat;
+}
+  
+.banner-txt {
+    width:730px;
+    height:120px;
+    position: absolute; /* 핵심코드 */
+    top: 60px; /* 핵심코드 */
+    left: 65px; /* 핵심코드 */
+    font-size: x-large;
+    text-align: center;
+}
+p.important{
+    font-size: 28px;
+    font-weight: bold;
+}
+p{
+    font-size: 18px;
+}
+img, p, h2{
+    -webkit-user-drag: none;
+    user-select:none;
+}
+.App {
+    text-align: center;
+    user-select:none;
+  }
+  
+  .App-logo {
+    pointer-events: none;
+  }
