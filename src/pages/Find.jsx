@@ -131,7 +131,11 @@ export default function Find(){
                         }}>
                             <img src={hButton} className='btn1'></img>
                         </div>
-                        <div className='button-txt'>
+                        <div className='button-txt' onMouseOver={()=>{
+                            $('div#hov1').removeClass('display-none');
+                        }} onMouseLeave={()=>{
+                            $('div#hov1').addClass('display-none');
+                        }}>
                             <h2>선녀에게 가기</h2>
                         </div>
                         <img src={button} className="btn2" onMouseOver={()=>{
@@ -146,7 +150,11 @@ export default function Find(){
                         }} >
                             <img src={hButton} className='btn2'></img>
                         </div>
-                        <div className='button-txt2'>
+                        <div className='button-txt2' onMouseOver={()=>{
+                            $('div#hov2').removeClass('display-none');
+                        }} onMouseLeave={()=>{
+                            $('div#hov2').addClass('display-none');
+                        }}>
                             <h2 onClick={()=>{
                             $('div#result').removeClass('active');
                             $('div#result').addClass("display-none");
