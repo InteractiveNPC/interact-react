@@ -5,7 +5,7 @@
     font-style: normal;
 }
 
-#dialogue {
+#dialogue_bg {
 	position: absolute;
 	width: 1716px;
 	height: 215px;
@@ -55,9 +55,9 @@
 
 #character {
 	position: absolute;
-	width: 1550px;
+	width: 1920px;
 	height: 1080px;
-	left: 185px;
+	left: 0px;
 	bottom: 0px;
 }
 

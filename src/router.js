@@ -40,7 +40,7 @@ const router = createBrowserRouter([
         element: <Indict />,
       },
       {
-        path: "ending",
+        path: "ending/:fairy",
         element: <Ending />,
         loader: endingLoader,
       },
