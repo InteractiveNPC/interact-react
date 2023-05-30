@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import CourtResult from "../components/CourtResult";
+import CourtResult from "../components/Court";
 import { getResizeEventListener } from "/src/services/responsiveFrame";
 
 class VirtualApp extends Component {
