@@ -1,13 +1,14 @@
 import React, { Component } from "react";
 import Intro from "./components/IntroUI/Intro";
 import Home from "./components/HomeUI/Home";
+import Dialogue from "./components/DialogueUI/Dialogue";
 import { getResizeEventListener } from "./services/responsiveFrame";
 
 class App extends Component {
   render() {
     return (
       <div id="App">
-        <Home init="true"/>
+        <Dialogue idx="3" scene="0" flag="0" index="0"/>
       </div>
     );
   }
