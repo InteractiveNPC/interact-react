@@ -51,11 +51,11 @@ export default function Find(){
                 $('div#background').removeClass("display-none");
                 $('div#background').addClass("active");
             }}></img>
-            <div className='etc'>
-                <img src={dresser} onClick={()=>{
+            <div className='etc' onClick={()=>{
                     $('div#pop').removeClass("display-none");
                     $('div#pop').addClass("active");
-                }}></img>
+                }}>
+                <h2></h2>
             </div>
             <div id='pop' className='display-none'>
                 <div className='banner2' onClick={()=>{
