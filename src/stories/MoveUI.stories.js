@@ -2,6 +2,7 @@ import React from "react";
 import { getWithFullscreen } from "../services/storybookHelper";
 
 import MoveUI from "../components/MoveUI";
+import Nav from "../components/Nav/_index";
 
 export default {
   title: "MoveUI",
@@ -19,16 +20,67 @@ class Example extends React.Component {
     this.state = {
       locations: [
         <div
-          style={{ width: "100%", height: "100%", background: "red" }}
-        ></div>,
+          style={{
+            width: "100%",
+            height: "100%",
+            fontSize: "100px",
+            textAlign: "center",
+            lineHeight: "1080px",
+            background: "rgb(143, 120, 75)",
+          }}
+        >
+          연못
+        </div>,
         <div
-          style={{ width: "100%", height: "100%", background: "blue" }}
-        ></div>,
+          style={{
+            width: "100%",
+            height: "100%",
+            fontSize: "100px",
+            textAlign: "center",
+            lineHeight: "1080px",
+            background: "rgb(143, 120, 75)",
+          }}
+        >
+          수사실
+        </div>,
         <div
-          style={{ width: "100%", height: "100%", background: "green" }}
-        ></div>,
+          style={{
+            width: "100%",
+            height: "100%",
+            fontSize: "100px",
+            textAlign: "center",
+            lineHeight: "1080px",
+            background: "rgb(143, 120, 75)",
+          }}
+        >
+          나무꾼의 집
+        </div>,
+        <div
+          style={{
+            width: "100%",
+            height: "100%",
+            fontSize: "100px",
+            textAlign: "center",
+            lineHeight: "1080px",
+            background: "rgb(143, 120, 75)",
+          }}
+        >
+          어디어디
+        </div>,
+        <div
+          style={{
+            width: "100%",
+            height: "100%",
+            fontSize: "100px",
+            textAlign: "center",
+            lineHeight: "1080px",
+            background: "rgb(143, 120, 75)",
+          }}
+        >
+          저기저기
+        </div>,
       ],
-      locationNames: ["연못", "수사실", "나무꾼의 집"],
+      locationNames: ["연못", "수사실", "나무꾼의 집", "어디어디", "저기저기"],
       idx: 0,
     };
   }
@@ -37,9 +89,10 @@ class Example extends React.Component {
     return (
       <div style={{ width: "100%", height: "100%" }}>
         {this.state.locations[this.state.idx]}
+        <Nav />
         <MoveUI
           {...this.state}
-          onchange={(idx) => this.setState({ ...this.state, idx: idx })}
+          setIdx={(idx) => this.setState({ ...this.state, idx: idx })}
         />
       </div>
     );
