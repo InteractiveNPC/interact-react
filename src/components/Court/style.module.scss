@@ -1,4 +1,161 @@
 .court {
+  position: absolute;
   width: 1920px;
   height: 1080px;
+
+  > .window {
+    position: absolute;
+    width: 1362px;
+    height: 786px;
+
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    > .title {
+      width: 100%;
+      position: absolute;
+      top: 36px;
+      left: 50%;
+      transform: translateX(-50%);
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      font-family: "GyeonggiBatang";
+
+      font-weight: 700;
+      font-size: 24px;
+
+      > hr {
+        width: 77px;
+        height: 0px;
+        border: none;
+        border-bottom: 0.5px solid #654d28;
+
+        margin: 0px 17px;
+      }
+    }
+
+    > .result {
+      position: absolute;
+      top: 130px;
+      left: 50%;
+      transform: translateX(-50%);
+
+      font-family: "Pretendard";
+      color: #2d261c;
+      font-weight: 400;
+      font-size: 24px;
+      line-height: 192.5%;
+      text-align: center;
+
+      > span {
+        font-weight: 800;
+      }
+      > .crime {
+        display: inline-block;
+        padding: 0px 5px;
+        margin: -5px 5px;
+        background: #8e815e;
+        color: white;
+      }
+      > .guilty {
+        color: #8f3d3d;
+      }
+      > .notguilty {
+        color: #32516d;
+      }
+    }
+
+    > .reason {
+      width: 948px;
+      height: 350px;
+      overflow: auto;
+      padding: 20px;
+
+      position: absolute;
+      top: 260px;
+      left: 50%;
+      transform: translateX(-50%);
+
+      font-family: "Pretendard";
+
+      > .title {
+        font-weight: 700;
+        font-size: 22px;
+        line-height: 192.5%;
+        margin-bottom: 15px;
+      }
+      > .content {
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 192.5%;
+      }
+
+      &::-webkit-scrollbar {
+        width: 8px; /* 스크롤바의 너비 */
+      }
+
+      &::-webkit-scrollbar-thumb {
+        height: 50%; /* 스크롤바의 길이 */
+        background: rgba(142, 129, 94, 0.2); /* 스크롤바의 색상 */
+
+        border-radius: 10px;
+
+        &:active,
+        &:hover {
+          background: rgba(142, 129, 94, 0.5);
+        }
+      }
+
+      &::-webkit-scrollbar-track {
+        background: rgba(142, 129, 94, 0.1); /*스크롤바 뒷 배경 색상*/
+      }
+    }
+
+    .crimeInfo {
+      width: 1144px;
+      position: absolute;
+      top: 670px;
+      left: 50%;
+      transform: translateX(-50%);
+
+      font-family: "Pretendard";
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 192.5%;
+
+      color: #7e6c53;
+    }
+
+    .nav {
+      position: absolute;
+      width: 1272px;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+
+      display: flex;
+      justify-content: space-between;
+
+      > div {
+        width: 33px;
+        height: 107px;
+
+        cursor: pointer;
+      }
+    }
+  }
+
+  > .next {
+    position: absolute;
+    width: 232px;
+    height: 51px;
+    bottom: 44px;
+    right: 47px;
+
+    cursor: pointer;
+  }
 }
