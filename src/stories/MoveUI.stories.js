@@ -2,7 +2,7 @@ import React from "react";
 import { getWithFullscreen } from "../services/storybookHelper";
 
 import MoveUI from "../components/MoveUI";
-import Nav from "../components/Nav/_index";
+// import Nav from "../components/Nav";
 
 export default {
   title: "MoveUI",
@@ -89,7 +89,7 @@ class Example extends React.Component {
     return (
       <div style={{ width: "100%", height: "100%" }}>
         {this.state.locations[this.state.idx]}
-        <Nav />
+        {/* <Nav /> */}
         <MoveUI
           {...this.state}
           setIdx={(idx) => this.setState({ ...this.state, idx: idx })}
