@@ -7,7 +7,7 @@ import './Dialogue.css';
 function Dialogue(props) {
   const [ show, setShow ] = useState(true);
   const [ home, setHome ] = useState(false);
-  const [ data, setData ] = useState({"id":props.idx, "scene":0, "flag":0, "index":0, "size":1,
+  const [ data, setData ] = useState({"id":1, "scene":0, "flag":0, "index":0, "size":1,
                                       "name": "", "content": "", "image": "", "choice": null});
   useEffect(() => {
     if(props.idx != null) {
