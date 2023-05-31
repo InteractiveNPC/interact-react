@@ -105,6 +105,7 @@ export default function Find(){
                     </animated.div>
                 </div>
                 <div id="step2" className="display-none">
+                <img src="image/Investigation/Talk/Background/FairyNWoodcutter/illust_FairyNWoodcutter_Woodcutter_room.png"></img>
                     <img src="/image/clothes/Fairyclothes.png" alt="find" className="clue" 
                     onClick={()=>{
                         $('div#background').removeClass("active");
