@@ -8,7 +8,7 @@ import Setting from "./Setting";
 import { setButtonEvent } from "./animation";
 import index_styles from "./style.module.scss";
 
-export default () => {
+export default ({ moveDocument, displayNote }) => {
   const [window, setWindow] = useState(null);
   const button = [useRef(), useRef(), useRef(), useRef(), useRef()];
 
@@ -16,8 +16,8 @@ export default () => {
     () => alert("홈으로 이동!"),
     () => setWindow("help"),
     () => setWindow("setting"),
-    () => alert("수사 기록으로 이동!"),
-    () => alert("공소장으로 이동!"),
+    displayNote,
+    moveDocument,
   ];
 
   useEffect(() => {
