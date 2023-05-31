@@ -24,7 +24,7 @@ export default ({ chapter }) => {
   useEffect(() => {
     (async () => {
       if (!data) {
-        const data = await getCourtResult(chapter - 1);
+        const data = await getCourtResult(chapter);
         console.log(data);
         setData(data);
       }

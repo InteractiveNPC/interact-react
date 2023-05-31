@@ -28,7 +28,7 @@ export const twosisters = {
     getWithFullscreen(
       <>
         <MoveUI
-          chapter={2}
+          chapter={3}
           onTalk={() => alert("무시당했다..!")}
           dialogueDisabled={true}
         />
