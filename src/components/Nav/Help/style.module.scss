@@ -1,0 +1,108 @@
+.help {
+  z-index: 1000;
+  position: absolute;
+  width: 1000px;
+  height: 650px;
+  left: 460px;
+  top: 215px;
+
+  background: #aeaeae;
+  border-radius: 15px;
+}
+.title {
+  position: absolute;
+  left: 51px;
+  top: 67px;
+  height: 29px;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 29px;
+
+  display: flex;
+}
+.icon {
+  width: 25px;
+  height: 25px;
+  margin-right: 10px;
+}
+.nav {
+  position: absolute;
+  top: 129px;
+  left: 51px;
+}
+.nav > div {
+  width: 135px;
+  height: 37px;
+  border: 2px solid #e1e1e1;
+  border-radius: 20px;
+
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 37px;
+
+  text-align: center;
+
+  margin: 0px 0px 25px 0px;
+
+  cursor: pointer;
+}
+.nav > .active {
+  background: #e1e1e1;
+  border-radius: 20px;
+}
+.line {
+  position: absolute;
+  width: 0px;
+  height: 549px;
+  left: 228px;
+  top: 58px;
+
+  border: 1px solid #000000;
+}
+.video {
+  position: absolute;
+  top: 129px;
+  right: 107px;
+}
+.arrow {
+  position: absolute;
+  width: 681px;
+  height: 54px;
+  left: 270px;
+  top: 269px;
+}
+.left,
+.right {
+  position: absolute;
+  width: 24px;
+  height: 50px;
+
+  cursor: pointer;
+}
+.left {
+  left: 0px;
+}
+.right {
+  width: 32px;
+  right: 0px;
+}
+.info {
+  position: absolute;
+
+  height: 29px;
+  left: 520px;
+  top: 525px;
+
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 29px;
+}
+.x {
+  position: absolute;
+  width: 27.5px;
+  height: 27.5px;
+  top: 40px;
+  right: 36.5px;
+
+  cursor: pointer;
+}
