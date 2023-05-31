@@ -1,32 +1,23 @@
 import { useState } from "react";
 
 import Nav from "components/Nav";
-import MoveUI from "components/MoveUI";
-import Dialogue from "components/DialogueUI/Dialogue";
+
+import Investigation from "./Investigation";
+import Document from "../Indict";
+import Ending from "./Ending";
 
 export default ({ chapter }) => {
-  const [dialogueData, setDialogueData] = useState({
-    idx: chapter,
-    scene: "0",
-    flag: "0",
-    index: "0",
-  });
-  const [dialogueDisabled, setDialogueDisabled] = useState(true);
+  const [process, setProcess] = useState(0);
 
   return (
     <>
-      <Nav />
-      <MoveUI
-        chapter={chapter}
-        onTalk={(data) => {
-          setDialogueData(data);
-          setDialogueDisabled(false);
-        }}
-        dialogueDisabled={dialogueDisabled}
+      <Nav
+        moveDocument={() => setProcess(1)}
+        displayNote={() => setProcess(2)}
       />
-      {dialogueDisabled || (
-        <Dialogue {...dialogueData} onClose={() => setDialogueDisabled(true)} />
-      )}
+      {process === 0 && <Investigation chapter={chapter} />}
+      {process === 1 && <Document chapter={chapter} />}
+      {process === 2 && <Ending chapter={chapter} />}
     </>
   );
 };
