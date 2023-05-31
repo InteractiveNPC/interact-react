@@ -71,6 +71,7 @@ export default function Find(){
 
             <div id="background" className="display-none App">
                 <div id="step1">
+                <img src="image/Investigation/Talk/Background/FairyNWoodcutter/illust_FairyNWoodcutter_Woodcutter_room.png"></img>
                     <img src="/image/clothes/Fairyclothes.png" className="clue" onClick={()=>{
                             $('div#step1').removeClass("active");
                             $('div#step1').addClass("display-none");
