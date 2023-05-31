@@ -8,7 +8,8 @@ export default function Find(){
     const popup = '/image/Investigation/Talk/UI/NoticeBackground.png';
     const button = '/image/Investigation/Talk/UI/ButtonNormal.png';
     const hButton = '/image/Investigation/Talk/UI/ButtonClick.png';
-    const popup2 = '/image/Home/UI/Infomation.png';
+    const popup2 = '/image/Investigation/Talk/UI/ScriptBackground.png';
+    const name = '/image/Investigation/Talk/UI/Namebox_02.png';
     const clue = "나무꾼의 방에서 값비싸보이는 비단옷을 획득했습니다.";
     const explain = "수사를 계속하더라도, 수사실로 오면 언제든 선녀에게 비단옷에 대해 물어볼 수 있습니다.";
 
@@ -37,10 +38,11 @@ export default function Find(){
         clothPos5.x.set(params.offset[0]);
         clothPos5.y.set(params.offset[1]);
     });
-
+    /*
     const saveNote = (data) => {
         alert(data);
     }
+    */
 
     return (
         <div>
@@ -49,23 +51,21 @@ export default function Find(){
             <img id="find" src="/image/clothes/cloth_00.png" style={{ position: "absolute", top:"641px", left:"1327px"}} onClick={()=>{
                 $('div#background').removeClass("display-none");
                 $('div#background').addClass("active");
+                $('img#find').addClass("display-none");
             }}></img>
             <div className='etc' onClick={()=>{
                     $('div#pop').removeClass("display-none");
-                    $('div#pop').addClass("active");
                 }}>
                 <h2></h2>
             </div>
             <div id='pop' className='display-none'>
-                <div className='banner2' onClick={()=>{
+                <div onClick={()=>{
                     $('div#pop').addClass("display-none");
-                    $('div#pop').removeClass("active");
                 }}>
-                <div>
-                    <img src={popup2}></img>
-                        <h2 className='button-txtA'>검사</h2>
-                        <h2 className='button-txtB'>나무꾼의 방에 있는 서랍장이다. 잡동사니들이 잔뜩 들어있다.</h2>
-                    </div>
+                    <img src={popup2} className='banner2'></img>
+                    <img src={name} className='namePos'></img>
+                    <h2 className='banner-txtA'>검사</h2>
+                    <h2 className='banner-txtB'>나무꾼의 방에 있는 서랍장이다. 잡동사니들이 잔뜩 들어있다.</h2>
                 </div>
             </div>
 
@@ -116,56 +116,38 @@ export default function Find(){
                 
             </div>
             <div id='result' className="display-none">
-                <div className='banner'>
-                        <img src={popup}></img>
-                        <img src={button} className="btn1" onMouseOver={()=>{
-                            $('div#hov1').removeClass('display-none');
+                <img src={popup}  className='banner'></img>
+                <div id='btnFirst'>
+                    <img src={button} className="btn1" onMouseOver={()=>{
+                            $('img#hov1').removeClass('display-none');
                         }} onMouseLeave={()=>{
-                            $('div#hov1').addClass('display-none');
-                        }}></img>
-                        <div id='hov1' className='display-none' onClick={()=>{
-
-                        }}>
-                            <img src={hButton} className='btn1'></img>
-                        </div>
-                        <div className='button-txt' onMouseOver={()=>{
-                            $('div#hov1').removeClass('display-none');
+                            $('img#hov1').addClass('display-none');
+                    }}></img>
+                    <img id='hov1' className='display-none btn1' src={hButton}></img>
+                    <h2 className='button-txt' onMouseOver={()=>{
+                            $('img#hov1').removeClass('display-none');
                         }} onMouseLeave={()=>{
-                            $('div#hov1').addClass('display-none');
-                        }}>
-                            <h2>선녀에게 가기</h2>
-                        </div>
-                        <img src={button} className="btn2" onMouseOver={()=>{
-                            $('div#hov2').removeClass('display-none');
-                        }} onMouseLeave={()=>{
-                            $('div#hov2').addClass('display-none');
-                        }}></img>
-                        <div id='hov2' className='display-none' onClick={()=>{
-                            $('div#result').removeClass('active');
-                            $('div#result').addClass("display-none");
-                            $('img#find').addClass("display-none");
-                        }} >
-                            <img src={hButton} className='btn2'></img>
-                        </div>
-                        <div className='button-txt2' onMouseOver={()=>{
-                            $('div#hov2').removeClass('display-none');
-                        }} onMouseLeave={()=>{
-                            $('div#hov2').addClass('display-none');
-                        }}>
-                            <h2 onClick={()=>{
-                            $('div#result').removeClass('active');
-                            $('div#result').addClass("display-none");
-                            $('img#find').addClass("display-none");
-                        }}>수사 계속하기</h2>
-                        </div>
-                    <div className='banner-txt1'>                
-                        <p className='important'>{clue}</p>
-                        
-                    </div>
-                    <div className='banner-txt2'>
-                        <p>{explain}</p>
-                    </div>
+                            $('img#hov1').addClass('display-none');
+                    }}>선녀에게 가기</h2>
                 </div>
+                <div id='btnSecond'>
+                    <img src={button} className="btn2" onMouseOver={()=>{
+                            $('img#hov2').removeClass('display-none');
+                        }} onMouseLeave={()=>{
+                            $('img#hov2').addClass('display-none');
+                    }}></img>
+                    <img id='hov2' className='display-none btn2' src={hButton}></img>
+                    <h2 className='button-txt2' onMouseOver={()=>{
+                            $('img#hov2').removeClass('display-none');
+                        }} onMouseLeave={()=>{
+                            $('img#hov2').addClass('display-none');
+                        }} onClick={()=>{
+                            $('div#result').removeClass('active');
+                            $('div#result').addClass("display-none");
+                    }}>수사 계속하기</h2>
+                </div>          
+                <p className='banner-txt1'>{clue}</p>
+                <p className='banner-txt2'>{explain}</p>
             </div>
         </div>
     );

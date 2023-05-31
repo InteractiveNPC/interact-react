@@ -15,12 +15,12 @@ div.body {
     background: lightgrey;
   }
 
-div#background{
+div#background, div#pop{
     position: absolute;
     top: 0%;
 }
 
-#background, #step1, #step2, #result, #pop {
+#pop, #background, #step1, #step2, #result{
     width:100%;
     height: 100%;
 }
@@ -69,108 +69,126 @@ div#background{
 }
 .btn1{
     position: absolute;
-    top: 217px;
-    left:108px;
+    width: 248px;
+    height: 56px;
+    left: 672px;
+    top: 613px;
 }
 .btn2{
     position: absolute;
-    top: 217px;
-    left:453px;
+    width: 248px;
+    height: 56px;
+    left: 1020px;
+    top: 613px;
 }
-.button-txtA{
-    background-color: aqua;
-    position: absolute; /* 핵심코드 */
-    top: 100px;
-    left: 20px;
-    transform: translate( -50%, -50%); /* 핵심코드 */
-    font-style: bold;
-}
-.button-txtB{
-    background-color: aquamarine;
-    position: absolute; /* 핵심코드 */
-    top: 150px;
-    left: 20px;
-    transform: translate( -50%, -50%); /* 핵심코드 */
-    text-align: center;
-}
+
 .button-txt{
-    height: 20px;
-    position: absolute; /* 핵심코드 */
-    top: 220px;
-    left:238px;
-    transform: translate( -50%, -50%); /* 핵심코드 */
-    font-style: bold;
+    position: absolute;
+    width: 153px;
+    height: 29px;
+    left: 723px;
+    top: 608px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 29px;
+    /* identical to box height */
+
     text-align: center;
 }
 .button-txt2{
-    height: 20px;
-    position: absolute; /* 핵심코드 */
-    top: 220px;
-    left: 580px;
-    transform: translate( -50%, -50%); /* 핵심코드 */
-    font-style: bold;
+    position: absolute;
+    width: 153px;
+    height: 29px;
+    left: 1071px;
+    top: 608px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 29px;
+    /* identical to box height */
+
     text-align: center;
 }
 .banner {
-    top:380px;
-    left:531px;
-    background-size: cover; /* 핵심코드 */
-    position: absolute; /* 핵심코드 */
-    display : inline-block;
-    margin-bottom: 5%;
-    margin-left: 0%;
-    padding-left: 0%;
-    max-width: 100%;
-    background-repeat :no-repeat;
+    position: absolute;
+    width: 859px;
+    height: 319px;
+    left: 531px;
+    top: 380px;
 }
-
-.banner2 {
-    top:800px;
-    left:531px;
-    background-size: cover; /* 핵심코드 */
-    position: relative; /* 핵심코드 */
-    display : inline-block;
-    margin-bottom: 5%;
-    margin-left: 0%;
-    padding-left: 0%;
-    max-width: 100%;
-    background-repeat :no-repeat;
-}
-  
 .banner-txt1 {
-    width:700px;
-    height:34px;
-    position: absolute; /* 핵심코드 */
-    top: 50px; /* 핵심코드 */
-    left: 79.5px; /* 핵심코드 */
-    right: 79.5px;
+    position: absolute;
+    width: 700px;
+    height: 34px;
+    left: 615px;
+    top: 460px;
     font-family: 'Inter';
     font-style: normal;
     font-weight: 700;
     font-size: 28px;
     line-height: 34px;
-
     text-align: center;
 }
 .banner-txt2 {
-    width:730px;
-    height:27px;
-    position: absolute; /* 핵심코드 */
-    top: 111px; /* 핵심코드 */
-    left: 65px; /* 핵심코드 */
-    right: 65px;
+    position: absolute;
+    width: 800px;
+    height: 27px;
+    left: 568px;
+    top: 530px;
     font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
     font-size: 20px;
     line-height: 133.02%;
 }
-p.important{
-    font-size: 28px;
-    font-weight: bold;
+
+.banner2 {
+    position: absolute;
+    width: 1716px;
+    height: 216px;
+    left: calc(50% - 1716px/2);
+    top: 800px;
 }
-p{
-    font-size: 18px;
+.namePos{
+    position: absolute;
+    width: 103px;
+    height: 45px;
+    left: 377px;
+    top: 833px;
+}
+.banner-txtA{
+    position: absolute;
+    width: 50px;
+    height: 24px;
+    left: 405px;
+    top: 825px;
+
+    font-family: 'GyeonggiBatang';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 24px;
+    color: #DAD5AB;
+}
+.banner-txtB{
+    position: absolute;
+    width: 100%;
+    height: 68px;
+    left: 377px;
+    top: 894px;
+
+    font-family: 'Pretendard';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 29px;
+
+    color: #FFFFFF;
 }
 img, p, h2{
     -webkit-user-drag: none;
