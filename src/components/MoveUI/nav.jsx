@@ -4,7 +4,7 @@ import anime from "animejs/lib/anime.es.js";
 import styles from "./style.module.scss";
 import { divToImg } from "services/propsFormat";
 
-export default ({ locationNames, idx, setIdx }) => {
+export default ({ locationNames, idx, setIdx, disabled }) => {
   if (!idx) idx = 0;
   const [dropdown, setDropdown] = useState(false);
   const dropdownRef = useRef();
@@ -37,12 +37,16 @@ export default ({ locationNames, idx, setIdx }) => {
               idx != i && (
                 <div
                   key={`move_dropdown_${i}`}
-                  onClick={() => {
-                    displayDropdown();
-                    setTimeout(function () {
-                      setIdx(i);
-                    }, 75 * locationNames.length);
-                  }}
+                  onClick={
+                    disabled
+                      ? () => {}
+                      : () => {
+                          displayDropdown();
+                          setTimeout(function () {
+                            setIdx(i);
+                          }, 75 * locationNames.length);
+                        }
+                  }
                   {...divToImg("/image/MoveUI/MoveToPlace.png")}
                 >
                   {e}
@@ -52,7 +56,7 @@ export default ({ locationNames, idx, setIdx }) => {
         </div>
         <div
           className={styles.button}
-          onClick={() => displayDropdown()}
+          onClick={() => (disabled ? () => {} : displayDropdown())}
           {...divToImg("/image/MoveUI/MoveToPlace.png")}
         >
           {locationNames[idx]}
@@ -62,11 +66,15 @@ export default ({ locationNames, idx, setIdx }) => {
 
       <div className={styles.nav_arrow}>
         <img
-          onClick={() => idx > 0 && setIdx(idx - 1)}
+          onClick={disabled ? () => {} : () => idx > 0 && setIdx(idx - 1)}
           src={`${process.env.PUBLIC_URL}/image/MoveUI/MoveToPlace_Left.png`}
         />
         <img
-          onClick={() => idx < locationNames.length - 1 && setIdx(idx + 1)}
+          onClick={
+            disabled
+              ? () => {}
+              : () => idx < locationNames.length - 1 && setIdx(idx + 1)
+          }
           src={`${process.env.PUBLIC_URL}/image/MoveUI/MoveToPlace_Right.png`}
         />
       </div>

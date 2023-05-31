@@ -10,7 +10,7 @@ const setPos = (x, y) => {
 };
 
 export default [
-  () => {
+  ({ onTalk }) => {
     return (
       <div
         className={styles.location}
@@ -18,39 +18,69 @@ export default [
       ></div>
     );
   },
-  () => {
+  ({ onTalk }) => {
     return (
       <div
         className={styles.location}
         {...divToImg(BackgroundImgBase + "TwoSisters_home.png")}
       >
-        <img src={fullWebpBase + "Mrs.Heo.webp"} {...setPos(645, 607)} />
-        <img src={fullWebpBase + "Jangsoe.webp"} {...setPos(1181, 613)} />
-        <img src={fullWebpBase + "Mr.Bae.webp"} {...setPos(1508, 607)} />
+        <img
+          src={fullWebpBase + "Mrs.Heo.webp"}
+          {...setPos(645, 607)}
+          onClick={() => {
+            onTalk({ idx: "3", scene: "1", flag: "0", index: "0" });
+          }}
+        />
+        <img
+          src={fullWebpBase + "Jangsoe.webp"}
+          {...setPos(1181, 613)}
+          onClick={() => {
+            onTalk({ idx: "3", scene: "3", flag: "0", index: "0" });
+          }}
+        />
+        <img
+          src={fullWebpBase + "Mr.Bae.webp"}
+          {...setPos(1508, 607)}
+          onClick={() => {
+            onTalk({ idx: "3", scene: "5", flag: "0", index: "0" });
+          }}
+        />
       </div>
     );
   },
-  () => {
+  ({ onTalk }) => {
     return (
       <div
         className={styles.location}
         {...divToImg(BackgroundImgBase + "pond.png")}
       >
-        <img src={fullWebpBase + "Tiger.webp"} {...setPos(594, 284)} />
+        <img
+          src={fullWebpBase + "Tiger.webp"}
+          {...setPos(594, 284)}
+          onClick={() => {
+            onTalk({ idx: "3", scene: "7", flag: "0", index: "0" });
+          }}
+        />
       </div>
     );
   },
-  () => {
+  ({ onTalk }) => {
     return (
       <div
         className={styles.location}
         {...divToImg(BackgroundImgBase + "police_outside.png")}
       >
-        <img src={fullWebpBase + "Maid.webp"} {...setPos(720, 620)} />
+        <img
+          src={fullWebpBase + "Maid.webp"}
+          {...setPos(720, 620)}
+          onClick={() => {
+            onTalk({ idx: "3", scene: "9", flag: "0", index: "0" });
+          }}
+        />
       </div>
     );
   },
-  () => {
+  ({ onTalk }) => {
     return (
       <div
         className={styles.location}

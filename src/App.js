@@ -4,11 +4,13 @@ import Home from "./components/HomeUI/Home";
 import Dialogue from "./components/DialogueUI/Dialogue";
 import { getResizeEventListener } from "./services/responsiveFrame";
 
+import Chapter from "pages/chapter";
+
 class App extends Component {
   render() {
     return (
       <div id="App">
-        <Dialogue idx="3" scene="0" flag="0" index="0"/>
+        <Chapter chapter={2} />
       </div>
     );
   }
