@@ -13,7 +13,11 @@ export const woodcutter = {
   render: () =>
     getWithFullscreen(
       <>
-        <MoveUI chapter={0} />
+        <MoveUI
+          chapter={1}
+          onTalk={() => alert("무시당했다..!")}
+          dialogueDisabled={true}
+        />
         <Nav />
       </>
     ),
@@ -23,7 +27,11 @@ export const twosisters = {
   render: () =>
     getWithFullscreen(
       <>
-        <MoveUI chapter={1} />
+        <MoveUI
+          chapter={2}
+          onTalk={() => alert("무시당했다..!")}
+          dialogueDisabled={true}
+        />
         <Nav />
       </>
     ),

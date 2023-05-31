@@ -12,7 +12,7 @@ const setPos = (x, y) => {
 };
 
 export default [
-  () => {
+  ({ onTalk }) => {
     return (
       <div
         className={styles.location}
@@ -20,21 +20,30 @@ export default [
       ></div>
     );
   },
-  () => {
+  ({ onTalk }) => {
     return (
       <div
         className={styles.location}
         {...divToImg(BackgroundImgBase + "Woodcutter_outside.png")}
       >
-        <img src={fullWebpBase + "Woodcutter.webp"} {...setPos(468, 562)} />
+        <img
+          src={fullWebpBase + "Woodcutter.webp"}
+          {...setPos(468, 562)}
+          onClick={() => {
+            onTalk({ idx: "1", scene: "3", flag: "0", index: "0" });
+          }}
+        />
         <img
           src={fullWebpBase + "Woodcutter_Mother.webp"}
           {...setPos(1330, 605)}
+          onClick={() => {
+            onTalk({ idx: "1", scene: "1", flag: "0", index: "0" });
+          }}
         />
       </div>
     );
   },
-  () => {
+  ({ onTalk }) => {
     return (
       <div
         className={styles.location}
@@ -42,23 +51,35 @@ export default [
       ></div>
     );
   },
-  () => {
+  ({ onTalk }) => {
     return (
       <div
         className={styles.location}
         {...divToImg(BackgroundImgBase + "pond.png")}
       >
-        <img src={fullWebpBase + "Deer.webp"} {...setPos(1190, 539)} />
+        <img
+          src={fullWebpBase + "Deer.webp"}
+          {...setPos(1190, 539)}
+          onClick={() => {
+            onTalk({ idx: "1", scene: "5", flag: "0", index: "0" });
+          }}
+        />
       </div>
     );
   },
-  () => {
+  ({ onTalk }) => {
     return (
       <div
         className={styles.location}
         {...divToImg(BackgroundImgBase + "Heaven.png")}
       >
-        <img src={fullWebpBase + "Fairy_Sister.webp"} {...setPos(744, 493)} />
+        <img
+          src={fullWebpBase + "Fairy_Sister.webp"}
+          {...setPos(744, 493)}
+          onClick={() => {
+            onTalk({ idx: "1", scene: "7", flag: "0", index: "0" });
+          }}
+        />
       </div>
     );
   },
