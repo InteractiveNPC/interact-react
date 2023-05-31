@@ -168,7 +168,7 @@ function Home(props) {
           <img id="res2" className="rotate" src="image/Home/Source/None.png"/>
           <img id="res3" className="rotate" src="image/Home/Source/None.png"/>
         </div>
-      ) : <Dialogue idx={next}/> }
+      ) : <Dialogue idx={next} scene="0" flag="0" index="0"/> }
     </div>
   )
 
