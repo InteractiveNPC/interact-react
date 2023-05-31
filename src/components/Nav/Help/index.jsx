@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import YouTube from "react-youtube";
 
-import help_styles from "../../../styles/components/Help.module.css";
+import help_styles from "./style.module.scss";
 import { divToImg } from "../../../services/propsFormat";
 
 class Help extends Component {

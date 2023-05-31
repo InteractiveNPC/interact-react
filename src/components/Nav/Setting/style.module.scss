@@ -1,0 +1,89 @@
+.window {
+  z-index: 1000;
+  position: absolute;
+  width: 1000px;
+  height: 650px;
+  left: 460px;
+  top: 215px;
+
+  * {
+    z-index: 1000;
+  }
+}
+
+.nav {
+  position: absolute;
+  width: 213px;
+  height: 151px;
+  left: 298px;
+  top: 215px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.nav > div {
+  width: 213px;
+  height: 64px;
+
+  cursor: pointer;
+}
+
+.audio_inputs {
+  position: absolute;
+  width: 428px;
+  height: 248px;
+  left: 379px;
+  top: 163px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.audio_inputs > input {
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+  cursor: pointer;
+}
+.audio_inputs > input::-webkit-slider-runnable-track {
+  background: #ffffff;
+  height: 6px;
+  border-radius: 0;
+}
+.audio_inputs > input::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  margin-top: -10px;
+
+  background: #666666;
+
+  width: 27px;
+  height: 27px;
+  border-radius: 50%;
+}
+
+.resetButton {
+  position: absolute;
+  width: 216px;
+  height: 52px;
+  left: 392px;
+  top: 564px;
+
+  cursor: pointer;
+}
+.resetButton:active {
+  filter: brightness(0.95);
+}
+
+.x {
+  position: absolute;
+  width: 27.5px;
+  height: 27.5px;
+  left: 1396px;
+  top: 255px;
+
+  cursor: pointer;
+}
