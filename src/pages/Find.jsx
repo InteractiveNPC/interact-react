@@ -12,11 +12,10 @@ export default function Find(){
     const clue = "나무꾼의 방에서 값비싸보이는 비단옷을 획득했습니다.";
     const explain = "수사를 계속하더라도, 수사실로 오면 언제든 선녀에게 비단옷에 대해 물어볼 수 있습니다.";
 
-    const dresser = '/image/clothes/collar.png';
-    const cloth2 = '/image/clothes/Clothes02.png';
-    const cloth3 = '/image/clothes/Clothes03.png';
-    const cloth4 = '/image/clothes/Clothes04.png';
-    const cloth5 = '/image/clothes/Clothes05.png';
+    const cloth2 = '/image/clothes/cloth_01.png';
+    const cloth3 = '/image/clothes/cloth_02.png';
+    const cloth4 = '/image/clothes/cloth_03.png';
+    const cloth5 = '/image/clothes/cloth_04.png';
 
     const clothPos2 = useSpring({x:0, y:0});
     const bindClothPos2 = useDrag((params)=>{
@@ -47,7 +46,7 @@ export default function Find(){
         <div>
             <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
             <img src="image/Investigation/Talk/Background/FairyNWoodcutter/illust_FairyNWoodcutter_Woodcutter_room.png" style={{ position: "absolute"}}></img>
-            <img id="find" src="/image/clothes/collar.png" style={{ position: "absolute", top:"50%", right:"22%"}} onClick={()=>{
+            <img id="find" src="/image/clothes/cloth_00.png" style={{ position: "absolute", top:"641px", left:"1327px"}} onClick={()=>{
                 $('div#background').removeClass("display-none");
                 $('div#background').addClass("active");
             }}></img>
@@ -62,52 +61,50 @@ export default function Find(){
                     $('div#pop').addClass("display-none");
                     $('div#pop').removeClass("active");
                 }}>
-                        <img src={popup2}></img>
-                        <div className='button-txtA'>
-                            <h2>검사</h2>
-                        </div>
-                        <div className='button-txtB'>
-                            <h2>나무꾼의 방에 있는 서랍장이다. 잡동사니들이 잔뜩 들어있다.</h2>
-                        </div>
+                <div>
+                    <img src={popup2}></img>
+                        <h2 className='button-txtA'>검사</h2>
+                        <h2 className='button-txtB'>나무꾼의 방에 있는 서랍장이다. 잡동사니들이 잔뜩 들어있다.</h2>
+                    </div>
                 </div>
             </div>
 
             <div id="background" className="display-none App">
                 <div id="step1">
-                    <img src="/image/clothes/ClothesEvidence.png" className="clue" onClick={()=>{
+                    <img src="/image/clothes/Fairyclothes.png" className="clue" onClick={()=>{
                             $('div#step1').removeClass("active");
                             $('div#step1').addClass("display-none");
         
                             $('div#step2').removeClass("display-none");
                             $('div#step2').addClass("active");
                     }}></img>
-                    <animated.div {...bindClothPos2()} className="obj" style={{
+                    <animated.div {...bindClothPos2()} className="obj3" style={{
                         x: clothPos2.x,
                         y: clothPos2.y
                     }}>
-                        <img src={cloth2} className="App-logo" />
+                        <img src={cloth3} className="App-logo" />
                     </animated.div>
-                    <animated.div {...bindClothPos3()} className="obj" style={{
+                    <animated.div {...bindClothPos3()} className="obj4" style={{
                         x: clothPos3.x,
                         y: clothPos3.y
                     }}>
-                        <img src={cloth3} className="App-logo" />
+                        <img src={cloth4} className="App-logo" />
                     </animated.div>
-                    <animated.div {...bindClothPos4()} className="obj" style={{
+                    <animated.div {...bindClothPos4()} className="obj5" style={{
                         x: clothPos4.x,
                         y: clothPos4.y
                     }}>
-                        <img src={cloth4} className="App-logo" />
+                        <img src={cloth5} className="App-logo" />
                     </animated.div>
-                    <animated.div {...bindClothPos5()} className="obj" style={{
+                    <animated.div {...bindClothPos5()} className="obj2" style={{
                         x: clothPos5.x,
                         y: clothPos5.y
                     }}>
-                        <img src={cloth5} className="App-logo" />
+                        <img src={cloth2} className="App-logo" />
                     </animated.div>
                 </div>
                 <div id="step2" className="display-none">
-                    <img src="/image/clothes/ClothesEvidence.png" alt="find" className="clue" 
+                    <img src="/image/clothes/Fairyclothes.png" alt="find" className="clue" 
                     onClick={()=>{
                         $('div#background').removeClass("active");
                         $('div#background').addClass("display-none");
@@ -161,8 +158,11 @@ export default function Find(){
                             $('img#find').addClass("display-none");
                         }}>수사 계속하기</h2>
                         </div>
-                    <div className='banner-txt'>                
+                    <div className='banner-txt1'>                
                         <p className='important'>{clue}</p>
+                        
+                    </div>
+                    <div className='banner-txt2'>
                         <p>{explain}</p>
                     </div>
                 </div>
