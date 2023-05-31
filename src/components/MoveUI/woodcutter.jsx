@@ -1,4 +1,5 @@
 import { divToImg } from "services/propsFormat";
+import Find from "pages/Find";
 
 import styles from "./style.module.scss";
 
@@ -44,12 +45,7 @@ export default [
     );
   },
   ({ onTalk }) => {
-    return (
-      <div
-        className={styles.location}
-        {...divToImg(BackgroundImgBase + "Woodcutter_room.png")}
-      ></div>
-    );
+    return <Find />;
   },
   ({ onTalk }) => {
     return (
