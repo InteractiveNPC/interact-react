@@ -1,17 +1,17 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import anime from "animejs/lib/anime.es.js";
 
 import styles from "./style.module.scss";
 import { divToImg } from "services/propsFormat";
+import { setButtonEvent } from "./animation";
+
+const img_base = "/image/Investigation/Talk/UI/";
 
 export default ({ locationNames, idx, setIdx, disabled }) => {
   if (!idx) idx = 0;
   const [dropdown, setDropdown] = useState(false);
   const dropdownRef = useRef();
-  const buttonArrow = {
-    false: `${process.env.PUBLIC_URL}/image/MoveUI/MoveToPlace_Button_down.png`,
-    true: `${process.env.PUBLIC_URL}/image/MoveUI/MoveToPlace_Button_up.png`,
-  };
+  const arrowRef = useRef();
 
   const displayDropdown = () => {
     const divs = dropdownRef.current.childNodes;
@@ -19,15 +19,27 @@ export default ({ locationNames, idx, setIdx, disabled }) => {
     divs.forEach((div, i) => {
       anime({
         targets: div,
-        top: dropdown ? [`${50 + 45 * i}px`, "0"] : ["0", `${50 + 45 * i}px`],
+        top: dropdown ? [`${50 * (i + 1)}px`, "0"] : ["0", `${50 * (i + 1)}px`],
         easing: "linear",
         duration: dropdown ? 75 * (i + 1) : 100 * (i + 1),
         delay: dropdown ? 75 * (divs.length - i) : 0,
       });
     });
+    anime({
+      targets: arrowRef.current,
+      rotate: dropdown ? [180, 0] : [0, 180],
+      duration: 50,
+    });
 
     setDropdown(!dropdown);
   };
+
+  useEffect(() => {
+    const divs = dropdownRef.current.childNodes;
+    divs.forEach((div) => {
+      setButtonEvent(div, img_base + "Dropdown_click");
+    });
+  });
   return (
     <>
       <div className={styles.nav_button}>
@@ -47,7 +59,6 @@ export default ({ locationNames, idx, setIdx, disabled }) => {
                           }, 75 * locationNames.length);
                         }
                   }
-                  {...divToImg("/image/MoveUI/MoveToPlace.png")}
                 >
                   {e}
                 </div>
@@ -57,17 +68,21 @@ export default ({ locationNames, idx, setIdx, disabled }) => {
         <div
           className={styles.button}
           onClick={() => (disabled ? () => {} : displayDropdown())}
-          {...divToImg("/image/MoveUI/MoveToPlace.png")}
+          {...divToImg(img_base + "Dropdown_normal.png")}
         >
           {locationNames[idx]}
-          <img className={styles.button_arrow} src={buttonArrow[dropdown]} />
+          <img
+            ref={arrowRef}
+            className={styles.button_arrow}
+            src={`${process.env.PUBLIC_URL + img_base}Dropdown_arrow.png`}
+          />
         </div>
       </div>
 
       <div className={styles.nav_arrow}>
         <img
           onClick={disabled ? () => {} : () => idx > 0 && setIdx(idx - 1)}
-          src={`${process.env.PUBLIC_URL}/image/MoveUI/MoveToPlace_Left.png`}
+          src={`${process.env.PUBLIC_URL + img_base}Arrow_left.png`}
         />
         <img
           onClick={
@@ -75,7 +90,7 @@ export default ({ locationNames, idx, setIdx, disabled }) => {
               ? () => {}
               : () => idx < locationNames.length - 1 && setIdx(idx + 1)
           }
-          src={`${process.env.PUBLIC_URL}/image/MoveUI/MoveToPlace_Right.png`}
+          src={`${process.env.PUBLIC_URL + img_base}Arrow_right.png`}
         />
       </div>
     </>
