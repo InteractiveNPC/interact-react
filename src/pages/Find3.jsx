@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import styles from '../styles/findClue3.css';
 import $ from 'jquery';
 
-const fadeT = 1000;
+const fadeT = 2000;
 
 export default function Find3() {
     const back = 'image/Investigation/Talk/Background/TwoSisters/illust_TwoSisters_pond.png';
