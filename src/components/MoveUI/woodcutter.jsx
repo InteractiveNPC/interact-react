@@ -1,5 +1,5 @@
-import { divToImg } from "services/propsFormat";
-import Find from "pages/Find";
+import { divToImg } from "../../services/propsFormat";
+import Find from "../../pages/Find";
 
 import styles from "./style.module.scss";
 

@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 
-import { divToImg } from "services/propsFormat";
+import { divToImg } from "../../services/propsFormat";
 
 import Help from "./Help";
 import Setting from "./Setting";

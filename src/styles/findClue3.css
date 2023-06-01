@@ -12,17 +12,26 @@ img, p, h2{
     user-select:none;
 }
 
-.fade-in {
-    opacity: 1;
-    animation: fadeIn ease-in-out 1s;
-  }
-  
-  .fade-out {
-    opacity: 0;
-    animation: fadeOut ease-in-out 1s;
-  }
+.bigPack {
+  position: absolute;
+  width: 642px;
+  height: 594px;
+  left: 671px;
+  top: 243px;
+}
+
+.hairPin {
+  position: absolute;
+  width: 302px;
+  height: 754px;
+  left: 809px;
+  top: 217px;
+
+  filter: drop-shadow(0px 0px 50px rgba(255, 255, 255, 0.8));
+}
+
 .shining {
-    filter: brightness(2);
+  filter: drop-shadow(0px 0px 50px rgba(255, 255, 255, 0.8));
 }
 .btn2 {
   position: absolute;

@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import styles from "styles/components/ui/indict.module.css";
+import styles from "../../styles/components/ui/indict.module.css";
 
 function Indict() {
   const [sin, setSin] = useState("");
