@@ -9,6 +9,7 @@ const setPos = (x, y) => {
 };
 
 export default [
+  // 수사실
   ({ onTalk }) => {
     return (
       <div className={styles.location}>
@@ -23,6 +24,7 @@ export default [
       </div>
     );
   },
+  // 장화홍련의 집
   ({ onTalk }) => {
     return (
       <div
@@ -55,6 +57,7 @@ export default [
       </div>
     );
   },
+  // 연못
   ({ onTalk }) => {
     return (
       <div
@@ -71,6 +74,7 @@ export default [
       </div>
     );
   },
+  // 관아 밖
   ({ onTalk }) => {
     return (
       <div
@@ -89,6 +93,7 @@ export default [
       </div>
     );
   },
+  // 관아 안
   ({ onTalk }) => {
     return (
       <div
