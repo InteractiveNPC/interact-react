@@ -13,6 +13,7 @@ const setPos = (x, y) => {
 };
 
 export default [
+  // 수사실
   ({ onTalk }) => {
     return (
       <div
@@ -21,6 +22,7 @@ export default [
       ></div>
     );
   },
+  // 나무꾼의 집
   ({ onTalk }) => {
     return (
       <div
@@ -44,9 +46,11 @@ export default [
       </div>
     );
   },
+  // 나무꾼의 방 (증거 찾기)
   ({ onTalk, goOffice }) => {
     return <Find goOffice={goOffice} />;
   },
+  // 연못
   ({ onTalk }) => {
     return (
       <div
@@ -63,6 +67,7 @@ export default [
       </div>
     );
   },
+  // 천계
   ({ onTalk }) => {
     return (
       <div
