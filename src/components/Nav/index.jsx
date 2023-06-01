@@ -10,7 +10,7 @@ import index_styles from "./style.module.scss";
 
 const img_base = "/image/Investigation/Talk/UI/";
 
-export default ({ moveDocument, displayNote }) => {
+export default ({ moveDocument, displayNote, volume, setVolume }) => {
   const [window, setWindow] = useState(null);
   const button = [useRef(), useRef(), useRef(), useRef(), useRef()];
 
@@ -18,8 +18,12 @@ export default ({ moveDocument, displayNote }) => {
     () => alert("홈으로 이동!"),
     displayNote,
     moveDocument,
-    () => setWindow("help"),
-    () => setWindow("setting"),
+    () => {
+      window === "help" ? setWindow(null) : setWindow("help");
+    },
+    () => {
+      window === "setting" ? setWindow(null) : setWindow("setting");
+    },
   ];
 
   useEffect(() => {
@@ -45,7 +49,13 @@ export default ({ moveDocument, displayNote }) => {
         <div ref={button[3]} />
       </div>
       {window === "help" && <Help onClose={() => setWindow(null)} />}
-      {window === "setting" && <Setting closeEvent={() => setWindow(null)} />}
+      {window === "setting" && (
+        <Setting
+          volume={volume}
+          setVolume={setVolume}
+          onClose={() => setWindow(null)}
+        />
+      )}
     </>
   );
 };

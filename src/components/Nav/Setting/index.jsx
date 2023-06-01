@@ -1,40 +1,44 @@
-import React, { Component } from "react";
-import { divToImg } from "../../../services/propsFormat";
+import { useState } from "react";
+import { divToImg } from "services/propsFormat";
 
-import setting_styles from "./style.module.scss";
+import Audio from "./audio";
+import Credit from "./credit";
 
-import Audio from "./Audio";
-import Credit from "./Credit";
-import Nav from "./Nav";
+import styles from "./style.module.scss";
 
-class Setting extends Component {
-  constructor(props) {
-    super(props);
+const img_base = "/image/Help/setting-credit/";
 
-    this.state = {
-      display: "audio",
-    };
-  }
+export default ({ onClose, volume, setVolume }) => {
+  const [idx, setIdx] = useState(0);
 
-  navEvent = [
-    () => this.setState({ ...this.state, display: "audio" }),
-    () => this.setState({ ...this.state, display: "credit" }),
-  ];
-
-  render() {
-    return (
-      <div className={setting_styles.setting}>
-        <Nav selected={this.state.display} clickEvent={this.navEvent} />
-        {this.state.display === "audio" ? <Audio /> : null}
-        {this.state.display === "credit" ? <Credit /> : null}
-        <div
-          className={setting_styles.x}
-          {...divToImg("/image/Nav/setting/Setting_X.png")}
-          onClick={this.props.closeEvent}
-        ></div>
+  return (
+    <div
+      className={styles.window}
+      {...divToImg(img_base + "Setting_background.png")}
+    >
+      <div className={styles.nav}>
+        {["오디오", "크레딧"].map((val, i) => (
+          <div
+            key={`setting_nav_${i}`}
+            className={idx === i && styles.selected}
+            onClick={() => setIdx(i)}
+          >
+            {val}
+            <img
+              src={`${process.env.PUBLIC_URL + img_base}Setting_${
+                idx === i ? "normal" : "click"
+              }.png`}
+            />
+          </div>
+        ))}
       </div>
-    );
-  }
-}
-
-export default Setting;
+      {idx === 0 && <Audio volume={volume} setVolume={setVolume} />}
+      {idx === 1 && <Credit />}
+      <img
+        className={styles.close}
+        src={`${process.env.PUBLIC_URL + img_base}Setting_X.png`}
+        onClick={onClose}
+      />
+    </div>
+  );
+};

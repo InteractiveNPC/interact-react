@@ -6,7 +6,7 @@ import Investigation from "./Investigation";
 import Document from "../Indict";
 import Ending from "./Ending";
 
-export default ({ chapter }) => {
+export default ({ chapter, volume, setVolume }) => {
   const [process, setProcess] = useState(0);
 
   return (
@@ -14,6 +14,8 @@ export default ({ chapter }) => {
       <Nav
         moveDocument={() => setProcess(1)}
         displayNote={() => setProcess(2)}
+        volume={volume}
+        setVolume={setVolume}
       />
       {process === 0 && (
         <Investigation chapter={chapter} moveDocument={() => setProcess(1)} />
