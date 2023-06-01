@@ -43,7 +43,12 @@ export default ({ data }) => {
           )}
           를 선고한다.
         </div>
+        <div className={styles.fade}>
+          <img src={imgBase + "UI/Court_result_Rectangle_top.png"} />
+          <img src={imgBase + "UI/Court_result_Rectangle_under.png"} />
+        </div>
         <div className={styles.reason}>
+          <br />
           <div className={styles.title}>판결 이유</div>
           <div
             className={styles.content}
@@ -52,6 +57,7 @@ export default ({ data }) => {
             }}
           ></div>
         </div>
+
         <div className={styles.crimeInfo}>
           {data[idx].crime.article} {data[idx].crime.info}
         </div>

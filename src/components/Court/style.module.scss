@@ -34,7 +34,7 @@
         border: none;
         border-bottom: 0.5px solid #654d28;
 
-        margin: 0px 17px;
+        margin: 0px 20px;
       }
     }
 
@@ -56,10 +56,7 @@
       }
       > .crime {
         display: inline-block;
-        padding: 0px 5px;
-        margin: -5px 5px;
-        background: #8e815e;
-        color: white;
+        color: rgba(142, 129, 94, 1);
         line-height: 40px;
       }
       > .guilty {
@@ -69,7 +66,21 @@
         color: #32516d;
       }
     }
+    > .fade {
+      position: absolute;
+      top: 256px;
+      left: 131px;
+      width: 1100px;
+      height: 395px;
 
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      > img {
+        z-index: 10;
+      }
+    }
     > .reason {
       width: 948px;
       height: 350px;
@@ -100,19 +111,22 @@
       }
 
       &::-webkit-scrollbar-thumb {
-        height: 50%; /* 스크롤바의 길이 */
-        background: rgba(142, 129, 94, 0.2); /* 스크롤바의 색상 */
-
-        border-radius: 10px;
+        height: 100px; /* 스크롤바의 길이 */
+        background: #f0e9d0; /* 스크롤바의 색상 */
+        border-radius: 44px;
+        cursor: pointer;
 
         &:active,
         &:hover {
           background: rgba(142, 129, 94, 0.5);
         }
       }
-
       &::-webkit-scrollbar-track {
-        background: rgba(142, 129, 94, 0.1); /*스크롤바 뒷 배경 색상*/
+        background: rgba(240, 233, 208, 0.5);
+        border-radius: 44px;
+      }
+      &::-webkit-scrollbar-button {
+        height: 55px;
       }
     }
 
