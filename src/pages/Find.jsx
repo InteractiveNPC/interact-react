@@ -1,11 +1,11 @@
 
 import {useSpring, animated} from 'react-spring';
+import axios from 'axios';
 import {useDrag} from 'react-use-gesture';
 import styles from '../styles/findClue.css';
 import $ from 'jquery';
-//fade 적용x버전
 
-export default function Find(){
+export default function Find(props){
     const back = 'image/Investigation/Talk/Background/FairyNWoodcutter/illust_FairyNWoodcutter_Woodcutter_room.png';
     const fadeT = 2000;
 
@@ -65,7 +65,7 @@ export default function Find(){
                             $('div#step1_1').fadeOut({fadeT});
                             setTimeout(() => {
                                 openStep2();
-                              }, 2000);
+                              }, 1000);
                     }}></img>
                     <div id='step1_1'>
                         <animated.div {...bindClothPos2()} className="obj3" style={{
@@ -99,6 +99,7 @@ export default function Find(){
                     <img src="/image/clothes/Fairyclothes.png" alt="find" className="clue" 
                         onClick={()=>{
                             $('div#step2').fadeOut({fadeT});
+                            axios.get('/item/1');
                             setTimeout(()=>{
                                 $('div#result').fadeIn({fadeT});
                             }, 1000);
@@ -120,7 +121,7 @@ export default function Find(){
                             $('img#hov1').removeClass('display-none');
                         }} onMouseLeave={()=>{
                             $('img#hov1').addClass('display-none');
-                    }}>선녀에게 가기</h2>
+                    }} onClick={props.goOffice}>선녀에게 가기</h2>
                     <div id='btnSecond'>
                         <img src={button} className="btn2" onMouseOver={()=>{
                                 $('img#hov2').removeClass('display-none');

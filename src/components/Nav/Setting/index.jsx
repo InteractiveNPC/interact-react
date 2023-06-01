@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { divToImg } from "services/propsFormat";
 
-import Audio from "./audio";
-import Credit from "./credit";
+import Audio from "./Audio";
+import Credit from "./Credit";
 
 import styles from "./style.module.scss";
 

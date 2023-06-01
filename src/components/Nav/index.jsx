@@ -11,6 +11,10 @@ import index_styles from "./style.module.scss";
 const img_base = "/image/Investigation/Talk/UI/";
 
 export default ({ moveDocument, displayNote, volume, setVolume }) => {
+  if (!volume) {
+    [volume, setVolume] = useState([0.5, 0.5, 0.5]); // 임시 volume
+  }
+
   const [window, setWindow] = useState(null);
   const button = [useRef(), useRef(), useRef(), useRef(), useRef()];
 
