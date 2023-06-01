@@ -3,7 +3,7 @@ import { useState } from "react";
 import MoveUI from "components/MoveUI";
 import Dialogue from "components/DialogueUI/Dialogue";
 
-export default ({ chapter }) => {
+export default ({ chapter, moveDocument }) => {
   const [dialogueData, setDialogueData] = useState({
     idx: chapter,
     scene: "0",
@@ -21,6 +21,7 @@ export default ({ chapter }) => {
           setDialogueDisabled(false);
         }}
         dialogueDisabled={dialogueDisabled}
+        moveDocument={moveDocument}
       />
       {dialogueDisabled || (
         <Dialogue {...dialogueData} onClose={() => setDialogueDisabled(true)} />
