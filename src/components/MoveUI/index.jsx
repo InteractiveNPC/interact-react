@@ -4,7 +4,7 @@ import { locationNames, locations } from "./config";
 
 import Nav from "./nav";
 
-export default ({ chapter, onTalk, dialogueDisabled }) => {
+export default ({ chapter, onTalk, dialogueDisabled, moveDocument }) => {
   const locNames = locationNames[chapter];
 
   const [idx, setIdx] = useState(0);
@@ -13,7 +13,13 @@ export default ({ chapter, onTalk, dialogueDisabled }) => {
 
   return (
     <>
-      <Location onTalk={dialogueDisabled ? onTalk : () => {}} />
+      <Location
+        onTalk={dialogueDisabled ? onTalk : () => {}}
+        goOffice={() => {
+          setIdx(0);
+        }}
+        moveDocument={moveDocument}
+      />
       <Nav
         locationNames={locNames}
         idx={idx}
