@@ -1,11 +1,11 @@
 import React from "react";
 import { getWithFullscreen } from "../services/storybookHelper";
 
-import Find3_2 from "../pages/Find3_2";
+import Find3 from "../pages/Find3";
 
 export default {
-  title: "Find3_2",
-  component: Find3_2,
+  title: "Find3",
+  component: Find3,
 };
 
 const props = {
@@ -20,7 +20,7 @@ class Example extends React.Component {
   render() {
     return (
       <div style={{ width: "100%", height: "100%" }}>
-        <Find3_2/>
+        <Find3/>
       </div>
     );
   }
