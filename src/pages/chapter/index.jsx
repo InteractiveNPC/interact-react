@@ -15,7 +15,9 @@ export default ({ chapter }) => {
         moveDocument={() => setProcess(1)}
         displayNote={() => setProcess(2)}
       />
-      {process === 0 && <Investigation chapter={chapter} />}
+      {process === 0 && (
+        <Investigation chapter={chapter} moveDocument={() => setProcess(1)} />
+      )}
       {process === 1 && <Document chapter={chapter} />}
       {process === 2 && <Ending chapter={chapter} />}
     </>
