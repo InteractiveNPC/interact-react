@@ -1,9 +1,3 @@
-div.body {
-    position: relative;
-    width:100%;
-    height: 100%;
-}
-
 div#background, div#pop{
     position: absolute;
     top: 0%;
@@ -20,6 +14,26 @@ div#background, div#pop{
 .active {
     position: absolute;
     display: block;
+}
+
+@keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+  
+    100% {
+      opacity: 1;
+    }
+}
+  
+@keyframes fadeOut {
+    0% {
+      opacity: 1;
+    }
+  
+    100% {
+      opacity: 0;
+    }
 }
 
 .etc{
