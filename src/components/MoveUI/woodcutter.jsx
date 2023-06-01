@@ -4,7 +4,7 @@ import Find from "pages/Find";
 import styles from "./style.module.scss";
 
 const BackgroundImgBase =
-  "/image/investigation/Talk/Background/FairyNWoodcutter/illust_FairyNWoodcutter_";
+  "/image/investigation/Talk/Background/FairyNWoodcutter/";
 const fullWebpBase =
   process.env.PUBLIC_URL +
   "/image/investigation/Talk/Source/FairyNWoodcutter/full/full_";
@@ -16,10 +16,18 @@ export default [
   // 수사실
   ({ onTalk }) => {
     return (
-      <div
-        className={styles.location}
-        {...divToImg(BackgroundImgBase + "office.png")}
-      ></div>
+      <div className={styles.location}>
+        <div
+          className={styles.background}
+          {...divToImg(
+            BackgroundImgBase + "illust_FairyNWoodcutter_office_back.png"
+          )}
+        />
+        <div
+          className={styles.desk}
+          {...divToImg(BackgroundImgBase + "illust_FairyNWoodcutter_desk.png")}
+        />
+      </div>
     );
   },
   // 나무꾼의 집
@@ -27,7 +35,7 @@ export default [
     return (
       <div
         className={styles.location}
-        {...divToImg(BackgroundImgBase + "Woodcutter_outside.png")}
+        {...divToImg(BackgroundImgBase + "FairyNWoodcutter_House.png")}
       >
         <img
           src={fullWebpBase + "Woodcutter.webp"}
@@ -55,7 +63,7 @@ export default [
     return (
       <div
         className={styles.location}
-        {...divToImg(BackgroundImgBase + "pond.png")}
+        {...divToImg(BackgroundImgBase + "illust_FairyNWoodcutter_pond.png")}
       >
         <img
           src={fullWebpBase + "Deer.webp"}
@@ -72,7 +80,7 @@ export default [
     return (
       <div
         className={styles.location}
-        {...divToImg(BackgroundImgBase + "Heaven.png")}
+        {...divToImg(BackgroundImgBase + "illust_FairyNWoodcutter_Heaven.png")}
       >
         <img
           src={fullWebpBase + "Fairy_Sister.webp"}

@@ -2,8 +2,7 @@ import { divToImg } from "services/propsFormat";
 
 import styles from "./style.module.scss";
 
-const BackgroundImgBase =
-  "/image/investigation/Talk/Background/TwoSisters/illust_TwoSisters_";
+const BackgroundImgBase = "/image/investigation/Talk/Background/TwoSisters/";
 const fullWebpBase = "/image/investigation/Talk/Source/TwoSisters/full/full_";
 const setPos = (x, y) => {
   return { style: { left: `${x}px`, top: `${y}px` } };
@@ -13,10 +12,16 @@ export default [
   // 수사실
   ({ onTalk }) => {
     return (
-      <div
-        className={styles.location}
-        {...divToImg(BackgroundImgBase + "office.png")}
-      ></div>
+      <div className={styles.location}>
+        <div
+          className={styles.background}
+          {...divToImg(BackgroundImgBase + "illust_TwoSisters_office_back.png")}
+        />
+        <div
+          className={styles.desk}
+          {...divToImg(BackgroundImgBase + "illust_TwoSisters_desk.png")}
+        />
+      </div>
     );
   },
   // 장화홍련의 집
@@ -24,7 +29,9 @@ export default [
     return (
       <div
         className={styles.location}
-        {...divToImg(BackgroundImgBase + "TwoSisters_home.png")}
+        {...divToImg(
+          BackgroundImgBase + "illust_TwoSisters_TwoSisters_home.png"
+        )}
       >
         <img
           src={fullWebpBase + "Mrs.Heo.webp"}
@@ -55,7 +62,7 @@ export default [
     return (
       <div
         className={styles.location}
-        {...divToImg(BackgroundImgBase + "pond.png")}
+        {...divToImg(BackgroundImgBase + "illust_TwoSisters_pond.png")}
       >
         <img
           src={fullWebpBase + "Tiger.webp"}
@@ -72,7 +79,9 @@ export default [
     return (
       <div
         className={styles.location}
-        {...divToImg(BackgroundImgBase + "police_outside.png")}
+        {...divToImg(
+          BackgroundImgBase + "illust_TwoSisters_police_outside.png"
+        )}
       >
         <img
           src={fullWebpBase + "Maid.webp"}
@@ -89,7 +98,7 @@ export default [
     return (
       <div
         className={styles.location}
-        {...divToImg(BackgroundImgBase + "police_room.png")}
+        {...divToImg(BackgroundImgBase + "illust_TwoSisters_police_room.png")}
       >
         관아 밖
       </div>
