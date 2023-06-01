@@ -70,29 +70,29 @@ div#background, div#pop{
     top: 300px;
     left: 750px;
 }
-.btn1 {
-    position: absolute;
-    width: 248px;
-    height: 56px;
-    left: 672px;
-    top: 613px;
-}
 .btn2 {
     position: absolute;
-    width: 248px;
-    height: 56px;
-    left: 1020px;
-    top: 613px;
+    width: 340px;
+    height: 60px;
+    left: 1025px;
+    top: 579px;
+}
+.btn1 {
+    position: absolute;
+    width: 340px;
+    height: 60px;
+    left: 556px;
+    top: 579px;
 }
 
 .button-txt{
     position: absolute;
-    width: 139px;
+    width: 140px;
     height: 29px;
-    left: 726px;
-    top: 627px;
+    left: 661px;
+    top: 595px;
 
-    font-family: 'Inter';
+    font-family: 'Pretendard';
     font-style: normal;
     font-weight: 700;
     font-size: 24px;
@@ -101,16 +101,16 @@ div#background, div#pop{
 
     text-align: center;
 
-    color: #000000;
+    color: #DACCA7;
 }
 .button-txt2{
     position: absolute;
-    width: 139px;
+    width: 140px;
     height: 29px;
-    left: 1074px;
-    top: 627px;
+    left: 1130px;
+    top: 595px;
 
-    font-family: 'Inter';
+    font-family: 'Pretendard';
     font-style: normal;
     font-weight: 700;
     font-size: 24px;
@@ -119,48 +119,47 @@ div#background, div#pop{
 
     text-align: center;
 
-    color: #000000;
-
+    color: #DACCA7;
 }
 .banner {
     position: absolute;
-    width: 859px;
-    height: 319px;
-    left: 531px;
-    top: 380px;
+    width: 1000px;
+    height: 315px;
+    left: 460px;
+    top: 382px;
 }
 .banner-txt1 {
     position: absolute;
-    width: 627px;
-    height: 34px;
-    left: 648px;
-    top: 469px;
+    width: 506px;
+    height: 36px;
+    left: 706px;
+    top: 468px;
 
-    font-family: 'Inter';
+    font-family: 'Pretendard';
     font-style: normal;
     font-weight: 700;
-    font-size: 28px;
-    line-height: 34px;
-    /* identical to box height */
+    font-size: 24px;
+    line-height: 150%;
+    /* identical to box height, or 36px */
 
     text-align: center;
+
+    color: #DACCA7;
 }
 .banner-txt2 {
     position: absolute;
-    width: 730px;
-    height: 27px;
-    left: 596px;
-    top: 530px;
+    width: 626px;
+    height: 30px;
+    left: 645.56px;
+    top: 508px;
 
-    font-family: 'Inter';
+    font-family: 'Pretendard';
     font-style: normal;
     font-weight: 400;
     font-size: 20px;
-    line-height: 133.02%;
-    /* identical to box height, or 27px */
-
-
-    color: #000000;
+    line-height: 150%;
+    text-align: center;
+    color: #DACCA7;
 }
 
 .banner2 {

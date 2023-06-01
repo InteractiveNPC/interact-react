@@ -6,13 +6,13 @@ import styles from '../styles/findClue.css';
 import $ from 'jquery';
 
 export default function Find(){
-    const popup = '/image/Investigation/Talk/UI/NoticeBackground.png';
-    const button = '/image/Investigation/Talk/UI/ButtonNormal.png';
-    const hButton = '/image/Investigation/Talk/UI/ButtonClick.png';
+    const popup = '/image/Investigation/Talk/UI/proof_find_info_background.png';
+    const button = '/image/Investigation/Talk/UI/proof_find_info_button_normal.png';
+    const hButton = '/image/Investigation/Talk/UI/proof_find_info_button_click.png';
     const popup2 = '/image/Investigation/Talk/UI/ScriptBackground.png';
     const name = '/image/Investigation/Talk/UI/Namebox_02.png';
     const clue = "나무꾼의 방에서 값비싸보이는 비단옷을 획득했습니다.";
-    const explain = "수사를 계속하더라도, 수사실로 오면 언제든 선녀에게 비단옷에 대해 물어볼 수 있습니다.";
+    const explain = "수사를 계속하더라도, 수사실로 가면 선녀에게 비단옷에 대해 물어볼 수 있습니다.";
 
     const cloth2 = '/image/clothes/cloth_01.png';
     const cloth3 = '/image/clothes/cloth_02.png';
