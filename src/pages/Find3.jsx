@@ -6,8 +6,10 @@ const fadeT = 2000;
 
 export default function Find3() {
     const back = 'image/Investigation/Talk/Background/TwoSisters/illust_TwoSisters_pond.png';
-    const pack = '/image/temp/temp.png';
+    const pack = '/image/evidence/pack_01.png';
+    const pack2 = '/image/evidence/pack02.png';
     const binyeo = '/image/temp/temp2.png';
+    const binyeo2 = '/image/evidence/Hairpin.png';
 
     const popup = '/image/Investigation/Talk/UI/proof_find_info_background.png';
     const button = '/image/Investigation/Talk/UI/proof_find_info_button_normal.png';
@@ -26,18 +28,24 @@ export default function Find3() {
             }}></img>
             
             <div id='step1' className='display-none'>
-                <img src={pack} style={{ position: "absolute", top: "30%", left: "40%"}}></img>
-                    <img id='shine' src={binyeo} style={{ position: "absolute", top: "30%", left: "45%"}} onMouseOver={()=>{
+                <img src={pack2} className='bigPack'></img>
+                    <img id='shine' src={binyeo} style={{position: 'absolute', top:'300px', left:'1000px'}} onMouseOver={()=>{
                           $('img#shine').addClass("shining");
                         }} onMouseLeave={()=>{
                           $('img#shine').removeClass("shining");
                       }} onClick={()=>{
-                        $('div#step1').fadeOut({fadeT})
+                        $('div#step1').fadeOut({fadeT});
                         setTimeout(()=>{
-                          $('div#step2').fadeIn({fadeT})
+                        $('img#step2_0').fadeIn({fadeT})
                         }, 1000);
                       }}></img>
             </div>
+            <img id='step2_0' src={binyeo2} className='hairPin display-none' onClick={()=>{
+                $('img#step2_0').fadeOut({fadeT});
+                setTimeout(()=>{
+                $('div#step2').fadeIn({fadeT})
+                }, 1000);
+            }}></img>
             <div id='step2' className='display-none'>
                 <img src={popup}  className='banner'></img>
                 <div id='btnFirst'>
