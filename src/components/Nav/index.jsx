@@ -44,7 +44,7 @@ export default ({ moveDocument, displayNote }) => {
         <div ref={button[2]} />
         <div ref={button[3]} />
       </div>
-      {window === "help" && <Help closeEvent={() => setWindow(null)} />}
+      {window === "help" && <Help onClose={() => setWindow(null)} />}
       {window === "setting" && <Setting closeEvent={() => setWindow(null)} />}
     </>
   );
