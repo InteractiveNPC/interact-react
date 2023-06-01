@@ -12,6 +12,7 @@ export default function Find3() {
     const popup = '/image/Investigation/Talk/UI/proof_find_info_background.png';
     const button = '/image/Investigation/Talk/UI/proof_find_info_button_normal.png';
     const hButton = '/image/Investigation/Talk/UI/proof_find_info_button_click.png';
+    
     const clue = "연못에서 누군가의 보따리 속 비녀를 획득했습니다.";
     const explain = "수사를 계속하더라도, 수사실로 가면 언제든 홍련에게 비녀에 대해 물어볼 수 있습니다.";
 
