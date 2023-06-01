@@ -1,0 +1,140 @@
+.display-none{
+    display: none;
+}
+
+.active {
+    position: absolute;
+    display: block;
+}
+
+img, p, h2{
+    -webkit-user-drag: none;
+    user-select:none;
+}
+
+.fade-in {
+    opacity: 1;
+    animation: fadeIn ease-in-out 1s;
+  }
+  
+  .fade-out {
+    opacity: 0;
+    animation: fadeOut ease-in-out 1s;
+  }
+  
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+  
+    100% {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes fadeOut {
+    0% {
+      opacity: 1;
+    }
+  
+    100% {
+      opacity: 0;
+    }
+  }
+
+.shining {
+    filter: brightness(2);
+}
+
+.banner {
+    position: absolute;
+    width: 859px;
+    height: 319px;
+    left: 531px;
+    top: 380px;
+}
+.banner-txt1 {
+    position: absolute;
+    width: 627px;
+    height: 34px;
+    left: 648px;
+    top: 469px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 34px;
+    /* identical to box height */
+
+    text-align: center;
+}
+.banner-txt2 {
+    position: absolute;
+    width: 730px;
+    height: 27px;
+    left: 596px;
+    top: 530px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 133.02%;
+    /* identical to box height, or 27px */
+
+
+    color: #000000;
+}
+.btn1 {
+    position: absolute;
+    width: 248px;
+    height: 56px;
+    left: 672px;
+    top: 613px;
+}
+.btn2 {
+    position: absolute;
+    width: 248px;
+    height: 56px;
+    left: 1020px;
+    top: 613px;
+}
+
+.button-txt{
+    position: absolute;
+    width: 139px;
+    height: 29px;
+    left: 726px;
+    top: 627px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 29px;
+    /* identical to box height */
+
+    text-align: center;
+
+    color: #000000;
+}
+.button-txt2{
+    position: absolute;
+    width: 139px;
+    height: 29px;
+    left: 1074px;
+    top: 627px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 29px;
+    /* identical to box height */
+
+    text-align: center;
+
+    color: #000000;
+
+}
