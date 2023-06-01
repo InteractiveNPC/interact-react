@@ -1,7 +1,5 @@
 import React, { Component } from "react";
 import Intro from "./components/IntroUI/Intro";
-import Home from "./components/HomeUI/Home";
-import Dialogue from "./components/DialogueUI/Dialogue";
 import { getResizeEventListener } from "./services/responsiveFrame";
 
 import Chapter from "pages/chapter";
