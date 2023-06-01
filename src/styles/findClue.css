@@ -17,21 +17,21 @@ div#background, div#pop{
 }
 
 @keyframes fadeIn {
-    0% {
+    from {
       opacity: 0;
     }
   
-    100% {
+    to {
       opacity: 1;
     }
 }
   
 @keyframes fadeOut {
-    0% {
+    from {
       opacity: 1;
     }
   
-    100% {
+    to {
       opacity: 0;
     }
 }
