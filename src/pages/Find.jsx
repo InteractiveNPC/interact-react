@@ -218,7 +218,10 @@ export default function Find(){
                             $('img#hov2').removeClass('display-none');
                         }} onMouseLeave={()=>{
                             $('img#hov2').addClass('display-none');
-                        }} onClick={()=>{showPopupImg();}}>
+                        }} onClick={()=>{
+                            $('div#etc').removeClass('display-none');
+                            showPopupImg();
+                        }}>
                         수사 계속하기</h2>
                 </div>          
                 <p className='banner-txt1'>{clue}</p>
@@ -235,6 +238,7 @@ export default function Find(){
                 <div id="step1">
                     <img id="find" src="/image/clothes/cloth_00.png" style={{ position: "absolute", top:"641px", left:"1327px"}} onClick={()=>{
                         $('img#find').addClass('display-none');
+                        $('div#etc').addClass('display-none');
                         showClueImg();
                         showClothesImg();
                     }}></img>
@@ -244,18 +248,17 @@ export default function Find(){
                     </div>
                     {showClothes ? <Clothes onClick={showClothesImg} /> : null}
                 </div>
-            </div>
-            <div id="step2" className="display-none">
-                <img src="image/Investigation/Talk/Background/FairyNWoodcutter/illust_FairyNWoodcutter_Woodcutter_room.png"></img>
-                <Clue2 onClick={showClue2Img}/>
-            </div>
-            <div id='result'>
-                <img src="image/Investigation/Talk/Background/FairyNWoodcutter/illust_FairyNWoodcutter_Woodcutter_room.png"></img>
-                {showPopup ? <Pop onClick={showPopupImg} /> : null}
-                
-            </div>
-            <div>
-                <div className='etc' onClick={()=>{$('div#pop').removeClass("display-none");}}>
+            
+                <div id="step2" className="display-none">
+                    <img src="image/Investigation/Talk/Background/FairyNWoodcutter/illust_FairyNWoodcutter_Woodcutter_room.png"></img>
+                    <Clue2 onClick={showClue2Img}/>
+                </div>
+                <div id='result'>
+                    <img src="image/Investigation/Talk/Background/FairyNWoodcutter/illust_FairyNWoodcutter_Woodcutter_room.png"></img>
+                    {showPopup ? <Pop onClick={showPopupImg} /> : null}
+                </div>
+
+                <div id='etc' className='etc' onClick={()=>{$('div#pop').removeClass("display-none");}}>
                     <h2></h2>
                 </div>
                 <div id='pop' className='display-none'>
