@@ -69,30 +69,30 @@ export default function Find(){
                                 }, 2000);
                     }}></img>
                     <div id='step1_1'>
-                        <animated.div {...bindPaperPos5()} style={{
+                        <animated.div {...bindPaperPos5()} className="obj5" style={{
                             x: paperPos5.x,
                             y: paperPos5.y
                         }}>
-                            <img className="obj5 App-logo" src={paper5}/>
+                            <img src={paper5} className="App-logo p5" />
                         </animated.div>
-                        <animated.div {...bindPaperPos2()} style={{
+                        <animated.div {...bindPaperPos2()} className="obj2" style={{
                             x: paperPos2.x,
                             y: paperPos2.y
                         }}>
-                            <img className="obj2 App-logo" src={paper2}/>
+                            <img src={paper2} className="App-logo p2" />
                         </animated.div>
                         
-                        <animated.div {...bindPaperPos4()} style={{
+                        <animated.div {...bindPaperPos4()} className="obj4" style={{
                             x: paperPos4.x,
                             y: paperPos4.y
                         }}>
-                            <img className="obj4 App-logo" src={paper4}/>
+                            <img src={paper4} className="App-logo p4" />
                         </animated.div>
-                        <animated.div {...bindPaperPos3()} style={{
+                        <animated.div {...bindPaperPos3()} className="obj3" style={{
                             x: paperPos3.x,
                             y: paperPos3.y
                         }}>
-                            <img className="obj3 App-logo" src={paper3}/>
+                            <img src={paper3} className="App-logo p3" />
                         </animated.div>
                     </div>
                 </div>

@@ -22,39 +22,40 @@ div#background, div#pop{
 
 .etc{
     position: absolute;
-    width: 1080px;
-    height: 480px;
     top: 270px;
     left: 420px;
 }
 
 .obj2 {
     position: absolute;
-    width: 425px;
-    height: 614px;
     left: 541px;
     top: 140.85px;
+}
+.p2{
     transform: rotate(-11.38deg);
 }
 .obj3 {
     position: absolute;
-    width: 354.45px;
-    height: 512.08px;
     left: 1119px;
     top: 379px;
-
+}
+.p3{
     transform: rotate(-160.8deg);
 }
 .obj4 {
     position: absolute;
-    left: 541px;
-    top: 140.85px;
-    transform: rotate(-11.38deg);
+    left: 1588.44px;
+    top: 803.85px;
+}
+.p4{
+    transform: rotate(-160.8deg);
 }
 .obj5 {
     position: absolute;
     left: 305px;
     top: 555.05px;
+}
+.p5{
     transform: rotate(-24.29deg);
 }
 
