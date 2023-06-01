@@ -44,8 +44,8 @@ export default [
       </div>
     );
   },
-  ({ onTalk }) => {
-    return <Find />;
+  ({ onTalk, goOffice }) => {
+    return <Find goOffice={goOffice} />;
   },
   ({ onTalk }) => {
     return (
