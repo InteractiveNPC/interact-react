@@ -61,7 +61,11 @@ export default function Find(props){
             <div id="background" className="display-none App">
                 <div id="step1">
                     <img src={back}></img>
-                    <img src="/image/clothes/Fairyclothes.png" className="clue" onClick={()=>{
+                    <img id='shine' src="/image/clothes/Fairyclothes.png" className="clue" onMouseOver={()=>{
+                        $('img#shine').addClass('shining');
+                    }} onMouseLeave={()=>{
+                        $('img#shine').removeClass('shining');
+                    }} onClick={()=>{
                             $('div#step1_1').fadeOut({fadeT});
                             setTimeout(() => {
                                 openStep2();
@@ -96,8 +100,12 @@ export default function Find(props){
                 </div>
                     <img src={back}></img>
                 <div id="step2" className="display-none">
-                    <img src="/image/clothes/Fairyclothes.png" alt="find" className="clue" 
-                        onClick={()=>{
+                    <img id='shine2' src="/image/clothes/Fairyclothes.png" alt="find" className="clue"
+                        onMouseOver={()=>{
+                            $('img#shine2').addClass('shining');
+                        }} onMouseLeave={()=>{
+                            $('img#shine2').removeClass('shining');
+                        }} onClick={()=>{
                             $('div#step2').fadeOut({fadeT});
                             axios.get('/item/1');
                             setTimeout(()=>{
