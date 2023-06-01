@@ -13,10 +13,14 @@ export default [
   ({ onTalk }) => {
     return (
       <div className={styles.location}>
-        <div
-          className={styles.background}
-          {...divToImg(BackgroundImgBase + "illust_TwoSisters_office_back.png")}
-        />
+        <video muted autoPlay loop playsInline>
+          <source
+            src={`${
+              process.env.PUBLIC_URL + BackgroundImgBase
+            }illust_TwoSisters_office_back.mp4`}
+            type="video/mp4"
+          />
+        </video>
         <div
           className={styles.desk}
           {...divToImg(BackgroundImgBase + "illust_TwoSisters_desk.png")}
@@ -27,12 +31,15 @@ export default [
   // 장화홍련의 집
   ({ onTalk }) => {
     return (
-      <div
-        className={styles.location}
-        {...divToImg(
-          BackgroundImgBase + "illust_TwoSisters_TwoSisters_home.png"
-        )}
-      >
+      <div className={styles.location}>
+        <video muted autoPlay loop playsInline>
+          <source
+            src={`${
+              process.env.PUBLIC_URL + BackgroundImgBase
+            }illust_TwoSisters_TwoSisters_home.mp4`}
+            type="video/mp4"
+          />
+        </video>
         <img
           src={fullWebpBase + "Mrs.Heo.webp"}
           {...setPos(645, 607)}
@@ -60,10 +67,15 @@ export default [
   // 연못
   ({ onTalk }) => {
     return (
-      <div
-        className={styles.location}
-        {...divToImg(BackgroundImgBase + "illust_TwoSisters_pond.png")}
-      >
+      <div className={styles.location}>
+        <video muted autoPlay loop playsInline>
+          <source
+            src={`${
+              process.env.PUBLIC_URL + BackgroundImgBase
+            }illust_TwoSisters_pond.mp4`}
+            type="video/mp4"
+          />
+        </video>
         <img
           src={fullWebpBase + "Tiger.webp"}
           {...setPos(594, 284)}
@@ -77,12 +89,15 @@ export default [
   // 관아 밖
   ({ onTalk }) => {
     return (
-      <div
-        className={styles.location}
-        {...divToImg(
-          BackgroundImgBase + "illust_TwoSisters_police_outside.png"
-        )}
-      >
+      <div className={styles.location}>
+        <video muted autoPlay loop playsInline>
+          <source
+            src={`${
+              process.env.PUBLIC_URL + BackgroundImgBase
+            }illust_TwoSisters_police_outside.mp4`}
+            type="video/mp4"
+          />
+        </video>
         <img
           src={fullWebpBase + "Maid.webp"}
           {...setPos(720, 620)}

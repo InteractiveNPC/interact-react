@@ -17,12 +17,14 @@ export default [
   ({ onTalk }) => {
     return (
       <div className={styles.location}>
-        <div
-          className={styles.background}
-          {...divToImg(
-            BackgroundImgBase + "illust_FairyNWoodcutter_office_back.png"
-          )}
-        />
+        <video muted autoPlay loop playsInline>
+          <source
+            src={`${
+              process.env.PUBLIC_URL + BackgroundImgBase
+            }illust_FairyNWoodcutter_office_back.mp4`}
+            type="video/mp4"
+          />
+        </video>
         <div
           className={styles.desk}
           {...divToImg(BackgroundImgBase + "illust_FairyNWoodcutter_desk.png")}
@@ -33,10 +35,15 @@ export default [
   // 나무꾼의 집
   ({ onTalk }) => {
     return (
-      <div
-        className={styles.location}
-        {...divToImg(BackgroundImgBase + "FairyNWoodcutter_House.png")}
-      >
+      <div className={styles.location}>
+        <video muted autoPlay loop playsInline>
+          <source
+            src={`${
+              process.env.PUBLIC_URL + BackgroundImgBase
+            }FairyNWoodcutter_House.mp4`}
+            type="video/mp4"
+          />
+        </video>
         <img
           src={fullWebpBase + "Woodcutter.webp"}
           {...setPos(468, 562)}
@@ -61,10 +68,15 @@ export default [
   // 연못
   ({ onTalk }) => {
     return (
-      <div
-        className={styles.location}
-        {...divToImg(BackgroundImgBase + "illust_FairyNWoodcutter_pond.png")}
-      >
+      <div className={styles.location}>
+        <video muted autoPlay loop playsInline>
+          <source
+            src={`${
+              process.env.PUBLIC_URL + BackgroundImgBase
+            }illust_FairyNWoodcutter_pond.mp4`}
+            type="video/mp4"
+          />
+        </video>
         <img
           src={fullWebpBase + "Deer.webp"}
           {...setPos(1190, 539)}
@@ -78,10 +90,15 @@ export default [
   // 천계
   ({ onTalk }) => {
     return (
-      <div
-        className={styles.location}
-        {...divToImg(BackgroundImgBase + "illust_FairyNWoodcutter_Heaven.png")}
-      >
+      <div className={styles.location}>
+        <video muted autoPlay loop playsInline>
+          <source
+            src={`${
+              process.env.PUBLIC_URL + BackgroundImgBase
+            }illust_FairyNWoodcutter_Heaven.mp4`}
+            type="video/mp4"
+          />
+        </video>
         <img
           src={fullWebpBase + "Fairy_Sister.webp"}
           {...setPos(744, 493)}
