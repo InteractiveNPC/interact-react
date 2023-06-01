@@ -79,6 +79,13 @@ function Dialogue(props) {
           $("#dialogue").off("click").on("click", {code: 0}, clickHandler);
         }
       }
+      /*
+      if(size <= index) {
+        if(res.data.scene == end) {
+          $("#dialogue").off("click").on("click", {code: 0}, clickHandler);
+        }
+      }
+      */
     })
     .catch(error => console.log(error))
   }
@@ -97,6 +104,10 @@ function Dialogue(props) {
 
   const answerId = (idx) => {
     return "answer" + idx;
+  }
+
+  if($("#dialogue_container").css("display") == "none") {
+    $("#dialogue_container").fadeIn(1000);
   }
 
   if (data.choice == null) {
