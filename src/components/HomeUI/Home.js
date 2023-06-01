@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Dialogue from "../DialogueUI/Dialogue";
+import Chapter from "../../pages/chapter"
 import $ from 'jquery';
 import axios from 'axios';
 import './home.css';
@@ -174,7 +175,7 @@ function Home(props) {
           <img id="res2" className="rotate" src="image/Home/Source/None.png"/>
           <img id="res3" className="rotate" src="image/Home/Source/None.png"/>
         </div>
-      ) : <Dialogue idx={next} scene="0" flag="0" index="0"/> }
+      ) : <Chapter chapter={next}/> }
     </div>
   )
 
