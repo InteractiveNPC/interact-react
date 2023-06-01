@@ -1,5 +1,6 @@
 
 import {useSpring, animated} from 'react-spring';
+import axios from 'axios';
 import {useDrag} from 'react-use-gesture';
 import styles from '../styles/findClue.css';
 import $ from 'jquery';
@@ -98,6 +99,7 @@ export default function Find(props){
                     <img src="/image/clothes/Fairyclothes.png" alt="find" className="clue" 
                         onClick={()=>{
                             $('div#step2').fadeOut({fadeT});
+                            axios.get('/item/1');
                             setTimeout(()=>{
                                 $('div#result').fadeIn({fadeT});
                             }, 1000);
