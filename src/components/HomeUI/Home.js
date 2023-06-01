@@ -26,6 +26,8 @@ function Home(props) {
           case 3:
             $(key).attr("src", "image/Home/Source/Stamp_good.png");
             break;
+          default:
+            break;
         }
       });
     })
@@ -44,6 +46,8 @@ function Home(props) {
           break;
         case 3:
           setData({"chapter3": props.res})
+          break;
+        default:
           break;
       }
 
@@ -105,6 +109,8 @@ function Home(props) {
             }, 400);
           })
           $(name).attr("src", "image/Home/Source/Stamp_good.webp");
+          break;
+        default:
           break;
       }
     }
@@ -168,7 +174,7 @@ function Home(props) {
           <img id="res2" className="rotate" src="image/Home/Source/None.png"/>
           <img id="res3" className="rotate" src="image/Home/Source/None.png"/>
         </div>
-      ) : <Dialogue idx={next}/> }
+      ) : <Dialogue idx={next} scene="0" flag="0" index="0"/> }
     </div>
   )
 
