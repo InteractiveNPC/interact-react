@@ -3,7 +3,7 @@ import {useSpring, animated} from 'react-spring';
 import {useDrag} from 'react-use-gesture';
 import styles from '../styles/findClue.css';
 import $ from 'jquery';
-
+//fade 적용x버전
 export default function Find(){
     const popup = '/image/Investigation/Talk/UI/NoticeBackground.png';
     const button = '/image/Investigation/Talk/UI/ButtonNormal.png';

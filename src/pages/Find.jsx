@@ -18,6 +18,7 @@ export default function Find(){
     const cloth3 = '/image/clothes/cloth_02.png';
     const cloth4 = '/image/clothes/cloth_03.png';
     const cloth5 = '/image/clothes/cloth_04.png';
+    const [fCloth, setfCloth] = useState("/image/clothes/Fairyclothes.png");
 
     var c2X, c2Y;
     var c3X, c3Y;
@@ -63,6 +64,8 @@ export default function Find(){
     
     const [showClue, setShowClue] = useState(false);
     const [fadeInOut, setFadeInOut] = useState('');
+    const [showClue2, setShowClue2] = useState(false);
+    const [fadeInOut4, setFadeInOut4] = useState('');
 
     const [showClothes, setShowClothes] = useState(false);
     const [fadeInOut2, setFadeInOut2] = useState('');
@@ -92,6 +95,13 @@ export default function Find(){
             setShowClue(!showClue);
           }, 100);
         }
+    };
+
+    const showClue2Img = () => {
+        setFadeInOut4('fade-out');
+        setTimeout(() => {
+            setfCloth("/image/clothes/emptyImg.png");
+        }, 1000);
     };
 
     const showClothesImg = () => {
@@ -126,11 +136,24 @@ export default function Find(){
     const Clue = () => {
         return (
             <div className={'clue-img ' + fadeInOut}>
-              <img src="/image/clothes/Fairyclothes.png" className="clue" onClick={()=>{
+              <img src={fCloth} className="clue" onClick={()=>{
                     gettingPos();
                     $('div#step2').removeClass('display-none');
                     showClothesImg();
                     $('div#clue').addClass('display-none');
+              }}></img>
+            </div>
+        );
+    };
+
+    const Clue2 = () => {
+        return (
+            <div className={'clue-img2 ' + fadeInOut4}>
+              <img src={fCloth} className="clue" onClick={()=>{
+                showClue2Img();
+                setTimeout(() => {
+                    showPopupImg();
+                  }, 2000);
               }}></img>
             </div>
         );
@@ -169,7 +192,7 @@ export default function Find(){
 
     const Pop = () => {
         return (
-            <div className={'popup-img ' + fadeInOut}>
+            <div className={'popup-img ' + fadeInOut3}>
                 <img src={popup}  className='banner'></img>
                 <div id='btnFirst'>
                     <img src={button} className="btn1" onMouseOver={()=>{
@@ -195,10 +218,8 @@ export default function Find(){
                             $('img#hov2').removeClass('display-none');
                         }} onMouseLeave={()=>{
                             $('img#hov2').addClass('display-none');
-                        }} onClick={()=>{
-                            showPopupImg();
-                            $('div#result').addClass('display-none');
-                    }}>수사 계속하기</h2>
+                        }} onClick={()=>{showPopupImg();}}>
+                        수사 계속하기</h2>
                 </div>          
                 <p className='banner-txt1'>{clue}</p>
                 <p className='banner-txt2'>{explain}</p>
@@ -226,14 +247,12 @@ export default function Find(){
             </div>
             <div id="step2" className="display-none">
                 <img src="image/Investigation/Talk/Background/FairyNWoodcutter/illust_FairyNWoodcutter_Woodcutter_room.png"></img>
-                <img src="/image/clothes/Fairyclothes.png" className="clue" onClick={()=>{
-                    $('div#step2').addClass('display-none');
-                    showPopupImg();
-                }}></img>
+                <Clue2 onClick={showClue2Img}/>
             </div>
             <div id='result'>
                 <img src="image/Investigation/Talk/Background/FairyNWoodcutter/illust_FairyNWoodcutter_Woodcutter_room.png"></img>
                 {showPopup ? <Pop onClick={showPopupImg} /> : null}
+                
             </div>
             <div>
                 <div className='etc' onClick={()=>{$('div#pop').removeClass("display-none");}}>
@@ -254,52 +273,11 @@ export default function Find(){
     );
 }
 /*
-
-                <div id="step2" className="display-none">
+div id="step2" className="display-none">
                 <img src="image/Investigation/Talk/Background/FairyNWoodcutter/illust_FairyNWoodcutter_Woodcutter_room.png"></img>
-                    <img src="/image/clothes/Fairyclothes.png" alt="find" className="clue" 
-                    onClick={()=>{
-                        $('div#background').removeClass("active");
-                        $('div#background').addClass("display-none");
-
-                        $('div#result').removeClass("display-none");
-                        $('div#result').addClass("active");
-                    }}></img>
-                </div>
-                
-            </div>
-            <div id='result' className="display-none">
-                <img src={popup}  className='banner'></img>
-                <div id='btnFirst'>
-                    <img src={button} className="btn1" onMouseOver={()=>{
-                            $('img#hov1').removeClass('display-none');
-                        }} onMouseLeave={()=>{
-                            $('img#hov1').addClass('display-none');
-                    }}></img>
-                    <img id='hov1' className='display-none btn1' src={hButton}></img>
-                    <h2 className='button-txt' onMouseOver={()=>{
-                            $('img#hov1').removeClass('display-none');
-                        }} onMouseLeave={()=>{
-                            $('img#hov1').addClass('display-none');
-                    }}>선녀에게 가기</h2>
-                </div>
-                <div id='btnSecond'>
-                    <img src={button} className="btn2" onMouseOver={()=>{
-                            $('img#hov2').removeClass('display-none');
-                        }} onMouseLeave={()=>{
-                            $('img#hov2').addClass('display-none');
-                    }}></img>
-                    <img id='hov2' className='display-none btn2' src={hButton}></img>
-                    <h2 className='button-txt2' onMouseOver={()=>{
-                            $('img#hov2').removeClass('display-none');
-                        }} onMouseLeave={()=>{
-                            $('img#hov2').addClass('display-none');
-                        }} onClick={()=>{
-                            $('div#result').removeClass('active');
-                            $('div#result').addClass("display-none");
-                    }}>수사 계속하기</h2>
-                </div>          
-                <p className='banner-txt1'>{clue}</p>
-                <p className='banner-txt2'>{explain}</p>
+                <img src="/image/clothes/Fairyclothes.png" className="clue" onClick={()=>{
+                    $('div#step2').addClass('display-none');
+                    showPopupImg();
+                }}></img>
             </div>
 */
