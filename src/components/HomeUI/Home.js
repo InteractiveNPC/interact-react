@@ -26,6 +26,8 @@ function Home(props) {
           case 3:
             $(key).attr("src", "image/Home/Source/Stamp_good.png");
             break;
+          default:
+            break;
         }
       });
     })
@@ -44,6 +46,8 @@ function Home(props) {
           break;
         case 3:
           setData({"chapter3": props.res})
+          break;
+        default:
           break;
       }
 
@@ -105,6 +109,8 @@ function Home(props) {
             }, 400);
           })
           $(name).attr("src", "image/Home/Source/Stamp_good.webp");
+          break;
+        default:
           break;
       }
     }
