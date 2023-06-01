@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Intro from "./components/IntroUI/Intro";
 import { getResizeEventListener } from "./services/responsiveFrame";
 
-import Chapter from "pages/chapter";
+import Chapter from "./pages/chapter";
 
 class App extends Component {
   render() {

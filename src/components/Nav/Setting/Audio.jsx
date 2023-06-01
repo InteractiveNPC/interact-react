@@ -1,5 +1,5 @@
 import { useRef, useEffect } from "react";
-import { divToImg } from "services/propsFormat";
+import { divToImg } from "../../../services/propsFormat";
 import { setButtonEvent } from "../animation";
 
 import styles from "./style.module.scss";

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 
-import Court from "components/Court";
+import Court from "../../components/Court";
 
 const getCourtResult = (tale) => {
   return new Promise((resolve) =>

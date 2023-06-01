@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 // import { useLoaderData } from "react-router";
 
-import { divToImg } from "services/propsFormat";
+import { divToImg } from "../../services/propsFormat";
 import { setButtonEvent } from "./animation";
 
 import styles from "./style.module.scss";

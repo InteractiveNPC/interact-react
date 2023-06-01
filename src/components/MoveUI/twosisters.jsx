@@ -1,4 +1,4 @@
-import { divToImg } from "services/propsFormat";
+import { divToImg } from "../../services/propsFormat";
 
 import styles from "./style.module.scss";
 

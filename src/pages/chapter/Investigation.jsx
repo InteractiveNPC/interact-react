@@ -1,7 +1,7 @@
 import { useState } from "react";
 
-import MoveUI from "components/MoveUI";
-import Dialogue from "components/DialogueUI/Dialogue";
+import MoveUI from "../../components/MoveUI";
+import Dialogue from "../../components/DialogueUI/Dialogue";
 
 export default ({ chapter, moveDocument }) => {
   const [dialogueData, setDialogueData] = useState({

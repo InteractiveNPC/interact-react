@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { divToImg } from "services/propsFormat";
+import { divToImg } from "../../../services/propsFormat";
 
 import { text } from "./config";
 
