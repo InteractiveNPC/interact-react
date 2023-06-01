@@ -10,7 +10,7 @@ class App extends Component {
   render() {
     return (
       <div id="App">
-        <Chapter chapter={1} />
+        <Chapter chapter={3} />
       </div>
     );
   }

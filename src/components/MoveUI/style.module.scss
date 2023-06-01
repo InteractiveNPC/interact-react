@@ -71,4 +71,15 @@
     position: absolute;
     cursor: pointer;
   }
+  .background {
+    position: absolute;
+    width: 1920px;
+    height: 1080px;
+  }
+  .desk {
+    position: absolute;
+    width: 1920px;
+    height: 1080px;
+    z-index: 100;
+  }
 }
