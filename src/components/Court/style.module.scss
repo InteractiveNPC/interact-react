@@ -52,7 +52,7 @@
       text-align: center;
 
       > span {
-        font-weight: 800;
+        font-weight: 600;
       }
       > .crime {
         display: inline-block;
@@ -60,6 +60,7 @@
         margin: -5px 5px;
         background: #8e815e;
         color: white;
+        line-height: 40px;
       }
       > .guilty {
         color: #8f3d3d;
@@ -151,10 +152,10 @@
 
   > .next {
     position: absolute;
-    width: 232px;
-    height: 51px;
-    bottom: 44px;
-    right: 47px;
+    width: 185px;
+    height: 40px;
+    bottom: 50px;
+    right: 50px;
 
     cursor: pointer;
   }

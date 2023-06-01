@@ -1,18 +1,33 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 // import { useLoaderData } from "react-router";
 
 import { divToImg } from "services/propsFormat";
+import { setButtonEvent } from "./animation";
 
 import styles from "./style.module.scss";
+
+const imgBase = "/image/Court/";
 
 export default ({ data }) => {
   if (!data) return <></>;
 
   const [idx, setIdx] = useState(0);
+  const buttonRef = useRef();
+
+  useEffect(() => {
+    const button = buttonRef.current;
+    setButtonEvent(button, imgBase + "UI/Court_nextbutton");
+  });
 
   return (
-    <div className={styles.court} {...divToImg("/image/Court/background.png")}>
-      <div className={styles.window} {...divToImg("/image/Court/window.png")}>
+    <div
+      className={styles.court}
+      {...divToImg(imgBase + "Background/Court_Background.png")}
+    >
+      <div
+        className={styles.window}
+        {...divToImg(imgBase + "UI/Court_result_background.png")}
+      >
         <div className={styles.title}>
           <div>{data[idx].title}</div> <hr /> <div>{data[idx].crime.title}</div>
         </div>
@@ -42,13 +57,13 @@ export default ({ data }) => {
         </div>
         <div className={styles.nav}>
           <div
-            {...divToImg("/image/Court/arrow_left.png")}
+            {...divToImg(imgBase + "UI/Court_result_arrow_left.png")}
             onClick={() => {
               if (idx > 0) setIdx(idx - 1);
             }}
           />
           <div
-            {...divToImg("/image/Court/arrow_right.png")}
+            {...divToImg(imgBase + "UI/Court_result_arrow_right.png")}
             onClick={() => {
               if (idx < data.length - 1) setIdx(idx + 1);
             }}
@@ -57,7 +72,7 @@ export default ({ data }) => {
       </div>
       <div
         className={styles.next}
-        {...divToImg("/image/Court/next_button.png")}
+        ref={buttonRef}
         onClick={() => alert("끝~~~~~!")}
       />
     </div>
