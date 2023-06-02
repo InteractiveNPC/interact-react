@@ -14,20 +14,26 @@ img, p, h2{
 
 .bigPack {
   position: absolute;
-  width: 642px;
-  height: 594px;
-  left: 671px;
-  top: 243px;
+  width: 617.14px;
+  height: 485.22px;
+  left: 651px;
+  top: 324.78px;
 }
 
 .hairPin {
   position: absolute;
-  width: 302px;
-  height: 754px;
-  left: 809px;
-  top: 217px;
+  width: 358px;
+  height: 215px;
+  left: 822px;
+  top: 325px;
+}
 
-  filter: drop-shadow(0px 0px 50px rgba(255, 255, 255, 0.8));
+.handleC {
+  position: absolute;
+  width: 103px;
+  height: 117px;
+  left: 903px;
+  top: 405px;
 }
 
 .shining {
