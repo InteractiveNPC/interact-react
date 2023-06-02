@@ -36,16 +36,16 @@ export default function Find3() {
                             $('img#shine').removeClass("shining");
                     }} onClick={()=>{
                         $('img#handle').fadeOut({fadeT});
-                        $('img#shine').addClass("shining");
                         setTimeout(()=>{
-                            $('img#shine').animate({top:'159px', left:'822px'});
+                            $('img#shine').animate({top:'159px', left:'822px'}, 500);
                         }, 1000);
                         setTimeout(()=>{
                             $('div#step1').fadeOut({fadeT});
-                        }, 2000);
+                        }, 2500);
+                        axios.get('/item/3/8');
                         setTimeout(()=>{
                             $('div#step2').fadeIn({fadeT});
-                        }, 3000);
+                        }, 3500);
                 }}></img>
                 <img id='handle' src={handle} className='handleC'></img>
             </div>

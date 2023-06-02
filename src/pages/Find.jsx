@@ -107,7 +107,7 @@ export default function Find(props){
                             $('img#shine2').removeClass('shining');
                         }} onClick={()=>{
                             $('div#step2').fadeOut({fadeT});
-                            axios.get('/item/1/선녀의날개옷');
+                            axios.get('/item/1/1_1');
                             setTimeout(()=>{
                                 $('div#result').fadeIn({fadeT});
                             }, 1000);
