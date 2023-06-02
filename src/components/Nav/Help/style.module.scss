@@ -1,0 +1,81 @@
+.window {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1500;
+
+  width: 1309px;
+  height: 755px;
+
+  > .nav {
+    position: absolute;
+    top: 167px;
+    left: 60px;
+
+    width: 97px;
+    height: 291px;
+
+    font-family: "Pretendard";
+    font-weight: 500;
+    font-size: 20px;
+    color: #b4a898;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    > * {
+      cursor: pointer;
+    }
+
+    > .selected {
+      position: relative;
+      color: #2d261c;
+      cursor: default;
+      > img {
+        position: absolute;
+        left: 50%;
+        bottom: -10px;
+        transform: translate(-50%, -50%);
+      }
+    }
+  }
+
+  > .content {
+    position: absolute;
+    top: 66px;
+    right: 123px;
+
+    width: 832px;
+
+    > .title {
+      font-family: "GyeonggiBatang";
+      font-style: normal;
+      font-weight: 700;
+      font-size: 24px;
+      line-height: 24px;
+      color: #000000;
+    }
+    > img {
+      margin: 27px 0;
+    }
+    > .contentText {
+      font-family: "Pretendard";
+      font-style: normal;
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 150%;
+      color: #000000;
+    }
+  }
+  .close {
+    position: absolute;
+    width: 23px;
+    height: 23px;
+    top: 29px;
+    right: 32px;
+
+    cursor: pointer;
+  }
+}

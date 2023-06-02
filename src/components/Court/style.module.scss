@@ -1,0 +1,176 @@
+.court {
+  position: absolute;
+  width: 1920px;
+  height: 1080px;
+
+  > .window {
+    position: absolute;
+    width: 1362px;
+    height: 786px;
+
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    > .title {
+      width: 100%;
+      position: absolute;
+      top: 36px;
+      left: 50%;
+      transform: translateX(-50%);
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      font-family: "GyeonggiBatang";
+
+      font-weight: 700;
+      font-size: 24px;
+
+      > hr {
+        width: 77px;
+        height: 0px;
+        border: none;
+        border-bottom: 0.5px solid #654d28;
+
+        margin: 0px 20px;
+      }
+    }
+
+    > .result {
+      position: absolute;
+      top: 130px;
+      left: 50%;
+      transform: translateX(-50%);
+
+      font-family: "Pretendard";
+      color: #2d261c;
+      font-weight: 400;
+      font-size: 24px;
+      line-height: 192.5%;
+      text-align: center;
+
+      > span {
+        font-weight: 600;
+      }
+      > .crime {
+        display: inline-block;
+        color: rgba(142, 129, 94, 1);
+        line-height: 40px;
+      }
+      > .guilty {
+        color: #8f3d3d;
+      }
+      > .notguilty {
+        color: #32516d;
+      }
+    }
+    > .fade {
+      position: absolute;
+      top: 256px;
+      left: 131px;
+      width: 1100px;
+      height: 395px;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      > img {
+        z-index: 10;
+      }
+    }
+    > .reason {
+      width: 948px;
+      height: 350px;
+      overflow: auto;
+      padding: 20px;
+
+      position: absolute;
+      top: 260px;
+      left: 50%;
+      transform: translateX(-50%);
+
+      font-family: "Pretendard";
+
+      > .title {
+        font-weight: 700;
+        font-size: 22px;
+        line-height: 192.5%;
+        margin-bottom: 15px;
+      }
+      > .content {
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 192.5%;
+      }
+
+      &::-webkit-scrollbar {
+        width: 8px; /* 스크롤바의 너비 */
+      }
+
+      &::-webkit-scrollbar-thumb {
+        height: 100px; /* 스크롤바의 길이 */
+        background: #f0e9d0; /* 스크롤바의 색상 */
+        border-radius: 44px;
+        cursor: pointer;
+
+        &:active,
+        &:hover {
+          background: rgba(142, 129, 94, 0.5);
+        }
+      }
+      &::-webkit-scrollbar-track {
+        background: rgba(240, 233, 208, 0.5);
+        border-radius: 44px;
+      }
+      &::-webkit-scrollbar-button {
+        height: 55px;
+      }
+    }
+
+    .crimeInfo {
+      width: 1144px;
+      position: absolute;
+      top: 670px;
+      left: 50%;
+      transform: translateX(-50%);
+
+      font-family: "Pretendard";
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 192.5%;
+
+      color: #7e6c53;
+    }
+
+    .nav {
+      position: absolute;
+      width: 1272px;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+
+      display: flex;
+      justify-content: space-between;
+
+      > div {
+        width: 33px;
+        height: 107px;
+
+        cursor: pointer;
+      }
+    }
+  }
+
+  > .next {
+    position: absolute;
+    width: 185px;
+    height: 40px;
+    bottom: 50px;
+    right: 50px;
+
+    cursor: pointer;
+  }
+}

@@ -1,16 +1,28 @@
-import React, { Component } from "react";
-import { divToImg } from "../../../services/propsFormat";
-import setting_styles from "../../../styles/components/setting.module.css";
+import { credit } from "./config";
+import styles from "./style.module.scss";
 
-class Credit extends Component {
-  render() {
-    return (
-      <div
-        className={setting_styles.window}
-        {...divToImg("/image/Nav/setting/CreditBackground.png")}
-      ></div>
-    );
-  }
-}
+const img_base = "/image/Help/setting-credit/";
 
-export default Credit;
+export default () => {
+  return (
+    <div className={styles.credit}>
+      {credit.map((data, i) => (
+        <p key={`crefit${i}`}>
+          <div className={styles.title}>
+            <img src={`${process.env.PUBLIC_URL + img_base}Setting_name.png`} />
+            {data.title}
+          </div>
+          <div className={styles.content}>
+            {data.content.map((words, j) => (
+              <div key={`words${i}_${j}`}>
+                {words.map((word, k) => (
+                  <span key={`word${i}_${j}_${k}`}>{word}</span>
+                ))}
+              </div>
+            ))}
+          </div>
+        </p>
+      ))}
+    </div>
+  );
+};

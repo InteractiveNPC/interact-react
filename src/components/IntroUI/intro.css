@@ -1,0 +1,66 @@
+@font-face {
+    font-family: 'Inter';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/GyeonggiBatang.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+video {
+	width: 100%;
+	height: 100%;
+	pointer-events: none;
+}
+
+#background {
+	background: black;
+}
+
+#start {
+	position: absolute;
+	width: 1285px;
+	height: 130px;
+	left: 317px;
+	top: 463px;
+
+	font-family: 'Inter';
+	font-style: normal;
+	font-weight: 700;
+	font-size: 32px;
+	line-height: 150%;
+
+	text-align: center;
+	color: #FFFFFF;
+}
+
+#info {
+	position: absolute;
+	width: 901px;
+	height: 42px;
+	left: 510px;
+	top: 657px;
+
+	font-family: 'Inter';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 16px;
+	line-height: 150%;
+
+	text-align: center;
+	color: #FFFFFF;
+}
+
+#begin {
+	position: absolute;
+	width: 205px;
+	height: 36px;
+	left: 858px;
+	top: 664px;
+
+	font-family: 'Inter';
+	font-style: normal;
+	font-weight: 700;
+	font-size: 24px;
+	line-height: 36px;
+
+	text-align: center;
+}

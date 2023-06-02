@@ -1,76 +1,49 @@
-import React, { Component } from "react";
-import YouTube from "react-youtube";
-
-import help_styles from "../../../styles/components/Help.module.css";
+import { useState } from "react";
 import { divToImg } from "../../../services/propsFormat";
 
-class Help extends Component {
-  constructor(props) {
-    super(props);
+import { text } from "./config";
 
-    this.state = {
-      idx: 0,
-      nav: ["증거수집", "사건노트", "공소장"],
-      video: ["11cta61wi0g", "F0B7HDiY-10", "Jh4QFaPmdss"],
-    };
-  }
+import styles from "./style.module.scss";
 
-  render() {
-    const changeIdx = (idx) => {
-      if (idx >= 0 && idx < this.state.nav.length) {
-        this.setState({ ...this.state, idx });
-      }
-    };
-    return (
-      <div className={help_styles.help}>
-        <div className={help_styles.title}>
-          <div
-            className={help_styles.icon}
-            {...divToImg("/image/Nav/help/Help_icon.png")}
-          />
-          도움말
-        </div>
-        <div className={help_styles.nav}>
-          {this.state.nav.map((e, idx) => {
-            if (idx === this.state.idx) {
-              return <div className={help_styles.active}>{e}</div>;
-            }
-            return <div onClick={() => changeIdx(idx)}>{e}</div>;
-          })}
-        </div>
-        <div className={help_styles.line}></div>
-        <YouTube
-          className={help_styles.video}
-          videoId={this.state.video[this.state.idx]}
-          opts={{
-            width: "566px",
-            height: "320px",
-            playerVars: {
-              autoplay: 1,
-            },
-          }}
-        ></YouTube>
-        <div className={help_styles.arrow}>
-          <div
-            className={help_styles.left}
-            {...divToImg("/image/Nav/help/Help_nav_left.png")}
-            onClick={() => changeIdx(this.state.idx - 1)}
-          ></div>
-          <div
-            className={help_styles.right}
-            {...divToImg("/image/Nav/help/Help_nav_right.png")}
-            onClick={() => changeIdx(this.state.idx + 1)}
-          ></div>
-        </div>
-        <div className={help_styles.info}>영상에 대한 설명</div>
-        <div
-          className={help_styles.x}
-          {...divToImg("/image/Nav/help/Help_X.png")}
-          onClick={this.props.closeEvent}
-        ></div>
+const img_base = "/image/Help/help/";
+
+export default ({ onClose }) => {
+  const [idx, setIdx] = useState(0);
+
+  return (
+    <div
+      className={styles.window}
+      {...divToImg(img_base + "Help_background.png")}
+    >
+      <div className={styles.nav}>
+        {text.map(({ title }, i) => {
+          return (
+            <div
+              key={`help_nav_${i}`}
+              className={idx === i ? styles.selected : null}
+              onClick={() => setIdx(i)}
+            >
+              {title}
+              {idx === i && (
+                <img
+                  key={`help_click_${i}`}
+                  src={`${process.env.PUBLIC_URL + img_base}Help_click.png`}
+                />
+              )}
+            </div>
+          );
+        })}
       </div>
-    );
-  }
-}
-
-export default Help;
+      <div className={styles.content}>
+        <div className={styles.title}>{text[idx].title}</div>
+        <img src={process.env.PUBLIC_URL + img_base + text[idx].img} />
+        <div className={styles.contentText}>{text[idx].content}</div>
+      </div>
+      <img
+        className={styles.close}
+        src={`${process.env.PUBLIC_URL + img_base}Help_X.png`}
+        onClick={onClose}
+      />
+    </div>
+  );
+};
