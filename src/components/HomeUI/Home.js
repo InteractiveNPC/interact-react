@@ -189,7 +189,7 @@ function Home(props) {
           <img id="res3" className="rotate" src="image/Home/Source/None.png" />
         </div>
       ) : (
-        <Chapter chapter={next} />
+        <Chapter chapter={next} goHome={() => setShow(true)} />
       )}
     </div>
   );

@@ -6,7 +6,7 @@ import Investigation from "./Investigation";
 import Document from "../Indict";
 import Ending from "./Ending";
 
-export default ({ chapter, volume, setVolume }) => {
+export default ({ chapter, volume, setVolume, goHome }) => {
   const [process, setProcess] = useState(0);
 
   return (
@@ -14,6 +14,7 @@ export default ({ chapter, volume, setVolume }) => {
       <Nav
         moveDocument={() => setProcess(1)}
         displayNote={() => setProcess(2)}
+        goHome={goHome}
         volume={volume}
         setVolume={setVolume}
       />
@@ -21,7 +22,13 @@ export default ({ chapter, volume, setVolume }) => {
         <Investigation chapter={chapter} moveDocument={() => setProcess(1)} />
       )}
       {process === 1 && <Document chapter={chapter} />}
-      {process === 2 && <Ending chapter={chapter} />}
+      {process === 2 && (
+        <Ending
+          chapter={chapter}
+          replay={() => setProcess(0)}
+          goHome={goHome}
+        />
+      )}
     </>
   );
 };

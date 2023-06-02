@@ -8,7 +8,7 @@ import styles from "./style.module.scss";
 
 const imgBase = "/image/Court/";
 
-export default ({ data }) => {
+export default ({ data, onNext }) => {
   if (!data) return <></>;
 
   const [idx, setIdx] = useState(0);
@@ -20,10 +20,7 @@ export default ({ data }) => {
   });
 
   return (
-    <div
-      className={styles.court}
-      {...divToImg(imgBase + "Background/Court_Background.png")}
-    >
+    <>
       <div
         className={styles.window}
         {...divToImg(imgBase + "UI/Court_result_background.png")}
@@ -76,11 +73,7 @@ export default ({ data }) => {
           />
         </div>
       </div>
-      <div
-        className={styles.next}
-        ref={buttonRef}
-        onClick={() => alert("끝~~~~~!")}
-      />
-    </div>
+      <div className={styles.next} ref={buttonRef} onClick={onNext} />
+    </>
   );
 };
