@@ -107,7 +107,7 @@ export default function Find(props){
                             $('img#shine2').removeClass('shining');
                         }} onClick={()=>{
                             $('div#step2').fadeOut({fadeT});
-                            axios.get('/item/1');
+                            axios.get('/meet/1/6');
                             setTimeout(()=>{
                                 $('div#result').fadeIn({fadeT});
                             }, 1000);

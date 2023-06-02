@@ -140,6 +140,7 @@ export default function Find() {
               $("img#findE2").removeClass("find");
             }}
             onClick={() => {
+              axios.get('/meet/3/7');
               $("div#step2").fadeOut({ fadeT });
               setTimeout(() => {
                 $("div#result").fadeIn({ fadeT });
