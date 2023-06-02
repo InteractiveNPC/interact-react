@@ -1,0 +1,546 @@
+@font-face {
+    font-family: 'Inter';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/GyeonggiBatang.woff') format('woff');
+} 
+
+
+#background{
+    filter: brightness(80%); 
+    z-index: 1;
+}
+
+#book {
+    position: absolute;
+    z-index: 5;
+}
+
+#crimescene{
+    position: absolute;
+    width: 579px;
+    height: 334px;
+    left: calc(50% - 579px/2 - 331.5px);
+    top: calc(50% - 334px/2 - 206px);
+    z-index: 6;
+}
+
+#crime01{
+    position: absolute;
+    width: 579px;
+    height: 334px;
+    left: calc(50% - 579px/2 - 331.5px);
+    top: calc(50% - 334px/2 - 206px);
+    z-index: 7;
+}
+
+#sister{
+    position: absolute;
+    width: 115px;
+    height: 112px;
+    left: calc(50% - 115px/2 - 552.5px);
+    top: calc(50% - 112px/2 + 63px);
+    z-index: 7;
+}
+
+#proofpic1{
+    position: absolute;
+    width: 115px;
+    height: 112px;
+    left: calc(50% - 115px/2 - 552.5px);
+    top: calc(50% - 112px/2 + 63px);
+    z-index: 6;   
+}
+
+#prTextImg1{
+    position: absolute;
+    width: 459px;
+    height: 118px;
+    left: calc(50% - 459px/2 - 262.5px);
+    top: calc(50% - 118px/2 + 60px);
+    z-index: 6;  
+}
+
+#deer{
+    position: absolute;
+    width: 115px;
+    height: 112px;
+    left: calc(50% - 115px/2 - 552.5px);
+    top: calc(50% - 112px/2 + 181px);
+    z-index: 7;
+}
+
+#proofpic2{
+    position: absolute;
+    width: 115px;
+    height: 112px;
+    left: calc(50% - 115px/2 - 552.5px);
+    top: calc(50% - 112px/2 + 181px);
+    z-index: 6;
+}
+
+#prTextImg2{
+    position: absolute;
+    width: 459px;
+    height: 118px;
+    left: calc(50% - 459px/2 - 262.5px);
+    top: calc(50% - 118px/2 + 178px);
+    z-index: 6;
+}
+
+#mom{
+    position: absolute;
+    width: 115px;
+    height: 112px;
+    left: calc(50% - 115px/2 - 552.5px);
+    top: calc(50% - 112px/2 + 299px);
+    z-index: 7;
+}
+
+#proofpic3{
+    position: absolute;
+    width: 115px;
+    height: 112px;
+    left: calc(50% - 115px/2 - 552.5px);
+    top: calc(50% - 112px/2 + 299px);
+    z-index: 6;
+}
+
+#prTextImg3{
+    position: absolute;
+    width: 459px;
+    height: 118px;
+    left: calc(50% - 459px/2 - 262.5px);
+    top: calc(50% - 118px/2 + 296px);
+    z-index: 6;  
+}
+
+
+#cloth{
+    position: absolute;
+    width: 115px;
+    height: 112px;
+    left: calc(50% - 115px/2 - 552.5px);
+    top: calc(50% - 112px/2 + 417px);
+    z-index: 7;
+}
+
+#proofpic4{
+    position: absolute;
+    width: 115px;
+    height: 112px;
+    left: calc(50% - 115px/2 - 552.5px);
+    top: calc(50% - 112px/2 + 417px);
+    z-index: 6;
+}
+
+#prTextImg4{
+    position: absolute;
+    width: 459px;
+    height: 118px;
+    left: calc(50% - 459px/2 - 262.5px);
+    top: calc(50% - 118px/2 + 414px);
+    z-index: 6;  
+}
+
+#crimenormal1{
+    position: absolute;
+    width: 212px;
+    height: 62px;
+    left: calc(50% - 212px/2 + 171px);
+    top: calc(50% - 62px/2 - 398px);
+    z-index: 6;
+}
+
+#crime_click1{
+    position: absolute;
+    width: 212px;
+    height: 62px;
+    left: calc(50% - 212px/2 + 171px);
+    top: calc(50% - 62px/2 - 398px);
+    opacity: 0;
+    z-index: 7;    
+}
+
+
+
+#crimenormal2{
+    position: absolute;
+    width: 212px;
+    height: 62px;
+    left: calc(50% - 212px/2 + 171px);
+    top: calc(50% - 62px/2 - 238px);    
+    z-index: 6;
+}
+
+#crime_click2{
+    position: absolute;
+    width: 212px;
+    height: 62px;
+    left: calc(50% - 212px/2 + 171px);
+    top: calc(50% - 62px/2 - 238px);    
+    opacity: 0;
+    z-index: 7; 
+}
+
+
+#crimenormal3{
+    position: absolute;
+    width: 212px;
+    height: 62px;
+    left: calc(50% - 212px/2 + 171px);
+    top: calc(50% - 62px/2 - 78px);      
+    z-index: 6;
+}
+
+#crime_click3{
+    position: absolute;
+    width: 212px;
+    height: 62px;
+    left: calc(50% - 212px/2 + 171px);
+    top: calc(50% - 62px/2 - 78px);   
+    opacity: 0;   
+    z-index: 7;
+}
+
+#checkbox1{
+    position: absolute;
+    width: 40px;
+    height: 37px;
+    left: 980px;
+    top: 123px;
+    z-index: 7;
+}
+#checkbox2{
+    position: absolute;
+    width: 40px;
+    height: 37px;
+    left: 980px;
+    top: 283px;
+    z-index: 7;
+}
+#checkbox3{
+    position: absolute;
+    width: 40px;
+    height: 37px;
+    left: 980px;
+    top: 443px;
+    z-index: 7;
+}
+
+#check1{
+    position: absolute;
+    width: 54px;
+    height: 56px;
+    left: 973px;
+    top: 100px;
+    opacity: 0;
+    z-index: 9;
+}
+
+
+#indict_normal {
+    position: absolute;
+    width: 293px;
+    height: 84px;
+    left: calc(50% - 293px/2 + 174.5px);
+    top: calc(50% - 84px/2 + 416px);
+    z-index: 7;    
+}
+#indict_normal2 {
+    position: absolute;
+    width: 293px;
+    height: 84px;
+    left: calc(50% - 293px/2 + 482.5px);
+    top: calc(50% - 84px/2 + 416px);
+    z-index: 7;    
+}
+
+#check2{
+    position: absolute;
+    width: 54px;
+    height: 56px;
+    left: 973px;
+    top: 259px;
+    opacity: 0;
+    z-index: 7;
+}
+
+#check3{
+    position: absolute;
+    width: 54px;
+    height: 56px;
+    left: 973px;
+    top: 420px;
+    opacity: 0;
+    z-index: 7;
+}
+
+
+
+#gongso1{
+    position: absolute;
+    width: 174px;
+    height: 48px;
+    left: 62px;
+    top: 110px;
+    
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(5px);
+    /* Note: backdrop-filter has minimal browser support */
+    
+    border-radius: 52px;
+    z-index: 100;
+}
+
+#gongso2{
+    position: absolute;
+    width: 174px;
+    height: 48px;
+    left: 62px;
+    top: 173px;
+    
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(5px);
+    /* Note: backdrop-filter has minimal browser support */
+    
+    border-radius: 52px;
+    z-index: 100;
+}
+
+.title {
+    position: absolute;
+    width: 387px;
+    height: 29px;
+    left: 441px;
+    top: 135px;
+    z-index: 1000;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 133.02%;
+    /* or 29px */
+    text-align: center;
+    color: #000000;
+}
+
+.proof1{
+    position: absolute;
+    width: 376px;
+    height: 54px;
+    left: 505px;
+    top: 574px;
+    
+    font-family: 'GyeonggiBatang';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 150%;
+    /* or 18px */
+    
+    
+    color: #000000;
+    z-index:1000;
+    /* or 18px */
+}
+
+.proof2{
+    position: absolute;
+    width: 376px;
+    height: 54px;
+    left: 505px;
+    top: 692px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 150%;
+    /* or 18px */
+    z-index:1000;
+    color: #000000;
+}
+.proof3{
+    position: absolute;
+    width: 376px;
+    height: 54px;
+    left: 505px;
+    top: 810px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 150%;
+    color: #000000;
+    z-index:1000;
+}
+
+.proof4{
+    position: absolute;
+    width: 376px;
+    height: 54px;
+    left: 505px;
+    top: 928px;
+    
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 150%;
+    color: #000000;
+    z-index:1000;
+}
+
+.crime1 {
+    position: absolute;
+    width: 501px;
+    height: 72px;
+    left: 1055px;
+    top: 168px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 150%;
+    color: #000000;
+    z-index: 1000;
+
+}
+
+.crime2 {
+    position: absolute;
+    width: 501px;
+    height: 72px;
+    left: 1055px;
+    top: 328px;
+    
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 150%;
+    /* or 18px */
+    
+    
+    color: #000000;
+    z-index: 1000;
+
+}
+
+.crime3 {
+    position: absolute;
+    width: 501px;
+    height: 72px;
+    left: 1055px;
+    top: 488px;
+    
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 150%;
+    /* or 18px */
+    
+    
+    color: #000000;
+    z-index: 1000;
+
+}
+
+.crimeTitle1 {
+    position: absolute;
+    width: 43px;
+    height: 24px;
+    left: 1108px;
+    top: 133px;
+    
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 133.02%;
+    /* identical to box height, or 24px */
+    
+    text-align: center;
+    
+    color: #000000;
+    z-index: 1000;
+}
+
+.crimeTitle2 {
+    position: absolute;
+    width: 43px;
+    height: 24px;
+    left: 1108px;
+    top: 292px;
+    
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 133.02%;
+    /* identical to box height, or 24px */
+    
+    text-align: center;
+    
+    color: #000000;
+    z-index: 1000;
+}
+
+.crimeTitle3 {
+    position: absolute;
+    width: 43px;
+    height: 24px;
+    left: 1108px;
+    top: 453px;
+    
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 133.02%;
+    /* identical to box height, or 24px */
+    
+    text-align: center;
+    
+    color: #000000;
+    z-index: 1000;
+}
+
+.giso {
+    position: absolute;
+    width: 40px;
+    height: 29px;
+    left: 1114px;
+    top: 925px;
+    
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 133.02%;
+    /* or 29px */
+    
+    text-align: center;    
+    z-index: 1000;
+}
+
+.bulgiso {
+    position: absolute;
+    width: 61px;
+    height: 29px;
+    left: 1412px;
+    top: 925px;
+    
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 133.02%;
+    /* or 29px */
+    
+    text-align: center; 
+    z-index: 1000;
+}
