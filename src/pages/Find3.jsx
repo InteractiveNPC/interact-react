@@ -42,7 +42,7 @@ export default function Find3() {
                         setTimeout(()=>{
                             $('div#step1').fadeOut({fadeT});
                         }, 2500);
-                        axios.get('/item/3/8');
+                        axios.get('/meet/3/8');
                         setTimeout(()=>{
                             $('div#step2').fadeIn({fadeT});
                         }, 3500);
