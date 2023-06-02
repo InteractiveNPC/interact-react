@@ -50,28 +50,27 @@ function Indict(){
     second: <Indict2 />
   };
 
-  const background = '/image/indict/illust_공소장작성.png';
+  const background = '/image/indict/illust_indictbg.png';
   const CrimeScenebg = '/image/indict/CrimeScene_picture.png';
-  const crime01 = '/image/indict/info_사건현장_01.png';
-  const sister = '/image/indict/proof_선녀언니.png'
-  const deer = '/image/indict/proof_사슴.png'
-  const mom = '/image/indict/proof_나무꾼엄마.png'
-  const cloth = '/image/indict/proof_날개옷.png'
-  const book = '/image/indict/책.png';
+  const crime01 = '/image/indict/info_scene_01.png';
+  const sister = '/image/indict/proof_sister.png'
+  const deer = '/image/indict/proof_deer.png'
+  const mom = '/image/indict/proof_mom.png'
+  const cloth = '/image/indict/proof_cloth.png'
+  const book = '/image/indict/book.png';
   const proofpic = '/image/indict/proof_picture.png';
   const prooftextimg = '/image/indict/proof_text.png';
   const crimenormal = '/image/indict/crime_normal.png';
   const checkbox = '/image/indict/checkbox.png'
   const check = '/image/indict/check.png'
-  const gongso1 = '/image/indict/공소사건 01_click.png'
-  const gongso2 = '/image/indict/공소사건 02_click.png'
-  const gongso1_normal = '/image/indict/공소사건 01_normal.png'
-  const gongso2_normal = '/image/indict/공소사건 02_normal.png'
+  const gongso1 = '/image/indict/indict01_click.png'
+  const gongso2 = '/image/indict/indict02_click.png'
+  const gongso2_normal = '/image/indict/indict02_normal.png'
   const indict_normal = '/image/indict/indict_normal.png'
   const indict_click = '/image/indict/indict_click.png'
   const crime_click = '/image/indict/crime_click.png'
-  const title = "공소사건 01. 갑자기 사라진 선녀의 날개옷";
-  const proof1 = "(임시 텍스트입니다. 최대 3줄입니다.)";
+  const title = "공소사건 02. 밤 새 내내 연못에 갇혀있던 선녀";
+  const proof1 = "(임시 텍스트입니다. 최대 3줄입니다. 2222)";
   const proof2 = "(임시 텍스트입니다. 최대 3줄입니다.)";
   const proof3 = "(임시 텍스트입니다. 최대 3줄입니다.)";
   const proof4 = "(임시 텍스트입니다. 최대 3줄입니다.)";
@@ -94,12 +93,10 @@ function Indict(){
         </Routes>
           <Link to="./index2">
             <img src={gongso2}
-            onClick={()=>{
-              alert("공소사건 02를 클릭");
-          }}   
+          
             id="gongso2"/></Link>
       </BrowserRouter>
-      <img src={gongso1_normal}  id="gongso1" />
+      <img src={gongso2_normal}  id="gongso1" />
       <div className="title">
         <p>{title}</p>
       </div>

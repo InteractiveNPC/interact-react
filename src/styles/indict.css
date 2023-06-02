@@ -311,7 +311,7 @@
     width: 387px;
     height: 29px;
     left: 441px;
-    top: 120px;
+    top: 135px;
     z-index: 1000;
 
     font-family: 'Inter';
@@ -331,14 +331,17 @@
     left: 505px;
     top: 574px;
     
-    font-family: 'Inter';
+    font-family: 'GyeonggiBatang';
     font-style: normal;
     font-weight: 400;
     font-size: 12px;
     line-height: 150%;
+    /* or 18px */
+    
+    
+    color: #000000;
     z-index:1000;
     /* or 18px */
-    color: #000000; 
 }
 
 .proof2{
@@ -451,12 +454,12 @@
     width: 43px;
     height: 24px;
     left: 1108px;
-    top: 120px;
+    top: 133px;
     
     font-family: 'Inter';
     font-style: normal;
     font-weight: 700;
-    font-size: 1px;
+    font-size: 18px;
     line-height: 133.02%;
     /* identical to box height, or 24px */
     
@@ -471,7 +474,7 @@
     width: 43px;
     height: 24px;
     left: 1108px;
-    top: 275px;
+    top: 292px;
     
     font-family: 'Inter';
     font-style: normal;
@@ -491,7 +494,7 @@
     width: 43px;
     height: 24px;
     left: 1108px;
-    top: 435px;
+    top: 453px;
     
     font-family: 'Inter';
     font-style: normal;
