@@ -1,4 +1,5 @@
 import { useSpring, animated } from "react-spring";
+import axios from 'axios';
 import { useDrag } from "react-use-gesture";
 import styles from "../styles/findClue3_2.css";
 import $ from "jquery";

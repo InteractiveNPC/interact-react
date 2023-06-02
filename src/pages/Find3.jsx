@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 import styles from '../styles/findClue3.css';
 import $ from 'jquery';
 
