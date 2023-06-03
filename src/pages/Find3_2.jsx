@@ -1,12 +1,11 @@
 import { useSpring, animated } from "react-spring";
+import axios from 'axios';
 import { useDrag } from "react-use-gesture";
 import styles from "../styles/findClue3_2.css";
 import $ from "jquery";
-//fade 적용x버전
 
-export default function Find() {
-  const back =
-    "image/Investigation/Talk/Background/TwoSisters/illust_TwoSisters_police_room.png";
+export default function Find3_2(props) {
+  //const back ="image/Investigation/Talk/Background/TwoSisters/illust_TwoSisters_police_room.png";
   const fadeT = 2000;
 
   const popup = "/image/Investigation/Talk/UI/proof_find_info_background.png";
@@ -51,25 +50,22 @@ export default function Find() {
   return (
     <div>
       <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
-      <img src={back} style={{ position: "absolute" }}></img>
       <img
         id="find"
         src="/image/evidence/desk_paper.png"
         className="desk"
         onClick={() => {
-          $("div#background").fadeIn({ fadeT });
-          $("div#etc").addClass("display-none");
+          $("div#backgroundS").fadeIn({ fadeT });
           $("img#find").fadeOut({ fadeT });
         }}
       ></img>
 
-      <div id="background" className="display-none App">
+      <div id="backgroundS" className="display-none App">
         <div id="step1">
-          <img src={back}></img>
           <img
             id="findE"
             src="/image/evidence/Certificatepaper.png"
-            className="clue"
+            className="clueA"
             onMouseOver={() => {
               $("img#findE").addClass("find");
             }}
@@ -86,7 +82,7 @@ export default function Find() {
           <div id="step1_1">
             <animated.div
               {...bindPaperPos5()}
-              className="obj5"
+              className="objD"
               style={{
                 x: paperPos5.x,
                 y: paperPos5.y,
@@ -96,7 +92,7 @@ export default function Find() {
             </animated.div>
             <animated.div
               {...bindPaperPos2()}
-              className="obj2"
+              className="objA"
               style={{
                 x: paperPos2.x,
                 y: paperPos2.y,
@@ -107,7 +103,7 @@ export default function Find() {
 
             <animated.div
               {...bindPaperPos4()}
-              className="obj4"
+              className="objC"
               style={{
                 x: paperPos4.x,
                 y: paperPos4.y,
@@ -117,7 +113,7 @@ export default function Find() {
             </animated.div>
             <animated.div
               {...bindPaperPos3()}
-              className="obj3"
+              className="objB"
               style={{
                 x: paperPos3.x,
                 y: paperPos3.y,
@@ -127,12 +123,11 @@ export default function Find() {
             </animated.div>
           </div>
         </div>
-        <img src={back}></img>
         <div id="step2" className="display-none">
           <img
             src="/image/evidence/Certificatepaper.png"
             id="findE2"
-            className="clue"
+            className="clueA"
             onMouseOver={() => {
               $("img#findE2").addClass("find");
             }}
@@ -140,7 +135,7 @@ export default function Find() {
               $("img#findE2").removeClass("find");
             }}
             onClick={() => {
-              axios.get('/meet/3/7');
+              //axios.get('/meet/3/7');
               $("div#step2").fadeOut({ fadeT });
               setTimeout(() => {
                 $("div#result").fadeIn({ fadeT });
@@ -150,12 +145,11 @@ export default function Find() {
         </div>
       </div>
       <div id="result" className="display-none">
-        <img src={back} style={{ position: "absolute" }}></img>
         <img src={popup} className="banner"></img>
         <div id="btnFirst">
           <img
             src={button}
-            className="btn1"
+            className="btn"
             onMouseOver={() => {
               $("img#hov1").removeClass("display-none");
             }}
@@ -163,40 +157,21 @@ export default function Find() {
               $("img#hov1").addClass("display-none");
             }}
           ></img>
-          <img id="hov1" className="display-none btn1" src={hButton}></img>
-          <h2
-            className="button-txt"
+          <img id="hov1" className="display-none btn" src={hButton}></img>
+          <p
+            className="button-txtC"
             onMouseOver={() => {
               $("img#hov1").removeClass("display-none");
             }}
             onMouseLeave={() => {
               $("img#hov1").addClass("display-none");
-            }}
+            }}  onClick={()=>{
+              props.moveDocument();
+          }}
           >
             확인
-          </h2>
+          </p>
           <p className="banner-txt1">{clue}</p>
-        </div>
-      </div>
-      <div
-        id="etc"
-        className="etc"
-        onClick={() => {
-          $("div#pop").removeClass("display-none");
-        }}
-      ></div>
-      <div id="pop" className="display-none">
-        <div
-          onClick={() => {
-            $("div#pop").addClass("display-none");
-          }}
-        >
-          <img src={popup2} className="banner2"></img>
-          <img src={name} className="namePos"></img>
-          <h2 className="banner-txtA">검사</h2>
-          <h2 className="banner-txtB">
-            평범한 병풍이다. 뒤에는 아무것도 없는 듯하다.
-          </h2>
         </div>
       </div>
     </div>

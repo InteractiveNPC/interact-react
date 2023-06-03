@@ -1,4 +1,8 @@
+import { useState } from "react";
 import { divToImg } from "../../services/propsFormat";
+
+import Find3 from "pages/Find3";
+import Find3_2 from "pages/Find3_2";
 
 import styles from "./style.module.scss";
 
@@ -65,7 +69,9 @@ export default [
     );
   },
   // 연못
-  ({ onTalk }) => {
+  ({ onTalk, goOffice }) => {
+    const [ disabled, setDisabled ] = useState(false);
+
     return (
       <div className={styles.location}>
         <video muted autoPlay loop playsInline>
@@ -80,9 +86,12 @@ export default [
           src={fullWebpBase + "Tiger.webp"}
           {...setPos(594, 284)}
           onClick={() => {
-            onTalk({ idx: "3", scene: "7", flag: "0", index: "0" });
+            if(!disabled) {
+              onTalk({ idx: "3", scene: "7", flag: "0", index: "0" });
+            }
           }}
         />
+        <Find3 goOffice={goOffice} setActive={setDisabled}/>
       </div>
     );
   },
@@ -109,13 +118,13 @@ export default [
     );
   },
   // 관아 안
-  ({ onTalk }) => {
+  ({ onTalk, moveDocument }) => {
     return (
       <div
         className={styles.location}
         {...divToImg(BackgroundImgBase + "illust_TwoSisters_police_room.png")}
       >
-        관아 밖
+        <Find3_2 moveDocument={moveDocument}/>
       </div>
     );
   },

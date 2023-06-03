@@ -3,7 +3,7 @@ import { useState } from "react";
 import Nav from "../../components/Nav";
 
 import Investigation from "./Investigation";
-import Document from "../Indict";
+import Document from "./Document";
 import Ending from "./Ending";
 import Home from "components/HomeUI/Home";
 

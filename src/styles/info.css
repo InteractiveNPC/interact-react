@@ -1,0 +1,169 @@
+.display-none {
+    display: none;
+}
+
+img, p, h2{
+    -webkit-user-drag: none;
+    user-select:none;
+}
+
+.infoWindow{
+    position: absolute;
+    top: 0%;
+    left: 0%;
+}
+
+#info{
+    position: absolute;
+    width: 697px;
+    height: 244px;
+    left: 612px;
+    top: calc(50% - 244px/2);
+
+    /* 기용 */
+
+    background: linear-gradient(180deg, rgba(68, 53, 41, 0.9) 0%, rgba(68, 53, 41, 0.9) 0.01%, rgba(0, 0, 0, 0.9) 100%);
+    border-radius: 15px;
+}
+
+.close{
+    position: absolute;
+    width: 18px;
+    height: 19px;
+    left: 1268px;
+    top: 444px;
+}
+
+#arrow1{
+    position: absolute;
+    width: 271px;
+    height: 243px;
+    left: 112px;
+    top: 188px;
+}
+
+#arrow2{
+    position: absolute;
+    width: 275px;
+    height: 171px;
+    left: 1425px;
+    top: 125px;
+    
+}
+
+#arrow3{
+    position: absolute;
+    width: 301px;
+    height: 218px;
+    left: 1593px;
+    top: 88px;
+}
+
+.text0{
+    position: absolute;
+    width: 499px;
+    height: 32px;
+    left: 712px;
+    top: 524px;
+    
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 133.02%;
+    /* identical to box height, or 32px */
+    
+    text-align: center;
+    
+    color: #DACCA7;
+}
+
+.text1{
+    position: absolute;
+    width: 425px;
+    height: 48px;
+    left: 337px;
+    top: 256px;
+    
+    font-family: 'Pretendard';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 133.02%;
+    /* or 24px */
+    
+    
+    color: #FFFFFF;
+}
+
+.text2{
+    position: absolute;
+    width: 563px;
+    height: 48px;
+    left: 849px;
+    top: 149px;
+    
+    font-family: 'Pretendard';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 133.02%;
+    /* or 24px */
+    
+    
+    color: #FFFFFF;
+}
+
+.text3{
+    position: absolute;
+    width: 607px;
+    height: 72px;
+    left: 976px;
+    top: 284px;
+    
+    font-family: 'Pretendard';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 133.02%;
+    /* or 24px */
+    
+    
+    color: #FFFFFF;
+}
+
+.text4{
+    position: absolute;
+    width: 272px;
+    height: 48px;
+    left: 1301px;
+    top: 160px;
+    
+    font-family: 'Pretendard';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 133.02%;
+    /* or 24px */
+    
+    
+    color: #FFFFFF;
+}
+
+.text5{
+    position: absolute;
+    width: 281px;
+    height: 48px;
+    left: 1432px;
+    top: 252px;
+    
+    font-family: 'Pretendard';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 133.02%;
+    /* or 24px */
+    
+    
+    color: #FFFFFF;
+}

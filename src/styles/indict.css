@@ -1,8 +1,23 @@
 @font-face {
-    font-family: 'Inter';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/GyeonggiBatang.woff') format('woff');
-} 
+    font-family: 'MaruBuri-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-10-21@1.0/MaruBuri-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
 
+#next {
+    position: absolute;
+    left: 1738px;
+    top: 514px;
+    z-index: 100;
+}
+
+#pre {
+    position: absolute;
+    left: 50px;
+    top: 514px;   
+    z-index: 100;
+}
 
 #background{
     filter: brightness(80%); 
@@ -23,12 +38,18 @@
     z-index: 6;
 }
 
+#next2 {
+    position: absolute;
+    left: 1738px;
+    top: 514px;
+    z-index: 100;
+}
 #crime01{
     position: absolute;
-    width: 579px;
-    height: 334px;
-    left: calc(50% - 579px/2 - 331.5px);
-    top: calc(50% - 334px/2 - 206px);
+    width: 464px;
+    height: 248px;
+    left: 392px;
+    top: 210px;
     z-index: 7;
 }
 
@@ -306,6 +327,20 @@
     z-index: 100;
 }
 
+#gongso3{
+    position: absolute;
+    width: 174px;
+    height: 48px;
+    left: 62px;
+    top: 236px;
+    
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(5px);
+    /* Note: backdrop-filter has minimal browser support */
+    
+    border-radius: 52px;
+    z-index: 100;
+}
 .title {
     position: absolute;
     width: 387px;
@@ -324,24 +359,24 @@
     color: #000000;
 }
 
-.proof1{
+.proof1_0{
     position: absolute;
     width: 376px;
-    height: 54px;
+    height: 63px;
     left: 505px;
     top: 574px;
     
-    font-family: 'GyeonggiBatang';
+    font-family: 'MaruBuri-Regular';
     font-style: normal;
     font-weight: 400;
-    font-size: 12px;
+    font-size: 14px;
     line-height: 150%;
-    /* or 18px */
-    
+    /* or 21px */
     
     color: #000000;
+ 
     z-index:1000;
-    /* or 18px */
+
 }
 
 .proof2{
@@ -392,36 +427,42 @@
     z-index:1000;
 }
 
-.crime1 {
+.crime1_0 {
+    
     position: absolute;
     width: 501px;
-    height: 72px;
+    height: 96px;
     left: 1055px;
     top: 168px;
-
-    font-family: 'Inter';
+    
+    font-family: 'MaruBuri-Regular';
     font-style: normal;
     font-weight: 400;
-    font-size: 12px;
-    line-height: 150%;
+    font-size: 13px;
+    line-height: 170%;
+    white-space: pre-line;
+    /* or 24px */
+    
+    
     color: #000000;
     z-index: 1000;
 
 }
 
-.crime2 {
+.crime2_0 {
+    white-space: pre-line;
     position: absolute;
     width: 501px;
-    height: 72px;
+    height: 96px;
     left: 1055px;
     top: 328px;
     
-    font-family: 'Inter';
+    font-family: 'MaruBuri-Regular';
     font-style: normal;
     font-weight: 400;
-    font-size: 12px;
-    line-height: 150%;
-    /* or 18px */
+    font-size: 13px;
+    line-height: 170%;
+    /* or 24px */
     
     
     color: #000000;
@@ -429,31 +470,33 @@
 
 }
 
-.crime3 {
+.crime3_0 {
+    white-space: pre-line;
     position: absolute;
     width: 501px;
-    height: 72px;
+    height: 96px;
     left: 1055px;
     top: 488px;
     
-    font-family: 'Inter';
+    font-family: 'MaruBuri-Regular';
     font-style: normal;
     font-weight: 400;
-    font-size: 12px;
-    line-height: 150%;
-    /* or 18px */
+    font-size: 13px;
+    line-height: 170%;
+    /* or 24px */
     
+    letter-spacing: -0.02em;
     
     color: #000000;
     z-index: 1000;
 
 }
 
-.crimeTitle1 {
+.crimeTitle1_0 {
     position: absolute;
-    width: 43px;
+    width: 400px;
     height: 24px;
-    left: 1108px;
+    left: 930px;
     top: 133px;
     
     font-family: 'Inter';
@@ -469,11 +512,11 @@
     z-index: 1000;
 }
 
-.crimeTitle2 {
+.crimeTitle2_0 {
     position: absolute;
-    width: 43px;
+    width: 400px;
     height: 24px;
-    left: 1108px;
+    left: 930px;
     top: 292px;
     
     font-family: 'Inter';
@@ -489,11 +532,11 @@
     z-index: 1000;
 }
 
-.crimeTitle3 {
+.crimeTitle3_0 {
     position: absolute;
-    width: 43px;
+    width: 400px;
     height: 24px;
-    left: 1108px;
+    left: 930px;
     top: 453px;
     
     font-family: 'Inter';
@@ -509,6 +552,26 @@
     z-index: 1000;
 }
 
+.sageonseosul {
+    white-space: pre-line;
+    position: absolute;
+    width: 540px;
+    height: 232px;
+    left: 1016px;
+    top: 678px;
+    
+    font-family: 'MaruBuri-Regular';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 180%;
+    /* or 29px */
+    
+    letter-spacing: -0.02em;
+    
+    color: #000000;
+    z-index: 1000;    
+}
 .giso {
     position: absolute;
     width: 40px;

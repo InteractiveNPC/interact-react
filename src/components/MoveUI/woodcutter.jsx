@@ -63,7 +63,13 @@ export default [
   },
   // 나무꾼의 방 (증거 찾기)
   ({ onTalk, goOffice }) => {
-    return <Find goOffice={goOffice} />;
+    return (
+      <div className={styles.location}
+        {...divToImg(BackgroundImgBase + "illust_FairyNWoodcutter_Woodcutter_room.png")}
+        >
+        <Find goOffice={goOffice} />
+      </div>
+    );
   },
   // 연못
   ({ onTalk }) => {
