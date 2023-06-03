@@ -26,6 +26,7 @@ function Dialogue(props) {
   }, []);
 
   const endCheck = (id, scene) => {
+    if (!size[id]) return -1;
     for(var i=0; i<size[id].length-1; i++) {
       if(size[id][i]<scene && size[id][i+1]>=scene) {
         return size[id][i+1];
@@ -41,7 +42,8 @@ function Dialogue(props) {
         setTimeout(function() {
           $("#dialogue").off("click").on("click", dialogueHandler);
           setShow(false);
-          setHome(true);
+          //setHome(true);
+          props.onClose();
         }, 2000);
         break;
       case 0:
