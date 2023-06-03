@@ -2,32 +2,24 @@ import React, { useState,  useEffect } from "react";
 
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import Indict2 from './index2'
-import axios from 'axios';
+// import axios from 'axios';
 
-import styles from '../../styles/indict.css';
+import styles from '../../styles/twosister3.css';
 
-const chapter = "1_0"
 function Indict(){
   const [ data, setData] = useState(
     {"chapter":1_0, "scene": 35, "name":"", "item": "",
      "court":"", "script": ""}
-  ) // 초기화
+  )
 
-  useEffect(() => {
-    axios.get('/document?chapter=' + chapter + '&scene=35')
-    .then(res => {
-      console.log(res.data)
-      setData({"id": res.data.chapter, "scene": res.data.scene,
-                "name": res.data.name, "item": res.data.index,
-                "court": res.data.court, "script": res.data.script
-              })
-      console.log(res.data.item['4'].info) //여기까진 잘 받아짐..
+//   useEffect( () => {
+//     axios.get('/chapter')
+//     .then(res => {
+//       console.log(res.data)
+//       setData({})
+//     })
+//   })
 
-    })
-    .catch(error => console.log(error))
-  }, []);  //json에서 데이터 불러옴
-
-  console.log(data.item)
   const [imageOpacity, setImageOpacity] = useState({ 
     check1: 0, check2: 0, check3: 0,
   crimenormal: 1 });
@@ -73,37 +65,39 @@ function Indict(){
 
   const background = '/image/indict/illust_indictbg.png';
   const CrimeScenebg = '/image/indict/CrimeScene_picture.png';
-  const crime01 = '/image/indict/CrimeScene_picture_FairyNWoodcutter01.png';
-  const sister = '/image/indict/proof_sister.png'
-  const deer = '/image/indict/proof_deer.png'
-  const mom = '/image/indict/proof_mom.png'
-  const cloth = '/image/indict/proof_cloth.png'
+  const crime01 = '/image/indict/CrimeScene_picture_TwoSisters03.png';
+  const hairpin = '/image/indict/proof_Hairpin.png'
+  const maid = '/image/indict/Maid.png'
+  const corpse = '/image/indict/proof_Corpsepaper.png'
+  const tiger = '/image/indict/proof_tiger.png'
+  const bae = '/image/indict/proof_Mr.Bae.png'
   const book = '/image/indict/book.png';
-  const next = '/image/indict/paper_make_next_page.png'
   const proofpic = '/image/indict/proof_picture.png';
   const prooftextimg = '/image/indict/proof_text.png';
   const crimenormal = '/image/indict/crime_normal.png';
   const checkbox = '/image/indict/checkbox.png'
   const check = '/image/indict/check.png'
-  const gongso1 = '/image/indict/indict01_click.png'
+  const gongso1_normal = '/image/indict/indict01_normal.png'
   const gongso2 = '/image/indict/indict02_click.png'
   const gongso2_normal = '/image/indict/indict02_normal.png'
-  const gongso3_normal = 'image/indict/paper_make_normal03.png'
+  const gongso3 = 'image/indict/paper_make_click03.png'
   const indict_normal = '/image/indict/indict_normal.png'
   const indict_click = '/image/indict/indict_click.png'
   const crime_click = '/image/indict/crime_click.png'
-  const title = "공소사건 01. 갑자기 사라진 선녀의 날개옷";
+  const title = "공소사건 03. 거짓된 소문을 퍼뜨린 허씨부인의 계략";
   const proof1 = "(임시 텍스트입니다. 최대 3줄입니다.) 나무꾼은 사건 장소에 우연히 갔다고 주장하지만, 선녀 언니의 증언으로 사건 장소는 숨겨진 장소로 우연히 갈 수 없는 장소라는 사실이 밝혀졌습니다.";
-  //const proof2 = data.item['5'].info;
-  
-  const crimeTitle1 = "재물손괴죄";
-  const crimeTitle2 = "감금죄";
-  const crimeTitle3 = "추행등목적약취유인죄";
+  const proof2 = "(임시 텍스트입니다. 최대 3줄입니다.)";
+  const proof3 = "(임시 텍스트입니다. 최대 3줄입니다.)";
+  const proof4 = "(임시 텍스트입니다. 최대 3줄입니다.)";
+  const crimeTitle1 = "죄목1";
+  const crimeTitle2 = "죄목2";
+  const crimeTitle3 = "죄목3";
+  const pre ="/image/indict/paper_make_prev_page.png"
   const giso = "기소"
   const bulgiso = "불기소"
-  const crime1 = data.court["재물손괴죄"];
-  const crime2 = data.court["감금죄"];
-  const crime3 = data.court["추행등목적약취유인죄"];
+  const crime1 = "형법 제366조(재물손괴등) 타인의 재물, 문서 또는 전자기록등 특수매체기록을 손괴 또는 은닉 기타 방법으로 기 효용을 해한 자는 3년이하의 징역 또는 700만원 이하의 벌금에 처한다. 임시 텍스트입니다."
+  const crime2 = "형법 제366조(재물손괴등) 타인의 재물, 문서 또는 전자기록등 특수매체기록을 손괴 또는 은닉 기타 방법으로 기 효용을 해한 자는 3년이하의 징역 또는 700만원 이하의 벌금에 처한다. 임시 텍스트입니다."
+  const crime3 = "형법 제366조(재물손괴등) 타인의 재물, 문서 또는 전자기록등 특수매체기록을 손괴 또는 은닉 기타 방법으로 기 효용을 해한 자는 3년이하의 징역 또는 700만원 이하의 벌금에 처한다. 임시 텍스트입니다."
  
   return (
     <div className="Indict">
@@ -117,21 +111,24 @@ function Indict(){
             <img src={gongso2_normal}  
             id="gongso2" alt="gongso2"/></Link>
       </BrowserRouter>
-      <img src={gongso1}  id="gongso1" />
-      <img src={gongso3_normal}  id="gongso3" />
+      <img src={gongso1_normal}  id="gongso1_normal" />
+      <img src={gongso3}  id="gongso3" />
       <div className="title" >
-        <p>{data.name}</p>
+        <p>{title}</p>
       </div>
-      <div className="proof1_0">
+      <div className="proof1">
         <p>{proof1}</p>
       </div>
       <div className="proof2">
-        <p>{data.info}</p>
+        <p>{proof2}</p>
       </div>
+      {/* <div className="proof3">
+        <p>{proof3}</p>
+      </div>
+      <div className="proof4">
+        <p>{proof4}</p>
+      </div> */}
 
-      <div className="sageonseosul" dangerouslySetInnerHTML={ {__html: data.script} }>
-        {/* <p>{data.script}</p> */}
-      </div>
       <div className="giso">
         <p>{giso}</p>
       </div>
@@ -140,32 +137,32 @@ function Indict(){
       </div>
 
       <div className="crimeTexts">
-        <div className="crime1_0" dangerouslySetInnerHTML={ {__html: crime1} }>
-        {/* <p>{crime1}</p> */}
+        <div className="crime1">
+        <p>{crime1}</p>
         </div>
-        <div className="crime2_0" dangerouslySetInnerHTML={ {__html: crime2} }>
-        {/* <p>{crime2}</p> */}
+        <div className="crime2">
+        <p>{crime2}</p>
         </div>
-        <div className="crime3_0" dangerouslySetInnerHTML={ {__html: crime3} }>
-        {/* <p>{crime3}</p> */}
+        <div className="crime3">
+        <p>{crime3}</p>
         </div>
       </div>
 
       <div className="crimeTitles">
-        <div className="crimeTitle1_0">
+        <div className="crimeTitle1">
         <p>{crimeTitle1}</p>
         </div>
-        <div className="crimeTitle2_0">
+        <div className="crimeTitle2">
         <p>{crimeTitle2}</p>
         </div>
-        <div className="crimeTitle3_0">
+        <div className="crimeTitle3">
         <p>{crimeTitle3}</p>
         </div>
       </div>
 
       {/* checkbox Event */}
       <div className="imgs">
-        <img src={crime01} id="crime01"/>
+        <img src={crime01} id="crime03"/>
         <img src={CrimeScenebg} id="crimescene" />
         <img src={book} id="book" />
 
@@ -210,11 +207,10 @@ function Indict(){
 
       {/* checkbox Event */}
 
-      <img src={next} id="next2"></img>
-
-
-        <img src={sister} id="sister" />
-        <img src={deer} id="deer" />
+        <img src={pre} id="pre"></img>
+        
+        <img src={corpse} id="sister" />
+        <img src={bae} id="deer" />
         <img src={proofpic} id="proofpic1"/>
         <img src={proofpic} id="proofpic2"/>
 
