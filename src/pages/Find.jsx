@@ -6,7 +6,7 @@ import styles from '../styles/findClue.css';
 import $ from 'jquery';
 
 export default function Find(props){
-    const back = 'image/Investigation/Talk/Background/FairyNWoodcutter/illust_FairyNWoodcutter_Woodcutter_room.png';
+    //const back = 'image/Investigation/Talk/Background/FairyNWoodcutter/illust_FairyNWoodcutter_Woodcutter_room.png';
     const fadeT = 2000;
 
     const popup = '/image/Investigation/Talk/UI/proof_find_info_background.png';
@@ -51,7 +51,6 @@ export default function Find(props){
     return (
         <div>
             <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
-            <img src={back} style={{ position: "absolute"}}></img>
             <img id="find" src="/image/clothes/cloth_00.png" style={{ position: "absolute", top:"641px", left:"1327px"}} onClick={()=>{
                 $('div#background').fadeIn({fadeT});
                 $('div#etc').addClass('display-none');
@@ -60,7 +59,6 @@ export default function Find(props){
             
             <div id="background" className="display-none App">
                 <div id="step1">
-                    <img src={back}></img>
                     <img id='shine' src="/image/clothes/Fairyclothes.png" className="clue" onMouseOver={()=>{
                         $('img#shine').addClass('shining');
                     }} onMouseLeave={()=>{
@@ -98,7 +96,6 @@ export default function Find(props){
                         </animated.div>
                     </div>
                 </div>
-                    <img src={back}></img>
                 <div id="step2" className="display-none">
                     <img id='shine2' src="/image/clothes/Fairyclothes.png" alt="find" className="clue"
                         onMouseOver={()=>{
@@ -116,7 +113,6 @@ export default function Find(props){
                 
             </div>
             <div id='result' className="display-none">
-                <img src={back} style={{position:'absolute'}}></img>
                 <img src={popup}  className='banner'></img>
                 <div id='btnFirst'>
                     <img src={button} className="btn1" onMouseOver={()=>{
