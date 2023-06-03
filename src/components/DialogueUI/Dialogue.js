@@ -42,7 +42,7 @@ function Dialogue(props) {
         setTimeout(function() {
           $("#dialogue").off("click").on("click", dialogueHandler);
           setShow(false);
-          //setHome(true);
+          //setHome(true); : 팝업창에 props 전달하도록 해야함
           props.onClose();
         }, 2000);
         break;
@@ -81,13 +81,28 @@ function Dialogue(props) {
           $("#dialogue").off("click").on("click", {code: 0}, clickHandler);
         }
       }
-      /*
-      if(size <= index) {
-        if(res.data.scene == end) {
-          $("#dialogue").off("click").on("click", {code: 0}, clickHandler);
-        }
+      for(var i=1; i<6; i++) {
+        $(".dialogue_name").removeClass("name"+i);
       }
-      */
+      setTimeout(function() {
+         if(res.data.name == "검사") {
+          $(".dialogue_name").addClass("name1");
+        } else {
+          if(res.data.name.length > 4) {
+              $(".dialogue_name").addClass("name5");
+          } else {
+              console.log(res.data.name.length);
+              $(".dialogue_name").addClass("name" + res.data.name.length);
+          }
+        }
+      }, 5);
+      var voice = "image/Investigation/Talk/Sound/dubbing/" + (id==1 ? "FairyNWoodcutter" : "TwoSisters") + "/voice_" + id + "_" + scene + "_" + flag + "_" + index + ".mp3";
+      $.get(voice).done(function() {
+        $("#voice_src").attr("src", voice);
+        $("#voice")[0].pause();
+        $("#voice")[0].load();
+        $("#voice")[0].oncanplaythrough = $("#voice")[0].play();
+      })
     })
     .catch(error => console.log(error))
   }
@@ -97,11 +112,16 @@ function Dialogue(props) {
   }
 
   const answerHandler = (idx) => {
+    var btn = "#answer" + idx;
+    $(btn).css({"background": 'url("image/Investigation/Talk/UI/UI_optionbox_click.png")'});
     var s = 0;
     Object.values(data.choice).map((val, key) => { s++; });
     var i = idx === 0 ? 1 : 0;
     var l = idx === s-1 ? -1 : data.len;
-    chapterHandler(data.id, data.scene, idx, i, l)
+    setTimeout(function() {
+      $(btn).css({"background": 'url("image/Investigation/Talk/UI/UI_optionbox_normal.png")'});
+      chapterHandler(data.id, data.scene, idx, i, l);
+    }, 500);
   }
 
   const answerId = (idx) => {
@@ -121,6 +141,7 @@ function Dialogue(props) {
             <div id="dialogue_bg"></div>
             <div className="dialogue_name"><span>{data.name}</span></div>
             <div className="dialogue_content">{data.content}</div>
+            <audio id="voice"><source id="voice_src" type="audio/mp3"/></audio>
           </div>
         ) : ( home ? <Home idx={data.scene} res={data.flag}/> : null ) }
        </div>
