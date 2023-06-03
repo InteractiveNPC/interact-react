@@ -8,13 +8,18 @@ import styles from "./style.module.scss";
 
 const BackgroundImgBase = "/image/investigation/Talk/Background/TwoSisters/";
 const fullWebpBase = "/image/investigation/Talk/Source/TwoSisters/full/full_";
+const halfWebpBase = "/image/investigation/Talk/Source/TwoSisters/half/half_";
 const setPos = (x, y) => {
   return { style: { left: `${x}px`, top: `${y}px` } };
+};
+const setPosWithIdx = (x, y, idx) => {
+  return { style: { left: `${x}px`, top: `${y}px`, "zIndex": `${idx}` } };
 };
 
 export default [
   // 수사실
-  ({ onTalk }) => {
+  ({ onTalk, hero }) => {
+    const [heroDisabled, setHeroDisabled] = useState(hero);
     return (
       <div className={styles.location}>
         <video muted autoPlay loop playsInline>
@@ -25,6 +30,16 @@ export default [
             type="video/mp4"
           />
         </video>
+        {heroDisabled ? null : (
+          <img
+            src={halfWebpBase + "Hongryeon_normal_X_office.webp"}
+            {...setPosWithIdx(0, 0, 1000)}
+            onClick={() => {
+              setHeroDisabled(true);
+              onTalk({ idx: "1", scene: "-1", "flag": "0", index: "0" });
+            }}
+          />
+        )}
         <div
           className={styles.desk}
           {...divToImg(BackgroundImgBase + "illust_TwoSisters_desk.png")}

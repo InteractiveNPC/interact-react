@@ -1,17 +1,16 @@
 import React, { Component } from "react";
 import Intro from "./components/IntroUI/Intro";
-import Indict from "./components/Indict/index";
+import Home from "./components/HomeUI/Home";
 import { getResizeEventListener } from "./services/responsiveFrame";
 
 import Chapter from "./pages/chapter";
-
 import imagePreloader from "services/Loading";
 
 class App extends Component {
   render() {
     return (
       <div id="App">
-        <Intro />
+        <Home />
       </div>
     );
   }
@@ -20,8 +19,7 @@ class App extends Component {
     const FixRatio = getResizeEventListener(1920, 1080);
     window.onresize = FixRatio;
     FixRatio();
-
-    imagePreloader();
+    //imagePreloader();
   }
   
 }

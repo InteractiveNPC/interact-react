@@ -10,6 +10,7 @@ export default ({ chapter, moveDocument }) => {
     flag: "0",
     index: "0",
   });
+  const [heroDisabled, setHeroDisabled] = useState(true);
   const [dialogueDisabled, setDialogueDisabled] = useState(false);
   const [process, setProcess] = useState(0);
 
@@ -17,9 +18,13 @@ export default ({ chapter, moveDocument }) => {
     <>
     { process === 0 && 
       <>
-        <MoveUI chapter={chapter} disabled={true} />
+        <MoveUI chapter={chapter} disabled={true} hero={heroDisabled}/>
         {dialogueDisabled || (
-          <Dialogue {...dialogueData} onClose={() => {
+          <Dialogue {...dialogueData}
+          onInit={() => {
+            setHeroDisabled(false);
+          }}
+          onClose={() => {
             console.log("close!!!!");
             setDialogueDisabled(true);
             setProcess(1);
