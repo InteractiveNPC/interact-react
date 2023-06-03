@@ -17,6 +17,21 @@ const getCourtResult = (tale) => {
   );
 };
 
+export const resetChapterSession = (chapter) => {
+  return new Promise((resolve) =>
+    axios
+      .get(`/reset/${chapter}`)
+      .then(({ data }) => {
+        console.log(data);
+        resolve(data);
+      })
+      .catch((error) => {
+        console.log(error);
+        resolve();
+      })
+  );
+}
+
 export const useCourtData = (chapter) => {
   const [data, setData] = useState(null);
   const [dialogueData, setDialogueData] = useState({});

@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from "react";
-import { useCourtData, setButtonEvent } from "./hook";
+import { useCourtData, setButtonEvent, resetChapterSession } from "./hook";
 
 import { divToImg } from "../../../services/propsFormat";
 
@@ -48,7 +48,10 @@ export default ({ chapter, replay, goHome }) => {
             다시 수사를 시작할 수 있고, 다른 동화를 수사할 수 있습니다.
           </div>
           <div className={styles.buttons}>
-            <div ref={buttonRef1} onClick={replay}>
+            <div ref={buttonRef1} onClick={async ()=>{
+              await resetChapterSession(chapter);
+              replay();
+            }}>
               다시 수사하기
             </div>
             <div ref={buttonRef2} onClick={goHome}>
