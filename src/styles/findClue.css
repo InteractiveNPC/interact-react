@@ -1,9 +1,9 @@
-div#background, div#pop{
+div#backgroundS, div#pop{
     position: absolute;
     top: 0%;
 }
 
-#pop, #background, #step1, #step2, #result{
+#pop, #backgroundS, #step1, #step2, #result{
     width:100%;
     height: 100%;
 }

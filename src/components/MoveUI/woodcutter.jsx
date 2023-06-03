@@ -65,7 +65,7 @@ export default [
   ({ onTalk, goOffice }) => {
     return (
       <div className={styles.location}
-        {...divToImg(BackgroundImgBase + "illust_FairyNWoodcutter_Woodcutter_outside.png")}
+        {...divToImg(BackgroundImgBase + "illust_FairyNWoodcutter_Woodcutter_room.png")}
         >
         <Find goOffice={goOffice} />
       </div>

@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { divToImg } from "../../services/propsFormat";
 
 import Find3 from "pages/Find3";
@@ -69,6 +70,8 @@ export default [
   },
   // 연못
   ({ onTalk, goOffice }) => {
+    const [ disabled, setDisabled ] = useState(false);
+
     return (
       <div className={styles.location}>
         <video muted autoPlay loop playsInline>
@@ -79,14 +82,16 @@ export default [
             type="video/mp4"
           />
         </video>
-        <Find3 goOffice={goOffice}/>
         <img
           src={fullWebpBase + "Tiger.webp"}
           {...setPos(594, 284)}
           onClick={() => {
-            onTalk({ idx: "3", scene: "7", flag: "0", index: "0" });
+            if(!disabled) {
+              onTalk({ idx: "3", scene: "7", flag: "0", index: "0" });
+            }
           }}
         />
+        <Find3 goOffice={goOffice} setActive={setDisabled}/>
       </div>
     );
   },
