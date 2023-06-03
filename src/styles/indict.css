@@ -23,12 +23,18 @@
     z-index: 6;
 }
 
+#next2 {
+    position: absolute;
+    left: 1738px;
+    top: 514px;
+    z-index: 100;
+}
 #crime01{
     position: absolute;
-    width: 579px;
-    height: 334px;
-    left: calc(50% - 579px/2 - 331.5px);
-    top: calc(50% - 334px/2 - 206px);
+    width: 464px;
+    height: 248px;
+    left: 392px;
+    top: 210px;
     z-index: 7;
 }
 
@@ -306,6 +312,20 @@
     z-index: 100;
 }
 
+#gongso3{
+    position: absolute;
+    width: 174px;
+    height: 48px;
+    left: 62px;
+    top: 236px;
+    
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(5px);
+    /* Note: backdrop-filter has minimal browser support */
+    
+    border-radius: 52px;
+    z-index: 100;
+}
 .title {
     position: absolute;
     width: 387px;

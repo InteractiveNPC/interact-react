@@ -3,6 +3,7 @@ import { getWithFullscreen } from "../services/storybookHelper";
 import Indict from "../components/Indict";
 import Indict2 from "../components/Indict/index2";
 import Indict3 from "../components/Indict/index3";
+import Twosis1 from "../components/Indict/twsister1";
 
 export default {
     title: "Indict",
@@ -20,4 +21,8 @@ export default {
 
   export const test3 = {
     render: () => getWithFullscreen(<Indict3 />)
+  }; 
+
+  export const test4 = {
+    render: () => getWithFullscreen(<Twosis1 />)
   }; 

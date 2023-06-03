@@ -16,7 +16,7 @@ function Dialogue(props) {
               })
     })
     .catch(error => console.log(error))
-  }, []);
+  }, []); 
 
   const dialogueHandler = () => {
     const dialogueData = {

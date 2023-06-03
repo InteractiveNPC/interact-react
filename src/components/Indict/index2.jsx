@@ -52,7 +52,7 @@ function Indict(){
 
   const background = '/image/indict/illust_indictbg.png';
   const CrimeScenebg = '/image/indict/CrimeScene_picture.png';
-  const crime01 = '/image/indict/info_scene_01.png';
+  const crime01 = '/image/indict/CrimeScene_picture_FairyNWoodcutter02.png';
   const sister = '/image/indict/proof_sister.png'
   const deer = '/image/indict/proof_deer.png'
   const mom = '/image/indict/proof_mom.png'
@@ -63,9 +63,10 @@ function Indict(){
   const crimenormal = '/image/indict/crime_normal.png';
   const checkbox = '/image/indict/checkbox.png'
   const check = '/image/indict/check.png'
-  const gongso1 = '/image/indict/indict01_click.png'
+  const gongso1 = '/image/indict/indict01_normal.png'
   const gongso2 = '/image/indict/indict02_click.png'
   const gongso2_normal = '/image/indict/indict02_normal.png'
+  const gongso3_normal = 'image/indict/paper_make_normal03.png'
   const indict_normal = '/image/indict/indict_normal.png'
   const indict_click = '/image/indict/indict_click.png'
   const crime_click = '/image/indict/crime_click.png'
@@ -93,11 +94,11 @@ function Indict(){
         </Routes>
           <Link to="./index2">
             <img src={gongso2}
-          
             id="gongso2"/></Link>
       </BrowserRouter>
-      <img src={gongso2_normal}  id="gongso1" />
-      <div className="title">
+      <img src={gongso1}  id="gongso1_normal" />
+      <img src={gongso3_normal}  id="gongso3" />
+      <div className="title2">
         <p>{title}</p>
       </div>
       <div className="proof1">
@@ -106,12 +107,7 @@ function Indict(){
       <div className="proof2">
         <p>{proof2}</p>
       </div>
-      <div className="proof3">
-        <p>{proof3}</p>
-      </div>
-      <div className="proof4">
-        <p>{proof4}</p>
-      </div>
+
 
       <div className="giso">
         <p>{giso}</p>
@@ -146,7 +142,7 @@ function Indict(){
 
       {/* checkbox Event */}
       <div className="imgs">
-        <img src={crime01} id="crime01" />
+        <img src={crime01} id="crime02" />
         <img src={CrimeScenebg} id="crimescene" />
         <img src={book} id="book" />
 
@@ -192,18 +188,15 @@ function Indict(){
       {/* checkbox Event */}
 
 
-        <img src={sister} id="sister" />
-        <img src={deer} id="deer" />
-        <img src={mom} id="mom" />
-        <img src={cloth} id="cloth" />
+        <img src={cloth} id="sister" />
+        <img src={sister} id="deer" />
+
         <img src={proofpic} id="proofpic1"/>
         <img src={proofpic} id="proofpic2"/>
-        <img src={proofpic} id="proofpic3"/>
-        <img src={proofpic} id="proofpic4"/>
+ 
         <img src={prooftextimg} id = "prTextImg1"/>
         <img src={prooftextimg} id = "prTextImg2"/>
-        <img src={prooftextimg} id = "prTextImg3"/>
-        <img src={prooftextimg} id = "prTextImg4"/>
+
         <img src={crimenormal}
         data-id2="crimenormal" id = "crimenormal1"/>
         <img src={crimenormal} id = "crimenormal2"/>

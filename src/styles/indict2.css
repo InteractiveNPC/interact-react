@@ -23,12 +23,13 @@
     z-index: 6;
 }
 
-#crime01{
+#crime02{
     position: absolute;
-    width: 579px;
-    height: 334px;
-    left: calc(50% - 579px/2 - 331.5px);
-    top: calc(50% - 334px/2 - 206px);
+    width: 464px;
+    height: 248px;
+    left: 392px;
+    top: 210px;
+    
     z-index: 7;
 }
 
@@ -276,7 +277,7 @@
 
 
 
-#gongso1{
+#gongso1_normal{
     position: absolute;
     width: 174px;
     height: 48px;
@@ -291,7 +292,7 @@
     z-index: 100;
 }
 
-#gongso2{
+#gongso2_normal{
     position: absolute;
     width: 174px;
     height: 48px;
@@ -305,12 +306,12 @@
     border-radius: 52px;
     z-index: 100;
 }
-.title {
+.title2 {
     position: absolute;
-    width: 387px;
+    width: 440px;
     height: 29px;
-    left: 441px;
-    top: 120px;
+    left: 420px;
+    top: 135px;
     z-index: 1000;
 
     font-family: 'Inter';

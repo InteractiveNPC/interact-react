@@ -6,20 +6,27 @@ import axios from 'axios';
 
 import styles from '../../styles/indict.css';
 
+const chapter = "1_0"
 function Indict(){
   const [ data, setData] = useState(
     {"chapter":1_0, "scene": 35, "name":"", "item": "",
      "court":"", "script": ""}
-  )
+  ) // 초기화
 
-  // useEffect( () => {
-  //   axios.get('/chapter')
-  //   .then(res => {
-  //     console.log(res.data)
-  //     setData({})
-  //   })
-  // })
+ console.log(data)
+  useEffect(() => {
+    axios.get('/document?chapter=' + chapter + '&scene=35')
+    .then(res => {
+      console.log(res.data)
+      setData({"id": res.data.chapter, "scene": res.data.scene,
+                "name": res.data.name, "item": res.data.index,
+                "court": res.data.court, "script": res.data.script
+              })
+    })
+    .catch(error => console.log(error))
+  }, []);  //json에서 데이터 불러옴
 
+  console.log(data)
   const [imageOpacity, setImageOpacity] = useState({ 
     check1: 0, check2: 0, check3: 0,
   crimenormal: 1 });
@@ -65,12 +72,13 @@ function Indict(){
 
   const background = '/image/indict/illust_indictbg.png';
   const CrimeScenebg = '/image/indict/CrimeScene_picture.png';
-  const crime01 = '/image/indict/info_scene_01.png';
+  const crime01 = '/image/indict/CrimeScene_picture_FairyNWoodcutter01.png';
   const sister = '/image/indict/proof_sister.png'
   const deer = '/image/indict/proof_deer.png'
   const mom = '/image/indict/proof_mom.png'
   const cloth = '/image/indict/proof_cloth.png'
   const book = '/image/indict/book.png';
+  const next = '/image/indict/paper_make_next_page.png'
   const proofpic = '/image/indict/proof_picture.png';
   const prooftextimg = '/image/indict/proof_text.png';
   const crimenormal = '/image/indict/crime_normal.png';
@@ -79,6 +87,7 @@ function Indict(){
   const gongso1 = '/image/indict/indict01_click.png'
   const gongso2 = '/image/indict/indict02_click.png'
   const gongso2_normal = '/image/indict/indict02_normal.png'
+  const gongso3_normal = 'image/indict/paper_make_normal03.png'
   const indict_normal = '/image/indict/indict_normal.png'
   const indict_click = '/image/indict/indict_click.png'
   const crime_click = '/image/indict/crime_click.png'
@@ -109,8 +118,9 @@ function Indict(){
             id="gongso2" alt="gongso2"/></Link>
       </BrowserRouter>
       <img src={gongso1}  id="gongso1" />
+      <img src={gongso3_normal}  id="gongso3" />
       <div className="title" >
-        <p>{title}</p>
+        <p>{data.name}</p>
       </div>
       <div className="proof1">
         <p>{proof1}</p>
@@ -202,6 +212,8 @@ function Indict(){
         id="crime_click3" /> 
 
       {/* checkbox Event */}
+
+      <img src={next} id="next2"></img>
 
 
         <img src={sister} id="sister" />
