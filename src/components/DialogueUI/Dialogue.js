@@ -88,30 +88,30 @@ function Dialogue(props) {
           setHold(true);
         }
         
-      for(var i=1; i<6; i++) {
-        $(".dialogue_name").removeClass("name"+i);
-      }
-      setTimeout(function() {
-         if(res.data.name == "검사") {
-          $(".dialogue_name").addClass("name1");
-        } else {
-          if(res.data.name.length > 4) {
-              $(".dialogue_name").addClass("name5");
-          } else {
-              console.log(res.data.name.length);
-              $(".dialogue_name").addClass("name" + res.data.name.length);
-          }
+        for(var i=1; i<6; i++) {
+          $(".dialogue_name").removeClass("name"+i);
         }
-      }, 5);
-      var voice = "image/Investigation/Talk/Sound/dubbing/" + (id==1 ? "FairyNWoodcutter" : "TwoSisters") + "/voice_" + id + "_" + scene + "_" + flag + "_" + index + ".mp3";
-      $.get(voice).done(function() {
-        $("#voice_src").attr("src", voice);
-        $("#voice")[0].pause();
-        $("#voice")[0].load();
-        $("#voice")[0].oncanplaythrough = $("#voice")[0].play();
+        setTimeout(function() {
+           if(res.data.name == "검사") {
+            $(".dialogue_name").addClass("name1");
+          } else {
+            if(res.data.name.length > 4) {
+                $(".dialogue_name").addClass("name5");
+            } else {
+                $(".dialogue_name").addClass("name" + res.data.name.length);
+            }
+          }
+        }, 5);
+        var voice = "image/Investigation/Talk/Sound/dubbing/" + (id==1 ? "FairyNWoodcutter" : "TwoSisters") + "/voice_" + id + "_" + scene + "_" + flag + "_" + index + ".mp3";
+        $.get(voice).done(function() {
+          $("#voice_src").on("load", function() {
+            $("#voice")[0].play();
+          });
+          $("#voice_src").attr("src", voice);
+        })
       })
-    })
-    .catch(error => console.log(error))
+      .catch(error => console.log(error))
+    }
   }
 
   const dialogueHandler = () => {
