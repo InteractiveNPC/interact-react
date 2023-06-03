@@ -9,18 +9,17 @@ import Home from "components/HomeUI/Home";
 
 export default ({ chapter, volume, setVolume, goHome }) => {
   const [process, setProcess] = useState(0);
-  const [home, setHome] = useState(false);
 
   return (
     <>
-      {home ? (
+      {process === -1 ? (
         <Home />
       ) : (
         <>
           <Nav
             moveDocument={() => setProcess(1)}
             displayNote={() => setProcess(2)}
-            goHome={() => setHome(true)}
+            goHome={() => setProcess(-1)}
             volume={volume}
             setVolume={setVolume}
           />
@@ -35,7 +34,7 @@ export default ({ chapter, volume, setVolume, goHome }) => {
             <Ending
               chapter={chapter}
               replay={() => setProcess(0)}
-              goHome={() => setHome(true)}
+              goHome={() => setProcess(-1)}
             />
           )}
         </>
