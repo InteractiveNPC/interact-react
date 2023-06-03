@@ -1,0 +1,72 @@
+.background {
+    position: absolute;
+    width: 1920px;
+    height: 1080px;
+
+    background: #B6B6B6;
+
+    > * {
+        position: absolute;
+    }
+
+    .nav {
+        z-index: 100;
+
+        width: 174px;
+        height: 174px;
+        top: 110px;
+        left: 62px;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        > div {
+            position: relative;
+            width: 174px;
+            height: 48px;
+
+            font-family: 'GyeonggiBatang';
+            font-style: normal;
+            font-weight: 700;
+            font-size: 18px;
+
+            color: #B6B6B6;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            > * {
+                position: absolute;
+                cursor: pointer;
+            }
+            div {
+                z-index: 10;
+            }
+        }
+        > .selected {
+            color: #17120E;
+        }
+    }
+
+    .arrow_nav {
+        width: 1920px;
+        height: 1080px;
+
+        img {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            z-index: 100;
+        }
+        .prev {
+            left: 45px;
+        }
+        .next {
+            right: 45px;
+        }
+    }
+
+}
