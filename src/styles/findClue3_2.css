@@ -1,11 +1,11 @@
-div#background,
+div#backgroundS,
 div#pop {
   position: absolute;
   top: 0%;
 }
 
 #pop,
-#background,
+#backgroundS,
 #step1,
 #step2,
 #result {

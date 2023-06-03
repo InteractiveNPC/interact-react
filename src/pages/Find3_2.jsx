@@ -55,13 +55,13 @@ export default function Find3_2(props) {
         src="/image/evidence/desk_paper.png"
         className="desk"
         onClick={() => {
-          $("div#background").fadeIn({ fadeT });
+          $("div#backgroundS").fadeIn({ fadeT });
           $("div#etc").addClass("display-none");
           $("img#find").fadeOut({ fadeT });
         }}
       ></img>
 
-      <div id="background" className="display-none App">
+      <div id="backgroundS" className="display-none App">
         <div id="step1">
           <img
             id="findE"
@@ -159,7 +159,7 @@ export default function Find3_2(props) {
             }}
           ></img>
           <img id="hov1" className="display-none btn1" src={hButton}></img>
-          <h2
+          <p
             className="button-txt"
             onMouseOver={() => {
               $("img#hov1").removeClass("display-none");
@@ -171,7 +171,7 @@ export default function Find3_2(props) {
           }}
           >
             확인
-          </h2>
+          </p>
           <p className="banner-txt1">{clue}</p>
         </div>
       </div>
@@ -190,10 +190,10 @@ export default function Find3_2(props) {
         >
           <img src={popup2} className="banner2"></img>
           <img src={name} className="namePos"></img>
-          <h2 className="banner-txtA">검사</h2>
-          <h2 className="banner-txtB">
+          <p className="banner-txtA">검사</p>
+          <p className="banner-txtB">
             평범한 병풍이다. 뒤에는 아무것도 없는 듯하다.
-          </h2>
+          </p>
         </div>
       </div>
     </div>
