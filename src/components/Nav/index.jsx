@@ -1,54 +1,65 @@
-import React, { Component } from "react";
+import { useEffect, useRef, useState } from "react";
+
+import { divToImg } from "../../services/propsFormat";
 
 import Help from "./Help";
 import Setting from "./Setting";
 
-import { divToImg } from "../../services/propsFormat";
-import index_styles from "../../styles/components/Nav.module.css";
+import { setButtonEvent } from "./animation";
+import index_styles from "./style.module.scss";
 
-class Nav extends Component {
-  constructor(props) {
-    super(props);
+const img_base = "/image/Investigation/Talk/UI/";
 
-    this.state = {
-      Help: false,
-      setting: false,
-    };
+export default ({ moveDocument, displayNote, goHome, volume, setVolume }) => {
+  if (!volume) {
+    [volume, setVolume] = useState([0.5, 0.5, 0.5]); // 임시 volume
   }
 
-  navEvent = [
-    () => this.setState({ ...this.state, Help: !this.state.Help }),
-    () => alert("사건 노트로 이동!"),
-    () => alert("홈으로 이동!"),
-    () => this.setState({ ...this.state, setting: !this.state.setting }),
+  const [window, setWindow] = useState(null);
+  const button = [useRef(), useRef(), useRef(), useRef(), useRef()];
+
+  const navEvent = [
+    goHome,
+    displayNote,
+    moveDocument,
+    () => {
+      window === "help" ? setWindow(null) : setWindow("help");
+    },
+    () => {
+      window === "setting" ? setWindow(null) : setWindow("setting");
+    },
   ];
 
-  render() {
-    return (
-      <div id="UI">
-        <div className={index_styles.nav}>
-          <div
-            onClick={this.navEvent[0]}
-            {...divToImg("/image/Nav/Help.png")}
-          />
-          <div
-            onClick={this.navEvent[1]}
-            {...divToImg("/image/Nav/Note.png")}
-          />
-          <div
-            onClick={this.navEvent[2]}
-            {...divToImg("/image/Nav/Home.png")}
-          />
-          <div
-            onClick={this.navEvent[3]}
-            {...divToImg("/image/Nav/Setting.png")}
-          />
-        </div>
-        {this.state.Help ? <Help closeEvent={this.navEvent[0]} /> : null}
-        {this.state.setting ? <Setting closeEvent={this.navEvent[3]} /> : null}
-      </div>
-    );
-  }
-}
+  useEffect(() => {
+    navEvent.slice(1).forEach((e, idx) => (button[idx].current.onclick = e));
 
-export default Nav;
+    setButtonEvent(button[0].current, img_base + "UI_record");
+    setButtonEvent(button[1].current, img_base + "UI_paper_make");
+    setButtonEvent(button[2].current, img_base + "UI_help");
+    setButtonEvent(button[3].current, img_base + "UI_setting");
+  });
+
+  return (
+    <>
+      <div
+        className={index_styles.home}
+        {...divToImg(img_base + "HomeButton.png")}
+        onClick={navEvent[0]}
+      ></div>
+      <div className={index_styles.buttons}>
+        <div ref={button[0]} />
+        <div ref={button[1]} />
+        <div ref={button[2]} />
+        <div ref={button[3]} />
+      </div>
+      {window === "help" && <Help onClose={() => setWindow(null)} />}
+      {window === "setting" && (
+        <Setting
+          volume={volume}
+          setVolume={setVolume}
+          onClose={() => setWindow(null)}
+        />
+      )}
+    </>
+  );
+};

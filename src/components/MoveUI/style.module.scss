@@ -1,0 +1,88 @@
+.nav_button {
+  z-index: 1000;
+  position: absolute;
+
+  top: 115px;
+  left: 38px;
+
+  font-size: 16px;
+  font-weight: 700;
+  text-align: center;
+  line-height: 40px;
+
+  .button {
+    position: absolute;
+    width: 241px;
+    height: 44px;
+    color: #fff8e4;
+
+    cursor: pointer;
+
+    > img {
+      position: absolute;
+      width: 11px;
+      height: 9px;
+      top: 18px;
+      right: 19px;
+    }
+  }
+
+  .dropdown {
+    position: absolute;
+
+    > div {
+      position: absolute;
+
+      width: 241px;
+      height: 44px;
+
+      color: #9f9478;
+
+      cursor: pointer;
+    }
+  }
+}
+
+.nav_arrow {
+  z-index: 1000;
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  width: 1840px;
+  display: flex;
+  justify-content: space-between;
+
+  > img {
+    cursor: pointer;
+  }
+}
+
+.location {
+  position: absolute;
+  width: 1920px;
+  height: 1080px;
+  top: 0;
+  left: 0;
+
+  background: black;
+
+  > img {
+    position: absolute;
+    cursor: pointer;
+  }
+  .background,
+  video {
+    position: absolute;
+    width: 1920px;
+    height: 1080px;
+  }
+  .desk {
+    position: absolute;
+    width: 1920px;
+    height: 1080px;
+    z-index: 100;
+  }
+}

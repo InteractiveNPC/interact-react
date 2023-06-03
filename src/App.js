@@ -7,7 +7,12 @@ import Tw1 from "./components/Indict/twsister1";
 import Tw2 from "./components/Indict/twosister2";
 import Tw3 from "./components/Indict/twosister3";
 import Mvui from "./components/MoveUI/index";
+
+import Intro from "./components/IntroUI/Intro";
+
 import { getResizeEventListener } from "./services/responsiveFrame";
+
+import Chapter from "./pages/chapter";
 
 class App extends Component {
   render() {
