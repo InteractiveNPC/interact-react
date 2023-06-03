@@ -21,13 +21,13 @@ function Indict(){
                 "name": res.data.name, "item": res.data.index,
                 "court": res.data.court, "script": res.data.script
               })
-      console.log(res.data.item['5'].info)
+      console.log(res.data.item['4'].info) //여기까진 잘 받아짐..
 
     })
     .catch(error => console.log(error))
   }, []);  //json에서 데이터 불러옴
 
-  console.log(data.court)
+  console.log(data.item)
   const [imageOpacity, setImageOpacity] = useState({ 
     check1: 0, check2: 0, check3: 0,
   crimenormal: 1 });

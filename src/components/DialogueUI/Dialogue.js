@@ -7,6 +7,7 @@ import './Dialogue.css';
 function Dialogue(props) {
   const [ show, setShow ] = useState(true);
   const [ home, setHome ] = useState(false);
+  const [ hold, setHold ] = useState(false);
   const [ data, setData ] = useState({"id":1, "scene":0, "flag":0, "index":0, "len":1,
                                       "name": "", "content": "", "image": "", "choice": null});
   var size = {1:[0, 2, 4, 6, 8, 108, 109, 110],
@@ -27,6 +28,7 @@ function Dialogue(props) {
 
   const endCheck = (id, scene) => {
     if (!size[id]) return -1;
+    if (scene == size[id][0]) return size[id][0];
     for(var i=0; i<size[id].length-1; i++) {
       if(size[id][i]<scene && size[id][i+1]>=scene) {
         return size[id][i+1];
@@ -51,6 +53,7 @@ function Dialogue(props) {
         $("#dialogue").off("click").on("click", dialogueHandler);
         setTimeout(function() {
           props.onClose();
+          setHold(false);
         }, 500);
         break
       default:
@@ -64,47 +67,51 @@ function Dialogue(props) {
       clickHandler({"data":{"code":0}});
       return;
     }
-    axios.get('/chapter?id=' + id + "&scene=" + scene + "&flag=" + flag + "&index=" + index)
-    .then(res => {
-      console.log(res);
-      setData({"id": res.data.chapter, "scene": res.data.scene,
-                "flag": res.data.flag, "index": res.data.index,
-                "name": res.data.name, "content": res.data.content,
-                "image": decodeURI(res.data.image), "choice": res.data.choice,
-                "len": res.data.len
-              })
-      if(res.data.chapter == -1) {
-        $("#dialogue").off("click").on("click", {code: -1}, clickHandler);
-      }
-      if(size <= index) {
-        if(res.data.scene == end) {
+    if(hold != true) {
+      axios.get('/chapter?id=' + id + "&scene=" + scene + "&flag=" + flag + "&index=" + index)
+      .then(res => {
+        console.log(res);
+        setData({"id": res.data.chapter, "scene": res.data.scene,
+                  "flag": res.data.flag, "index": res.data.index,
+                  "name": res.data.name, "content": res.data.content,
+                  "image": decodeURI(res.data.image), "choice": res.data.choice,
+                  "len": res.data.len
+                })
+        if(res.data.chapter == -1) {
+          $("#dialogue").off("click").on("click", {code: -1}, clickHandler);
+        }
+        if(size < index && res.data.scene >= end) {
           $("#dialogue").off("click").on("click", {code: 0}, clickHandler);
         }
-      }
-      for(var i=1; i<6; i++) {
-        $(".dialogue_name").removeClass("name"+i);
-      }
-      setTimeout(function() {
-         if(res.data.name == "검사") {
-          $(".dialogue_name").addClass("name1");
-        } else {
-          if(res.data.name.length > 4) {
-              $(".dialogue_name").addClass("name5");
-          } else {
-              console.log(res.data.name.length);
-              $(".dialogue_name").addClass("name" + res.data.name.length);
-          }
+        if(res.data.index == 0 && size+1 >= res.data.len) {
+          $("#dialogue").off("click").on("click", {code: 0}, clickHandler);
+          setHold(true);
         }
-      }, 5);
-      var voice = "image/Investigation/Talk/Sound/dubbing/" + (id==1 ? "FairyNWoodcutter" : "TwoSisters") + "/voice_" + id + "_" + scene + "_" + flag + "_" + index + ".mp3";
-      $.get(voice).done(function() {
-        $("#voice_src").attr("src", voice);
-        $("#voice")[0].pause();
-        $("#voice")[0].load();
-        $("#voice")[0].oncanplaythrough = $("#voice")[0].play();
+        
+        for(var i=1; i<6; i++) {
+          $(".dialogue_name").removeClass("name"+i);
+        }
+        setTimeout(function() {
+           if(res.data.name == "검사") {
+            $(".dialogue_name").addClass("name1");
+          } else {
+            if(res.data.name.length > 4) {
+                $(".dialogue_name").addClass("name5");
+            } else {
+                $(".dialogue_name").addClass("name" + res.data.name.length);
+            }
+          }
+        }, 5);
+        var voice = "image/Investigation/Talk/Sound/dubbing/" + (id==1 ? "FairyNWoodcutter" : "TwoSisters") + "/voice_" + id + "_" + scene + "_" + flag + "_" + index + ".mp3";
+        $.get(voice).done(function() {
+          $("#voice_src").on("load", function() {
+            $("#voice")[0].play();
+          });
+          $("#voice_src").attr("src", voice);
+        })
       })
-    })
-    .catch(error => console.log(error))
+      .catch(error => console.log(error))
+    }
   }
 
   const dialogueHandler = () => {

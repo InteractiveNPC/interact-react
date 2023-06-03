@@ -55,18 +55,17 @@ export default function Find3_2(props) {
         src="/image/evidence/desk_paper.png"
         className="desk"
         onClick={() => {
-          $("div#background").fadeIn({ fadeT });
-          $("div#etc").addClass("display-none");
+          $("div#backgroundS").fadeIn({ fadeT });
           $("img#find").fadeOut({ fadeT });
         }}
       ></img>
 
-      <div id="background" className="display-none App">
+      <div id="backgroundS" className="display-none App">
         <div id="step1">
           <img
             id="findE"
             src="/image/evidence/Certificatepaper.png"
-            className="clue"
+            className="clueA"
             onMouseOver={() => {
               $("img#findE").addClass("find");
             }}
@@ -83,7 +82,7 @@ export default function Find3_2(props) {
           <div id="step1_1">
             <animated.div
               {...bindPaperPos5()}
-              className="obj5"
+              className="objD"
               style={{
                 x: paperPos5.x,
                 y: paperPos5.y,
@@ -93,7 +92,7 @@ export default function Find3_2(props) {
             </animated.div>
             <animated.div
               {...bindPaperPos2()}
-              className="obj2"
+              className="objA"
               style={{
                 x: paperPos2.x,
                 y: paperPos2.y,
@@ -104,7 +103,7 @@ export default function Find3_2(props) {
 
             <animated.div
               {...bindPaperPos4()}
-              className="obj4"
+              className="objC"
               style={{
                 x: paperPos4.x,
                 y: paperPos4.y,
@@ -114,7 +113,7 @@ export default function Find3_2(props) {
             </animated.div>
             <animated.div
               {...bindPaperPos3()}
-              className="obj3"
+              className="objB"
               style={{
                 x: paperPos3.x,
                 y: paperPos3.y,
@@ -128,7 +127,7 @@ export default function Find3_2(props) {
           <img
             src="/image/evidence/Certificatepaper.png"
             id="findE2"
-            className="clue"
+            className="clueA"
             onMouseOver={() => {
               $("img#findE2").addClass("find");
             }}
@@ -150,7 +149,7 @@ export default function Find3_2(props) {
         <div id="btnFirst">
           <img
             src={button}
-            className="btn1"
+            className="btn"
             onMouseOver={() => {
               $("img#hov1").removeClass("display-none");
             }}
@@ -158,9 +157,9 @@ export default function Find3_2(props) {
               $("img#hov1").addClass("display-none");
             }}
           ></img>
-          <img id="hov1" className="display-none btn1" src={hButton}></img>
-          <h2
-            className="button-txt"
+          <img id="hov1" className="display-none btn" src={hButton}></img>
+          <p
+            className="button-txtC"
             onMouseOver={() => {
               $("img#hov1").removeClass("display-none");
             }}
@@ -171,29 +170,8 @@ export default function Find3_2(props) {
           }}
           >
             확인
-          </h2>
+          </p>
           <p className="banner-txt1">{clue}</p>
-        </div>
-      </div>
-      <div
-        id="etc"
-        className="etc"
-        onClick={() => {
-          $("div#pop").removeClass("display-none");
-        }}
-      ></div>
-      <div id="pop" className="display-none">
-        <div
-          onClick={() => {
-            $("div#pop").addClass("display-none");
-          }}
-        >
-          <img src={popup2} className="banner2"></img>
-          <img src={name} className="namePos"></img>
-          <h2 className="banner-txtA">검사</h2>
-          <h2 className="banner-txtB">
-            평범한 병풍이다. 뒤에는 아무것도 없는 듯하다.
-          </h2>
         </div>
       </div>
     </div>

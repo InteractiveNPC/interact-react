@@ -18,6 +18,7 @@ audio { display:none; }
 
 #dialogue_bg {
 	position: absolute;
+	z-index: 1111;
 	width: 1716px;
 	height: 215px;
 	left: 102px;
@@ -53,6 +54,8 @@ audio { display:none; }
 
 .dialogue_name {
 	position: absolute;
+	z-index: 1111;
+	width: 128px;
 	height: 45px;
 	left: 350px;
 	top: 855px;
@@ -74,6 +77,7 @@ audio { display:none; }
 
 .dialogue_content {
 	position: absolute;
+	z-index: 1111;
 	width: 1200px;
 	height: 111px;
 	left: 350px;
