@@ -156,14 +156,14 @@ function Home(props) {
     }
 
     $("#ch1").click(function () {
-      $("#background").fadeOut(2000);
+      $(".background").fadeOut(2000);
       setTimeout(function () {
         setNext(1);
         setShow(false);
       }, 2000);
     });
     $("#ch3").click(function () {
-      $("#background").fadeOut(2000);
+      $(".background").fadeOut(2000);
       setTimeout(function () {
         setNext(3);
         setShow(false);
