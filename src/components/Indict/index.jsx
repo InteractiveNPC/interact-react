@@ -1,6 +1,6 @@
 import React, { useState,  useEffect } from "react";
+import Move from '../../pages/chapter/Document/index'
 
-import Indict2 from './index2'
 import axios from 'axios';
 
 import styles from '../../styles/indict.css';
@@ -69,10 +69,6 @@ function Indict(){
  
 
 
-  const selectComponent = {
-    second: <Indict2 />
-  };
-
   const background = '/image/indict/illust_indictbg.png';
   const CrimeScenebg = '/image/indict/CrimeScene_picture.png';
   const crime01 = '/image/indict/CrimeScene_picture_FairyNWoodcutter01.png';
@@ -106,7 +102,7 @@ function Indict(){
  
   return (
     <div className="Indict">
-
+      <Move chapter={1} />
       <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
       <div className="title" >
         <p>{data.name}</p>
