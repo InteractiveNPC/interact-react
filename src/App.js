@@ -4,7 +4,7 @@ import { getResizeEventListener } from "./services/responsiveFrame";
 
 import Chapter from "./pages/chapter";
 
-import imagePreloader from "services/imagePreloader";
+import imagePreloader from "services/Loading";
 
 class App extends Component {
   render() {
