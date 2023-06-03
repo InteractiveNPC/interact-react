@@ -35,8 +35,10 @@ img, p, h2{
   left: 903px;
   top: 405px;
 }
-
 .shining {
+  filter: drop-shadow(0px 0px 50px rgba(255, 255, 255, 0.8));
+}
+.shining2 {
   filter: drop-shadow(0px 0px 50px rgba(255, 255, 255, 0.8));
 }
 .btn2 {
@@ -129,4 +131,10 @@ img, p, h2{
   line-height: 150%;
   text-align: center;
   color: #DACCA7;
+}
+
+.box {
+  width: 100px;
+  height: 100px;
+  background-color: red;
 }
