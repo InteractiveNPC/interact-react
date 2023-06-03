@@ -125,7 +125,9 @@ export default function Find(props){
                             $('img#hov1').removeClass('display-none');
                         }} onMouseLeave={()=>{
                             $('img#hov1').addClass('display-none');
-                    }} onClick={props.goOffice}>선녀에게 가기</h2>
+                    }} onClick={()=>{
+                        props.goOffice();
+                    }}>선녀에게 가기</h2>
                     <div id='btnSecond'>
                         <img src={button} className="btn2" onMouseOver={()=>{
                                 $('img#hov2').removeClass('display-none');

@@ -35,7 +35,6 @@ export default function Find3(props) {
                     }} onMouseLeave={()=>{
                             $('img#shine').removeClass("shining");
                     }} onClick={()=>{
-                        {props.goOffice}
                         $('img#shine').addClass('shining2');
                         $('img#handle').fadeOut({fadeT});
                         setTimeout(()=>{
@@ -65,6 +64,8 @@ export default function Find3(props) {
                             $('img#hov1').removeClass('display-none');
                         }} onMouseLeave={()=>{
                             $('img#hov1').addClass('display-none');
+                    }} onClick={()=>{
+                        props.goOffice();
                     }}>홍련에게 가기</h2>
                 </div>
                 <div id='btnSecond'>
