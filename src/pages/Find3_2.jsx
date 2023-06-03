@@ -5,9 +5,8 @@ import styles from "../styles/findClue3_2.css";
 import $ from "jquery";
 //fade 적용x버전
 
-export default function Find() {
-  const back =
-    "image/Investigation/Talk/Background/TwoSisters/illust_TwoSisters_police_room.png";
+export default function Find3_2(props) {
+  //const back ="image/Investigation/Talk/Background/TwoSisters/illust_TwoSisters_police_room.png";
   const fadeT = 2000;
 
   const popup = "/image/Investigation/Talk/UI/proof_find_info_background.png";
@@ -52,7 +51,6 @@ export default function Find() {
   return (
     <div>
       <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
-      <img src={back} style={{ position: "absolute" }}></img>
       <img
         id="find"
         src="/image/evidence/desk_paper.png"
@@ -66,7 +64,6 @@ export default function Find() {
 
       <div id="background" className="display-none App">
         <div id="step1">
-          <img src={back}></img>
           <img
             id="findE"
             src="/image/evidence/Certificatepaper.png"
@@ -128,7 +125,6 @@ export default function Find() {
             </animated.div>
           </div>
         </div>
-        <img src={back}></img>
         <div id="step2" className="display-none">
           <img
             src="/image/evidence/Certificatepaper.png"
@@ -141,6 +137,7 @@ export default function Find() {
               $("img#findE2").removeClass("find");
             }}
             onClick={() => {
+              {props.moveDocument}
               axios.get('/meet/3/7');
               $("div#step2").fadeOut({ fadeT });
               setTimeout(() => {
@@ -151,7 +148,6 @@ export default function Find() {
         </div>
       </div>
       <div id="result" className="display-none">
-        <img src={back} style={{ position: "absolute" }}></img>
         <img src={popup} className="banner"></img>
         <div id="btnFirst">
           <img

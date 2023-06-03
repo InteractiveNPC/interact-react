@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 import styles from '../styles/findClue3.css';
 import $ from 'jquery';
 
 const fadeT = 2000;
 
-export default function Find3() {
-    const back = 'image/Investigation/Talk/Background/TwoSisters/illust_TwoSisters_pond.png';
+export default function Find3(props) {
+    //const back = 'image/Investigation/Talk/Background/TwoSisters/illust_TwoSisters_pond.png';
     const pack = '/image/evidence/cloth_Background.png';    //배경아이템
     const pack2 = '/image/evidence/cloth.png'; //비녀x
     const handle = '/image/evidence/cloth_handle.png';
@@ -21,7 +22,6 @@ export default function Find3() {
     return (
         <div>
             <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
-            <img src={back} style={{ position: "absolute"}}></img>
             <img id='pack' src={pack} style={{ position: "absolute", top:"750px", left:"1500px"}} onClick={()=>{
               $('img#pack').fadeOut({fadeT});
               $('div#step1').fadeIn({fadeT});
@@ -35,6 +35,7 @@ export default function Find3() {
                     }} onMouseLeave={()=>{
                             $('img#shine').removeClass("shining");
                     }} onClick={()=>{
+                        {props.goOffice}
                         $('img#shine').addClass('shining2');
                         $('img#handle').fadeOut({fadeT});
                         setTimeout(()=>{
@@ -43,7 +44,7 @@ export default function Find3() {
                         setTimeout(()=>{
                             $('div#step1').fadeOut({fadeT});
                         }, 2500);
-                        //axios.get('/meet/3/8');
+                        axios.get('/meet/2/7');
                         setTimeout(()=>{
                             $('div#step2').fadeIn({fadeT});
                         }, 3500);
