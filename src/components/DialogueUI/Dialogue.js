@@ -49,6 +49,9 @@ function Dialogue(props) {
         }, 2000);
         break;
       case 0:
+        if(event.data.scene == 0) {
+          props.onInit();
+        }
         $("#dialogue_container").fadeOut(500);
         $("#dialogue").off("click").on("click", dialogueHandler);
         setTimeout(function() {
@@ -64,7 +67,7 @@ function Dialogue(props) {
   const chapterHandler = (id, scene, flag, index, size) => {
     var end = endCheck(id, scene)
     if(size == -1) {
-      clickHandler({"data":{"code":0}});
+      clickHandler({"data":{"code":0, scene: scene}});
       return;
     }
     if(hold != true) {
@@ -81,10 +84,10 @@ function Dialogue(props) {
           $("#dialogue").off("click").on("click", {code: -1}, clickHandler);
         }
         if(size < index && res.data.scene >= end) {
-          $("#dialogue").off("click").on("click", {code: 0}, clickHandler);
+          $("#dialogue").off("click").on("click", {code: 0, scene: scene}, clickHandler);
         }
-        if(res.data.index == 0 && size+1 >= res.data.len) {
-          $("#dialogue").off("click").on("click", {code: 0}, clickHandler);
+        if(scene == 0 && res.data.index == 0 && size+1 >= res.data.len) {
+          $("#dialogue").off("click").on("click", {code: 0, scene: scene}, clickHandler);
           setHold(true);
         }
         

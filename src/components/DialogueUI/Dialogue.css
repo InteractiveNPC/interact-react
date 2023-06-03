@@ -55,7 +55,6 @@ audio { display:none; }
 .dialogue_name {
 	position: absolute;
 	z-index: 1111;
-	width: 128px;
 	height: 45px;
 	left: 350px;
 	top: 855px;

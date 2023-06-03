@@ -11,7 +11,7 @@ video {
 	pointer-events: none;
 }
 
-#background {
+.background {
 	background: black;
 }
 

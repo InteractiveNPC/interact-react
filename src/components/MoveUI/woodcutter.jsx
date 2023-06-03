@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { divToImg } from "../../services/propsFormat";
 import Find from "../../pages/Find";
 
@@ -8,13 +9,21 @@ const BackgroundImgBase =
 const fullWebpBase =
   process.env.PUBLIC_URL +
   "/image/investigation/Talk/Source/FairyNWoodcutter/full/full_";
+const halfWebpBase = 
+  process.env.PUBLIC_URL +
+  "/image/investigation/Talk/Source/FairyNWoodcutter/half/half_";
 const setPos = (x, y) => {
   return { style: { left: `${x}px`, top: `${y}px` } };
+};
+const setPosWithIdx = (x, y, idx) => {
+  return { style: { left: `${x}px`, top: `${y}px`, "zIndex": `${idx}` } };
 };
 
 export default [
   // 수사실
-  ({ onTalk }) => {
+  ({ onTalk, hero }) => {
+    const [heroDisabled, setHeroDisabled] = useState(hero);
+    console.log(hero);
     return (
       <div className={styles.location}>
         <video muted autoPlay loop playsInline>
@@ -25,6 +34,16 @@ export default [
             type="video/mp4"
           />
         </video>
+        {heroDisabled ? null : (
+          <img
+            src={halfWebpBase + "Fairy_normal_X_office.webp"}
+            {...setPosWithIdx(0, 0, 1000)}
+            onClick={() => {
+              setHeroDisabled(true);
+              onTalk({ idx: "1", scene: "-1", "flag": "0", index: "0" });
+            }}
+          />
+        )}
         <div
           className={styles.desk}
           {...divToImg(BackgroundImgBase + "illust_FairyNWoodcutter_desk.png")}
