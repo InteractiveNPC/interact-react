@@ -10,7 +10,7 @@ import index_styles from "./style.module.scss";
 
 const img_base = "/image/Investigation/Talk/UI/";
 
-export default ({ moveDocument, displayNote, volume, setVolume }) => {
+export default ({ moveDocument, displayNote, goHome, volume, setVolume }) => {
   if (!volume) {
     [volume, setVolume] = useState([0.5, 0.5, 0.5]); // 임시 volume
   }
@@ -19,7 +19,7 @@ export default ({ moveDocument, displayNote, volume, setVolume }) => {
   const button = [useRef(), useRef(), useRef(), useRef(), useRef()];
 
   const navEvent = [
-    () => alert("홈으로 이동!"),
+    goHome,
     displayNote,
     moveDocument,
     () => {

@@ -5,23 +5,41 @@ import Nav from "../../components/Nav";
 import Investigation from "./Investigation";
 import Document from "../Indict";
 import Ending from "./Ending";
+import Home from "components/HomeUI/Home";
 
-export default ({ chapter, volume, setVolume }) => {
+export default ({ chapter, volume, setVolume, goHome }) => {
   const [process, setProcess] = useState(0);
+  const [home, setHome] = useState(false);
 
   return (
     <>
-      <Nav
-        moveDocument={() => setProcess(1)}
-        displayNote={() => setProcess(2)}
-        volume={volume}
-        setVolume={setVolume}
-      />
-      {process === 0 && (
-        <Investigation chapter={chapter} moveDocument={() => setProcess(1)} />
+      {home ? (
+        <Home />
+      ) : (
+        <>
+          <Nav
+            moveDocument={() => setProcess(1)}
+            displayNote={() => setProcess(2)}
+            goHome={() => setHome(true)}
+            volume={volume}
+            setVolume={setVolume}
+          />
+          {process === 0 && (
+            <Investigation
+              chapter={chapter}
+              moveDocument={() => setProcess(1)}
+            />
+          )}
+          {process === 1 && <Document chapter={chapter} />}
+          {process === 2 && (
+            <Ending
+              chapter={chapter}
+              replay={() => setProcess(0)}
+              goHome={() => setHome(true)}
+            />
+          )}
+        </>
       )}
-      {process === 1 && <Document chapter={chapter} />}
-      {process === 2 && <Ending chapter={chapter} />}
     </>
   );
 };
