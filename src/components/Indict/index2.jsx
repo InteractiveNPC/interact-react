@@ -80,6 +80,8 @@ function Indict(){
   const crimeTitle3 = "죄목3";
   const giso = "기소"
   const bulgiso = "불기소"
+  const next = "/image/indict/paper_make_next_page.png"
+  const pre ="/image/indict/paper_make_prev_page.png"
   const crime1 = "형법 제366조(재물손괴등) 타인의 재물, 문서 또는 전자기록등 특수매체기록을 손괴 또는 은닉 기타 방법으로 기 효용을 해한 자는 3년이하의 징역 또는 700만원 이하의 벌금에 처한다. 임시 텍스트입니다."
   const crime2 = "형법 제366조(재물손괴등) 타인의 재물, 문서 또는 전자기록등 특수매체기록을 손괴 또는 은닉 기타 방법으로 기 효용을 해한 자는 3년이하의 징역 또는 700만원 이하의 벌금에 처한다. 임시 텍스트입니다."
   const crime3 = "형법 제366조(재물손괴등) 타인의 재물, 문서 또는 전자기록등 특수매체기록을 손괴 또는 은닉 기타 방법으로 기 효용을 해한 자는 3년이하의 징역 또는 700만원 이하의 벌금에 처한다. 임시 텍스트입니다."
@@ -187,6 +189,8 @@ function Indict(){
 
       {/* checkbox Event */}
 
+        <img src={next} id="next"></img>
+        <img src={pre} id="pre"></img>
 
         <img src={cloth} id="sister" />
         <img src={sister} id="deer" />

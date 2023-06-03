@@ -3,6 +3,19 @@
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/GyeonggiBatang.woff') format('woff');
 } 
 
+#next {
+    position: absolute;
+    left: 1738px;
+    top: 514px;
+    z-index: 100;
+}
+
+#pre {
+    position: absolute;
+    left: 50px;
+    top: 514px;   
+    z-index: 100;
+}
 
 #background{
     filter: brightness(80%); 

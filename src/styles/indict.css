@@ -5,6 +5,19 @@
     font-style: normal;
 }
 
+#next {
+    position: absolute;
+    left: 1738px;
+    top: 514px;
+    z-index: 100;
+}
+
+#pre {
+    position: absolute;
+    left: 50px;
+    top: 514px;   
+    z-index: 100;
+}
 
 #background{
     filter: brightness(80%); 

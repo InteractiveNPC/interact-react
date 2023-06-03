@@ -18,7 +18,7 @@ class App extends Component {
   render() {
     return (
       <div id="App">
-        <Indict />
+        <Tw3 />
       </div>
     );
   }
