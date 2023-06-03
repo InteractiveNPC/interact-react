@@ -4,6 +4,8 @@ import axios from 'axios';
 import {useDrag} from 'react-use-gesture';
 import styles from '../styles/findClue.css';
 import $ from 'jquery';
+import popup2 from '../components/DialogueUI/ScriptBackground.png';
+import name from '../components/DialogueUI/Namebox_02.png';
 
 export default function Find(props){
     //const back = 'image/Investigation/Talk/background/FairyNWoodcutter/illust_FairyNWoodcutter_Woodcutter_room.png';
@@ -12,8 +14,8 @@ export default function Find(props){
     const popup = '/image/Investigation/Talk/UI/proof_find_info_background.png';
     const button = '/image/Investigation/Talk/UI/proof_find_info_button_normal.png';
     const hButton = '/image/Investigation/Talk/UI/proof_find_info_button_click.png';
-    const popup2 = '/image/Investigation/Talk/UI/ScriptBackground.png';
-    const name = '/image/Investigation/Talk/UI/Namebox_02.png';
+    //const popup2 = '../components/DialogueUI/ScripBackground.png';
+    //const name = '/image/Investigation/Talk/UI/Namebox_02.png';
     const clue = "나무꾼의 방에서 값비싸보이는 비단옷을 획득했습니다.";
     const explain = "수사를 계속하더라도, 수사실로 오면 언제든 선녀에게 비단옷에 대해 물어볼 수 있습니다.";
 
