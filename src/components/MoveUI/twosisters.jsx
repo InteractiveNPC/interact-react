@@ -1,5 +1,8 @@
 import { divToImg } from "../../services/propsFormat";
 
+import Find3 from "pages/Find3";
+import Find3_2 from "pages/Find3_2";
+
 import styles from "./style.module.scss";
 
 const BackgroundImgBase = "/image/investigation/Talk/Background/TwoSisters/";
@@ -65,7 +68,7 @@ export default [
     );
   },
   // 연못
-  ({ onTalk }) => {
+  ({ onTalk, goOffice }) => {
     return (
       <div className={styles.location}>
         <video muted autoPlay loop playsInline>
@@ -76,6 +79,7 @@ export default [
             type="video/mp4"
           />
         </video>
+        <Find3 goOffice={goOffice}/>
         <img
           src={fullWebpBase + "Tiger.webp"}
           {...setPos(594, 284)}
@@ -109,13 +113,13 @@ export default [
     );
   },
   // 관아 안
-  ({ onTalk }) => {
+  ({ onTalk, moveDocument }) => {
     return (
       <div
         className={styles.location}
         {...divToImg(BackgroundImgBase + "illust_TwoSisters_police_room.png")}
       >
-        관아 밖
+        <Find3_2 moveDocument={moveDocument}/>
       </div>
     );
   },

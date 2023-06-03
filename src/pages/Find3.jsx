@@ -65,6 +65,8 @@ export default function Find3(props) {
                             $('img#hov1').removeClass('display-none');
                         }} onMouseLeave={()=>{
                             $('img#hov1').addClass('display-none');
+                    }} onClick={()=>{
+                        props.goOffice();
                     }}>홍련에게 가기</h2>
                 </div>
                 <div id='btnSecond'>

@@ -137,8 +137,7 @@ export default function Find3_2(props) {
               $("img#findE2").removeClass("find");
             }}
             onClick={() => {
-              {props.moveDocument}
-              axios.get('/meet/3/7');
+              //axios.get('/meet/3/7');
               $("div#step2").fadeOut({ fadeT });
               setTimeout(() => {
                 $("div#result").fadeIn({ fadeT });
@@ -168,7 +167,9 @@ export default function Find3_2(props) {
             }}
             onMouseLeave={() => {
               $("img#hov1").addClass("display-none");
-            }}
+            }}  onClick={()=>{
+              props.moveDocument();
+          }}
           >
             확인
           </h2>
