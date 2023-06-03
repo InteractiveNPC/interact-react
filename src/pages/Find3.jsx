@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 import styles from '../styles/findClue3.css';
 import $ from 'jquery';
 
@@ -35,6 +36,7 @@ export default function Find3() {
                     }} onMouseLeave={()=>{
                             $('img#shine').removeClass("shining");
                     }} onClick={()=>{
+                        $('img#shine').addClass('shining2');
                         $('img#handle').fadeOut({fadeT});
                         setTimeout(()=>{
                             $('img#shine').animate({top:'159px', left:'822px'}, 500);
