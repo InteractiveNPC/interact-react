@@ -1,6 +1,4 @@
 import React, { useState,  useEffect } from "react";
-
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import Indict2 from './index2'
 
 import styles from '../../styles/indict2.css';
@@ -63,10 +61,7 @@ function Indict(){
   const crimenormal = '/image/indict/crime_normal.png';
   const checkbox = '/image/indict/checkbox.png'
   const check = '/image/indict/check.png'
-  const gongso1 = '/image/indict/indict01_normal.png'
-  const gongso2 = '/image/indict/indict02_click.png'
-  const gongso2_normal = '/image/indict/indict02_normal.png'
-  const gongso3_normal = 'image/indict/paper_make_normal03.png'
+
   const indict_normal = '/image/indict/indict_normal.png'
   const indict_click = '/image/indict/indict_click.png'
   const crime_click = '/image/indict/crime_click.png'
@@ -80,8 +75,7 @@ function Indict(){
   const crimeTitle3 = "죄목3";
   const giso = "기소"
   const bulgiso = "불기소"
-  const next = "/image/indict/paper_make_next_page.png"
-  const pre ="/image/indict/paper_make_prev_page.png"
+
   const crime1 = "형법 제366조(재물손괴등) 타인의 재물, 문서 또는 전자기록등 특수매체기록을 손괴 또는 은닉 기타 방법으로 기 효용을 해한 자는 3년이하의 징역 또는 700만원 이하의 벌금에 처한다. 임시 텍스트입니다."
   const crime2 = "형법 제366조(재물손괴등) 타인의 재물, 문서 또는 전자기록등 특수매체기록을 손괴 또는 은닉 기타 방법으로 기 효용을 해한 자는 3년이하의 징역 또는 700만원 이하의 벌금에 처한다. 임시 텍스트입니다."
   const crime3 = "형법 제366조(재물손괴등) 타인의 재물, 문서 또는 전자기록등 특수매체기록을 손괴 또는 은닉 기타 방법으로 기 효용을 해한 자는 3년이하의 징역 또는 700만원 이하의 벌금에 처한다. 임시 텍스트입니다."
@@ -90,16 +84,7 @@ function Indict(){
     <div className="Indict">
 
       <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
-      <BrowserRouter>
-        <Routes>
-          <Route path="./index2" component={<Indict2 />} />
-        </Routes>
-          <Link to="./index2">
-            <img src={gongso2}
-            id="gongso2"/></Link>
-      </BrowserRouter>
-      <img src={gongso1}  id="gongso1_normal" />
-      <img src={gongso3_normal}  id="gongso3" />
+
       <div className="title2">
         <p>{title}</p>
       </div>
@@ -189,8 +174,6 @@ function Indict(){
 
       {/* checkbox Event */}
 
-        <img src={next} id="next"></img>
-        <img src={pre} id="pre"></img>
 
         <img src={cloth} id="sister" />
         <img src={sister} id="deer" />
@@ -208,7 +191,9 @@ function Indict(){
         <img src={indict_normal} id = "indict_normal"/>
         <img src={indict_normal} id = "indict_normal2"/>
         <div className="bg">
-          <img src={background} id="background" />
+          <img src={background} id="background" 
+           style={{filter: "brightness(80%)",
+                    zIndex: 1}}/>
         </div>
       </div>
 

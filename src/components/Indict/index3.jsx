@@ -76,10 +76,7 @@ function Indict(){
   const crimenormal = '/image/indict/crime_normal.png';
   const checkbox = '/image/indict/checkbox.png'
   const check = '/image/indict/check.png'
-  const gongso1_normal = '/image/indict/indict01_normal.png'
-  const gongso2 = '/image/indict/indict02_click.png'
-  const gongso2_normal = '/image/indict/indict02_normal.png'
-  const gongso3 = 'image/indict/paper_make_click03.png'
+
   const indict_normal = '/image/indict/indict_normal.png'
   const indict_click = '/image/indict/indict_click.png'
   const crime_click = '/image/indict/crime_click.png'
@@ -91,8 +88,6 @@ function Indict(){
   const crimeTitle1 = "죄목1";
   const crimeTitle2 = "죄목2";
   const crimeTitle3 = "죄목3";
-  const next = "/image/indict/paper_make_next_page.png"
-  const pre ="/image/indict/paper_make_prev_page.png"
   const giso = "기소"
   const bulgiso = "불기소"
   const crime1 = "형법 제366조(재물손괴등) 타인의 재물, 문서 또는 전자기록등 특수매체기록을 손괴 또는 은닉 기타 방법으로 기 효용을 해한 자는 3년이하의 징역 또는 700만원 이하의 벌금에 처한다. 임시 텍스트입니다."
@@ -103,16 +98,7 @@ function Indict(){
     <div className="Indict">
 
       <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
-      <BrowserRouter>
-        <Routes>
-          <Route path="./index2" component={<Indict2 />} />
-        </Routes>
-          <Link to="./index2">
-            <img src={gongso2_normal}  
-            id="gongso2" alt="gongso2"/></Link>
-      </BrowserRouter>
-      <img src={gongso1_normal}  id="gongso1_normal" />
-      <img src={gongso3}  id="gongso3" />
+
       <div className="title" >
         <p>{title}</p>
       </div>
@@ -162,9 +148,6 @@ function Indict(){
 
       {/* checkbox Event */}
 
-      
-     
-      <img src={pre} id="pre"></img>
 
       <div className="imgs">
         <img src={crime01} id="crime03"/>
@@ -228,7 +211,9 @@ function Indict(){
         <img src={indict_normal} id = "indict_normal"/>
         <img src={indict_normal} id = "indict_normal2"/>
         <div className="bg">
-          <img src={background} id="background" />
+          <img src={background} id="background"
+          style={{filter: "brightness(80%)",
+          zIndex: 1}} />
         </div>
       </div>
 
