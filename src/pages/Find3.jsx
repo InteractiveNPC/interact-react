@@ -35,7 +35,6 @@ export default function Find3(props) {
                     }} onMouseLeave={()=>{
                             $('img#shine').removeClass("shining");
                     }} onClick={()=>{
-                        {props.goOffice}
                         $('img#shine').addClass('shining2');
                         $('img#handle').fadeOut({fadeT});
                         setTimeout(()=>{
