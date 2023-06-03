@@ -16,10 +16,7 @@
     top: 514px;   
     z-index: 100;
 }
-#background{
-    filter: brightness(80%); 
-    z-index: 1;
-}
+
 
 #book {
     position: absolute;

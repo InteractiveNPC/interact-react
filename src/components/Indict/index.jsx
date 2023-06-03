@@ -1,6 +1,5 @@
 import React, { useState,  useEffect } from "react";
 
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import Indict2 from './index2'
 import axios from 'axios';
 
@@ -16,12 +15,15 @@ function Indict(){
   useEffect(() => {
     axios.get('/document?chapter=' + chapter + '&scene=35')
     .then(res => {
+      const itemData = res.data.item;
       console.log(res.data)
-      setData({"id": res.data.chapter, "scene": res.data.scene,
-                "name": res.data.name, "item": res.data.index,
+      setData({"chapter": res.data.chapter, "scene": res.data.scene,
+                "name": res.data.name, "item": itemData,
                 "court": res.data.court, "script": res.data.script
               })
-      console.log(res.data.item['4'].info) //여기까진 잘 받아짐..
+      console.log(data.item) //여기까진 잘 받아짐..
+      
+      
 
     })
     .catch(error => console.log(error))
@@ -79,16 +81,13 @@ function Indict(){
   const mom = '/image/indict/proof_mom.png'
   const cloth = '/image/indict/proof_cloth.png'
   const book = '/image/indict/book.png';
-  const next = '/image/indict/paper_make_next_page.png'
+
   const proofpic = '/image/indict/proof_picture.png';
   const prooftextimg = '/image/indict/proof_text.png';
   const crimenormal = '/image/indict/crime_normal.png';
   const checkbox = '/image/indict/checkbox.png'
   const check = '/image/indict/check.png'
-  const gongso1 = '/image/indict/indict01_click.png'
-  const gongso2 = '/image/indict/indict02_click.png'
-  const gongso2_normal = '/image/indict/indict02_normal.png'
-  const gongso3_normal = 'image/indict/paper_make_normal03.png'
+
   const indict_normal = '/image/indict/indict_normal.png'
   const indict_click = '/image/indict/indict_click.png'
   const crime_click = '/image/indict/crime_click.png'
@@ -109,24 +108,14 @@ function Indict(){
     <div className="Indict">
 
       <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
-      <BrowserRouter>
-        <Routes>
-          <Route path="./index2" component={<Indict2 />} />
-        </Routes>
-          <Link to="./index2">
-            <img src={gongso2_normal}  
-            id="gongso2" alt="gongso2"/></Link>
-      </BrowserRouter>
-      <img src={gongso1}  id="gongso1" />
-      <img src={gongso3_normal}  id="gongso3" />
       <div className="title" >
         <p>{data.name}</p>
       </div>
       <div className="proof1_0">
-        <p>{proof1}</p>
+        <p>안녕하세요</p>
       </div>
       <div className="proof2">
-        <p>{data.info}</p>
+        <p>ㅇㅇㅇㅇㅇㅇ</p>
       </div>
 
       <div className="sageonseosul" dangerouslySetInnerHTML={ {__html: data.script} }>
@@ -210,8 +199,6 @@ function Indict(){
 
       {/* checkbox Event */}
 
-      <img src={next} id="next2"></img>
-
 
         <img src={sister} id="sister" />
         <img src={deer} id="deer" />
@@ -228,7 +215,9 @@ function Indict(){
         <img src={indict_normal} id = "indict_normal"/>
         <img src={indict_normal} id = "indict_normal2"/>
         <div className="bg">
-          <img src={background} id="background" />
+          <img src={background} id="background" 
+          style={{filter: "brightness(80%)",
+                  zIndex: 1}} />
         </div>
       </div>
 
