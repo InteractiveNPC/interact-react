@@ -3,7 +3,6 @@ import axios from 'axios';
 import { useDrag } from "react-use-gesture";
 import styles from "../styles/findClue3_2.css";
 import $ from "jquery";
-//fade 적용x버전
 
 export default function Find3_2(props) {
   //const back ="image/Investigation/Talk/Background/TwoSisters/illust_TwoSisters_police_room.png";
