@@ -4,6 +4,8 @@ import { getResizeEventListener } from "./services/responsiveFrame";
 
 import Chapter from "./pages/chapter";
 
+import imagePreloader from "services/imagePreloader";
+
 class App extends Component {
   render() {
     return (
@@ -12,11 +14,15 @@ class App extends Component {
       </div>
     );
   }
+
   componentDidMount() {
     const FixRatio = getResizeEventListener(1920, 1080);
     window.onresize = FixRatio;
     FixRatio();
+
+    imagePreloader();
   }
+  
 }
 
 export default App;
