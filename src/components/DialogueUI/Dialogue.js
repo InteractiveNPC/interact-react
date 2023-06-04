@@ -10,6 +10,8 @@ function Dialogue(props) {
   const [ show, setShow ] = useState(true);
   const [ home, setHome ] = useState(false);
   const [ hold, setHold ] = useState(false);
+  const [ init1, setInit1 ] = useState(false);
+  const [ init3, setInit3 ] = useState(false);
   const [ voice, setVoice ] = useState("");
   const [ data, setData ] = useState({"id":1, "scene":0, "flag":0, "index":0, "len":1,
                                       "name": "", "content": "", "image": "", "choice": null});
@@ -53,7 +55,18 @@ function Dialogue(props) {
         break;
       case 0:
         if(event.data.scene == 0) {
-          props.onInit();
+          console.log(init);
+          if(data.id == 1) {
+            if(init1 == false) {
+              setInit1(true);
+              props.onInit();
+            }
+          } else if(data.id == 3) {
+            if(init3 == false) {
+              setInit3(true);
+              props.onInit();
+            }
+          }
         }
         $("#dialogue_container").fadeOut(500);
         $("#dialogue").off("click").on("click", dialogueHandler);
@@ -139,9 +152,14 @@ function Dialogue(props) {
     Object.values(data.choice).map((val, key) => { s++; });
     var i = idx === 0 ? 1 : 0;
     var l = idx === s-1 ? -1 : data.len;
+    var s = data.scene;
+    if(data.scene === -1) {
+      s = 0;
+      i = 0;
+    }
     setTimeout(function() {
       $(btn).css({"background": 'url("image/Investigation/Talk/UI/UI_optionbox_normal.png")'});
-      chapterHandler(data.id, data.scene, idx, i, l);
+      chapterHandler(data.id, s, idx, i, l);
     }, 500);
   }
 

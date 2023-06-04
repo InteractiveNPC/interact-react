@@ -18,7 +18,7 @@ const setPos = (x, y) => {
   return { style: { left: `${x}px`, top: `${y}px` } };
 };
 const setPosWithIdx = (x, y, idx) => {
-  return { style: { left: `${x}px`, top: `${y}px`, "zIndex": `${idx}` } };
+  return { style: { left: `${x}px`, top: `${y}px`, "zIndex": `${idx}`, "position": "absolute" } };
 };
 
 const setZidx = (idx) => {
@@ -46,7 +46,7 @@ export default [
           <div>
           <img
             src={halfWebpBase + "Fairy_normal_X_office.webp"}
-            {...setPosWithIdx(0, 0, 1111)}
+            {...setPosWithIdx(0, 0, 1000)}
             onClick={() => {
               onTalk({ idx: "1", scene: "-1", "flag": "0", index: "0" });
               
