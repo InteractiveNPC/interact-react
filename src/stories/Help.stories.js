@@ -1,7 +1,7 @@
 import React from "react";
 import { getWithFullscreen } from "../services/storybookHelper";
 
-import Help from "../pages/Help";
+import Help from "../pages/Temp";
 
 export default {
   title: "Help",
