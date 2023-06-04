@@ -7,7 +7,9 @@ import Document from "./Document";
 import Ending from "./Ending";
 import Home from "components/HomeUI/Home";
 
-export default ({ chapter, volume, setVolume, goHome }) => {
+import { resetChapterSession } from "./Ending/hook";
+
+export default ({ chapter, volume, setVolume }) => {
   const [process, setProcess] = useState(0);
 
   return (
@@ -19,7 +21,10 @@ export default ({ chapter, volume, setVolume, goHome }) => {
           <Nav
             moveDocument={() => setProcess(1)}
             displayNote={() => setProcess(2)}
-            goHome={() => setProcess(-1)}
+            goHome={async () => {
+              await resetChapterSession(chapter);
+              setProcess(-1);
+            }}
             volume={volume}
             setVolume={setVolume}
           />
@@ -33,8 +38,14 @@ export default ({ chapter, volume, setVolume, goHome }) => {
           {process === 2 && (
             <Ending
               chapter={chapter}
-              replay={() => setProcess(0)}
-              goHome={() => setProcess(-1)}
+              replay={async () => {
+                await resetChapterSession(chapter);
+                setProcess(0);
+              }}
+              goHome={async () => {
+                await resetChapterSession(chapter);
+                setProcess(-1);
+              }}
             />
           )}
         </>
