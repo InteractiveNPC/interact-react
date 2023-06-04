@@ -1,7 +1,7 @@
 import styles from '../styles/info.css';
 import $ from 'jquery';
 
-export default function Find(props){
+export default function Help(props){
     //const back = 'image/Investigation/Talk/Background/FairyNWoodcutter/illust_FairyNWoodcutter_office_back.png';
     const fadeT = 2000;
 
@@ -17,15 +17,15 @@ export default function Find(props){
     return (
         <div>
             <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
-            <div id='start'>
-                <div id='info'></div>
+            <div id='startH'>
+                <div id='infoH'></div>
                 <img src={btn} className='close' onClick={()=>{
-                    $('div#start').fadeOut({fadeT});
+                    $('div#startH').fadeOut({fadeT});
                     setTimeout(()=>{
                         $('div#step1').fadeIn({fadeT});
                     }, 1000);
                 }}></img>
-                <p className='text0'>선녀의 원통함을 풀어주기 위한 수사를 진행하세요.</p>
+                <p className='textH0'>선녀의 원통함을 풀어주기 위한 수사를 진행하세요.</p>
             </div>
             <div id='step1' className='display-none' onClick={()=>{
                 $('div#step1').fadeOut({fadeT});

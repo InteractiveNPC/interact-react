@@ -107,6 +107,7 @@ function Dialogue(props) {
           }
         }, 5);
         var voice_src = "image/Investigation/Talk/Sound/dubbing/" + (id==1 ? "FairyNWoodcutter" : "TwoSisters") + "/voice_" + id + "_" + scene + "_" + flag + "_" + index + ".mp3";
+      
         var voice_audio = '<audio id="voice" autoplay>' + 
           '<source id="voice_src" src="' + voice_src + '" type="audio/mp3"/>' +
           '</audio>';

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { divToImg } from "../../services/propsFormat";
 import Find from "../../pages/Find";
+import Bhelp from '../../pages/Help';
 
 import styles from "./style.module.scss";
 
@@ -23,6 +24,7 @@ export default [
   // 수사실
   ({ onTalk, hero }) => {
     const [heroDisabled, setHeroDisabled] = useState(hero);
+    const [ bHelpDisabled, setbHelpDisabled ] = useState(false);
     console.log(hero);
     return (
       <div className={styles.location}>
@@ -48,6 +50,7 @@ export default [
           className={styles.desk}
           {...divToImg(BackgroundImgBase + "illust_FairyNWoodcutter_desk.png")}
         />
+        <Bhelp isActive={bHelpDisabled} setActive={setbHelpDisabled}/>
       </div>
     );
   },
