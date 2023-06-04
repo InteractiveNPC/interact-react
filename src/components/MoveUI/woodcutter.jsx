@@ -1,5 +1,7 @@
-import { divToImg } from "services/propsFormat";
-import Find from "pages/Find";
+import { useState } from "react";
+import { divToImg } from "../../services/propsFormat";
+import Find from "../../pages/Find";
+import Bhelp from '../../pages/Help';
 
 import styles from "./style.module.scss";
 
@@ -8,35 +10,62 @@ const BackgroundImgBase =
 const fullWebpBase =
   process.env.PUBLIC_URL +
   "/image/investigation/Talk/Source/FairyNWoodcutter/full/full_";
+const halfWebpBase = 
+  process.env.PUBLIC_URL +
+  "/image/investigation/Talk/Source/FairyNWoodcutter/half/half_";
 const setPos = (x, y) => {
   return { style: { left: `${x}px`, top: `${y}px` } };
+};
+const setPosWithIdx = (x, y, idx) => {
+  return { style: { left: `${x}px`, top: `${y}px`, "zIndex": `${idx}` } };
 };
 
 export default [
   // 수사실
-  ({ onTalk }) => {
+  ({ onTalk, hero }) => {
+    const [heroDisabled, setHeroDisabled] = useState(hero);
+    const [ bHelpDisabled, setbHelpDisabled ] = useState(false);
+    console.log(hero);
     return (
       <div className={styles.location}>
-        <div
-          className={styles.background}
-          {...divToImg(
-            BackgroundImgBase + "illust_FairyNWoodcutter_office_back.png"
-          )}
-        />
+        <video muted autoPlay loop playsInline>
+          <source
+            src={`${
+              process.env.PUBLIC_URL + BackgroundImgBase
+            }illust_FairyNWoodcutter_office_back.mp4`}
+            type="video/mp4"
+          />
+        </video>
+        {heroDisabled ? null : (
+          <img
+            src={halfWebpBase + "Fairy_normal_X_office.webp"}
+            {...setPosWithIdx(0, 0, 1000)}
+            onClick={() => {
+              setHeroDisabled(true);
+              onTalk({ idx: "1", scene: "-1", "flag": "0", index: "0" });
+            }}
+          />
+        )}
         <div
           className={styles.desk}
           {...divToImg(BackgroundImgBase + "illust_FairyNWoodcutter_desk.png")}
         />
+        <Bhelp isActive={bHelpDisabled} setActive={setbHelpDisabled}/>
       </div>
     );
   },
   // 나무꾼의 집
   ({ onTalk }) => {
     return (
-      <div
-        className={styles.location}
-        {...divToImg(BackgroundImgBase + "FairyNWoodcutter_House.png")}
-      >
+      <div className={styles.location}>
+        <video muted autoPlay loop playsInline>
+          <source
+            src={`${
+              process.env.PUBLIC_URL + BackgroundImgBase
+            }FairyNWoodcutter_House.mp4`}
+            type="video/mp4"
+          />
+        </video>
         <img
           src={fullWebpBase + "Woodcutter.webp"}
           {...setPos(468, 562)}
@@ -56,15 +85,26 @@ export default [
   },
   // 나무꾼의 방 (증거 찾기)
   ({ onTalk, goOffice }) => {
-    return <Find goOffice={goOffice} />;
+    return (
+      <div className={styles.location}
+        {...divToImg(BackgroundImgBase + "illust_FairyNWoodcutter_Woodcutter_room.png")}
+        >
+        <Find goOffice={goOffice} />
+      </div>
+    );
   },
   // 연못
   ({ onTalk }) => {
     return (
-      <div
-        className={styles.location}
-        {...divToImg(BackgroundImgBase + "illust_FairyNWoodcutter_pond.png")}
-      >
+      <div className={styles.location}>
+        <video muted autoPlay loop playsInline>
+          <source
+            src={`${
+              process.env.PUBLIC_URL + BackgroundImgBase
+            }illust_FairyNWoodcutter_pond.mp4`}
+            type="video/mp4"
+          />
+        </video>
         <img
           src={fullWebpBase + "Deer.webp"}
           {...setPos(1190, 539)}
@@ -78,10 +118,15 @@ export default [
   // 천계
   ({ onTalk }) => {
     return (
-      <div
-        className={styles.location}
-        {...divToImg(BackgroundImgBase + "illust_FairyNWoodcutter_Heaven.png")}
-      >
+      <div className={styles.location}>
+        <video muted autoPlay loop playsInline>
+          <source
+            src={`${
+              process.env.PUBLIC_URL + BackgroundImgBase
+            }illust_FairyNWoodcutter_Heaven.mp4`}
+            type="video/mp4"
+          />
+        </video>
         <img
           src={fullWebpBase + "Fairy_Sister.webp"}
           {...setPos(744, 493)}

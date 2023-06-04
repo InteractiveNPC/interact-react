@@ -1,25 +1,44 @@
 import { useState } from "react";
 
-import Nav from "components/Nav";
+import Nav from "../../components/Nav";
 
 import Investigation from "./Investigation";
-import Document from "../Indict";
+import Document from "./Document";
 import Ending from "./Ending";
+import Home from "components/HomeUI/Home";
 
-export default ({ chapter }) => {
+export default ({ chapter, volume, setVolume, goHome }) => {
   const [process, setProcess] = useState(0);
 
   return (
     <>
-      <Nav
-        moveDocument={() => setProcess(1)}
-        displayNote={() => setProcess(2)}
-      />
-      {process === 0 && (
-        <Investigation chapter={chapter} moveDocument={() => setProcess(1)} />
+      {process === -1 ? (
+        <Home />
+      ) : (
+        <>
+          <Nav
+            moveDocument={() => setProcess(1)}
+            displayNote={() => setProcess(2)}
+            goHome={() => setProcess(-1)}
+            volume={volume}
+            setVolume={setVolume}
+          />
+          {process === 0 && (
+            <Investigation
+              chapter={chapter}
+              moveDocument={() => setProcess(1)}
+            />
+          )}
+          {process === 1 && <Document chapter={chapter} />}
+          {process === 2 && (
+            <Ending
+              chapter={chapter}
+              replay={() => setProcess(0)}
+              goHome={() => setProcess(-1)}
+            />
+          )}
+        </>
       )}
-      {process === 1 && <Document chapter={chapter} />}
-      {process === 2 && <Ending chapter={chapter} />}
     </>
   );
 };

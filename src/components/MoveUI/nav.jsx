@@ -2,7 +2,7 @@ import { useState, useRef, useEffect } from "react";
 import anime from "animejs/lib/anime.es.js";
 
 import styles from "./style.module.scss";
-import { divToImg } from "services/propsFormat";
+import { divToImg } from "../../services/propsFormat";
 import { setButtonEvent } from "./animation";
 
 const img_base = "/image/Investigation/Talk/UI/";

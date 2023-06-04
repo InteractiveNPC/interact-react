@@ -1,108 +1,81 @@
-.help {
-  z-index: 1000;
+.window {
   position: absolute;
-  width: 1000px;
-  height: 650px;
-  left: 460px;
-  top: 215px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1500;
 
-  background: #aeaeae;
-  border-radius: 15px;
-}
-.title {
-  position: absolute;
-  left: 51px;
-  top: 67px;
-  height: 29px;
-  font-weight: 700;
-  font-size: 24px;
-  line-height: 29px;
+  width: 1309px;
+  height: 755px;
 
-  display: flex;
-}
-.icon {
-  width: 25px;
-  height: 25px;
-  margin-right: 10px;
-}
-.nav {
-  position: absolute;
-  top: 129px;
-  left: 51px;
-}
-.nav > div {
-  width: 135px;
-  height: 37px;
-  border: 2px solid #e1e1e1;
-  border-radius: 20px;
+  > .nav {
+    position: absolute;
+    top: 167px;
+    left: 60px;
 
-  font-weight: 400;
-  font-size: 24px;
-  line-height: 37px;
+    width: 97px;
+    height: 291px;
 
-  text-align: center;
+    font-family: "Pretendard";
+    font-weight: 500;
+    font-size: 20px;
+    color: #b4a898;
 
-  margin: 0px 0px 25px 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 
-  cursor: pointer;
-}
-.nav > .active {
-  background: #e1e1e1;
-  border-radius: 20px;
-}
-.line {
-  position: absolute;
-  width: 0px;
-  height: 549px;
-  left: 228px;
-  top: 58px;
+    > * {
+      cursor: pointer;
+    }
 
-  border: 1px solid #000000;
-}
-.video {
-  position: absolute;
-  top: 129px;
-  right: 107px;
-}
-.arrow {
-  position: absolute;
-  width: 681px;
-  height: 54px;
-  left: 270px;
-  top: 269px;
-}
-.left,
-.right {
-  position: absolute;
-  width: 24px;
-  height: 50px;
+    > .selected {
+      position: relative;
+      color: #2d261c;
+      cursor: default;
+      > img {
+        position: absolute;
+        left: 50%;
+        bottom: -10px;
+        transform: translate(-50%, -50%);
+      }
+    }
+  }
 
-  cursor: pointer;
-}
-.left {
-  left: 0px;
-}
-.right {
-  width: 32px;
-  right: 0px;
-}
-.info {
-  position: absolute;
+  > .content {
+    position: absolute;
+    top: 66px;
+    right: 123px;
 
-  height: 29px;
-  left: 520px;
-  top: 525px;
+    width: 832px;
 
-  font-weight: 400;
-  font-size: 24px;
-  line-height: 29px;
-}
-.x {
-  position: absolute;
-  width: 27.5px;
-  height: 27.5px;
-  top: 40px;
-  right: 36.5px;
+    > .title {
+      font-family: "GyeonggiBatang";
+      font-style: normal;
+      font-weight: 700;
+      font-size: 24px;
+      line-height: 24px;
+      color: #000000;
+    }
+    > img {
+      margin: 27px 0;
+    }
+    > .contentText {
+      font-family: "Pretendard";
+      font-style: normal;
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 150%;
+      color: #000000;
+    }
+  }
+  .close {
+    position: absolute;
+    width: 23px;
+    height: 23px;
+    top: 29px;
+    right: 32px;
 
-  cursor: pointer;
+    cursor: pointer;
+  }
 }

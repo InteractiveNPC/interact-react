@@ -1,22 +1,45 @@
-import { divToImg } from "services/propsFormat";
+import { useState } from "react";
+import { divToImg } from "../../services/propsFormat";
+
+import Find3 from "pages/Find3";
+import Find3_2 from "pages/Find3_2";
 
 import styles from "./style.module.scss";
 
 const BackgroundImgBase = "/image/investigation/Talk/Background/TwoSisters/";
 const fullWebpBase = "/image/investigation/Talk/Source/TwoSisters/full/full_";
+const halfWebpBase = "/image/investigation/Talk/Source/TwoSisters/half/half_";
 const setPos = (x, y) => {
   return { style: { left: `${x}px`, top: `${y}px` } };
+};
+const setPosWithIdx = (x, y, idx) => {
+  return { style: { left: `${x}px`, top: `${y}px`, "zIndex": `${idx}` } };
 };
 
 export default [
   // 수사실
-  ({ onTalk }) => {
+  ({ onTalk, hero }) => {
+    const [heroDisabled, setHeroDisabled] = useState(hero);
     return (
       <div className={styles.location}>
-        <div
-          className={styles.background}
-          {...divToImg(BackgroundImgBase + "illust_TwoSisters_office_back.png")}
-        />
+        <video muted autoPlay loop playsInline>
+          <source
+            src={`${
+              process.env.PUBLIC_URL + BackgroundImgBase
+            }illust_TwoSisters_office_back.mp4`}
+            type="video/mp4"
+          />
+        </video>
+        {heroDisabled ? null : (
+          <img
+            src={halfWebpBase + "Hongryeon_normal_X_office.webp"}
+            {...setPosWithIdx(0, 0, 1000)}
+            onClick={() => {
+              setHeroDisabled(true);
+              onTalk({ idx: "1", scene: "-1", "flag": "0", index: "0" });
+            }}
+          />
+        )}
         <div
           className={styles.desk}
           {...divToImg(BackgroundImgBase + "illust_TwoSisters_desk.png")}
@@ -27,12 +50,15 @@ export default [
   // 장화홍련의 집
   ({ onTalk }) => {
     return (
-      <div
-        className={styles.location}
-        {...divToImg(
-          BackgroundImgBase + "illust_TwoSisters_TwoSisters_home.png"
-        )}
-      >
+      <div className={styles.location}>
+        <video muted autoPlay loop playsInline>
+          <source
+            src={`${
+              process.env.PUBLIC_URL + BackgroundImgBase
+            }illust_TwoSisters_TwoSisters_home.mp4`}
+            type="video/mp4"
+          />
+        </video>
         <img
           src={fullWebpBase + "Mrs.Heo.webp"}
           {...setPos(645, 607)}
@@ -58,31 +84,44 @@ export default [
     );
   },
   // 연못
-  ({ onTalk }) => {
+  ({ onTalk, goOffice }) => {
+    const [ disabled, setDisabled ] = useState(false);
+
     return (
-      <div
-        className={styles.location}
-        {...divToImg(BackgroundImgBase + "illust_TwoSisters_pond.png")}
-      >
+      <div className={styles.location}>
+        <video muted autoPlay loop playsInline>
+          <source
+            src={`${
+              process.env.PUBLIC_URL + BackgroundImgBase
+            }illust_TwoSisters_pond.mp4`}
+            type="video/mp4"
+          />
+        </video>
         <img
           src={fullWebpBase + "Tiger.webp"}
           {...setPos(594, 284)}
           onClick={() => {
-            onTalk({ idx: "3", scene: "7", flag: "0", index: "0" });
+            if(!disabled) {
+              onTalk({ idx: "3", scene: "7", flag: "0", index: "0" });
+            }
           }}
         />
+        <Find3 goOffice={goOffice} setActive={setDisabled}/>
       </div>
     );
   },
   // 관아 밖
   ({ onTalk }) => {
     return (
-      <div
-        className={styles.location}
-        {...divToImg(
-          BackgroundImgBase + "illust_TwoSisters_police_outside.png"
-        )}
-      >
+      <div className={styles.location}>
+        <video muted autoPlay loop playsInline>
+          <source
+            src={`${
+              process.env.PUBLIC_URL + BackgroundImgBase
+            }illust_TwoSisters_police_outside.mp4`}
+            type="video/mp4"
+          />
+        </video>
         <img
           src={fullWebpBase + "Maid.webp"}
           {...setPos(720, 620)}
@@ -94,13 +133,13 @@ export default [
     );
   },
   // 관아 안
-  ({ onTalk }) => {
+  ({ onTalk, moveDocument }) => {
     return (
       <div
         className={styles.location}
         {...divToImg(BackgroundImgBase + "illust_TwoSisters_police_room.png")}
       >
-        관아 밖
+        <Find3_2 moveDocument={moveDocument}/>
       </div>
     );
   },

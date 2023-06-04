@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 
-import { divToImg } from "services/propsFormat";
+import { divToImg } from "../../services/propsFormat";
 
 import Help from "./Help";
 import Setting from "./Setting";
@@ -10,16 +10,24 @@ import index_styles from "./style.module.scss";
 
 const img_base = "/image/Investigation/Talk/UI/";
 
-export default ({ moveDocument, displayNote }) => {
+export default ({ moveDocument, displayNote, goHome, volume, setVolume }) => {
+  if (!volume) {
+    [volume, setVolume] = useState([0.5, 0.5, 0.5]); // 임시 volume
+  }
+
   const [window, setWindow] = useState(null);
   const button = [useRef(), useRef(), useRef(), useRef(), useRef()];
 
   const navEvent = [
-    () => alert("홈으로 이동!"),
+    goHome,
     displayNote,
     moveDocument,
-    () => setWindow("help"),
-    () => setWindow("setting"),
+    () => {
+      window === "help" ? setWindow(null) : setWindow("help");
+    },
+    () => {
+      window === "setting" ? setWindow(null) : setWindow("setting");
+    },
   ];
 
   useEffect(() => {
@@ -45,7 +53,13 @@ export default ({ moveDocument, displayNote }) => {
         <div ref={button[3]} />
       </div>
       {window === "help" && <Help onClose={() => setWindow(null)} />}
-      {window === "setting" && <Setting closeEvent={() => setWindow(null)} />}
+      {window === "setting" && (
+        <Setting
+          volume={volume}
+          setVolume={setVolume}
+          onClose={() => setWindow(null)}
+        />
+      )}
     </>
   );
 };

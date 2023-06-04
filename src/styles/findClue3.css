@@ -1,35 +1,52 @@
 .display-none{
-    display: none;
+  display: none;
 }
 
 .active {
-    position: absolute;
-    display: block;
+  position: absolute;
+  display: block;
 }
 
 img, p, h2{
-    -webkit-user-drag: none;
-    user-select:none;
+  -webkit-user-drag: none;
+  user-select:none;
 }
 
-.fade-in {
-    opacity: 1;
-    animation: fadeIn ease-in-out 1s;
-  }
-  
-  .fade-out {
-    opacity: 0;
-    animation: fadeOut ease-in-out 1s;
-  }
+.bigPack {
+position: absolute;
+width: 617.14px;
+height: 485.22px;
+left: 651px;
+top: 324.78px;
+}
+
+.hairPin {
+position: absolute;
+width: 358px;
+height: 215px;
+left: 822px;
+top: 325px;
+}
+
+.handleC {
+position: absolute;
+width: 103px;
+height: 117px;
+left: 903px;
+top: 405px;
+}
 .shining {
-    filter: brightness(2);
+filter: drop-shadow(0px 0px 50px rgba(255, 255, 255, 0.8));
+}
+.shining2 {
+filter: drop-shadow(0px 0px 50px rgba(255, 255, 255, 0.8));
 }
 .btn2 {
-  position: absolute;
-  width: 340px;
-  height: 60px;
-  left: 1025px;
-  top: 579px;
+position: absolute;
+width: 340px;
+height: 60px;
+left: 1025px;
+top: 579px;
 }
 .btn1 {
   position: absolute;
@@ -45,73 +62,73 @@ img, p, h2{
   height: 29px;
   left: 661px;
   top: 595px;
-
+  
   font-family: 'Pretendard';
   font-style: normal;
   font-weight: 700;
   font-size: 24px;
   line-height: 29px;
   /* identical to box height */
-
+  
   text-align: center;
-
+  
   color: #DACCA7;
 }
 .button-txt2{
-  position: absolute;
-  width: 140px;
-  height: 29px;
-  left: 1130px;
-  top: 595px;
+position: absolute;
+width: 140px;
+height: 29px;
+left: 1130px;
+top: 595px;
 
-  font-family: 'Pretendard';
-  font-style: normal;
-  font-weight: 700;
-  font-size: 24px;
-  line-height: 29px;
-  /* identical to box height */
+font-family: 'Pretendard';
+font-style: normal;
+font-weight: 700;
+font-size: 24px;
+line-height: 29px;
+/* identical to box height */
 
-  text-align: center;
+text-align: center;
 
-  color: #DACCA7;
+color: #DACCA7;
 }
 .banner {
-  position: absolute;
-  width: 1000px;
-  height: 315px;
-  left: 460px;
-  top: 382px;
+position: absolute;
+width: 1000px;
+height: 315px;
+left: 460px;
+top: 382px;
 }
 .banner-txt1 {
-  position: absolute;
-  width: 506px;
-  height: 36px;
-  left: 706px;
-  top: 468px;
+position: absolute;
+width: 530px;
+height: 36px;
+left: 706px;
+top: 468px;
 
-  font-family: 'Pretendard';
-  font-style: normal;
-  font-weight: 700;
-  font-size: 24px;
-  line-height: 150%;
-  /* identical to box height, or 36px */
+font-family: 'Pretendard';
+font-style: normal;
+font-weight: 700;
+font-size: 24px;
+line-height: 150%;
+/* identical to box height, or 36px */
 
-  text-align: center;
+text-align: center;
 
-  color: #DACCA7;
+color: #DACCA7;
 }
 .banner-txt2 {
-  position: absolute;
-  width: 626px;
-  height: 30px;
-  left: 645.56px;
-  top: 508px;
+position: absolute;
+width: 700px;
+height: 30px;
+left: 645.56px;
+top: 508px;
 
-  font-family: 'Pretendard';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 20px;
-  line-height: 150%;
-  text-align: center;
-  color: #DACCA7;
+font-family: 'Pretendard';
+font-style: normal;
+font-weight: 400;
+font-size: 20px;
+line-height: 150%;
+text-align: center;
+color: #DACCA7;
 }

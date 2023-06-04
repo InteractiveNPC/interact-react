@@ -1,9 +1,9 @@
-div#background, div#pop{
+div#backgroundS, div#pop{
     position: absolute;
     top: 0%;
 }
 
-#pop, #background, #step1, #step2, #result{
+#pop, #backgroundS, #step1, #step2, #result{
     width:100%;
     height: 100%;
 }
@@ -47,8 +47,13 @@ div#background, div#pop{
 
 .clue {
     position: absolute;
-    top: 300px;
-    left: 750px;
+    width: 534px;
+    height: 409px;
+    left: 785px;
+    top: 356px;
+}
+.shining {
+    filter: drop-shadow(0px 0px 50px rgba(255, 255, 255, 0.8));
 }
 .btn2 {
     position: absolute;
@@ -128,7 +133,7 @@ div#background, div#pop{
 }
 .banner-txt2 {
     position: absolute;
-    width: 626px;
+    width: 700px;
     height: 30px;
     left: 645.56px;
     top: 508px;

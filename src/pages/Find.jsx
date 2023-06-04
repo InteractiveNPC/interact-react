@@ -1,23 +1,25 @@
 
 import {useSpring, animated} from 'react-spring';
+import axios from 'axios';
 import {useDrag} from 'react-use-gesture';
 import styles from '../styles/findClue.css';
 import $ from 'jquery';
-//fade 적용x버전
+import popup2 from '../components/DialogueUI/ScriptBackground.png';
+import name from '../components/DialogueUI/Namebox_02.png';
 
-export default function Find(){
-    const back = 'image/Investigation/Talk/Background/FairyNWoodcutter/illust_FairyNWoodcutter_Woodcutter_room.png';
+export default function Find(props){
+    //const back = 'image/Investigation/Talk/background/FairyNWoodcutter/illust_FairyNWoodcutter_Woodcutter_room.png';
     const fadeT = 2000;
 
     const popup = '/image/Investigation/Talk/UI/proof_find_info_background.png';
     const button = '/image/Investigation/Talk/UI/proof_find_info_button_normal.png';
     const hButton = '/image/Investigation/Talk/UI/proof_find_info_button_click.png';
-    const popup2 = '/image/Investigation/Talk/UI/ScriptBackground.png';
-    const name = '/image/Investigation/Talk/UI/Namebox_02.png';
+    //const popup2 = '../components/DialogueUI/ScripBackground.png';
+    //const name = '/image/Investigation/Talk/UI/Namebox_02.png';
     const clue = "나무꾼의 방에서 값비싸보이는 비단옷을 획득했습니다.";
     const explain = "수사를 계속하더라도, 수사실로 오면 언제든 선녀에게 비단옷에 대해 물어볼 수 있습니다.";
 
-    const cloth2 = '/image/clothes/cloth_01.png';
+    const clotp = '/image/clothes/cloth_01.png';
     const cloth3 = '/image/clothes/cloth_02.png';
     const cloth4 = '/image/clothes/cloth_03.png';
     const cloth5 = '/image/clothes/cloth_04.png';
@@ -51,21 +53,23 @@ export default function Find(){
     return (
         <div>
             <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
-            <img src={back} style={{ position: "absolute"}}></img>
             <img id="find" src="/image/clothes/cloth_00.png" style={{ position: "absolute", top:"641px", left:"1327px"}} onClick={()=>{
-                $('div#background').fadeIn({fadeT});
+                $('div#backgroundS').fadeIn({fadeT});
                 $('div#etc').addClass('display-none');
                 $('img#find').fadeOut({fadeT});
             }}></img>
             
-            <div id="background" className="display-none App">
+            <div id="backgroundS" className="display-none App">
                 <div id="step1">
-                    <img src={back}></img>
-                    <img src="/image/clothes/Fairyclothes.png" className="clue" onClick={()=>{
+                    <img id='shine' src="/image/clothes/Fairyclothes.png" className="clue" onMouseOver={()=>{
+                        $('img#shine').addClass('shining');
+                    }} onMouseLeave={()=>{
+                        $('img#shine').removeClass('shining');
+                    }} onClick={()=>{
                             $('div#step1_1').fadeOut({fadeT});
                             setTimeout(() => {
                                 openStep2();
-                              }, 2000);
+                              }, 1000);
                     }}></img>
                     <div id='step1_1'>
                         <animated.div {...bindClothPos2()} className="obj3" style={{
@@ -90,15 +94,19 @@ export default function Find(){
                             x: clothPos5.x,
                             y: clothPos5.y
                         }}>
-                            <img src={cloth2} className="App-logo" />
+                            <img src={clotp} className="App-logo" />
                         </animated.div>
                     </div>
                 </div>
-                    <img src={back}></img>
                 <div id="step2" className="display-none">
-                    <img src="/image/clothes/Fairyclothes.png" alt="find" className="clue" 
-                        onClick={()=>{
+                    <img id='shine2' src="/image/clothes/Fairyclothes.png" alt="find" className="clue"
+                        onMouseOver={()=>{
+                            $('img#shine2').addClass('shining');
+                        }} onMouseLeave={()=>{
+                            $('img#shine2').removeClass('shining');
+                        }} onClick={()=>{
                             $('div#step2').fadeOut({fadeT});
+                            axios.get('/meet/1/6');
                             setTimeout(()=>{
                                 $('div#result').fadeIn({fadeT});
                             }, 1000);
@@ -107,7 +115,6 @@ export default function Find(){
                 
             </div>
             <div id='result' className="display-none">
-                <img src={back} style={{position:'absolute'}}></img>
                 <img src={popup}  className='banner'></img>
                 <div id='btnFirst'>
                     <img src={button} className="btn1" onMouseOver={()=>{
@@ -116,11 +123,13 @@ export default function Find(){
                             $('img#hov1').addClass('display-none');
                     }}></img>
                     <img id='hov1' className='display-none btn1' src={hButton}></img>
-                    <h2 className='button-txt' onMouseOver={()=>{
+                    <p className='button-txt' onMouseOver={()=>{
                             $('img#hov1').removeClass('display-none');
                         }} onMouseLeave={()=>{
                             $('img#hov1').addClass('display-none');
-                    }}>선녀에게 가기</h2>
+                    }} onClick={()=>{
+                        props.goOffice();
+                    }}>선녀에게 가기</p>
                     <div id='btnSecond'>
                         <img src={button} className="btn2" onMouseOver={()=>{
                                 $('img#hov2').removeClass('display-none');
@@ -128,14 +137,14 @@ export default function Find(){
                                 $('img#hov2').addClass('display-none');
                         }}></img>
                         <img id='hov2' className='display-none btn2' src={hButton}></img>
-                        <h2 className='button-txt2' onMouseOver={()=>{
+                        <p className='button-txt2' onMouseOver={()=>{
                                 $('img#hov2').removeClass('display-none');
                             }} onMouseLeave={()=>{
                                 $('img#hov2').addClass('display-none');
                             }} onClick={()=>{
                                 $('div#result').fadeOut({fadeT});
                                 $('div#etc').removeClass('display-none');
-                        }}>수사 계속하기</h2>
+                        }}>수사 계속하기</p>
                     </div>          
                     <p className='banner-txt1'>{clue}</p>
                     <p className='banner-txt2'>{explain}</p>
@@ -151,8 +160,8 @@ export default function Find(){
                 }}>
                     <img src={popup2} className='banner2'></img>
                     <img src={name} className='namePos'></img>
-                    <h2 className='banner-txtA'>검사</h2>
-                    <h2 className='banner-txtB'>나무꾼의 방에 있는 서랍장이다. 잡동사니들이 잔뜩 들어있다.</h2>
+                    <p className='banner-txtA'>검사</p>
+                    <p className='banner-txtB'>나무꾼의 방에 있는 서랍장이다. 잡동사니들이 잔뜩 들어있다.</p>
                 </div>
             </div>
         </div>
