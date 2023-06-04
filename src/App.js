@@ -3,13 +3,14 @@ import Intro from "./components/IntroUI/Intro";
 import Home from "./components/HomeUI/Home";
 import { getResizeEventListener } from "./services/responsiveFrame";
 import Chapter from "./pages/chapter";
-import imagePreloader from "services/Loading";
+
+import Loading from "./components/Loading";
 
 class App extends Component {
   render() {
     return (
       <div id="App">
-        <Intro />
+        <Loading App={<Intro/>} />
       </div>
     );
   }
