@@ -2,7 +2,7 @@ import styles from '../styles/info.css';
 import $ from 'jquery';
 
 export default function Find(props){
-    const back = 'image/Investigation/Talk/Background/FairyNWoodcutter/illust_FairyNWoodcutter_office_back.png';
+    //const back = 'image/Investigation/Talk/Background/FairyNWoodcutter/illust_FairyNWoodcutter_office_back.png';
     const fadeT = 2000;
 
     const btn = 'image/Help/setting-credit/Setting_X.png';
@@ -17,7 +17,6 @@ export default function Find(props){
     return (
         <div>
             <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
-            <img src={back} style={{ position: "absolute"}}></img>
             <div id='start'>
                 <div id='info'></div>
                 <img src={btn} className='close' onClick={()=>{
