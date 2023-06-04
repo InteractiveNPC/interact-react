@@ -55,7 +55,6 @@ function Dialogue(props) {
         break;
       case 0:
         if(event.data.scene == 0) {
-          console.log(init);
           if(data.id == 1) {
             if(init1 == false) {
               setInit1(true);
