@@ -10,7 +10,21 @@ export default ({ App }) => {
         {
             load ? App 
             : <Preload
-                loadingIndicator={<div>로딩 중</div>}
+                loadingIndicator={
+                    <div style={{
+                        width: "1920px",
+                        height: "1080px",
+                        background: "black",
+                    }}>
+                        <img src={require("./loading.gif")}
+                            style={{
+                                position: "absolute",
+                                top: "50%",
+                                left: "50%",
+                                transform: "translate(-50%, -50%)",
+                            }}/>
+                    </div>
+                }
                 images={image_files}
                 autoResolveDelay={3000}
                 onError={(err) => {
