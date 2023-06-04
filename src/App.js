@@ -5,12 +5,14 @@ import Dialogue from "./components/DialogueUI/Dialogue";
 import { getResizeEventListener } from "./services/responsiveFrame";
 
 import Chapter from "pages/chapter";
+// import PaperResult from "pages/indict_result";
 
 class App extends Component {
   render() {
     return (
       <div id="App">
         <Chapter chapter={3} />
+        {/* <PaperResult /> */}
       </div>
     );
   }
