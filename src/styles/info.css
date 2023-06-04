@@ -11,7 +11,6 @@ img, p, h2{
     position: absolute;
     top: 0%;
     left: 0%;
-    z-index: 2000;
 }
 
 #infoH{
@@ -20,7 +19,6 @@ img, p, h2{
     height: 244px;
     left: 612px;
     top: calc(50% - 244px/2);
-    z-index: 2000;
 
     /* 기용 */
 
@@ -34,7 +32,6 @@ img, p, h2{
     height: 19px;
     left: 1268px;
     top: 444px;
-    z-index: 2000;
 }
 
 #arrow1{
@@ -43,7 +40,6 @@ img, p, h2{
     height: 243px;
     left: 112px;
     top: 188px;
-    z-index: 2000;
 }
 
 #arrow2{
@@ -51,9 +47,7 @@ img, p, h2{
     width: 275px;
     height: 171px;
     left: 1425px;
-    top: 125px;
-    z-index: 2000;
-    
+    top: 125px;   
 }
 
 #arrow3{
@@ -62,7 +56,6 @@ img, p, h2{
     height: 218px;
     left: 1593px;
     top: 88px;
-    z-index: 2000;
 }
 
 .textH0{
@@ -82,7 +75,6 @@ img, p, h2{
     text-align: center;
     
     color: #DACCA7;
-    z-index: 2000;
 }
 
 .text1{
@@ -101,7 +93,6 @@ img, p, h2{
     
     
     color: #FFFFFF;
-    z-index: 2000;
 }
 
 .text2{
@@ -120,7 +111,6 @@ img, p, h2{
     
     
     color: #FFFFFF;
-    z-index: 2000;
 }
 
 .text3{
@@ -139,7 +129,6 @@ img, p, h2{
     
     
     color: #FFFFFF;
-    z-index: 2000;
 }
 
 .text4{
@@ -155,7 +144,6 @@ img, p, h2{
     font-size: 18px;
     line-height: 133.02%;
     /* or 24px */
-    z-index: 2000;
     
     
     color: #FFFFFF;
@@ -177,5 +165,4 @@ img, p, h2{
     
     
     color: #FFFFFF;
-    z-index: 2000;
 }

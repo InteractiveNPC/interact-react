@@ -15,7 +15,7 @@ export default function Help(props){
     const arrow3 = 'image/Help/start-help/help_info_arrow03.png';
 
     return (
-        <div>
+        <div id='bHelp'>
             <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
             <div id='startH'>
                 <div id='infoH'></div>
@@ -52,6 +52,9 @@ export default function Help(props){
 
             <div id='step3' className='display-none' onClick={()=>{
                 $('div#step3').fadeOut({fadeT});
+                setTimeout(()=>{
+                    $('div#bHelp').addClass('display-none');
+                }, 1000);
             }}>
                 <img src={info3} className='infoWindow'></img>
                 <img src={arrow3} id='arrow3'/>

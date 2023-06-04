@@ -2,6 +2,7 @@ import { useState } from "react";
 import { divToImg } from "../../services/propsFormat";
 import Find from "../../pages/Find";
 import Bhelp from '../../pages/Help';
+import $ from "jquery";
 
 import styles from "./style.module.scss";
 
@@ -20,14 +21,19 @@ const setPosWithIdx = (x, y, idx) => {
   return { style: { left: `${x}px`, top: `${y}px`, "zIndex": `${idx}` } };
 };
 
+const setZidx = (idx) => {
+  return {style: {"zIndex": `${idx}`}};
+};
+
 export default [
   // 수사실
   ({ onTalk, hero }) => {
     const [heroDisabled, setHeroDisabled] = useState(hero);
-    //const [ bHelpDisabled, setbHelpDisabled ] = useState(true);
+    const [ bHelpDisabled, setbHelpDisabled ] = useState(true);
     console.log(hero);
     return (
       <div className={styles.location}>
+        <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
         <video muted autoPlay loop playsInline>
           <source
             src={`${
@@ -43,15 +49,20 @@ export default [
             {...setPosWithIdx(0, 0, 1000)}
             onClick={() => {
               onTalk({ idx: "1", scene: "-1", "flag": "0", index: "0" });
+              
+            }} onMouseOver={()=>{
+              $('div#bHelp').fadeIn(2000);
             }}
-          /><Bhelp />
+          />
           </div>
         )}
-        
         <div
           className={styles.desk}
           {...divToImg(BackgroundImgBase + "illust_FairyNWoodcutter_desk.png")}
         />
+        <div id='bHelp' className="display-none">
+          <Bhelp />
+        </div>
       </div>
     );
   },
