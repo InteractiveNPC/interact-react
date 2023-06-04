@@ -8,6 +8,7 @@ function Dialogue(props) {
   const [ show, setShow ] = useState(true);
   const [ home, setHome ] = useState(false);
   const [ hold, setHold ] = useState(false);
+  const [ voice, setVoice ] = useState("");
   const [ data, setData ] = useState({"id":1, "scene":0, "flag":0, "index":0, "len":1,
                                       "name": "", "content": "", "image": "", "choice": null});
   var size = {1:[0, 2, 4, 6, 8, 108, 109, 110],
@@ -105,12 +106,12 @@ function Dialogue(props) {
             }
           }
         }, 5);
-        var voice = "image/Investigation/Talk/Sound/dubbing/" + (id==1 ? "FairyNWoodcutter" : "TwoSisters") + "/voice_" + id + "_" + scene + "_" + flag + "_" + index + ".mp3";
-        $.get(voice).done(function() {
-          $("#voice_src").on("load", function() {
-            $("#voice")[0].play();
-          });
-          $("#voice_src").attr("src", voice);
+        var voice_src = "image/Investigation/Talk/Sound/dubbing/" + (id==1 ? "FairyNWoodcutter" : "TwoSisters") + "/voice_" + id + "_" + scene + "_" + flag + "_" + index + ".mp3";
+        var voice_audio = '<audio id="voice" autoplay>' + 
+          '<source id="voice_src" src="' + voice_src + '" type="audio/mp3"/>' +
+          '</audio>';
+        $.get(voice_src).done(function() {
+          setVoice(voice_audio);
         })
       })
       .catch(error => console.log(error))
@@ -151,7 +152,7 @@ function Dialogue(props) {
             <div id="dialogue_bg"></div>
             <div className="dialogue_name"><span>{data.name}</span></div>
             <div className="dialogue_content">{data.content}</div>
-            <audio id="voice"><source id="voice_src" type="audio/mp3"/></audio>
+            <div className="voice" dangerouslySetInnerHTML={{__html: voice}}></div>
           </div>
         ) : ( home ? <Home idx={data.scene} res={data.flag}/> : null ) }
        </div>
