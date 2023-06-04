@@ -1,13 +1,12 @@
-import { credit } from "./config";
 import styles from "./style.module.scss";
 
 const img_base = "/image/Help/setting-credit/";
 
-export default () => {
+export default ({datas}) => {
   return (
-    <div className={styles.credit}>
-      {credit.map((data, i) => (
-        <p key={`crefit${i}`}>
+    <div className={styles.info}>
+      {datas.map((data, i) => (
+        <p key={`info${i}_${data}`}>
           <div className={styles.title}>
             <img src={`${process.env.PUBLIC_URL + img_base}Setting_name.png`} />
             {data.title}

@@ -2,7 +2,9 @@ import { useState } from "react";
 import { divToImg } from "../../../services/propsFormat";
 
 import Audio from "./Audio";
-import Credit from "./Credit";
+import Info from "./Info";
+
+import { credit, reference } from "./config";
 
 import styles from "./style.module.scss";
 
@@ -17,7 +19,7 @@ export default ({ onClose, volume, setVolume }) => {
       {...divToImg(img_base + "Setting_background.png")}
     >
       <div className={styles.nav}>
-        {["오디오", "크레딧"].map((val, i) => (
+        {["오디오", "크레딧", "참고자료"].map((val, i) => (
           <div
             key={`setting_nav_${i}`}
             className={idx === i && styles.selected}
@@ -33,7 +35,8 @@ export default ({ onClose, volume, setVolume }) => {
         ))}
       </div>
       {idx === 0 && <Audio volume={volume} setVolume={setVolume} />}
-      {idx === 1 && <Credit />}
+      {idx === 1 && <Info datas={credit}/>}
+      {idx === 2 && <Info datas={reference}/>}
       <img
         className={styles.close}
         src={`${process.env.PUBLIC_URL + img_base}Setting_X.png`}
