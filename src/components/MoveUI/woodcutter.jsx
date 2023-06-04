@@ -7,13 +7,13 @@ import $ from "jquery";
 import styles from "./style.module.scss";
 
 const BackgroundImgBase =
-  "/image/investigation/Talk/Background/FairyNWoodcutter/";
+  "/image/Investigation/Talk/Background/FairyNWoodcutter/";
 const fullWebpBase =
   process.env.PUBLIC_URL +
-  "/image/investigation/Talk/Source/FairyNWoodcutter/full/full_";
+  "/image/Investigation/Talk/Source/FairyNWoodcutter/full/full_";
 const halfWebpBase = 
   process.env.PUBLIC_URL +
-  "/image/investigation/Talk/Source/FairyNWoodcutter/half/half_";
+  "/image/Investigation/Talk/Source/FairyNWoodcutter/half/half_";
 const setPos = (x, y) => {
   return { style: { left: `${x}px`, top: `${y}px` } };
 };
@@ -46,7 +46,7 @@ export default [
           <div>
           <img
             src={halfWebpBase + "Fairy_normal_X_office.webp"}
-            {...setPosWithIdx(0, 0, 1000)}
+            {...setPosWithIdx(0, 0, 1111)}
             onClick={() => {
               onTalk({ idx: "1", scene: "-1", "flag": "0", index: "0" });
               

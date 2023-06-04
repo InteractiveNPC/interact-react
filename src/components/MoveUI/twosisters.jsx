@@ -6,9 +6,9 @@ import Find3_2 from "pages/Find3_2";
 
 import styles from "./style.module.scss";
 
-const BackgroundImgBase = "/image/investigation/Talk/Background/TwoSisters/";
-const fullWebpBase = "/image/investigation/Talk/Source/TwoSisters/full/full_";
-const halfWebpBase = "/image/investigation/Talk/Source/TwoSisters/half/half_";
+const BackgroundImgBase = "/image/Investigation/Talk/Background/TwoSisters/";
+const fullWebpBase = "/image/Investigation/Talk/Source/TwoSisters/full/full_";
+const halfWebpBase = "/image/Investigation/Talk/Source/TwoSisters/half/half_";
 const setPos = (x, y) => {
   return { style: { left: `${x}px`, top: `${y}px` } };
 };
