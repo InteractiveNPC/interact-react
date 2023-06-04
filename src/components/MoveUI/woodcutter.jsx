@@ -24,7 +24,7 @@ export default [
   // 수사실
   ({ onTalk, hero }) => {
     const [heroDisabled, setHeroDisabled] = useState(hero);
-    const [ bHelpDisabled, setbHelpDisabled ] = useState(false);
+    //const [ bHelpDisabled, setbHelpDisabled ] = useState(true);
     console.log(hero);
     return (
       <div className={styles.location}>
@@ -37,20 +37,21 @@ export default [
           />
         </video>
         {heroDisabled ? null : (
+          <div>
           <img
             src={halfWebpBase + "Fairy_normal_X_office.webp"}
             {...setPosWithIdx(0, 0, 1000)}
             onClick={() => {
-              setHeroDisabled(true);
               onTalk({ idx: "1", scene: "-1", "flag": "0", index: "0" });
             }}
-          />
+          /><Bhelp />
+          </div>
         )}
+        
         <div
           className={styles.desk}
           {...divToImg(BackgroundImgBase + "illust_FairyNWoodcutter_desk.png")}
         />
-        <Bhelp isActive={bHelpDisabled} setActive={setbHelpDisabled}/>
       </div>
     );
   },
