@@ -145,6 +145,13 @@ audio { display:none; }
 	height: 70px;
 }
 
+.answer img {
+	position: absolute;
+	left: 141px;
+	top: 50%;
+	transform: translateY(-50%);
+}
+
 #answer0 {
 	top: 375px;
 }
