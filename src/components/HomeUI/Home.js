@@ -177,7 +177,7 @@ function Home(props) {
       {show ? (
         <>
           <div className="background" style={{backgroundImage:'url("image/Home/Background/Background_illust.png")'}}>
-            <img id="info" src="image/Home/UI/info.png" />
+            <img id="home-info" src="image/Home/UI/info.png" />
             <img id="ch1" src="image/Home/Source/Title_FairyNWoodcutter.png" />
             <img id="ch3" src="image/Home/Source/Title_TwoSisters.png" />
             <img id="ch2" src="image/Home/Source/Title_Rabbitorgan.png" />
