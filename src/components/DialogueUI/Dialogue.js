@@ -5,8 +5,11 @@ import axios from 'axios';
 import './Dialogue.css';
 
 import { setChoiceData } from './hook';
+import { useVolumeSetting } from "../../services/volumeManager";
 
 function Dialogue(props) {
+  useVolumeSetting();
+  
   const [ show, setShow ] = useState(true);
   const [ home, setHome ] = useState(false);
   const [ hold, setHold ] = useState(false);

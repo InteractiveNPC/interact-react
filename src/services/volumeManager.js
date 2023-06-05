@@ -6,8 +6,11 @@ export const useVolumeSetting = () => {
 
     useEffect(() => {
         const bgmElements = document.querySelectorAll("#bgm");
-        bgmElements.push(...document.querySelectorAll("video"));
         for(let e of bgmElements) {
+            if(e.volume) e.volume = volume[0];
+        }
+        const videoElements = document.querySelectorAll("video");
+        for(let e of videoElements) {
             if(e.volume) e.volume = volume[0];
         }
         const effectElements = document.querySelectorAll("#effect");
