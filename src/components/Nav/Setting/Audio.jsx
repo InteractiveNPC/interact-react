@@ -1,4 +1,5 @@
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useContext } from "react";
+import { VolumeContext } from "../../../contexts";
 import { divToImg } from "../../../services/propsFormat";
 import { setButtonEvent } from "../animation";
 
@@ -6,7 +7,8 @@ import styles from "./style.module.scss";
 
 const img_base = "/image/Help/setting-credit/";
 
-export default ({ volume, setVolume }) => {
+export default () => {
+  const [volume, setVolume] = useContext(VolumeContext);
   const buttonRef = useRef();
 
   useEffect(() => {

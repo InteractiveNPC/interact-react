@@ -10,11 +10,7 @@ import index_styles from "./style.module.scss";
 
 const img_base = "/image/Investigation/Talk/UI/";
 
-export default ({ home, moveDocument, displayNote, goHome, volume, setVolume }) => {
-  if (!volume) {
-    [volume, setVolume] = useState([0.5, 0.5, 0.5]); // 임시 volume
-  }
-
+export default ({ home, moveDocument, displayNote, goHome }) => {
   const [window, setWindow] = useState(null);
   const button = [useRef(), useRef(), useRef(), useRef(), useRef()];
 
@@ -57,8 +53,6 @@ export default ({ home, moveDocument, displayNote, goHome, volume, setVolume }) 
       {window === "help" && <Help onClose={() => setWindow(null)} />}
       {window === "setting" && (
         <Setting
-          volume={volume}
-          setVolume={setVolume}
           onClose={() => setWindow(null)}
         />
       )}

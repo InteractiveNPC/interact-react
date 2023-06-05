@@ -10,7 +10,7 @@ import styles from "./style.module.scss";
 
 const img_base = "/image/Help/setting-credit/";
 
-export default ({ onClose, volume, setVolume }) => {
+export default ({ onClose }) => {
   const [idx, setIdx] = useState(0);
 
   return (
@@ -34,7 +34,7 @@ export default ({ onClose, volume, setVolume }) => {
           </div>
         ))}
       </div>
-      {idx === 0 && <Audio volume={volume} setVolume={setVolume} />}
+      {idx === 0 && <Audio />}
       {idx === 1 && <Info datas={credit}/>}
       {idx === 2 && <Info datas={reference}/>}
       <img
