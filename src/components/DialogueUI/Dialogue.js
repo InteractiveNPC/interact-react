@@ -5,7 +5,7 @@ import axios from 'axios';
 import './Dialogue.css';
 
 import { setChoiceData } from './hook';
-import { useVolumeSetting } from "../../services/volumeManager";
+import { useVolumeSetting } from "../../services/audioManager";
 
 function Dialogue(props) {
   useVolumeSetting();
