@@ -23,7 +23,9 @@ export default [
   ({ onTalk, hero }) => {
     const [heroDisabled, setHeroDisabled] = useState(hero);
     const [ bHelpDisabled, setbHelpDisabled ] = useState(true);
-    const [clickCount, setClickCount] = useState(0);
+    const settingbHelpDisabled=()=>{
+      setbHelpDisabled(!bHelpDisabled);
+    };
     return (
       <div className={styles.location}>
         <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
@@ -42,7 +44,7 @@ export default [
             onClick={() => {
               onTalk({ idx: "3", scene: "-1", "flag": "0", index: "0" });
             }} onMouseOver={()=>{
-              $('div#bHelp').fadeIn(2000);
+              $('div#bHelp').fadeIn(1000);
               setTimeout(()=>{$('div#bHelp').removeClass('display-none');}, 1000);
             }}
           />
@@ -52,16 +54,13 @@ export default [
           {...divToImg(BackgroundImgBase + "illust_TwoSisters_desk.png")}
         />
         <div id='bHelp' className="display-none" style={{zIndex:'1000'}}
-        onClick={()=>{
-          if(clickCount>=3){
-            //setTimeout(()=>{$('div#bHelp').addClass('display-none');},1000);
-            $('div#bHelp').css('zIndex','500');
-          }
-          else
-            setClickCount(clickCount + 1);
-        }}>
-          {bHelpDisabled? <Bhelp  who={'홍련'} /> : null}
-        </div>
+          onClick={()=>{
+            if(!bHelpDisabled){
+              $('div#bHelp').css('zIndex','500');
+            }
+          }}>
+            {bHelpDisabled? <Bhelp who={'홍련'} setActive={settingbHelpDisabled}/> : null}
+          </div>
       </div>
     );
   },
