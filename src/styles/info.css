@@ -1,5 +1,6 @@
 .display-none {
     display: none;
+    z-index: 0 !important;
 }
 
 img, p, h2{

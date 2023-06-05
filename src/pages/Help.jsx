@@ -16,7 +16,6 @@ export default function Help(props){
 
     return (
         <div id='bHelp'>
-            <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
             <div id='startH'>
                 <div id='infoH'></div>
                 <img src={btn} className='close' onClick={()=>{
