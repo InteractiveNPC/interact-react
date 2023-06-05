@@ -5,7 +5,7 @@ import { divToImg } from "services/propsFormat";
 
 import styles from "./style.module.scss";
 
-export default ({ chapter, moveDocument }) => {
+export default ({ chapter, moveRecord }) => {
   const [dialogueData, setDialogueData] = useState({
     idx: chapter,
     scene: "0",
@@ -72,7 +72,7 @@ export default ({ chapter, moveDocument }) => {
           }}
           dialogueDisabled={dialogueDisabled}
           hero={heroDisabled}
-          moveDocument={moveDocument}
+          moveRecord={moveRecord}
         />
         {dialogueDisabled || (
           <Dialogue {...dialogueData}
