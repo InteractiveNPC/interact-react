@@ -52,9 +52,11 @@ export default function Help(props){
 
             <div id='step3' className='display-none' onClick={()=>{
                 $('div#step3').fadeOut({fadeT});
+                /*
                 setTimeout(()=>{
-                    $('div#bHelp').addClass('display-none');
+                    props.setActive=false;
                 }, 1000);
+                */
             }}>
                 <img src={info3} className='infoWindow'></img>
                 <img src={arrow3} id='arrow3'/>
