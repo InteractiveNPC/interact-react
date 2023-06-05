@@ -66,28 +66,12 @@ function Home(props) {
       }
 
       var name = "#res" + props.idx;
-      console.log(data);
-      console.log(name);
-      $(name).removeClass("rotate");
-      $(name).position({
-        of: $(name).parent(),
-        my: "left top",
-        at: "left top",
-        offset: "-75 -75",
-      });
       switch (props.res) {
         case 1:
           $(name).on("load", function () {
             setTimeout(function () {
               $(name).off("load");
               $(name).attr("src", "image/Home/Source/Stamp_bad.png");
-              $(name).addClass("rotate");
-              $(name).position({
-                of: $(name).parent(),
-                my: "left top",
-                at: "left top",
-                offset: "75 75",
-              });
             }, 400);
           });
           $(name).attr("src", "image/Home/Source/Stamp_bad.webp");
@@ -97,13 +81,6 @@ function Home(props) {
             setTimeout(function () {
               $(name).off("load");
               $(name).attr("src", "image/Home/Source/Stamp_average.png");
-              $(name).addClass("rotate");
-              $(name).position({
-                of: $(name).parent(),
-                my: "left top",
-                at: "left top",
-                offset: "75 75",
-              });
             }, 400);
           });
           $(name).attr("src", "image/Home/Source/Stamp_average.webp");
@@ -113,13 +90,6 @@ function Home(props) {
             setTimeout(function () {
               $(name).off("load");
               $(name).attr("src", "image/Home/Source/Stamp_good.png");
-              $(name).addClass("rotate");
-              $(name).position({
-                of: $(name).parent(),
-                my: "left top",
-                at: "left top",
-                offset: "75 75",
-              });
             }, 400);
           });
           $(name).attr("src", "image/Home/Source/Stamp_good.webp");
