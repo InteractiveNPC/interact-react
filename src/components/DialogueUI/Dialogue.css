@@ -91,6 +91,15 @@ audio { display:none; }
 	white-space: pre-line;
 }
 
+#point {
+	position: absolute;
+	width: 20px;
+	height: 23px;
+	left: 1580px;
+	top: 958px;
+	z-index: 9999;
+}
+
 #character {
 	position: absolute;
 	width: 1920px;

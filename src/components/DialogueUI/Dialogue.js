@@ -171,6 +171,7 @@ function Dialogue(props) {
             <div className="dialogue_name"><span>{data.name}</span></div>
             <div className="dialogue_content">{data.content}</div>
             <div className="voice" dangerouslySetInnerHTML={{__html: voice}}></div>
+            <img id="point" src="/image/Investigation/Talk/UI/ScriptButton.png"/>
           </div>
         ) : ( home ? <Home idx={data.scene} res={data.flag}/> : null ) }
        </div>
