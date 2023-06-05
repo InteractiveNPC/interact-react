@@ -27,6 +27,7 @@ export default ({ chapter, volume, setVolume }) => {
             }}
             volume={volume}
             setVolume={setVolume}
+            ending={process === 2}
           />
           {process === 0 && (
             <Investigation
