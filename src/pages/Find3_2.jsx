@@ -1,6 +1,7 @@
 import { useSpring, animated } from "react-spring";
 import axios from 'axios';
 import { useDrag } from "react-use-gesture";
+import { useBGM, effectPlay } from "../services/audioManager";
 import styles from "../styles/findClue3_2.css";
 import $ from "jquery";
 
@@ -57,7 +58,7 @@ export default function Find3_2(props) {
         onClick={() => {
           $("div#backgroundS").fadeIn({ fadeT });
           $("img#find").fadeOut({ fadeT });
-        }}
+        }} onMouseDown={()=>{effectPlay("sisterspaper");}}
       ></img>
 
       <div id="backgroundS" className="display-none App">
@@ -71,7 +72,7 @@ export default function Find3_2(props) {
             }}
             onMouseLeave={() => {
               $("img#findE").removeClass("find");
-            }}
+            }} onMouseDown={()=>{effectPlay("sisterspaper");}}
             onClick={() => {
               $("div#step1_1").fadeOut({ fadeT });
               setTimeout(() => {
@@ -86,7 +87,7 @@ export default function Find3_2(props) {
               style={{
                 x: paperPos5.x,
                 y: paperPos5.y,
-              }}
+              }} onMouseDown={()=>{effectPlay("sisterspaper");}}
             >
               <img src={paper5} className="App-logo p5" />
             </animated.div>
@@ -96,7 +97,7 @@ export default function Find3_2(props) {
               style={{
                 x: paperPos2.x,
                 y: paperPos2.y,
-              }}
+              }} onMouseDown={()=>{effectPlay("sisterspaper");}}
             >
               <img src={paper2} className="App-logo p2" />
             </animated.div>
@@ -107,7 +108,7 @@ export default function Find3_2(props) {
               style={{
                 x: paperPos4.x,
                 y: paperPos4.y,
-              }}
+              }} onMouseDown={()=>{effectPlay("sisterspaper");}}
             >
               <img src={paper4} className="App-logo p4" />
             </animated.div>
@@ -117,7 +118,7 @@ export default function Find3_2(props) {
               style={{
                 x: paperPos3.x,
                 y: paperPos3.y,
-              }}
+              }} onMouseDown={()=>{effectPlay("sisterspaper");}}
             >
               <img src={paper3} className="App-logo p3" />
             </animated.div>

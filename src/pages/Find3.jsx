@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { useBGM, effectPlay } from "../services/audioManager";
 import styles from '../styles/findClue3.css';
 import $ from 'jquery';
 
@@ -37,6 +38,7 @@ export default function Find3(props) {
                     }} onMouseLeave={()=>{
                             $('img#shine').removeClass("shining");
                     }} onClick={()=>{
+                        effectPlay("coin");
                         $('img#shine').addClass('shining2');
                         $('img#handle').fadeOut({fadeT});
                         setTimeout(()=>{
@@ -56,31 +58,23 @@ export default function Find3(props) {
             <div id='step2' className='display-none'>
                 <img src={popup}  className='banner'></img>
                 <div id='btnFirst'>
-                    <img src={button} className="btn1" onMouseOver={()=>{
+                    <img src={button} className="btn1" onMouseDown={()=>{
                             $('img#hov1').removeClass('display-none');
-                        }} onMouseLeave={()=>{
-                            $('img#hov1').addClass('display-none');
-                    }}></img>
+                        }}></img>
                     <img id='hov1' className='display-none btn1' src={hButton}></img>
-                    <p className='button-txt' onMouseOver={()=>{
+                    <p className='button-txt' onMouseDown={()=>{
                             $('img#hov1').removeClass('display-none');
-                        }} onMouseLeave={()=>{
-                            $('img#hov1').addClass('display-none');
-                    }} onClick={()=>{
+                        }} onClick={()=>{
                         props.goOffice();
                     }}>홍련에게 가기</p>
                 </div>
                 <div id='btnSecond'>
-                    <img src={button} className="btn2" onMouseOver={()=>{
+                    <img src={button} className="btn2" onMouseDown={()=>{
                             $('img#hov2').removeClass('display-none');
-                        }} onMouseLeave={()=>{
-                            $('img#hov2').addClass('display-none');
-                    }}></img>
+                        }}></img>
                     <img id='hov2' className='display-none btn2' src={hButton}></img>
-                    <p className='button-txt2' onMouseOver={()=>{
+                    <p className='button-txt2' onMouseDown={()=>{
                             $('img#hov2').removeClass('display-none');
-                        }} onMouseLeave={()=>{
-                            $('img#hov2').addClass('display-none');
                         }} onClick={()=>{
                             if(!f3Click){
                                 setF3Click(!f3Click);

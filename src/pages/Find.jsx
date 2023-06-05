@@ -4,6 +4,7 @@ import axios from 'axios';
 import {useState} from 'react';
 import {useDrag} from 'react-use-gesture';
 import styles from '../styles/findClue.css';
+import { useBGM, effectPlay } from "../services/audioManager";
 import $ from 'jquery';
 import popup2 from '../components/DialogueUI/ScriptBackground.png';
 import name from '../components/DialogueUI/Namebox_02.png';
@@ -77,25 +78,25 @@ export default function Find(props){
                         <animated.div {...bindClothPos2()} className="obj3" style={{
                             x: clothPos2.x,
                             y: clothPos2.y
-                        }}>
+                        }} onMouseDown={()=>{effectPlay("clothes");}}>
                             <img src={cloth3} className="App-logo" />
                         </animated.div>
                         <animated.div {...bindClothPos3()} className="obj4" style={{
                             x: clothPos3.x,
                             y: clothPos3.y
-                        }}>
+                        }} onMouseDown={()=>{effectPlay("clothes");}}>
                             <img src={cloth4} className="App-logo" />
                         </animated.div>
                         <animated.div {...bindClothPos4()} className="obj5" style={{
                             x: clothPos4.x,
                             y: clothPos4.y
-                        }}>
+                        }} onMouseDown={()=>{effectPlay("clothes");}}>
                             <img src={cloth5} className="App-logo" />
                         </animated.div>
                         <animated.div {...bindClothPos5()} className="obj2" style={{
                             x: clothPos5.x,
                             y: clothPos5.y
-                        }}>
+                        }} onMouseDown={()=>{effectPlay("clothes");}}>
                             <img src={clotp} className="App-logo" />
                         </animated.div>
                     </div>
@@ -119,30 +120,22 @@ export default function Find(props){
             <div id='result' className="display-none">
                 <img src={popup}  className='banner'></img>
                 <div id='btnFirst'>
-                    <img src={button} className="btn1" onMouseOver={()=>{
+                    <img src={button} className="btn1" onMouseDown={()=>{
                             $('img#hov1').removeClass('display-none');
-                        }} onMouseLeave={()=>{
-                            $('img#hov1').addClass('display-none');
-                    }}></img>
+                        }}></img>
                     <img id='hov1' className='display-none btn1' src={hButton}></img>
-                    <p className='button-txt' onMouseOver={()=>{
+                    <p className='button-txt' onMouseDown={()=>{
                             $('img#hov1').removeClass('display-none');
-                        }} onMouseLeave={()=>{
-                            $('img#hov1').addClass('display-none');
-                    }} onClick={()=>{
+                        }} onClick={()=>{
                         props.goOffice();
                     }}>선녀에게 가기</p>
                     <div id='btnSecond'>
-                        <img src={button} className="btn2" onMouseOver={()=>{
+                        <img src={button} className="btn2" onMouseDown={()=>{
                                 $('img#hov2').removeClass('display-none');
-                            }} onMouseLeave={()=>{
-                                $('img#hov2').addClass('display-none');
-                        }}></img>
+                            }}></img>
                         <img id='hov2' className='display-none btn2' src={hButton}></img>
-                        <p className='button-txt2' onMouseOver={()=>{
+                        <p className='button-txt2' onMouseDown={()=>{
                                 $('img#hov2').removeClass('display-none');
-                            }} onMouseLeave={()=>{
-                                $('img#hov2').addClass('display-none');
                             }} onClick={()=>{
                                 if(!fClick){
                                     setFClick(!fClick);
