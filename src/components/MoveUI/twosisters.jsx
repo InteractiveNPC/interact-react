@@ -157,14 +157,14 @@ export default [
     );
   },
   // 관아 안
-  ({ onTalk, moveDocument }) => {
+  ({ onTalk, moveRecord }) => {
     useBGM("biga");
     return (
       <div
         className={styles.location}
         {...divToImg(BackgroundImgBase + "illust_TwoSisters_police_room.png")}
       >
-        <Find3_2 moveDocument={moveDocument}/>
+        <Find3_2 moveRecord={moveRecord}/>
       </div>
     );
   },
