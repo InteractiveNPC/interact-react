@@ -70,7 +70,7 @@ export default [
           else
             setClickCount(clickCount + 1);
         }}>
-          {bHelpDisabled? <Bhelp /> : null}
+          {bHelpDisabled? <Bhelp who={'선녀'} /> : null}
         </div>
       </div>
     );

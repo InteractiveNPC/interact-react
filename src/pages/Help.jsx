@@ -25,7 +25,7 @@ export default function Help(props){
                         $('div#step1').fadeIn({fadeT});
                     }, 1000);
                 }}></img>
-                <p className='textH0'>선녀의 원통함을 풀어주기 위한 수사를 진행하세요.</p>
+                <p className='textH0'>{props.who}의 원통함을 풀어주기 위한 수사를 진행하세요.</p>
             </div>
             <div id='step1' className='display-none' onClick={()=>{
                 $('div#step1').fadeOut({fadeT});
