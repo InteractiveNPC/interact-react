@@ -1,5 +1,6 @@
 import { useRef, useEffect, useContext } from "react";
 import { VolumeContext } from "../../../contexts";
+import { setAudioVolume } from "../../../services/audioManager";
 import { divToImg } from "../../../services/propsFormat";
 import { setButtonEvent } from "../animation";
 
@@ -38,6 +39,7 @@ export default () => {
               newVolume[i] = Math.floor(e.target.value / 10) / 10;
               if(newVolume[i] === 0) newVolume[i] = "0.0";
               setVolume(newVolume);
+              setAudioVolume(newVolume);
             }}
           />
         </div>
@@ -47,6 +49,7 @@ export default () => {
         className={styles.button}
         onClick={() => {
           setVolume([0.5, 0.5, 0.5]);
+          setAudioVolume([0.5, 0.5, 0.5]);
           for (let i = 0; i < 3; i++) {
             const input = document.getElementById(`audio_input_${i}`);
             input.value = 50;

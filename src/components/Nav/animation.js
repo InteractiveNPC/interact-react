@@ -1,6 +1,11 @@
 import anime from "animejs/lib/anime.es.js";
 
 export const setButtonEvent = (target, src) => {
+  if(!src) {
+    target.onmousedown = () => {};
+    target.onmouseup = () => {};
+    target.style.backgroundImage = null;
+  }
   target.onmousedown = () =>
     (target.style.backgroundImage = `url(${
       process.env.PUBLIC_URL + src
