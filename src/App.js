@@ -19,7 +19,7 @@ export default () => {
    return (
       <div id="App">
         <VolumeContext.Provider value={[volume, setVolume]}>
-          <Loading App={<Document/>} />
+          <Loading App={<Document chapter={1}/>} />
         </VolumeContext.Provider>
       </div>
     );

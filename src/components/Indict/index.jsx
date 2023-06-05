@@ -1,5 +1,6 @@
 import React, { useState,  useEffect } from "react";
 import Move from '../../pages/chapter/Document/index'
+import { effectPlay } from "../../services/audioManager";
 
 import axios from 'axios';
 
@@ -8,7 +9,7 @@ import styles from '../../styles/indict.css';
 const chapter = "1_0"
 function Indict(){
   const [ data, setData] = useState(
-    {"chapter":1_0, "scene": 35, "name":"", "item": [],
+    {"chapter":1_0, "scene": 35, "name":"", "item": "",
      "court":"", "script": ""}
   ) // 초기화
 
@@ -22,7 +23,7 @@ function Indict(){
                 "court": res.data.court, "script": res.data.script
               })
              
-              console.log(res.data.item[4].info);
+              console.log(res.data.item["4"].info); //이건 출력이 잘 됨.
     })
     .catch(error => console.log(error))
     
@@ -98,8 +99,8 @@ function Indict(){
   const crime1 = data.court["재물손괴죄"];
   const crime2 = data.court["감금죄"];
   const crime3 = data.court["추행등목적약취유인죄"];
-  const { item } = data;
-
+  const item4 = data.item["4"];
+  const item5 = data.item["5"];
  
   return (
     <div className="Indict">
@@ -109,10 +110,10 @@ function Indict(){
         <p>{data.name}</p>
       </div>
       <div className="proof1_0" key={4}>
-        <p>임시</p>
+        <p>임시1</p>
       </div>
       <div className="proof2_0">
-        <p>임시</p>
+        <p>임시2</p>
       </div>
 
       <div className="sageonseosul" dangerouslySetInnerHTML={ {__html: data.script} }>
@@ -160,7 +161,9 @@ function Indict(){
         <img src={checkbox} id="checkbox3" />
 
         <img src={check}  
-        onClick={() => decreaseOpacity('check1', 'crimenormal1')}
+        onClick={() => { effectPlay("paperbutton");
+        decreaseOpacity('check1', 'crimenormal1')
+        } }
         data-id="check1"
         className="my-image"
         id="check1" />
