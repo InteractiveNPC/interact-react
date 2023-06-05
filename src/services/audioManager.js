@@ -15,7 +15,8 @@ export const setAudioVolume = (volume) => {
     for(let e of videoElements) {
         if(e.volume) e.volume = volume[0];
     }
-    const effectElements = document.querySelectorAll("#effect");
+    document.querySelector("#effect").className = volume[1];
+    const effectElements = document.querySelector("#effect").childNodes;
     for(let e of effectElements) {
         if(e.volume) e.volume = volume[1];
     }
@@ -39,11 +40,14 @@ export const useBGM = (bgm) => {
     });
 };
 
-export const effectPlay = (effect) => {    
+export const effectPlay = (effect) => {  
     const src = `/sound/effect_${effect}.mp3`;
-    const audio = document.querySelector("#effect");
+    const div = document.querySelector("#effect");
 
-    audio.src = src;
-
+    const audio = new Audio(src);
+    audio.volume = div.className;
+    console.log(audio.volume);
+    div.appendChild(audio);
+    audio.onended = () => div.removeChild(audio);
     audio.play();
 };

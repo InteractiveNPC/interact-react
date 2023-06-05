@@ -6,7 +6,7 @@ import axios from "axios";
 import "./home.css";
 import Nav from "../../components/Nav";
 
-import { useBGM } from "../../services/audioManager";
+import { useBGM, effectPlay } from "../../services/audioManager";
 
 function Home(props) {
   useBGM("gearsoftime");
@@ -131,6 +131,7 @@ function Home(props) {
 
     if (props.init != null) {
       $("#ch1").on("load", function () {
+        effectPlay("mainroll");
         setTimeout(function () {
           $("#ch1").off("load");
           $("#ch1").attr("src", "image/Home/Source/Title_FairyNWoodcutter.png");
@@ -142,6 +143,7 @@ function Home(props) {
 
       setTimeout(function () {
         $("#ch3").on("load", function () {
+          effectPlay("mainroll");
           setTimeout(function () {
             $("#ch3").off("load");
             $("#ch3").attr("src", "image/Home/Source/Title_TwoSisters.png");

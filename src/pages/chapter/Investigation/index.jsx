@@ -30,7 +30,9 @@ export default ({ chapter, moveDocument }) => {
             className={styles.background}
             onClick={() => {
               const info = document.querySelector(`.${styles.info}`);
-              info.className = styles.disappear;
+              if(info) {
+                info.className = styles.disappear;
+              }
               setTimeout(() => {
                 setProcess(1);
               }, 1000);
