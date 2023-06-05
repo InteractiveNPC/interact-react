@@ -19,6 +19,8 @@ export default function Find3(props) {
     const clue = "연못에서 누군가의 보따리 속 비녀를 획득했습니다.";
     const explain = "수사를 계속하더라도, 수사실로 가면 언제든 홍련에게 비녀에 대해 물어볼 수 있습니다.";
 
+    const [f3Click, setF3Click] = useState(false);
+
     return (
         <div>
             <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
@@ -43,7 +45,7 @@ export default function Find3(props) {
                         setTimeout(()=>{
                             $('div#step1').fadeOut({fadeT});
                         }, 2500);
-                        axios.get('/meet/2/7');
+                        axios.get('/meet/3/8');
                         setTimeout(()=>{
                             $('div#step2').fadeIn({fadeT});
                         }, 3500);
@@ -80,7 +82,10 @@ export default function Find3(props) {
                         }} onMouseLeave={()=>{
                             $('img#hov2').addClass('display-none');
                         }} onClick={()=>{
-                          $('div#step2').fadeOut({fadeT})
+                            if(!f3Click){
+                                setF3Click(!f3Click);
+                                $('div#step2').fadeOut({fadeT});
+                            }
                         }}>수사 계속하기</p>
                 </div>          
                 <p className='banner-txt1'>{clue}</p>
