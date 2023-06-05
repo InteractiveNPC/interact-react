@@ -1,30 +1,26 @@
-import React, { Component } from "react";
-import Intro from "./components/IntroUI/Intro";
+import { useState, useEffect } from "react";
+import { VolumeContext } from "./contexts";
+import { getResizeEventListener } from "./services/responsiveFrame";
 import Document from "pages/chapter/Document";
 
-import { getResizeEventListener } from "./services/responsiveFrame";
+import Intro from "./components/IntroUI/Intro";
 
-import Chapter from "./pages/chapter";
+import Loading from "./components/Loading";
 
-import imagePreloader from "services/Loading";
+export default () => {
+  const [volume, setVolume] = useState([0.5, 0.5, 0.5]);
 
-class App extends Component {
-  render() {
-    return (
-      <div id="App">
-        <Document chapter={1} />
-      </div>
-    );
-  }
-
-  componentDidMount() {
+  useEffect(()=>{
     const FixRatio = getResizeEventListener(1920, 1080);
     window.onresize = FixRatio;
     FixRatio();
+  });
 
-    imagePreloader();
-  }
-  
-}
-
-export default App;
+   return (
+      <div id="App">
+        <VolumeContext.Provider value={[volume, setVolume]}>
+          <Loading App={<Document/>} />
+        </VolumeContext.Provider>
+      </div>
+    );
+};

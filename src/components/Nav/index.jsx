@@ -10,18 +10,14 @@ import index_styles from "./style.module.scss";
 
 const img_base = "/image/Investigation/Talk/UI/";
 
-export default ({ moveDocument, displayNote, goHome, volume, setVolume }) => {
-  if (!volume) {
-    [volume, setVolume] = useState([0.5, 0.5, 0.5]); // 임시 volume
-  }
-
+export default ({ home, moveDocument, displayNote, goHome }) => {
   const [window, setWindow] = useState(null);
   const button = [useRef(), useRef(), useRef(), useRef(), useRef()];
 
   const navEvent = [
-    goHome,
-    displayNote,
-    moveDocument,
+    home ? ()=>{} : goHome,
+    home ? ()=>{} : displayNote,
+    home ? ()=>{} : moveDocument,
     () => {
       window === "help" ? setWindow(null) : setWindow("help");
     },
@@ -33,8 +29,10 @@ export default ({ moveDocument, displayNote, goHome, volume, setVolume }) => {
   useEffect(() => {
     navEvent.slice(1).forEach((e, idx) => (button[idx].current.onclick = e));
 
-    setButtonEvent(button[0].current, img_base + "UI_record");
-    setButtonEvent(button[1].current, img_base + "UI_paper_make");
+    if(!home) {
+      setButtonEvent(button[0].current, img_base + "UI_record");
+      setButtonEvent(button[1].current, img_base + "UI_paper_make");
+    }
     setButtonEvent(button[2].current, img_base + "UI_help");
     setButtonEvent(button[3].current, img_base + "UI_setting");
   });
@@ -55,8 +53,6 @@ export default ({ moveDocument, displayNote, goHome, volume, setVolume }) => {
       {window === "help" && <Help onClose={() => setWindow(null)} />}
       {window === "setting" && (
         <Setting
-          volume={volume}
-          setVolume={setVolume}
           onClose={() => setWindow(null)}
         />
       )}

@@ -11,15 +11,15 @@ function Intro(props) {
     $("#info").hide();
     $("#begin").hide();
 
-    $("#background").click(function () {
+    $(".background").click(function () {
       $("#start").fadeIn(2000).fadeOut(2000).hide();
       $("#info").fadeIn(2000).fadeOut(2000).hide();
-      $("#background").off("click").click(next);
+      $(".background").off("click").click(next);
       setTimeout(next, 5000);
     });
 
     function next() {
-      $("#background").off("click");
+      $(".background").off("click");
       $("video").fadeIn(2000);
       setTimeout(function () {
         $("video").get(0).play();
@@ -28,8 +28,8 @@ function Intro(props) {
           var blink = setInterval(function () {
             $("#begin").fadeOut(1000).fadeIn(1000);
           }, 2000);
-          $("#background").click(function () {
-            $("#background").fadeOut(2000);
+          $(".background").click(function () {
+            $(".background").fadeOut(2000);
             clearInterval(blink);
             setTimeout(function () {
               setShow(false);
@@ -43,7 +43,7 @@ function Intro(props) {
   return (
     <div>
       {show ? (
-        <div id="background">
+        <div className="background">
           <div id="start">
             무원(無寃) 이란 '원통함, 억울함이 없게 하다'라는 뜻으로,
             <br />

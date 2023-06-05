@@ -4,6 +4,7 @@ import Chapter from "../../pages/chapter";
 import $ from "jquery";
 import axios from "axios";
 import "./home.css";
+import Nav from "components/Nav";
 
 function Home(props) {
   const [data, setData] = useState({ chapter1: 0, chapter2: 0, chapter3: 0 });
@@ -156,14 +157,14 @@ function Home(props) {
     }
 
     $("#ch1").click(function () {
-      $("#background").fadeOut(2000);
+      $(".background").fadeOut(2000);
       setTimeout(function () {
         setNext(1);
         setShow(false);
       }, 2000);
     });
     $("#ch3").click(function () {
-      $("#background").fadeOut(2000);
+      $(".background").fadeOut(2000);
       setTimeout(function () {
         setNext(3);
         setShow(false);
@@ -174,20 +175,17 @@ function Home(props) {
   return (
     <div>
       {show ? (
-        <div
-          id="background"
-          style={{
-            backgroundImage:
-              'url("image/Home/Background/Background_illust.png")',
-          }}
-        >
-          <img id="ch1" src="image/Home/Source/Title_FairyNWoodcutter.png" />
-          <img id="ch3" src="image/Home/Source/Title_TwoSisters.png" />
-          <img id="ch2" src="image/Home/Source/Title_Rabbitorgan.png" />
-          <img id="res1" className="rotate" src="image/Home/Source/None.png" />
-          <img id="res2" className="rotate" src="image/Home/Source/None.png" />
-          <img id="res3" className="rotate" src="image/Home/Source/None.png" />
-        </div>
+        <>
+          <div className="background" style={{backgroundImage:'url("image/Home/Background/Background_illust.png")'}}>
+            <img id="ch1" src="image/Home/Source/Title_FairyNWoodcutter.png" />
+            <img id="ch3" src="image/Home/Source/Title_TwoSisters.png" />
+            <img id="ch2" src="image/Home/Source/Title_Rabbitorgan.png" />
+            <img id="res1" className="rotate" src="image/Home/Source/None.png" />
+            <img id="res2" className="rotate" src="image/Home/Source/None.png" />
+            <img id="res3" className="rotate" src="image/Home/Source/None.png" />
+          </div>
+          <Nav home={true}/>
+        </>
       ) : (
         <Chapter chapter={next} />
       )}

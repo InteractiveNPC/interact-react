@@ -4,10 +4,16 @@ import $ from 'jquery';
 import axios from 'axios';
 import './Dialogue.css';
 
+import { setChoiceData } from './hook';
+import { useVolumeSetting } from "../../services/audioManager";
+
 function Dialogue(props) {
+  useVolumeSetting();
+  
   const [ show, setShow ] = useState(true);
   const [ home, setHome ] = useState(false);
   const [ hold, setHold ] = useState(false);
+  const [ voice, setVoice ] = useState("");
   const [ data, setData ] = useState({"id":1, "scene":0, "flag":0, "index":0, "len":1,
                                       "name": "", "content": "", "image": "", "choice": null});
   var size = {1:[0, 2, 4, 6, 8, 108, 109, 110],
@@ -49,6 +55,9 @@ function Dialogue(props) {
         }, 2000);
         break;
       case 0:
+        if(event.data.scene == 0) {
+          props.onInit();
+        }
         $("#dialogue_container").fadeOut(500);
         $("#dialogue").off("click").on("click", dialogueHandler);
         setTimeout(function() {
@@ -64,27 +73,34 @@ function Dialogue(props) {
   const chapterHandler = (id, scene, flag, index, size) => {
     var end = endCheck(id, scene)
     if(size == -1) {
-      clickHandler({"data":{"code":0}});
+      clickHandler({"data":{"code":0, scene: scene}});
       return;
     }
     if(hold != true) {
       axios.get('/chapter?id=' + id + "&scene=" + scene + "&flag=" + flag + "&index=" + index)
-      .then(res => {
+      .then(async (res) => {
         console.log(res);
+
+        let choice = null;
+        if (res.data.choice) {
+          choice = await setChoiceData(id, scene, res.data.choice);
+        }
+
         setData({"id": res.data.chapter, "scene": res.data.scene,
                   "flag": res.data.flag, "index": res.data.index,
                   "name": res.data.name, "content": res.data.content,
-                  "image": decodeURI(res.data.image), "choice": res.data.choice,
+                  "image": decodeURI(res.data.image), "choice": choice,
                   "len": res.data.len
-                })
+                });
+
         if(res.data.chapter == -1) {
           $("#dialogue").off("click").on("click", {code: -1}, clickHandler);
         }
         if(size < index && res.data.scene >= end) {
-          $("#dialogue").off("click").on("click", {code: 0}, clickHandler);
+          $("#dialogue").off("click").on("click", {code: 0, scene: scene}, clickHandler);
         }
-        if(res.data.index == 0 && size+1 >= res.data.len) {
-          $("#dialogue").off("click").on("click", {code: 0}, clickHandler);
+        if(scene == 0 && res.data.index == 0 && size+1 >= res.data.len) {
+          $("#dialogue").off("click").on("click", {code: 0, scene: scene}, clickHandler);
           setHold(true);
         }
         
@@ -102,15 +118,16 @@ function Dialogue(props) {
             }
           }
         }, 5);
-        var voice = "image/Investigation/Talk/Sound/dubbing/" + (id==1 ? "FairyNWoodcutter" : "TwoSisters") + "/voice_" + id + "_" + scene + "_" + flag + "_" + index + ".mp3";
-        $.get(voice).done(function() {
-          $("#voice_src").on("load", function() {
-            $("#voice")[0].play();
-          });
-          $("#voice_src").attr("src", voice);
+        var voice_src = "image/Investigation/Talk/Sound/dubbing/" + (id==1 ? "FairyNWoodcutter" : "TwoSisters") + "/voice_" + id + "_" + scene + "_" + flag + "_" + index + ".mp3";
+      
+        var voice_audio = '<audio id="voice" autoplay>' + 
+          '<source id="voice_src" src="' + voice_src + '" type="audio/mp3"/>' +
+          '</audio>';
+        $.get(voice_src).done(function() {
+          setVoice(voice_audio);
         })
       })
-      .catch(error => console.log(error))
+      .catch(error => console.log(error));
     }
   }
 
@@ -125,9 +142,14 @@ function Dialogue(props) {
     Object.values(data.choice).map((val, key) => { s++; });
     var i = idx === 0 ? 1 : 0;
     var l = idx === s-1 ? -1 : data.len;
+    var s = data.scene;
+    if(data.scene === -1) {
+      s = 0;
+      i = 0;
+    }
     setTimeout(function() {
       $(btn).css({"background": 'url("image/Investigation/Talk/UI/UI_optionbox_normal.png")'});
-      chapterHandler(data.id, data.scene, idx, i, l);
+      chapterHandler(data.id, s, idx, i, l);
     }, 500);
   }
 
@@ -148,7 +170,7 @@ function Dialogue(props) {
             <div id="dialogue_bg"></div>
             <div className="dialogue_name"><span>{data.name}</span></div>
             <div className="dialogue_content">{data.content}</div>
-            <audio id="voice"><source id="voice_src" type="audio/mp3"/></audio>
+            <div className="voice" dangerouslySetInnerHTML={{__html: voice}}></div>
           </div>
         ) : ( home ? <Home idx={data.scene} res={data.flag}/> : null ) }
        </div>
@@ -161,11 +183,12 @@ function Dialogue(props) {
             <img id="character" src={data.image}/>
             <div className="blur"></div>
             <div className="question"></div>
-            {data.choice && Object.values(data.choice).map((entrie, idx) => 
+            {data.choice && data.choice.map(({content, visited}, idx) => (
               <div className="answer" id={answerId(idx)} key={answerId(idx)} onClick={() => answerHandler(idx)}>
-                <span>{entrie}</span>
+                {visited && <img src="/image/Investigation/Talk/UI/optionbox_check.png"/>}
+                <span>{content}</span>
               </div>
-            )}
+            ))}
           </div>
         ) : ( home ? <Home idx={data.scene} res={data.flag}/> : null ) }
       </div>

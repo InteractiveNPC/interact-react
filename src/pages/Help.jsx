@@ -1,8 +1,8 @@
 import styles from '../styles/info.css';
 import $ from 'jquery';
 
-export default function Find(props){
-    const back = 'image/Investigation/Talk/Background/FairyNWoodcutter/illust_FairyNWoodcutter_office_back.png';
+export default function Help(props){
+    //const back = 'image/Investigation/Talk/Background/FairyNWoodcutter/illust_FairyNWoodcutter_office_back.png';
     const fadeT = 2000;
 
     const btn = 'image/Help/setting-credit/Setting_X.png';
@@ -15,18 +15,17 @@ export default function Find(props){
     const arrow3 = 'image/Help/start-help/help_info_arrow03.png';
 
     return (
-        <div>
+        <div id='bHelp'>
             <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
-            <img src={back} style={{ position: "absolute"}}></img>
-            <div id='start'>
-                <div id='info'></div>
+            <div id='startH'>
+                <div id='infoH'></div>
                 <img src={btn} className='close' onClick={()=>{
-                    $('div#start').fadeOut({fadeT});
+                    $('div#startH').fadeOut({fadeT});
                     setTimeout(()=>{
                         $('div#step1').fadeIn({fadeT});
                     }, 1000);
                 }}></img>
-                <p className='text0'>선녀의 원통함을 풀어주기 위한 수사를 진행하세요.</p>
+                <p className='textH0'>선녀의 원통함을 풀어주기 위한 수사를 진행하세요.</p>
             </div>
             <div id='step1' className='display-none' onClick={()=>{
                 $('div#step1').fadeOut({fadeT});
@@ -53,6 +52,9 @@ export default function Find(props){
 
             <div id='step3' className='display-none' onClick={()=>{
                 $('div#step3').fadeOut({fadeT});
+                setTimeout(()=>{
+                    $('div#bHelp').addClass('display-none');
+                }, 1000);
             }}>
                 <img src={info3} className='infoWindow'></img>
                 <img src={arrow3} id='arrow3'/>

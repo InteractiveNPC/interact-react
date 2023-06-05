@@ -1,5 +1,4 @@
 import { useState } from "react";
-
 import MoveUI from "../../components/MoveUI";
 import Dialogue from "../../components/DialogueUI/Dialogue";
 
@@ -10,6 +9,7 @@ export default ({ chapter, moveDocument }) => {
     flag: "0",
     index: "0",
   });
+  const [heroDisabled, setHeroDisabled] = useState(true);
   const [dialogueDisabled, setDialogueDisabled] = useState(false);
   const [process, setProcess] = useState(0);
 
@@ -17,13 +17,22 @@ export default ({ chapter, moveDocument }) => {
     <>
     { process === 0 && 
       <>
-        <MoveUI chapter={chapter} disabled={true} />
+        <MoveUI
+          chapter={chapter}
+          disabled={true}
+          hero={heroDisabled}
+        />
         {dialogueDisabled || (
-          <Dialogue {...dialogueData} onClose={() => {
-            console.log("close!!!!");
-            setDialogueDisabled(true);
-            setProcess(1);
-          }} />
+          <Dialogue {...dialogueData}
+            onInit={() => {
+              setHeroDisabled(false);
+            }}
+            onClose={() => {
+              console.log("close!!!!");
+              setDialogueDisabled(true);
+              setProcess(1);
+            }}
+          />
         )}
       </>}
       { process === 1 && 
@@ -35,10 +44,13 @@ export default ({ chapter, moveDocument }) => {
             setDialogueDisabled(false);
           }}
           dialogueDisabled={dialogueDisabled}
+          hero={heroDisabled}
           moveDocument={moveDocument}
         />
         {dialogueDisabled || (
-          <Dialogue {...dialogueData} onClose={() => setDialogueDisabled(true)} />
+          <Dialogue {...dialogueData}
+            onInit={() => setHeroDisabled(false)}
+            onClose={() => setDialogueDisabled(true)} />
         )}
       </>}
     </>
