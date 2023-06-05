@@ -130,24 +130,6 @@ const getVisitItems = (chapter) => {
     );
 };
 
-const mappingMainNodes = (have_nodeIds, visited_nodeIds, all_nodes) => {
-    const nodes = [];
-    for(let i of have_nodeIds) {
-        let visited = false;
-        for(let j of visited_nodeIds) {
-            if(i === j) {
-                visited = true;
-                break;
-            }
-        }
-        for(let j = 0; j < all_nodes.length; j++) {
-            if(i === all_nodes[j].id) {
-                nodes.push({...all_nodes[j], visited: visited});
-            }
-        } 
-    }
-    return nodes.sort((a, b) => a.id - b.id);   
-}
 const mappingDatas = (have_nodeIds, visited_nodeIds, all_nodes) => {
     for(let node of all_nodes) {
         node.have = false;
