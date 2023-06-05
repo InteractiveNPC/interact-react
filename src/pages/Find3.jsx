@@ -60,10 +60,14 @@ export default function Find3(props) {
                 <div id='btnFirst'>
                     <img src={button} className="btn1" onMouseDown={()=>{
                             $('img#hov1').removeClass('display-none');
+                        }} onMouseLeave={()=>{
+                            $('img#hov1').addClass('display-none');
                         }}></img>
                     <img id='hov1' className='display-none btn1' src={hButton}></img>
                     <p className='button-txt' onMouseDown={()=>{
                             $('img#hov1').removeClass('display-none');
+                        }} onMouseLeave={()=>{
+                            $('img#hov1').addClass('display-none');
                         }} onClick={()=>{
                         props.goOffice();
                     }}>홍련에게 가기</p>
@@ -71,10 +75,14 @@ export default function Find3(props) {
                 <div id='btnSecond'>
                     <img src={button} className="btn2" onMouseDown={()=>{
                             $('img#hov2').removeClass('display-none');
+                        }} onMouseLeave={()=>{
+                            $('img#hov2').addClass('display-none');
                         }}></img>
                     <img id='hov2' className='display-none btn2' src={hButton}></img>
                     <p className='button-txt2' onMouseDown={()=>{
                             $('img#hov2').removeClass('display-none');
+                        }} onMouseLeave={()=>{
+                            $('img#hov2').addClass('display-none');
                         }} onClick={()=>{
                             if(!f3Click){
                                 setF3Click(!f3Click);

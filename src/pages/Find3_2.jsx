@@ -1,5 +1,6 @@
 import { useSpring, animated } from "react-spring";
 import axios from 'axios';
+import {useState} from 'react';
 import { useDrag } from "react-use-gesture";
 import { useBGM, effectPlay } from "../services/audioManager";
 import styles from "../styles/findClue3_2.css";
@@ -16,7 +17,8 @@ export default function Find3_2(props) {
     "/image/Investigation/Talk/UI/proof_find_info_button_click.png";
   const popup2 = "/image/Investigation/Talk/UI/ScriptBackground.png";
   const name = "/image/Investigation/Talk/UI/Namebox_01.png";
-  const clue = "시체 검안서처럼 보입니다. 장화의 이름이 쓰여있습니다.";
+  const clue = "관아 안에서 사체부검서를 획득했습니다.";
+  const explain = "수사기록을 확인해 새롭게 알아낸 정보를 확인해보세요.";
   const paper2 = "/image/evidence/paper_01.png";
   const paper3 = "/image/evidence/paper_02.png";
   const paper4 = "/image/evidence/paper_03.png";
@@ -47,6 +49,8 @@ export default function Find3_2(props) {
     $("div#step1").addClass("display-none");
     $("div#step2").removeClass("display-none");
   };
+
+  const [f3_2Click, setF3_2Click]=useState(false);
 
   return (
     <div>
@@ -147,32 +151,41 @@ export default function Find3_2(props) {
       </div>
       <div id="result" className="display-none">
         <img src={popup} className="banner"></img>
-        <div id="btnFirst">
-          <img
-            src={button}
-            className="btn"
-            onMouseOver={() => {
-              $("img#hov1").removeClass("display-none");
-            }}
-            onMouseLeave={() => {
-              $("img#hov1").addClass("display-none");
-            }}
-          ></img>
-          <img id="hov1" className="display-none btn" src={hButton}></img>
-          <p
-            className="button-txtC"
-            onMouseOver={() => {
-              $("img#hov1").removeClass("display-none");
-            }}
-            onMouseLeave={() => {
-              $("img#hov1").addClass("display-none");
-            }}  onClick={()=>{
-              props.moveDocument();
-          }}
-          >
-            확인
-          </p>
+        <div id='btnFirst'>
+                    <img src={button} className="btn1" onMouseDown={()=>{
+                            $('img#hov1').removeClass('display-none');
+                        }} onMouseLeave={()=>{
+                          $('img#hov1').addClass('display-none');
+                      }}></img>
+                    <img id='hov1' className='display-none btn1' src={hButton}></img>
+                    <p className='button-txt' onMouseDown={()=>{
+                            $('img#hov1').removeClass('display-none');
+                        }} onClick={()=>{
+                        //props.goOffice();
+                    }} onMouseLeave={()=>{
+                      $('img#hov1').addClass('display-none');
+                  }}>수사기록 확인</p>
+                    <div id='btnSecond'>
+                        <img src={button} className="btn2" onMouseDown={()=>{
+                                $('img#hov2').removeClass('display-none');
+                            }} onMouseLeave={()=>{
+                              $('img#hov2').addClass('display-none');
+                          }}></img>
+                        <img id='hov2' className='display-none btn2' src={hButton}></img>
+                        <p className='button-txt2' onMouseDown={()=>{
+                                $('img#hov2').removeClass('display-none');
+                            }} onMouseLeave={()=>{
+                              $('img#hov2').addClass('display-none');
+                          }} onClick={()=>{
+                                if(!f3_2Click){
+                                    setF3_2Click(!f3_2Click);
+                                    $('div#result').fadeOut({fadeT});
+                                    $('div#etc').removeClass('display-none');
+                                }
+                        }}>수사 계속하기</p>
+                    </div>          
           <p className="banner-txt1">{clue}</p>
+          <p className='banner-txt2'>{explain}</p>
         </div>
       </div>
     </div>
