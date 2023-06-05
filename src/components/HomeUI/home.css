@@ -10,6 +10,14 @@
 	height: 1080px;
 }
 
+#info {
+	position: absolute;
+	width: 795px;
+	height: 112px;
+	left: 563px;
+	top: 43px;
+}
+
 #ch1 {
 	position: absolute;
 	left: 225.59px;
@@ -30,20 +38,16 @@
 
 #res1 {
 	position: absolute;
-	width: 74.87px;
-	height: 73.24px;
-	left: 558.33px;
-	top: 840px;
+	width: 130px;
+	height: 130px;
+	left: 438px;
+	top: 821px;
 }
 
 #res3 {
 	position: absolute;
-	width: 74.87px;
-	height: 73.24px;
-	left: 1103.91px;
-	top: 840px;
-}
-
-.rotate {
-	transform: rotate(16.32deg);
+	width: 130px;
+	height: 130px;
+	left: 1038px;
+	top: 821px;
 }
