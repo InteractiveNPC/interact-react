@@ -7,8 +7,11 @@ import Court from "../../../components/Court";
 import Dialogue from "components/DialogueUI/Dialogue";
 
 import styles from "./style.module.scss";
+import { useBGM } from "../../../services/audioManager";
 
 export default ({ chapter, replay, goHome }) => {
+  useBGM("Deneb");
+
   const [idx, setIdx] = useState(0);
   const [data, dialogueData] = useCourtData(chapter);
   const title = chapter === 1 ? "선녀와 나무꾼" : "장화 홍련";

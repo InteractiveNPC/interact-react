@@ -20,6 +20,8 @@ export default () => {
         <VolumeContext.Provider value={[volume, setVolume]}>
           <Loading App={<Intro/>} />
         </VolumeContext.Provider>
+        <audio id="bgm" loop={true} autoPlay={true}/>
+        <audio id="effect"/>
       </div>
     );
 };

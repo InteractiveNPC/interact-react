@@ -7,6 +7,7 @@ import Find3_2 from "pages/Find3_2";
 import $ from "jquery";
 
 import styles from "./style.module.scss";
+import { useBGM } from "../../services/audioManager";
 
 const BackgroundImgBase = "/image/Investigation/Talk/Background/TwoSisters/";
 const fullWebpBase = "/image/Investigation/Talk/Source/TwoSisters/full/full_";
@@ -21,6 +22,8 @@ const setPosWithIdx = (x, y, idx) => {
 export default [
   // 수사실
   ({ onTalk, hero }) => {
+    useBGM("NakhwaNansangji");
+
     const [heroDisabled, setHeroDisabled] = useState(hero);
     const [ bHelpDisabled, setbHelpDisabled ] = useState(true);
     const settingbHelpDisabled=()=>{
@@ -66,6 +69,8 @@ export default [
   },
   // 장화홍련의 집
   ({ onTalk }) => {
+    useBGM("biga");
+
     return (
       <div className={styles.location}>
         <video muted autoPlay loop playsInline>
@@ -102,6 +107,7 @@ export default [
   },
   // 연못
   ({ onTalk, goOffice }) => {
+    useBGM("biga");
     const [ disabled, setDisabled ] = useState(false);
 
     return (
@@ -129,6 +135,7 @@ export default [
   },
   // 관아 밖
   ({ onTalk }) => {
+    useBGM("biga");
     return (
       <div className={styles.location}>
         <video muted autoPlay loop playsInline>
@@ -151,6 +158,7 @@ export default [
   },
   // 관아 안
   ({ onTalk, moveDocument }) => {
+    useBGM("biga");
     return (
       <div
         className={styles.location}

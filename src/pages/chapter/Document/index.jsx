@@ -3,8 +3,11 @@ import { indictComponent } from "./config";
 import { divToImg } from "../../../services/propsFormat";
 
 import styles from "./style.module.scss";
+import { useBGM } from "../../../services/audioManager";
 
 export default ({ chapter }) => {
+  useBGM("March_swish");
+
   const [idx, setIdx] = useState(0);
   const Indict = indictComponent[chapter][idx];
 

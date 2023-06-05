@@ -4,13 +4,17 @@ import Chapter from "../../pages/chapter";
 import $ from "jquery";
 import axios from "axios";
 import "./home.css";
-import Nav from "components/Nav";
+import Nav from "../../components/Nav";
+
+import { useBGM } from "../../services/audioManager";
 
 function Home(props) {
+  useBGM("gearsoftime");
+  
   const [data, setData] = useState({ chapter1: 0, chapter2: 0, chapter3: 0 });
   const [next, setNext] = useState(1);
   const [show, setShow] = useState(true);
-
+  
   useEffect(() => {
     axios
       .get("/intro" + window.location.search)

@@ -6,6 +6,7 @@ import Bhelp from '../../pages/Help';
 import $ from "jquery";
 
 import styles from "./style.module.scss";
+import { useBGM } from "../../services/audioManager";
 
 const BackgroundImgBase =
   "/image/Investigation/Talk/Background/FairyNWoodcutter/";
@@ -25,6 +26,8 @@ const setPosWithIdx = (x, y, idx) => {
 export default [
   // 수사실
   ({ onTalk, hero }) => {
+    useBGM("NakhwaNansangji");
+
     const [heroDisabled, setHeroDisabled] = useState(hero);
     const [ bHelpDisabled, setbHelpDisabled ] = useState(true);
     const settingbHelpDisabled=()=>{
@@ -75,6 +78,7 @@ export default [
   },
   // 나무꾼의 집
   ({ onTalk }) => {
+    useBGM("spring_reunion");
     return (
       <div className={styles.location}>
         <video muted autoPlay loop playsInline>
@@ -104,6 +108,7 @@ export default [
   },
   // 나무꾼의 방 (증거 찾기)
   ({ onTalk, goOffice }) => {
+    useBGM("spring_reunion");
     return (
       <div className={styles.location}
         {...divToImg(BackgroundImgBase + "illust_FairyNWoodcutter_Woodcutter_room.png")}
@@ -114,6 +119,7 @@ export default [
   },
   // 연못
   ({ onTalk }) => {
+    useBGM("spring_reunion");
     return (
       <div className={styles.location}>
         <video muted autoPlay loop playsInline>
@@ -136,6 +142,7 @@ export default [
   },
   // 천계
   ({ onTalk }) => {
+    useBGM("spring_reunion");
     return (
       <div className={styles.location}>
         <video muted autoPlay loop playsInline>
