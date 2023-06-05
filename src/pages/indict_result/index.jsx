@@ -28,8 +28,9 @@ export default function Indict_Result() {
         console.log(JSON.stringify(response.data));
         data = response.data;
         console.log(data);
-        console.log(data['accused']);
-        console.log(data['accused']['나무꾼']);
+        // console.log(data['accused']);
+        // console.log(data['accused']['나무꾼']);
+        console.log(data['crime']);
     })
 
     //event function

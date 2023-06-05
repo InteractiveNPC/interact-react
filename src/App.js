@@ -5,12 +5,14 @@ import { getResizeEventListener } from "./services/responsiveFrame";
 import Chapter from "./pages/chapter";
 
 import Loading from "./components/Loading";
+import PResult from "./pages/indict_result"
 
 class App extends Component {
   render() {
     return (
       <div id="App">
-        <Loading App={<Intro/>} />
+        <PResult />
+        {/* <Loading App={<Intro/>} /> */}
       </div>
     );
   }
