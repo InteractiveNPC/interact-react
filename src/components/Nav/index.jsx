@@ -10,7 +10,7 @@ import index_styles from "./style.module.scss";
 
 const img_base = "/image/Investigation/Talk/UI/";
 
-export default ({ home, ending, moveDocument, displayNote, goHome }) => {
+export default ({ home, ending, document, moveDocument, displayNote, goHome }) => {
   const [window, setWindow] = useState(null);
   const button = [useRef(), useRef(), useRef(), useRef(), useRef()];
 
@@ -31,7 +31,12 @@ export default ({ home, ending, moveDocument, displayNote, goHome }) => {
 
     if(!home && !ending) {
       setButtonEvent(button[0].current, img_base + "UI_record");
-      setButtonEvent(button[1].current, img_base + "UI_paper_make");
+      if(!document) setButtonEvent(button[1].current, img_base + "UI_paper_make");
+      else {
+        setButtonEvent(button[1].current, false);
+        button[1].current.style.backgroundImage = `url(${
+          process.env.PUBLIC_URL + img_base}UI_paper_make_click.png)`;
+      }
     }
     else {
       setButtonEvent(button[0].current, false);
