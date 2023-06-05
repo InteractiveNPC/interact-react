@@ -166,6 +166,10 @@ function Dialogue(props) {
       <div id="dialogue_container">
         {show ? (
           <div id="dialogue" onClick={dialogueHandler}>
+            {
+              (data.scene != -1 && data.scene != 0 && !( data.scene == 1 && data.index == 0 ) ) &&
+              <div className="blur"></div>
+            }
             <img id="character" src={data.image}/>
             <div id="dialogue_bg"></div>
             <div className="dialogue_name"><span>{data.name}</span></div>
