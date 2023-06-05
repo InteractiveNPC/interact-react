@@ -13,6 +13,13 @@ img, p, h2{
     left: 0%;
 }
 
+#bHelp{
+    position: absolute;
+    width:100%;
+    height:100%;
+    z-index:1001;
+}
+
 #infoH{
     position: absolute;
     width: 697px;

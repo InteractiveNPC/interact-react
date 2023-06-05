@@ -35,7 +35,6 @@ export default [
             src={halfWebpBase + "Hongryeon_normal_X_office.webp"}
             {...setPosWithIdx(0, 0, 1000)}
             onClick={() => {
-              setHeroDisabled(true);
               onTalk({ idx: "3", scene: "-1", "flag": "0", index: "0" });
             }}
           />

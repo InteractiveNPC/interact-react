@@ -17,17 +17,22 @@ export default ({ chapter, moveDocument }) => {
     <>
     { process === 0 && 
       <>
-        <MoveUI chapter={chapter} disabled={true} hero={heroDisabled}/>
+        <MoveUI
+          chapter={chapter}
+          disabled={true}
+          hero={heroDisabled}
+        />
         {dialogueDisabled || (
           <Dialogue {...dialogueData}
-          onInit={() => {
-            setHeroDisabled(false);
-          }}
-          onClose={() => {
-            console.log("close!!!!");
-            setDialogueDisabled(true);
-            setProcess(1);
-          }} />
+            onInit={() => {
+              setHeroDisabled(false);
+            }}
+            onClose={() => {
+              console.log("close!!!!");
+              setDialogueDisabled(true);
+              setProcess(1);
+            }}
+          />
         )}
       </>}
       { process === 1 && 
@@ -39,10 +44,13 @@ export default ({ chapter, moveDocument }) => {
             setDialogueDisabled(false);
           }}
           dialogueDisabled={dialogueDisabled}
+          hero={heroDisabled}
           moveDocument={moveDocument}
         />
         {dialogueDisabled || (
-          <Dialogue {...dialogueData} onClose={() => setDialogueDisabled(true)} />
+          <Dialogue {...dialogueData}
+            onInit={() => setHeroDisabled(false)}
+            onClose={() => setDialogueDisabled(true)} />
         )}
       </>}
     </>
