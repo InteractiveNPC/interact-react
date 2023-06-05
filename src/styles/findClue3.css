@@ -49,17 +49,32 @@ filter: drop-shadow(0px 0px 50px rgba(255, 255, 255, 0.8));
 filter: drop-shadow(0px 0px 50px rgba(255, 255, 255, 0.8));
 }
 .btn2 {
-position: absolute;
-width: 340px;
-height: 60px;
-left: 1025px;
-top: 579px;
+  position: absolute;
+  width: 340px;
+  height: 60px;
+  left: 1025px;
+  top: 579px;
 }
 .btn1 {
   position: absolute;
   width: 340px;
   height: 60px;
   left: 556px;
+  top: 579px;
+}
+
+div#fBtn1{
+  position: absolute;
+  width: 340px;
+  height: 60px;
+  left: 556px;
+  top: 579px;
+}
+div#fBtn2{
+  position: absolute;
+  width: 340px;
+  height: 60px;
+  left: 1025px;
   top: 579px;
 }
 

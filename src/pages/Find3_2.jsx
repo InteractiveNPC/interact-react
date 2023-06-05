@@ -152,27 +152,21 @@ export default function Find3_2(props) {
       <div id="result" className="display-none">
         <img src={popup} className="banner"></img>
         <div id='btnFirst'>
-                    <img src={button} className="btn1" onMouseDown={()=>{
-                            $('img#hov1').removeClass('display-none');
-                        }} onMouseLeave={()=>{
-                          $('img#hov1').addClass('display-none');
-                      }}></img>
+                    <img src={button} className="btn1"></img>
                     <img id='hov1' className='display-none btn1' src={hButton}></img>
-                    <p className='button-txt' onMouseDown={()=>{
+                    <p className='button-txt'>수사기록 확인</p>
+                    <div id='fBtn1' onMouseDown={()=>{
                             $('img#hov1').removeClass('display-none');
                         }} onClick={()=>{
                         //props.goOffice();
                     }} onMouseLeave={()=>{
                       $('img#hov1').addClass('display-none');
-                  }}>수사기록 확인</p>
+                  }}></div>
                     <div id='btnSecond'>
-                        <img src={button} className="btn2" onMouseDown={()=>{
-                                $('img#hov2').removeClass('display-none');
-                            }} onMouseLeave={()=>{
-                              $('img#hov2').addClass('display-none');
-                          }}></img>
+                        <img src={button} className="btn2"></img>
                         <img id='hov2' className='display-none btn2' src={hButton}></img>
-                        <p className='button-txt2' onMouseDown={()=>{
+                        <p className='button-txt2'>수사 계속하기</p>
+                        <div id='fBtn2' onMouseDown={()=>{
                                 $('img#hov2').removeClass('display-none');
                             }} onMouseLeave={()=>{
                               $('img#hov2').addClass('display-none');
@@ -182,7 +176,7 @@ export default function Find3_2(props) {
                                     $('div#result').fadeOut({fadeT});
                                     $('div#etc').removeClass('display-none');
                                 }
-                        }}>수사 계속하기</p>
+                        }}></div>
                     </div>          
           <p className="banner-txt1">{clue}</p>
           <p className='banner-txt2'>{explain}</p>

@@ -93,6 +93,21 @@ top: 300px;
   top: 579px;
 }
 
+div#fBtn1{
+  position: absolute;
+  width: 340px;
+  height: 60px;
+  left: 556px;
+  top: 579px;
+}
+div#fBtn2{
+  position: absolute;
+  width: 340px;
+  height: 60px;
+  left: 1025px;
+  top: 579px;
+}
+
 .button-txt{
   position: absolute;
   width: 140px;
@@ -156,7 +171,7 @@ top: 300px;
 }
 .banner-txt2 {
   position: absolute;
-  width: 700px;
+  width: 800px;
   height: 30px;
   left: 645.56px;
   top: 508px;
