@@ -1,14 +1,15 @@
 .nav_button {
-  z-index: 1000;
+  z-index: 2222;
   position: absolute;
 
   top: 115px;
   left: 38px;
 
-  font-size: 16px;
-  font-weight: 700;
+  font-family: 'GyeonggiBatang';
+  font-size: 18px;
+  font-weight: 400;
   text-align: center;
-  line-height: 40px;
+  line-height: 44px;
 
   .button {
     position: absolute;
@@ -36,15 +37,13 @@
       width: 241px;
       height: 44px;
 
-      color: #9f9478;
-
-      cursor: pointer;
+      color: #fff8e4;
     }
   }
 }
 
 .nav_arrow {
-  z-index: 1000;
+  z-index: 2222;
   position: absolute;
 
   top: 50%;
@@ -83,6 +82,17 @@
     position: absolute;
     width: 1920px;
     height: 1080px;
-    z-index: 1000;
+    z-index: 999;
   }
+}
+.display-none {
+  display: none;
+}
+
+#bHelpBtn{
+  background-color: aqua;
+  width:300px;
+  height: 200px;
+  top: 200px;
+  left: 300px;
 }

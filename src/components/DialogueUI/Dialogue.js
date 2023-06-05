@@ -4,7 +4,12 @@ import $ from 'jquery';
 import axios from 'axios';
 import './Dialogue.css';
 
+import { setChoiceData } from './hook';
+import { useVolumeSetting } from "../../services/audioManager";
+
 function Dialogue(props) {
+  useVolumeSetting();
+  
   const [ show, setShow ] = useState(true);
   const [ home, setHome ] = useState(false);
   const [ hold, setHold ] = useState(false);
@@ -73,14 +78,21 @@ function Dialogue(props) {
     }
     if(hold != true) {
       axios.get('/chapter?id=' + id + "&scene=" + scene + "&flag=" + flag + "&index=" + index)
-      .then(res => {
+      .then(async (res) => {
         console.log(res);
+
+        let choice = null;
+        if (res.data.choice) {
+          choice = await setChoiceData(id, scene, res.data.choice);
+        }
+
         setData({"id": res.data.chapter, "scene": res.data.scene,
                   "flag": res.data.flag, "index": res.data.index,
                   "name": res.data.name, "content": res.data.content,
-                  "image": decodeURI(res.data.image), "choice": res.data.choice,
+                  "image": decodeURI(res.data.image), "choice": choice,
                   "len": res.data.len
-                })
+                });
+
         if(res.data.chapter == -1) {
           $("#dialogue").off("click").on("click", {code: -1}, clickHandler);
         }
@@ -115,7 +127,7 @@ function Dialogue(props) {
           setVoice(voice_audio);
         })
       })
-      .catch(error => console.log(error))
+      .catch(error => console.log(error));
     }
   }
 
@@ -130,9 +142,14 @@ function Dialogue(props) {
     Object.values(data.choice).map((val, key) => { s++; });
     var i = idx === 0 ? 1 : 0;
     var l = idx === s-1 ? -1 : data.len;
+    var s = data.scene;
+    if(data.scene === -1) {
+      s = 0;
+      i = 0;
+    }
     setTimeout(function() {
       $(btn).css({"background": 'url("image/Investigation/Talk/UI/UI_optionbox_normal.png")'});
-      chapterHandler(data.id, data.scene, idx, i, l);
+      chapterHandler(data.id, s, idx, i, l);
     }, 500);
   }
 
@@ -154,6 +171,7 @@ function Dialogue(props) {
             <div className="dialogue_name"><span>{data.name}</span></div>
             <div className="dialogue_content">{data.content}</div>
             <div className="voice" dangerouslySetInnerHTML={{__html: voice}}></div>
+            <img id="point" src="/image/Investigation/Talk/UI/ScriptButton.png"/>
           </div>
         ) : ( home ? <Home idx={data.scene} res={data.flag}/> : null ) }
        </div>
@@ -166,11 +184,12 @@ function Dialogue(props) {
             <img id="character" src={data.image}/>
             <div className="blur"></div>
             <div className="question"></div>
-            {data.choice && Object.values(data.choice).map((entrie, idx) => 
+            {data.choice && data.choice.map(({content, visited}, idx) => (
               <div className="answer" id={answerId(idx)} key={answerId(idx)} onClick={() => answerHandler(idx)}>
-                <span>{entrie}</span>
+                {visited && <img src="/image/Investigation/Talk/UI/optionbox_check.png"/>}
+                <span>{content}</span>
               </div>
-            )}
+            ))}
           </div>
         ) : ( home ? <Home idx={data.scene} res={data.flag}/> : null ) }
       </div>

@@ -13,12 +13,12 @@ audio { display:none; }
 	top: 0;
 	width: 100%;
 	height: 100%;
-	z-index: 1111;
+	z-index: 3333;
 }
 
 #dialogue_bg {
 	position: absolute;
-	z-index: 1111;
+	z-index: 3333;
 	width: 1716px;
 	height: 215px;
 	left: 102px;
@@ -54,7 +54,7 @@ audio { display:none; }
 
 .dialogue_name {
 	position: absolute;
-	z-index: 1111;
+	z-index: 3333;
 	height: 45px;
 	left: 350px;
 	top: 855px;
@@ -76,7 +76,7 @@ audio { display:none; }
 
 .dialogue_content {
 	position: absolute;
-	z-index: 1111;
+	z-index: 3333;
 	width: 1200px;
 	height: 111px;
 	left: 350px;
@@ -91,6 +91,15 @@ audio { display:none; }
 	white-space: pre-line;
 }
 
+#point {
+	position: absolute;
+	width: 20px;
+	height: 23px;
+	left: 1580px;
+	top: 958px;
+	z-index: 9999;
+}
+
 #character {
 	position: absolute;
 	width: 1920px;
@@ -102,9 +111,9 @@ audio { display:none; }
 .blur {
 	position: absolute;
 	width: 1920px;
-	height: 1076px;
+	height: 1080px;
 	left: 0px;
-	top: 2px;
+	top: 0px;
 	background: rgba(0, 0, 0, 0.6);
 }
 
@@ -143,6 +152,13 @@ audio { display:none; }
 	align-items: center;
 	justify-content: center;
 	height: 70px;
+}
+
+.answer img {
+	position: absolute;
+	left: 141px;
+	top: 50%;
+	transform: translateY(-50%);
 }
 
 #answer0 {

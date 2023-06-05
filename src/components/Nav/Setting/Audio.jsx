@@ -1,4 +1,6 @@
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useContext } from "react";
+import { VolumeContext } from "../../../contexts";
+import { setAudioVolume } from "../../../services/audioManager";
 import { divToImg } from "../../../services/propsFormat";
 import { setButtonEvent } from "../animation";
 
@@ -6,7 +8,8 @@ import styles from "./style.module.scss";
 
 const img_base = "/image/Help/setting-credit/";
 
-export default ({ volume, setVolume }) => {
+export default () => {
+  const [volume, setVolume] = useContext(VolumeContext);
   const buttonRef = useRef();
 
   useEffect(() => {
@@ -15,7 +18,7 @@ export default ({ volume, setVolume }) => {
 
   return (
     <div className={styles.audio}>
-      {["배경음", "배경음", "배경음"].map((val, i) => (
+      {["배경음", "효과음", "보이스"].map((val, i) => (
         <div className={styles.audio_setting} key={`audio_setting_${i}`}>
           <label htmlFor={`audio_input_${i}`}>
             <img src={`${process.env.PUBLIC_URL + img_base}Setting_name.png`} />
@@ -32,10 +35,11 @@ export default ({ volume, setVolume }) => {
             max="100"
             defaultValue={volume[i] * 100}
             onChange={(e) => {
-              console.log(e);
               const newVolume = volume;
-              newVolume[i] = e.target.value / 100;
+              newVolume[i] = Math.floor(e.target.value / 10) / 10;
+              if(newVolume[i] === 0) newVolume[i] = "0.0";
               setVolume(newVolume);
+              setAudioVolume(newVolume);
             }}
           />
         </div>
@@ -45,6 +49,7 @@ export default ({ volume, setVolume }) => {
         className={styles.button}
         onClick={() => {
           setVolume([0.5, 0.5, 0.5]);
+          setAudioVolume([0.5, 0.5, 0.5]);
           for (let i = 0; i < 3; i++) {
             const input = document.getElementById(`audio_input_${i}`);
             input.value = 50;

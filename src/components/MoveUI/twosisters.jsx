@@ -1,27 +1,34 @@
 import { useState } from "react";
 import { divToImg } from "../../services/propsFormat";
 
+import Bhelp from '../../pages/Help';
 import Find3 from "pages/Find3";
 import Find3_2 from "pages/Find3_2";
+import $ from "jquery";
 
 import styles from "./style.module.scss";
 
-const BackgroundImgBase = "/image/investigation/Talk/Background/TwoSisters/";
-const fullWebpBase = "/image/investigation/Talk/Source/TwoSisters/full/full_";
-const halfWebpBase = "/image/investigation/Talk/Source/TwoSisters/half/half_";
+const BackgroundImgBase = "/image/Investigation/Talk/Background/TwoSisters/";
+const fullWebpBase = "/image/Investigation/Talk/Source/TwoSisters/full/full_";
+const halfWebpBase = "/image/Investigation/Talk/Source/TwoSisters/half/half_";
 const setPos = (x, y) => {
   return { style: { left: `${x}px`, top: `${y}px` } };
 };
 const setPosWithIdx = (x, y, idx) => {
-  return { style: { left: `${x}px`, top: `${y}px`, "zIndex": `${idx}` } };
+  return { style: { left: `${x}px`, top: `${y}px`, "zIndex": `${idx}`, "position": "absolute" } };
 };
 
 export default [
   // 수사실
   ({ onTalk, hero }) => {
     const [heroDisabled, setHeroDisabled] = useState(hero);
+    const [ bHelpDisabled, setbHelpDisabled ] = useState(true);
+    const settingbHelpDisabled=()=>{
+      setbHelpDisabled(!bHelpDisabled);
+    };
     return (
       <div className={styles.location}>
+        <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
         <video muted autoPlay loop playsInline>
           <source
             src={`${
@@ -35,8 +42,10 @@ export default [
             src={halfWebpBase + "Hongryeon_normal_X_office.webp"}
             {...setPosWithIdx(0, 0, 1000)}
             onClick={() => {
-              setHeroDisabled(true);
-              onTalk({ idx: "1", scene: "-1", "flag": "0", index: "0" });
+              onTalk({ idx: "3", scene: "-1", "flag": "0", index: "0" });
+            }} onMouseOver={()=>{
+              $('div#bHelp').fadeIn(1000);
+              setTimeout(()=>{$('div#bHelp').removeClass('display-none');}, 1000);
             }}
           />
         )}
@@ -44,6 +53,14 @@ export default [
           className={styles.desk}
           {...divToImg(BackgroundImgBase + "illust_TwoSisters_desk.png")}
         />
+        <div id='bHelp' className="display-none" style={{zIndex:'1000'}}
+          onClick={()=>{
+            if(!bHelpDisabled){
+              $('div#bHelp').css('zIndex','500');
+            }
+          }}>
+            {bHelpDisabled? <Bhelp who={'홍련'} setActive={settingbHelpDisabled}/> : null}
+          </div>
       </div>
     );
   },

@@ -1,56 +1,75 @@
 import { useState } from "react";
 import { divToImg } from "../../services/propsFormat";
 import Find from "../../pages/Find";
+
 import Bhelp from '../../pages/Help';
+import $ from "jquery";
 
 import styles from "./style.module.scss";
 
 const BackgroundImgBase =
-  "/image/investigation/Talk/Background/FairyNWoodcutter/";
+  "/image/Investigation/Talk/Background/FairyNWoodcutter/";
 const fullWebpBase =
   process.env.PUBLIC_URL +
-  "/image/investigation/Talk/Source/FairyNWoodcutter/full/full_";
+  "/image/Investigation/Talk/Source/FairyNWoodcutter/full/full_";
 const halfWebpBase = 
   process.env.PUBLIC_URL +
-  "/image/investigation/Talk/Source/FairyNWoodcutter/half/half_";
+  "/image/Investigation/Talk/Source/FairyNWoodcutter/half/half_";
 const setPos = (x, y) => {
   return { style: { left: `${x}px`, top: `${y}px` } };
 };
 const setPosWithIdx = (x, y, idx) => {
-  return { style: { left: `${x}px`, top: `${y}px`, "zIndex": `${idx}` } };
+  return { style: { left: `${x}px`, top: `${y}px`, "zIndex": `${idx}`, "position": "absolute" } };
 };
 
 export default [
   // 수사실
   ({ onTalk, hero }) => {
     const [heroDisabled, setHeroDisabled] = useState(hero);
-    const [ bHelpDisabled, setbHelpDisabled ] = useState(false);
+    const [ bHelpDisabled, setbHelpDisabled ] = useState(true);
+    const settingbHelpDisabled=()=>{
+      setbHelpDisabled(!bHelpDisabled);
+    };
+    //const [clickCount, setClickCount] = useState(0);
     console.log(hero);
     return (
       <div className={styles.location}>
-        <video muted autoPlay loop playsInline>
+        <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+          <video muted autoPlay loop playsInline>
           <source
             src={`${
               process.env.PUBLIC_URL + BackgroundImgBase
             }illust_FairyNWoodcutter_office_back.mp4`}
             type="video/mp4"
           />
-        </video>
-        {heroDisabled ? null : (
-          <img
-            src={halfWebpBase + "Fairy_normal_X_office.webp"}
-            {...setPosWithIdx(0, 0, 1000)}
-            onClick={() => {
-              setHeroDisabled(true);
-              onTalk({ idx: "1", scene: "-1", "flag": "0", index: "0" });
-            }}
+          </video>
+          
+          {heroDisabled ? null : (
+            <div>
+            <img
+              src={halfWebpBase + "Fairy_normal_X_office.webp"}
+              {...setPosWithIdx(0, 0, 1000)}
+              onClick={() => {
+                onTalk({ idx: "1", scene: "-1", "flag": "0", index: "0" });
+              }} onMouseOver={()=>{
+                $('div#bHelp').fadeIn(1000);
+                setTimeout(()=>{$('div#bHelp').removeClass('display-none');}, 1000);
+              }}
+            />
+            </div>
+          )}
+          <div
+            className={styles.desk}
+            {...divToImg(BackgroundImgBase + "illust_FairyNWoodcutter_desk.png")}
           />
-        )}
-        <div
-          className={styles.desk}
-          {...divToImg(BackgroundImgBase + "illust_FairyNWoodcutter_desk.png")}
-        />
-        <Bhelp isActive={bHelpDisabled} setActive={setbHelpDisabled}/>
+          <div id='bHelp' className="display-none" style={{zIndex:'1000'}}
+          onClick={()=>{
+            if(!bHelpDisabled){
+              $('div#bHelp').css('zIndex','500');
+            }
+          }}>
+            {bHelpDisabled? <Bhelp who={'선녀'} setActive={settingbHelpDisabled}/> : null}
+          </div>
       </div>
     );
   },

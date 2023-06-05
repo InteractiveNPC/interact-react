@@ -1,0 +1,41 @@
+.background {
+    position: absolute;
+    z-index: 9999;
+    width: 1920px;
+    height: 1080px;
+    
+    > div:last-child {
+        position: absolute;
+        width: 795px;
+        height: 112px;
+        left: calc(50% - 795px/2 - 0.5px);
+        top: calc(50% - 112px/2 - 366px);
+
+        font-family: 'Pretendard';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 24px;
+        line-height: 112px;
+        /* identical to box height, or 32px */
+
+        text-align: center;
+ 
+        color: #DACCA7;
+    }
+    .info {
+        animation: appear 1s;
+    }
+    .disappear {
+        animation: disappear 1s;
+        opacity: 0;
+    }
+
+    @keyframes appear {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+    @keyframes disappear {
+        from { opacity: 1; }
+        to { opacity: 0; }
+    }
+}

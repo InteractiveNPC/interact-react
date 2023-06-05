@@ -10,18 +10,14 @@ import index_styles from "./style.module.scss";
 
 const img_base = "/image/Investigation/Talk/UI/";
 
-export default ({ moveDocument, displayNote, goHome, volume, setVolume }) => {
-  if (!volume) {
-    [volume, setVolume] = useState([0.5, 0.5, 0.5]); // 임시 volume
-  }
-
+export default ({ home, ending, document, moveDocument, displayNote, goHome }) => {
   const [window, setWindow] = useState(null);
   const button = [useRef(), useRef(), useRef(), useRef(), useRef()];
 
   const navEvent = [
-    goHome,
-    displayNote,
-    moveDocument,
+    home ? ()=>{} : goHome,
+    (home || ending) ? ()=>{} : displayNote,
+    (home || ending) ? ()=>{} : moveDocument,
     () => {
       window === "help" ? setWindow(null) : setWindow("help");
     },
@@ -33,19 +29,30 @@ export default ({ moveDocument, displayNote, goHome, volume, setVolume }) => {
   useEffect(() => {
     navEvent.slice(1).forEach((e, idx) => (button[idx].current.onclick = e));
 
-    setButtonEvent(button[0].current, img_base + "UI_record");
-    setButtonEvent(button[1].current, img_base + "UI_paper_make");
+    if(!home && !ending) {
+      setButtonEvent(button[0].current, img_base + "UI_record");
+      if(!document) setButtonEvent(button[1].current, img_base + "UI_paper_make");
+      else {
+        setButtonEvent(button[1].current, false);
+        button[1].current.style.backgroundImage = `url(${
+          process.env.PUBLIC_URL + img_base}UI_paper_make_click.png)`;
+      }
+    }
+    else {
+      setButtonEvent(button[0].current, false);
+      setButtonEvent(button[1].current, false);
+    }
     setButtonEvent(button[2].current, img_base + "UI_help");
     setButtonEvent(button[3].current, img_base + "UI_setting");
   });
 
   return (
     <>
-      <div
+      {home || <div
         className={index_styles.home}
         {...divToImg(img_base + "HomeButton.png")}
         onClick={navEvent[0]}
-      ></div>
+      ></div>}
       <div className={index_styles.buttons}>
         <div ref={button[0]} />
         <div ref={button[1]} />
@@ -55,8 +62,6 @@ export default ({ moveDocument, displayNote, goHome, volume, setVolume }) => {
       {window === "help" && <Help onClose={() => setWindow(null)} />}
       {window === "setting" && (
         <Setting
-          volume={volume}
-          setVolume={setVolume}
           onClose={() => setWindow(null)}
         />
       )}
