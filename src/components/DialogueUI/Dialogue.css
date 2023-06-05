@@ -161,18 +161,32 @@ audio { display:none; }
 	transform: translateY(-50%);
 }
 
-#answer0 {
-	top: 375px;
+div:nth-child(1 of .answer):nth-last-child(2 of .answer) {
+	top: 403px;
+}
+div:nth-child(2 of .answer):nth-last-child(1 of .answer) {
+	top: 533px;
 }
 
-#answer1 {
-	top: 499px;
+div:nth-child(1 of .answer):nth-last-child(3 of .answer) {
+	top: 338px;
+}
+div:nth-child(2 of .answer):nth-last-child(2 of .answer) {
+	top: 468px;
+}
+div:nth-child(3 of .answer):nth-last-child(1 of .answer) {
+	top: 598px;
 }
 
-#answer2 {
-	top: 623px;
+div:nth-child(1 of .answer):nth-last-child(4 of .answer) {
+	top: 277px;
 }
-
-#answer3 {
-	top: 747px;
+div:nth-child(2 of .answer):nth-last-child(3 of .answer) {
+	top: 407px;
+}
+div:nth-child(3 of .answer):nth-last-child(2 of .answer) {
+	top: 537px;
+}
+div:nth-child(4 of .answer):nth-last-child(1 of .answer) {
+	top: 667px;
 }

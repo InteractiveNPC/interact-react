@@ -1,3 +1,10 @@
+@font-face {
+    font-family: 'GyeonggiBatang';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/GyeonggiBatang.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
 .display-none{
   display: none;
 }
@@ -63,7 +70,7 @@ top: 579px;
   left: 661px;
   top: 595px;
   
-  font-family: 'Pretendard';
+  font-family: 'GyeonggiBatang';
   font-style: normal;
   font-weight: 700;
   font-size: 24px;
@@ -81,7 +88,7 @@ height: 29px;
 left: 1130px;
 top: 595px;
 
-font-family: 'Pretendard';
+font-family: 'GyeonggiBatang';
 font-style: normal;
 font-weight: 700;
 font-size: 24px;
@@ -106,7 +113,7 @@ height: 36px;
 left: 706px;
 top: 468px;
 
-font-family: 'Pretendard';
+font-family: 'GyeonggiBatang';
 font-style: normal;
 font-weight: 700;
 font-size: 24px;
@@ -119,12 +126,12 @@ color: #DACCA7;
 }
 .banner-txt2 {
 position: absolute;
-width: 700px;
+width: 800px;
 height: 30px;
-left: 645.56px;
+left: 560px;
 top: 508px;
 
-font-family: 'Pretendard';
+font-family: 'GyeonggiBatang';
 font-style: normal;
 font-weight: 400;
 font-size: 20px;

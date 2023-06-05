@@ -15,7 +15,7 @@ export default function Find3_2(props) {
   const hButton =
     "/image/Investigation/Talk/UI/proof_find_info_button_click.png";
   const popup2 = "/image/Investigation/Talk/UI/ScriptBackground.png";
-  const name = "/image/Investigation/Talk/UI/Namebox_02.png";
+  const name = "/image/Investigation/Talk/UI/Namebox_01.png";
   const clue = "시체 검안서처럼 보입니다. 장화의 이름이 쓰여있습니다.";
   const paper2 = "/image/evidence/paper_01.png";
   const paper3 = "/image/evidence/paper_02.png";

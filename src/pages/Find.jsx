@@ -7,7 +7,7 @@ import styles from '../styles/findClue.css';
 import { useBGM, effectPlay } from "../services/audioManager";
 import $ from 'jquery';
 import popup2 from '../components/DialogueUI/ScriptBackground.png';
-import name from '../components/DialogueUI/Namebox_02.png';
+import name from '../components/DialogueUI/Namebox_01.png';
 
 export default function Find(props){
     //const back = 'image/Investigation/Talk/background/FairyNWoodcutter/illust_FairyNWoodcutter_Woodcutter_room.png';
