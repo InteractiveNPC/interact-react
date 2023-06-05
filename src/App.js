@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Intro from "./components/IntroUI/Intro";
-import Indict from "./components/Indict/index";
+import Document from "pages/chapter/Document";
+
 import { getResizeEventListener } from "./services/responsiveFrame";
 
 import Chapter from "./pages/chapter";
@@ -11,7 +12,7 @@ class App extends Component {
   render() {
     return (
       <div id="App">
-        <Intro />
+        <Document chapter={1} />
       </div>
     );
   }

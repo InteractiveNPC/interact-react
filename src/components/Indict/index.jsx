@@ -8,28 +8,29 @@ import styles from '../../styles/indict.css';
 const chapter = "1_0"
 function Indict(){
   const [ data, setData] = useState(
-    {"chapter":1_0, "scene": 35, "name":"", "item": "",
+    {"chapter":1_0, "scene": 35, "name":"", "item": [],
      "court":"", "script": ""}
   ) // 초기화
 
   useEffect(() => {
     axios.get('/document?chapter=' + chapter + '&scene=35')
     .then(res => {
-      const itemData = res.data.item;
       console.log(res.data)
+      const itemData = res.data.item;
       setData({"chapter": res.data.chapter, "scene": res.data.scene,
-                "name": res.data.name, "item": itemData,
+                "name": res.data.name, "item": res.data.item,
                 "court": res.data.court, "script": res.data.script
               })
-      console.log(data.item) //여기까진 잘 받아짐..
-      
-      
-
+             
+              console.log(res.data.item[4].info);
     })
     .catch(error => console.log(error))
+    
   }, []);  //json에서 데이터 불러옴
 
-  console.log(data.item)
+  
+ 
+
   const [imageOpacity, setImageOpacity] = useState({ 
     check1: 0, check2: 0, check3: 0,
   crimenormal: 1 });
@@ -66,8 +67,6 @@ function Indict(){
         }));
       }
     };
- 
-
 
   const background = '/image/indict/illust_indictbg.png';
   const CrimeScenebg = '/image/indict/CrimeScene_picture.png';
@@ -89,7 +88,7 @@ function Indict(){
   const crime_click = '/image/indict/crime_click.png'
   const title = "공소사건 01. 갑자기 사라진 선녀의 날개옷";
   const proof1 = "(임시 텍스트입니다. 최대 3줄입니다.) 나무꾼은 사건 장소에 우연히 갔다고 주장하지만, 선녀 언니의 증언으로 사건 장소는 숨겨진 장소로 우연히 갈 수 없는 장소라는 사실이 밝혀졌습니다.";
-  //const proof2 = data.item['5'].info;
+
   
   const crimeTitle1 = "재물손괴죄";
   const crimeTitle2 = "감금죄";
@@ -99,19 +98,21 @@ function Indict(){
   const crime1 = data.court["재물손괴죄"];
   const crime2 = data.court["감금죄"];
   const crime3 = data.court["추행등목적약취유인죄"];
+  const { item } = data;
+
  
   return (
     <div className="Indict">
-      <Move chapter={1} />
+      
       <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
       <div className="title" >
         <p>{data.name}</p>
       </div>
-      <div className="proof1_0">
-        <p>안녕하세요</p>
+      <div className="proof1_0" key={4}>
+        <p>임시</p>
       </div>
-      <div className="proof2">
-        <p>ㅇㅇㅇㅇㅇㅇ</p>
+      <div className="proof2_0">
+        <p>임시</p>
       </div>
 
       <div className="sageonseosul" dangerouslySetInnerHTML={ {__html: data.script} }>

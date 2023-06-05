@@ -1,10 +1,30 @@
 import React, { useState,  useEffect } from "react";
-import Indict2 from './index2'
-
+import axios from 'axios';
 import styles from '../../styles/indict2.css';
 
+const chapter = "1_1"
 function Indict(){
-  
+  const [ data, setData] = useState(
+    {"chapter":1_1, "scene": 36, "name":"", "item": "",
+     "court":"", "script": ""}
+  ) // 초기화
+
+
+
+  useEffect(() => {
+    axios.get('/document?chapter=' + chapter + '&scene=36')
+    .then(res => {
+      const itemData = res.data.item;
+      console.log(res.data)
+      setData({"chapter": res.data.chapter, "scene": res.data.scene,
+                "name": res.data.name, "item": itemData,
+                "court": res.data.court, "script": res.data.script
+              })
+      console.log(data.item) //여기까진 잘 받아짐..
+
+    })
+    .catch(error => console.log(error))
+  }, []);  //json에서 데이터 불러옴
   const [imageOpacity, setImageOpacity] = useState({ 
     check1: 0, check2: 0, check3: 0,
   crimenormal: 1 });
@@ -24,6 +44,7 @@ function Indict(){
     updateImageOpacity(); 
 
   }, [imageOpacity]);
+  
 
     
     const decreaseOpacity = (id) => {
@@ -41,12 +62,10 @@ function Indict(){
         }));
       }
     };
- 
 
 
-  const selectComponent = {
-    second: <Indict2 />
-  };
+
+
 
   const background = '/image/indict/illust_indictbg.png';
   const CrimeScenebg = '/image/indict/CrimeScene_picture.png';
@@ -70,23 +89,23 @@ function Indict(){
   const proof2 = "(임시 텍스트입니다. 최대 3줄입니다.)";
   const proof3 = "(임시 텍스트입니다. 최대 3줄입니다.)";
   const proof4 = "(임시 텍스트입니다. 최대 3줄입니다.)";
-  const crimeTitle1 = "죄목1";
-  const crimeTitle2 = "죄목2";
-  const crimeTitle3 = "죄목3";
+  const crimeTitle1 = "재물손괴죄";
+  const crimeTitle2 = "감금죄";
+  const crimeTitle3 = "추행등목적약취유인죄";
   const giso = "기소"
   const bulgiso = "불기소"
 
-  const crime1 = "형법 제366조(재물손괴등) 타인의 재물, 문서 또는 전자기록등 특수매체기록을 손괴 또는 은닉 기타 방법으로 기 효용을 해한 자는 3년이하의 징역 또는 700만원 이하의 벌금에 처한다. 임시 텍스트입니다."
-  const crime2 = "형법 제366조(재물손괴등) 타인의 재물, 문서 또는 전자기록등 특수매체기록을 손괴 또는 은닉 기타 방법으로 기 효용을 해한 자는 3년이하의 징역 또는 700만원 이하의 벌금에 처한다. 임시 텍스트입니다."
-  const crime3 = "형법 제366조(재물손괴등) 타인의 재물, 문서 또는 전자기록등 특수매체기록을 손괴 또는 은닉 기타 방법으로 기 효용을 해한 자는 3년이하의 징역 또는 700만원 이하의 벌금에 처한다. 임시 텍스트입니다."
- 
+  const crime1 = data.court["재물손괴죄"];
+  const crime2 = data.court["감금죄"];
+  const crime3 = data.court["추행등목적약취유인죄"];
+
   return (
     <div className="Indict">
 
       <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
 
       <div className="title2">
-        <p>{title}</p>
+        <p>{data.name}</p>
       </div>
       <div className="proof1">
         <p>{proof1}</p>
@@ -94,7 +113,9 @@ function Indict(){
       <div className="proof2">
         <p>{proof2}</p>
       </div>
-
+      <div className="sageonseosul" dangerouslySetInnerHTML={ {__html: data.script} }>
+        {/* <p>{data.script}</p> */}
+      </div>
 
       <div className="giso">
         <p>{giso}</p>
@@ -104,25 +125,25 @@ function Indict(){
       </div>
 
       <div className="crimeTexts">
-        <div className="crime1">
-        <p>{crime1}</p>
+        <div className="crime1_0" dangerouslySetInnerHTML={ {__html: crime1} }>
+        {/* <p>{crime1}</p> */}
         </div>
-        <div className="crime2">
-        <p>{crime2}</p>
+        <div className="crime2_0" dangerouslySetInnerHTML={ {__html: crime2} }>
+        {/* <p>{crime2}</p> */}
         </div>
-        <div className="crime3">
-        <p>{crime3}</p>
+        <div className="crime3_0" dangerouslySetInnerHTML={ {__html: crime3} }>
+        {/* <p>{crime3}</p> */}
         </div>
       </div>
 
       <div className="crimeTitles">
-        <div className="crimeTitle1">
+        <div className="crimeTitle1_0">
         <p>{crimeTitle1}</p>
         </div>
-        <div className="crimeTitle2">
+        <div className="crimeTitle2_0">
         <p>{crimeTitle2}</p>
         </div>
-        <div className="crimeTitle3">
+        <div className="crimeTitle3_0">
         <p>{crimeTitle3}</p>
         </div>
       </div>
@@ -139,17 +160,20 @@ function Indict(){
 
         <img src={check}  
         onClick={() => decreaseOpacity('check1', 'crimenormal1')}
+                   
         data-id="check1"
         className="my-image"
         id="check1" />
         
         <img src={crime_click}
+        
         data-id="check1"
         className="my-image"
         id="crime_click1" />
 
         <img src={check} 
         onClick={() => decreaseOpacity('check2')}
+        
         className="my-image"
         data-id="check2"
          id="check2">
@@ -163,6 +187,7 @@ function Indict(){
         
         <img src={check}
         onClick={() => decreaseOpacity('check3')}
+        
         className="my-image"
         data-id="check3"
         id="check3" />
