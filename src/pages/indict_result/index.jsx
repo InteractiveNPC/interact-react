@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import styles from './paperResult.module.css';
 import Axios from "axios";
 
@@ -88,6 +88,9 @@ export default function Indict_Result() {
         click_go_court(go_court_click);
     }
 
+    let wrap = document.querySelector(".wrap");
+    let bar = document.querySelector('.bar');
+
     return (
         <div>
             <div className={styles.container}>
@@ -95,6 +98,8 @@ export default function Indict_Result() {
             </div>
             <img src={prevbutton_src} className={styles.prevbutton} onClick={onClick_prev}/>
             <img src={go_court_src} className={styles.go_court} onClick={onClick_go_court}/>
+            <div className={styles.wrap}>
+            <div className={styles.barWrap}><div class={styles.bar}></div></div>
             <div className={styles.document_container}>
                 <img src={document_FairyNWoodcutter_long} className={styles.document_FairyWoodcutter}/>
                 <div className={styles.title}>공소장</div>
@@ -124,7 +129,13 @@ export default function Indict_Result() {
                 <div className={styles.subtitle2}>2. 공소 사실</div>
                 <div className={styles.sinDetail}>json 내용이 들어갈 쟈ㅏ리이비낟</div>
             </div>
+            </div>
             
+            <div className={styles.scrollDiv}>
+                <div className={styles.scrollDivContent}>test</div>
+            </div>
+            {/* <img src="slide_bar.png" className={styles.slide_bar} />
+            <img src="slide_circle.png" className={styles.slide_circle} /> */}
         </div>
     );
 }
