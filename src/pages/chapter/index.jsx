@@ -32,7 +32,7 @@ export default ({ chapter }) => {
           {process === 0 && (
             <Investigation
               chapter={chapter}
-              moveDocument={() => setProcess(1)}
+              moveDocument={() => setDocument(true)}
             />
           )}
           {process === 1 && (
