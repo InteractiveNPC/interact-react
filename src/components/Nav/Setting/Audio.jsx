@@ -17,7 +17,7 @@ export default () => {
 
   return (
     <div className={styles.audio}>
-      {["배경음", "배경음", "배경음"].map((val, i) => (
+      {["배경음", "효과음", "보이스"].map((val, i) => (
         <div className={styles.audio_setting} key={`audio_setting_${i}`}>
           <label htmlFor={`audio_input_${i}`}>
             <img src={`${process.env.PUBLIC_URL + img_base}Setting_name.png`} />
@@ -34,9 +34,9 @@ export default () => {
             max="100"
             defaultValue={volume[i] * 100}
             onChange={(e) => {
-              console.log(e);
               const newVolume = volume;
-              newVolume[i] = e.target.value / 100;
+              newVolume[i] = Math.floor(e.target.value / 10) / 10;
+              if(newVolume[i] === 0) newVolume[i] = "0.0";
               setVolume(newVolume);
             }}
           />
