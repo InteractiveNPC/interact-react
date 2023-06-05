@@ -47,8 +47,7 @@ export default [
             onClick={() => {
               onTalk({ idx: "3", scene: "-1", "flag": "0", index: "0" });
             }} onMouseOver={()=>{
-              $('div#bHelp').fadeIn(1000);
-              setTimeout(()=>{$('div#bHelp').removeClass('display-none');}, 1000);
+              $('div#bHelp').removeClass('display-none');
             }}
           />
         )}
@@ -56,7 +55,7 @@ export default [
           className={styles.desk}
           {...divToImg(BackgroundImgBase + "illust_TwoSisters_desk.png")}
         />
-        <div id='bHelp' className="display-none" style={{zIndex:'1000'}}
+        <div id='bHelp' className="display-none" style={{zIndex:'2000'}}
           onClick={()=>{
             if(!bHelpDisabled){
               $('div#bHelp').css('zIndex','500');
