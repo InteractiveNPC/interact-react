@@ -123,8 +123,11 @@ function Dialogue(props) {
         var voice_audio = '<audio id="voice" autoplay>' + 
           '<source id="voice_src" src="' + voice_src + '" type="audio/mp3"/>' +
           '</audio>';
-        $.get(voice_src).done(function() {
+        $.get(voice_src)
+        .done(function() {
           setVoice(voice_audio);
+        }).fail(function() {
+          setVoice(null);
         });
       })
       .catch(error => console.log(error));
