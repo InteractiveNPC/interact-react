@@ -158,7 +158,7 @@ export default function Find3_2(props) {
                     <div id='fBtn1' onMouseDown={()=>{
                             $('img#hov1').removeClass('display-none');
                         }} onClick={()=>{
-                        //props.goOffice();
+                        props.moveDocument();
                     }} onMouseLeave={()=>{
                       $('img#hov1').addClass('display-none');
                   }}></div>
