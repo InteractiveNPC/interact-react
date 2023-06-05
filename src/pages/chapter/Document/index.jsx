@@ -3,8 +3,11 @@ import { indictComponent } from "./config";
 import { divToImg } from "../../../services/propsFormat";
 
 import styles from "./style.module.scss";
+import { useBGM, effectPlay } from "../../../services/audioManager";
 
 export default ({ chapter }) => {
+  useBGM("March_swish");
+
   const [idx, setIdx] = useState(0);
   const Indict = indictComponent[chapter][idx];
 
@@ -13,7 +16,10 @@ export default ({ chapter }) => {
       <Indict />
       <div className={styles.nav}>
         {["공소사건 01", "공소사건 02", "공소사건 03"].map((title, i) => 
-          <div key={title} onClick={() => setIdx(i)}
+          <div key={title} onClick={() => {
+            effectPlay("papernext");
+            setIdx(i);
+          }}
             className={idx === i ? styles.selected : ""} >
               <img 
                 src={idx === i 
@@ -25,9 +31,22 @@ export default ({ chapter }) => {
       </div>
       <div className={styles.arrow_nav}>
         {idx > 0 && 
-        <img className={styles.prev} onClick={()=>setIdx(idx-1)} src="/image/Paper/paper_make/UI/paper_make_prev_page.png"/>}
+          <img 
+            className={styles.prev} 
+            onClick={()=> {
+              effectPlay("papernext");
+              setIdx(idx-1);
+            }} 
+            src="/image/Paper/paper_make/UI/paper_make_prev_page.png"
+          />}
         {idx < indictComponent[chapter].length - 1 && 
-          <img className={styles.next} onClick={()=>setIdx(idx+1)} src="/image/Paper/paper_make/UI/paper_make_next_page.png"/>}
+          <img 
+            className={styles.next} 
+            onClick={()=> {
+              effectPlay("papernext");
+              setIdx(idx+1);
+            }} 
+            src="/image/Paper/paper_make/UI/paper_make_next_page.png"/>}
       </div>
     </div>
   );

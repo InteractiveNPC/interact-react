@@ -1,9 +1,11 @@
 import styles from '../styles/info.css';
+import {useState} from "react";
 import $ from 'jquery';
 
 export default function Help(props){
     //const back = 'image/Investigation/Talk/Background/FairyNWoodcutter/illust_FairyNWoodcutter_office_back.png';
     const fadeT = 2000;
+    const [bClick, setBClick] = useState(true);
 
     const btn = 'image/Help/setting-credit/Setting_X.png';
     const info1='image/Help/start-help/Background_help_info01.png';
@@ -16,22 +18,29 @@ export default function Help(props){
 
     return (
         <div id='bHelp'>
-            <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
             <div id='startH'>
                 <div id='infoH'></div>
                 <img src={btn} className='close' onClick={()=>{
-                    $('div#startH').fadeOut({fadeT});
-                    setTimeout(()=>{
-                        $('div#step1').fadeIn({fadeT});
-                    }, 1000);
+                    if(bClick){
+                        setBClick(!bClick);
+                        $('div#startH').fadeOut({fadeT});
+                        setTimeout(()=>{
+                            $('div#step1').fadeIn({fadeT});
+                        }, 1000);
+                    }
+                    
                 }}></img>
-                <p className='textH0'>선녀의 원통함을 풀어주기 위한 수사를 진행하세요.</p>
+                <p className='textH0'>{props.who}의 원통함을 풀어주기 위한 수사를 진행하세요.</p>
             </div>
             <div id='step1' className='display-none' onClick={()=>{
-                $('div#step1').fadeOut({fadeT});
-                setTimeout(()=>{
-                    $('div#step2').fadeIn({fadeT});
-                }, 1000);
+                if(!bClick){
+                    setBClick(!bClick);
+                    $('div#step1').fadeOut({fadeT});
+                    setTimeout(()=>{
+                        $('div#step2').fadeIn({fadeT});
+                    }, 1000);
+                }
+                
             }}>
                 <img src={info1} className='infoWindow'></img>
                 <img src={arrow1} id='arrow1'/>
@@ -39,10 +48,14 @@ export default function Help(props){
             </div>
 
             <div id='step2' className='display-none' onClick={()=>{
-                $('div#step2').fadeOut({fadeT});
-                setTimeout(()=>{
-                    $('div#step3').fadeIn({fadeT});
-                }, 1000);
+                if(bClick){
+                    setBClick(!bClick);
+                    $('div#step2').fadeOut({fadeT});
+                    setTimeout(()=>{
+                        $('div#step3').fadeIn({fadeT});
+                    }, 1000);
+                }
+                
             }}>
                 <img src={info2} className='infoWindow'></img>
                 <img src={arrow2} id='arrow2'/>
@@ -51,10 +64,14 @@ export default function Help(props){
             </div>
 
             <div id='step3' className='display-none' onClick={()=>{
-                $('div#step3').fadeOut({fadeT});
-                setTimeout(()=>{
-                    $('div#bHelp').addClass('display-none');
-                }, 1000);
+                if(!bClick){
+                    setBClick(!bClick);
+                    $('div#step3').fadeOut({fadeT});
+                    setTimeout(()=>{
+                        props.setActive();
+                    }, 1000);
+                }
+                
             }}>
                 <img src={info3} className='infoWindow'></img>
                 <img src={arrow3} id='arrow3'/>

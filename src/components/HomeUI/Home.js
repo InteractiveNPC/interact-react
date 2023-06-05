@@ -4,13 +4,17 @@ import Chapter from "../../pages/chapter";
 import $ from "jquery";
 import axios from "axios";
 import "./home.css";
-import Nav from "components/Nav";
+import Nav from "../../components/Nav";
+
+import { useBGM, effectPlay } from "../../services/audioManager";
 
 function Home(props) {
+  useBGM("gearsoftime");
+  
   const [data, setData] = useState({ chapter1: 0, chapter2: 0, chapter3: 0 });
   const [next, setNext] = useState(1);
   const [show, setShow] = useState(true);
-
+  
   useEffect(() => {
     axios
       .get("/intro" + window.location.search)
@@ -127,6 +131,7 @@ function Home(props) {
 
     if (props.init != null) {
       $("#ch1").on("load", function () {
+        effectPlay("mainroll");
         setTimeout(function () {
           $("#ch1").off("load");
           $("#ch1").attr("src", "image/Home/Source/Title_FairyNWoodcutter.png");
@@ -138,6 +143,7 @@ function Home(props) {
 
       setTimeout(function () {
         $("#ch3").on("load", function () {
+          effectPlay("mainroll");
           setTimeout(function () {
             $("#ch3").off("load");
             $("#ch3").attr("src", "image/Home/Source/Title_TwoSisters.png");
@@ -177,6 +183,7 @@ function Home(props) {
       {show ? (
         <>
           <div className="background" style={{backgroundImage:'url("image/Home/Background/Background_illust.png")'}}>
+            <img id="home-info" src="image/Home/UI/info.png" />
             <img id="ch1" src="image/Home/Source/Title_FairyNWoodcutter.png" />
             <img id="ch3" src="image/Home/Source/Title_TwoSisters.png" />
             <img id="ch2" src="image/Home/Source/Title_Rabbitorgan.png" />

@@ -12,13 +12,15 @@ function Intro(props) {
     $("#begin").hide();
 
     $(".background").click(function () {
-      $("#start").fadeIn(2000).fadeOut(2000).hide();
-      $("#info").fadeIn(2000).fadeOut(2000).hide();
       $(".background").off("click").click(next);
-      setTimeout(next, 5000);
+      $("#start").fadeIn(1000).fadeOut(1000).hide();
+      $("#info").fadeIn(1000).fadeOut(1000).hide();
+      setTimeout(next, 3000);
     });
 
     function next() {
+      $("#start").fadeOut(100).hide();
+      $("#info").fadeOut(100).hide();
       $(".background").off("click");
       $("video").fadeIn(2000);
       setTimeout(function () {

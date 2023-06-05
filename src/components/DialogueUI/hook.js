@@ -8,10 +8,9 @@ export const setChoiceData = (chapter, scene, raw_choice) => {
             for(let i = 0; i < Object.keys(raw_choice).length; i++) {
                 choice[i] = {
                     content: raw_choice[i],
-                    visited: data[i],
+                    visited: scene == "-1" && i == 0 ? true : data[i],
                 };
             }
-            console.log(choice);
             resolve(choice);
         })
         .catch(error => console.log(error));

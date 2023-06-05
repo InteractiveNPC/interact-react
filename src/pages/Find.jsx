@@ -1,11 +1,12 @@
 
 import {useSpring, animated} from 'react-spring';
 import axios from 'axios';
+import {useState} from 'react';
 import {useDrag} from 'react-use-gesture';
 import styles from '../styles/findClue.css';
 import $ from 'jquery';
 import popup2 from '../components/DialogueUI/ScriptBackground.png';
-import name from '../components/DialogueUI/Namebox_02.png';
+import name from '../components/DialogueUI/Namebox_01.png';
 
 export default function Find(props){
     //const back = 'image/Investigation/Talk/background/FairyNWoodcutter/illust_FairyNWoodcutter_Woodcutter_room.png';
@@ -49,6 +50,7 @@ export default function Find(props){
         $('div#step1').addClass('display-none');
         $('div#step2').removeClass('display-none');
     }
+    const [fClick, setFClick] = useState(false);
 
     return (
         <div>
@@ -142,8 +144,11 @@ export default function Find(props){
                             }} onMouseLeave={()=>{
                                 $('img#hov2').addClass('display-none');
                             }} onClick={()=>{
-                                $('div#result').fadeOut({fadeT});
-                                $('div#etc').removeClass('display-none');
+                                if(!fClick){
+                                    setFClick(!fClick);
+                                    $('div#result').fadeOut({fadeT});
+                                    $('div#etc').removeClass('display-none');
+                                }
                         }}>수사 계속하기</p>
                     </div>          
                     <p className='banner-txt1'>{clue}</p>

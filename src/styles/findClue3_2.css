@@ -1,3 +1,10 @@
+@font-face {
+    font-family: 'GyeonggiBatang';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/GyeonggiBatang.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
 div#backgroundS,
 div#pop {
   position: absolute;
@@ -81,12 +88,12 @@ top: 300px;
 
 .button-txtC {
   position: absolute;
-  width: 42px;
+  width: 100px;
   height: 29px;
-  left: 938px;
+  left: 910px;
   top: 595px;
 
-  font-family: "Pretendard";
+  font-family: 'GyeonggiBatang';
   font-style: normal;
   font-weight: 700;
   font-size: 24px;
@@ -106,12 +113,12 @@ top: 300px;
 }
 .banner-txt1 {
   position: absolute;
-  width: 530px;
+  width: 600px;
   height: 36px;
-  left: 700px;
+  left: 660px;
   top: 468px;
 
-  font-family: "Pretendard";
+  font-family: 'GyeonggiBatang';
   font-style: normal;
   font-weight: 700;
   font-size: 24px;
@@ -126,45 +133,45 @@ top: 300px;
 .banner2 {
   position: absolute;
   width: 1716px;
-  height: 216px;
-  left: calc(50% - 1716px / 2);
-  top: 800px;
+  height: 215px;
+  left: 102px;
+  top: 828px;
 }
 .namePos {
   position: absolute;
   width: 103px;
   height: 45px;
-  left: 377px;
-  top: 833px;
+  left: 350px;
+  top: 855px;
 }
 .banner-txtA {
   position: absolute;
   width: 43px;
   height: 24px;
-  left: 407px;
-  top: 843px;
+  left: 380px;
+  top: 867px;
 
   font-family: "GyeonggiBatang";
   font-style: normal;
   font-weight: 400;
   font-size: 24px;
   line-height: 24px;
-  color: #dad5ab;
+  color: #000000;
 }
 .banner-txtB {
   position: absolute;
-  width: 800px;
+  width: 1200px;
   height: 68px;
-  left: 377px;
-  top: 894px;
+  left: 350px;
+  top: 925px;
 
-  font-family: "Pretendard";
+  font-family: 'GyeonggiBatang';
   font-style: normal;
-  font-weight: 500;
-  font-size: 24px;
-  line-height: 29px;
-
-  color: #ffffff;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 170%;
+  letter-spacing: -0.025em;
+  color: #F8F1DA;
 }
 img,
 p,

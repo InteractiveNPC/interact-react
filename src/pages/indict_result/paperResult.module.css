@@ -45,24 +45,45 @@
     height: 1080px;
     left: 462px;
     top: 139px;
+    /* overflow: auto; */
+    /* overflow-x: hidden; */
+}
+
+.scrollDivContent {
+    /* position: absolute; */
+    width: 80px;
+    height: 816px;
+    /* left: calc(50% - 2px/2 + 603px);
+    top: calc(50% - 408px/2); */
+
+    /* background-color: aquamarine; */
+}
+
+.scrollDiv {
+    position: absolute;
+    width: 80px;
+    height: 408px;
+    left: calc(50% - 2px/2 + 603px);
+    top: calc(50% - 408px/2);
+
     overflow: auto;
     overflow-x: hidden;
 }
 
-.document_container::-webkit-scrollbar {
-    width: 10px;  /* 스크롤바의 너비 */
+.scrollDiv::-webkit-scrollbar {
+    width: 2px;
 }
 
-.document_container::-webkit-scrollbar-thumb {
-    width: 36px;
-    height: 36px;
-    background: url('./slide_circle.png')
+.scrollDiv::-webkit-scrollbar-thumb {
+    /* width: 36px;
+    height: 36px; */
+    background: url('../../../public/image/IndictResult/ui/slide_circle.png');
 }
 
-.document_container::-webkit-scrollbar-track {
+.scrollDiv::-webkit-scrollbar-track {
     width: 2px;
     height: 408px;
-    background: url('./slide_bar.png')  /*스크롤바 뒷 배경 색상*/
+    background: url('../../../public/image/IndictResult/ui/slide_bar.png');
 }
 
 .title {
@@ -291,4 +312,20 @@
     line-height: 30px;
     
     color: #221608;
+}
+
+.slide_bar {
+    position: absolute;
+    width: 2px;
+    height: 408px;
+    left: calc(50% - 2px/2 + 603px);
+    top: calc(50% - 408px/2);
+}
+
+.slide_circle {
+    position: absolute;
+    width: 36px;
+    height: 36px;
+    left: 1545px;
+    top: 318px;
 }

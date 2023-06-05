@@ -9,8 +9,9 @@ import Home from "components/HomeUI/Home";
 
 import { resetChapterSession } from "./Ending/hook";
 
-export default ({ chapter, volume, setVolume }) => {
+export default ({ chapter }) => {
   const [process, setProcess] = useState(0);
+  const [document, setDocument] = useState(false);
 
   return (
     <>
@@ -19,14 +20,14 @@ export default ({ chapter, volume, setVolume }) => {
       ) : (
         <>
           <Nav
-            moveDocument={() => setProcess(1)}
-            displayNote={() => setProcess(2)}
+            moveDocument={() => setDocument(!document)}
+            displayNote={() => setProcess(1)}
             goHome={async () => {
               await resetChapterSession(chapter);
               setProcess(-1);
             }}
-            volume={volume}
-            setVolume={setVolume}
+            ending={process === 1}
+            document={document}
           />
           {process === 0 && (
             <Investigation
@@ -34,8 +35,7 @@ export default ({ chapter, volume, setVolume }) => {
               moveDocument={() => setProcess(1)}
             />
           )}
-          {process === 1 && <Document chapter={chapter} />}
-          {process === 2 && (
+          {process === 1 && (
             <Ending
               chapter={chapter}
               replay={async () => {
@@ -48,6 +48,7 @@ export default ({ chapter, volume, setVolume }) => {
               }}
             />
           )}
+          {document && <Document chapter={chapter} onSubmit={() => setProcess(1)}/>}
         </>
       )}
     </>

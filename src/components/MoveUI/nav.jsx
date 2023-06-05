@@ -81,14 +81,22 @@ export default ({ locationNames, idx, setIdx, disabled }) => {
 
       <div className={styles.nav_arrow}>
         <img
-          onClick={disabled ? () => {} : () => idx > 0 && setIdx(idx - 1)}
-          src={`${process.env.PUBLIC_URL + img_base}Arrow_left.png`}
+          onClick={disabled 
+            ? () => {} 
+            : () => {
+              if (idx > 0) setIdx(idx - 1);
+              else setIdx(locationNames.length - 1);
+            }}
+            src={`${process.env.PUBLIC_URL + img_base}Arrow_left.png`}
         />
         <img
           onClick={
             disabled
               ? () => {}
-              : () => idx < locationNames.length - 1 && setIdx(idx + 1)
+              : () => {
+                if (idx < locationNames.length - 1) setIdx(idx + 1);
+                else setIdx(0);
+              }
           }
           src={`${process.env.PUBLIC_URL + img_base}Arrow_right.png`}
         />
