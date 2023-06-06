@@ -89,7 +89,7 @@ export default function Indict_Result() {
                 sin_title[i] = crime_list[sinName]['title'];
                 sin_detail[i] = crime_list[sinName]['detail'];
                 sin_result[i] = crime_list[sinName]['result'];
-                // sin_content[i] = crime_list[sinName]['content'];
+            //     // sin_content[i] = crime_list[sinName]['content'];
             }
             else if (i == 1) {
                 setSin_name_2(sinName);
