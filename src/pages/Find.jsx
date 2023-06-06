@@ -128,7 +128,7 @@ export default function Find(props){
                         }} onMouseLeave={()=>{
                             $('img#hov1').addClass('display-none');
                         }} onClick={()=>{
-                        props.goOffice();
+                            props.goOffice();
                     }}></div>
                     <div id='btnSecond'>
                         <img src={button} className="btn2"></img>
