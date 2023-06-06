@@ -52,36 +52,37 @@ export default function Indict_Result() {
     let crime_list = [];
     // let select_list = [];
 
-    function setImageLink(name, idx) {
-        if (name == '아동복지법위반죄') {
+    function setImageLink(sinName, idx) {
+        if (sinName == '아동복지법위반죄') {
             sin_src[idx] = '/image/IndictResult/source/document_TwoSisters_01.png';
-            sin_summary[idx] = `공소사건 0${idx + 1}. 자매를 지속해서 학대한 허씨부인`;
-        } else if (name == '살인교사죄') {
+            // sin_summary[idx] = `공소사건 0${idx + 1}. 자매를 지속해서 학대한 허씨부인`;
+        } else if (sinName == '살인교사죄') {
             sin_src[idx] = '/image/IndictResult/source/document_TwoSisters_02.png';
-            sin_summary[idx] = `공소사건 0${idx + 1}. 거짓된 소문을 퍼뜨린 허씨부인의 계략`;
-        } else if (name == '살인죄') {
+            // sin_summary[idx] = `공소사건 0${idx + 1}. 거짓된 소문을 퍼뜨린 허씨부인의 계략`;
+        } else if (sinName == '살인죄') {
             sin_src[idx] = '/image/IndictResult/source/document_TwoSisters_03.png';
-            sin_summary[idx] = `공소사건 0${idx + 1}. 홍련의 의문스러운 자살`;
+            // sin_summary[idx] = `공소사건 0${idx + 1}. 홍련의 의문스러운 자살`;
         }
     }
 
     function setSinList() {
         crime_list = data['crime'];
         select_list = data['selectedCrime'];
-        console.log("crime_list" + Object.keys(select_list).length);
+        name_list = data['nameList'];
 
         let sinName;
         let flag;
         
         for (let i = 0; i < Object.keys(select_list).length; i++) {
             flag = Object.keys(select_list)[i];
-            console.log(flag);
-            sinName = select_list[flag];
+            // console.log(flag);
+            sinName = select_list[i + 1];
             console.log(sinName);
 
             if (i == 0) {
                 setSin_name_1(sinName);
                 setImageLink(sinName, i);
+                sin_summary[i] = name_list[flag];
                 sin_relative[i] = crime_list[sinName]['relative'];
                 sin_title[i] = crime_list[sinName]['title'];
                 sin_detail[i] = crime_list[sinName]['detail'];
@@ -91,6 +92,7 @@ export default function Indict_Result() {
             else if (i == 1) {
                 setSin_name_2(sinName);
                 setImageLink(sinName, i);
+                sin_summary[i] = name_list[flag];
                 sin_relative[i] = crime_list[sinName]['relative'];
                 sin_title[i] = crime_list[sinName]['title'];
                 sin_detail[i] = crime_list[sinName]['detail'];
@@ -100,6 +102,7 @@ export default function Indict_Result() {
             else {
                 setSin_name_3(sinName);
                 setImageLink(sinName, i);
+                sin_summary[i] = name_list[flag];
                 sin_relative[i] = crime_list[sinName]['relative'];
                 sin_title[i] = crime_list[sinName]['title'];
                 sin_detail[i] = crime_list[sinName]['detail'];

@@ -50,38 +50,49 @@ export default function Indict_Result(props) {
 
     let accused_info = [];
     let crime_list = [];
+    let name_list = [];
     // let select_list = [];
 
-    function setImageLink(name, idx) {
-        if (name == '재물손괴죄') {
+    function setImageLink(sinName, idx) {
+        if (sinName == '재물손괴죄') {
             sin_src[idx] = `/image/IndictResult/source/document_FairyMWoodcutter_01.png`;
-            sin_summary[idx] = `공소사건 0${idx + 1}. 갑자기 사라진 선녀의 날개옷`;
-        } else if (name == '감금죄') {
+            // sin_summary[idx] = name_list[flag];
+            // sin_summary[idx] = `공소사건 0${idx + 1}. 갑자기 사라진 선녀의 날개옷`;
+        } else if (sinName == '감금죄') {
             sin_src[idx] = `/image/IndictResult/source/document_FairyMWoodcutter_02.png`;
-            sin_summary[idx] = `공소사건 0${idx + 1}. 밤새 내내 갇혀있던 선녀`;
-        } else if (name == '추행 등 목적 약취 유인죄') {
+            // sin_summary[idx] = name_list[flag];
+            // sin_summary[idx] = `공소사건 0${idx + 1}. 밤새 내내 갇혀있던 선녀`;
+        } else if (sinName == '추행 등 목적 약취 유인죄') {
             sin_src[idx] = `/image/IndictResult/source/document_FairyMWoodcutter_03.png`;
-            sin_summary[idx] = `공소사건 0${idx + 1}. 나무꾼에게 강요받아 이루어진 결혼`;
+            // sin_summary[idx] = name_list[flag];
+            // sin_summary[idx] = `공소사건 0${idx + 1}. 나무꾼에게 강요받아 이루어진 결혼`;
         }
     }
 
     function setSinList() {
         crime_list = data['crime'];
         select_list = data['selectedCrime'];
-        console.log("crime_list" + Object.keys(select_list).length);
+        name_list = data['nameList'];
+
+        // for (let i = 01; i < Object.keys(select_list).length; i++) {
+        //     console.log("ddd" + select_list[i + 1]);
+        // }
+
+        console.log("select_list" + select_list);
 
         let sinName;
         let flag;
         
         for (let i = 0; i < Object.keys(select_list).length; i++) {
             flag = Object.keys(select_list)[i];
-            console.log(flag);
-            sinName = select_list[flag];
-            console.log(sinName);
+            // console.log(flag);
+            sinName = select_list[i + 1];
+            console.log("죄목은 " + sinName);
 
             if (i == 0) {
                 setSin_name_1(sinName);
                 setImageLink(sinName, i);
+                sin_summary[i] = name_list[flag];
                 sin_relative[i] = crime_list[sinName]['relative'];
                 sin_title[i] = crime_list[sinName]['title'];
                 sin_detail[i] = crime_list[sinName]['detail'];
@@ -91,6 +102,7 @@ export default function Indict_Result(props) {
             else if (i == 1) {
                 setSin_name_2(sinName);
                 setImageLink(sinName, i);
+                sin_summary[i] = name_list[flag];
                 sin_relative[i] = crime_list[sinName]['relative'];
                 sin_title[i] = crime_list[sinName]['title'];
                 sin_detail[i] = crime_list[sinName]['detail'];
@@ -100,6 +112,7 @@ export default function Indict_Result(props) {
             else {
                 setSin_name_3(sinName);
                 setImageLink(sinName, i);
+                sin_summary[i] = name_list[flag];
                 sin_relative[i] = crime_list[sinName]['relative'];
                 sin_title[i] = crime_list[sinName]['title'];
                 sin_detail[i] = crime_list[sinName]['detail'];
@@ -108,6 +121,7 @@ export default function Indict_Result(props) {
             }
         }
 
+        console.log(sin_summary);
         setLoop(Object.keys(select_list).length);
         console.log("loop length is" + Loop)
         if (Loop == 1) {
