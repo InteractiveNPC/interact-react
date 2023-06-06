@@ -109,6 +109,7 @@ function Indict(props){
     }
     
     const session_crime = (giso) => {
+      console.log(isCheck1, isCheck2, isCheck3, giso);
       if(isCheck1 == 1 && giso == 1)
         axios.get('/document/1_0?crime=' + "재물손괴죄")
         .then(function (response) {
