@@ -7,7 +7,7 @@ export default function Record(){
 
     const node1 = ['image/Record/Source/TwoSisters/Corpsepaper_node_dark.png', 'image/Record/Source/TwoSisters/Corpsepaper_node_glow.png', 'image/Record/Source/TwoSisters/Corpsepaper_node_normal.png']
     const node2 = ['image/Record/Source/TwoSisters/Hairpin_node_dark.png', 'image/Record/Source/TwoSisters/Hairpin_node_glow.png', 'image/Record/Source/TwoSisters/Hairpin_node_normal.png']
-    const node3 = ['image/Record/Source/TwoSisters/Hongryeon_node_dark.png', 'image/Record/Source/TwoSisters/Hongryeon_node_glow.png', 'image/Record/Source/TwoSisters/Hongryeon_node_normal.png']
+    const node3 = ['image/Record/Source/TwoSisters/Hongryeon_node_glow.png', 'image/Record/Source/TwoSisters/Hongryeon_node_normal.png']
     const node4 = ['image/Record/Source/TwoSisters/Jangsoe_Mother_node_dark.png', 'image/Record/Source/TwoSisters/Jangsoe_node_glow.png', 'image/Record/Source/TwoSisters/Jangsoe_node_normal.png']
     const node5 = ['image/Record/Source/TwoSisters/Maid_node_dark.png', 'image/Record/Source/TwoSisters/Maid_node_glow.png', 'image/Record/Source/TwoSisters/Maid_node_normal.png']
     const node6 = ['image/Record/Source/TwoSisters/Mr.Bae_node_dark.png', 'image/Record/Source/TwoSisters/Mr.Bae_node_glow.png', 'image/Record/Source/TwoSisters/Mr.Bae_node_normal.png']
