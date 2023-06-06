@@ -48,7 +48,6 @@ export default function Record(){
     // json data 불러오기
     // const [data, setData] = useState(null);
 
-<<<<<<< HEAD
     // useEffect(() => {
     //   axios.get('/item/getItems/1')
     //     .then(response => {
@@ -61,20 +60,6 @@ export default function Record(){
     //       console.log(error);
     //     });
     // }, []);
-=======
-    useEffect(() => {
-      axios.get('/item/getItems/1')
-        .then(res => {
-          console.log(res.data)
-          setData({"name": res.data.name, "kind": res.data.kind,
-          "id": res.data.id, "script": res.data.chapter
-        });
-        })
-        .catch(error => {
-          console.log(error);
-        });
-    }, []);
->>>>>>> d821f2e175c128437f1866eacdef1ef57942b8e6
 
     return (
         
