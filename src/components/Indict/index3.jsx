@@ -97,25 +97,25 @@ function Indict(props){
       .catch(error => console.log(error))
     }, []);  //json에서 데이터 불러옴
 
-    const session_crime = (giso) => {
-      if(isCheck1 == 1 && giso == 1)
-        axios.get('/document/1_2?crime=' + "재물손괴죄")
+    const session_crime = () => {
+      if(isCheck1 == 1 )
+        axios.get('/document/1_2?crime=' + '재물손괴죄')
         .then(function (response) {
           console.log(response);
         })
         .catch(function (error) {
           console.log(error);
         })
-      if(isCheck2 == 1 && giso == 1)
-        axios.get('/document/1_2?crime=' + "감금죄")
+      if(isCheck2 == 1 )
+        axios.get('/document/1_2?crime=' + '감금죄')
         .then(function (response) {
           console.log(response);
         })
         .catch(function (error) {
           console.log(error);
         })
-      if(isCheck3 == 1 && giso == 1)
-        axios.get('/document/1_2?crime=' + "추행 등 목적 약취 유인죄")
+      if(isCheck3 == 1 )
+        axios.get('/document/1_2?crime=' + '추행 등 목적 약취 유인죄')
         .then(function (response) {
           console.log(response);
         })
@@ -339,7 +339,7 @@ const handleClick_change = () => {
         onClick={() => { effectPlay("paperbutton");
         decreaseOpacity('check1', 'crimenormal1');
         handleChecked(1);
-        session_crime(1);
+        session_crime();
         } }
         data-id="check1"
         className="my-image"
@@ -355,7 +355,7 @@ const handleClick_change = () => {
           effectPlay("paperbutton");
           decreaseOpacity('check2'); 
           handleChecked(2);
-          session_crime(1);
+          session_crime();
         } }
         className="my-image"
         data-id="check2"
@@ -372,7 +372,7 @@ const handleClick_change = () => {
         onClick={() => {decreaseOpacity('check3');
         effectPlay("paperbutton");
         handleChecked(3);
-        session_crime(1);
+        session_crime();
       }}
         className="my-image"
         data-id="check3"
