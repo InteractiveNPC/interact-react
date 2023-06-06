@@ -138,7 +138,7 @@ export default function Indict_Result(props) {
                 data = response.data;
                 console.log(data);
                 console.log(data['accused'])
-                //setData();
+                setData();
             })
             .catch(error => console.log(error))
     });
@@ -156,16 +156,16 @@ export default function Indict_Result(props) {
     }
 
     //나중에 시간 되면 바로 구현
-    $('#document_container').scroll(function(){
-        var scrT = $('#document_container').scrollTop();
-        console.log(scrT); //스크롤 값 확인용
-        if(scrT >= 1300){
-            //스크롤이 끝에 도달했을때 실행될 이벤트
-            console.log("도장");
-        } else {
-            //아닐때 이벤트
-        }
-    })
+    // $('#document_container').scroll(function(){
+    //     var scrT = $('#document_container').scrollTop();
+    //     console.log(scrT); //스크롤 값 확인용
+    //     if(scrT >= 1300){
+    //         //스크롤이 끝에 도달했을때 실행될 이벤트
+    //         console.log("도장");
+    //     } else {
+    //         //아닐때 이벤트
+    //     }
+    // })
 
     return (
         <div>

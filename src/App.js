@@ -3,6 +3,7 @@ import { ContextProvider } from "./contexts";
 import { getResizeEventListener } from "./services/responsiveFrame";
 import Document from "pages/chapter/Document";
 import Intro from "./components/IntroUI/Intro";
+import Ending from "./pages/chapter/Ending"
 
 
 import Loading from "./components/Loading";
@@ -20,7 +21,7 @@ export default () => {
    return (
       <div id="App">
         <ContextProvider volumeData={[volume, setVolume]} chapterData={[chapter, setChapter]}>
-        <Loading App={<Document chapter={3}/>} />
+        <Loading App={<Document chapter={1}/>} />
         </ContextProvider>
         <audio id="bgm" loop={true} autoPlay={true} volume={volume[0]}/>
         <div id="effect" className={volume[1]}/>
