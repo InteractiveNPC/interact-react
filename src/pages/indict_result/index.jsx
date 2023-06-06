@@ -162,71 +162,74 @@ export default function Indict_Result() {
             <div className={styles.wrap}>
             <div className={styles.barWrap}><div class={styles.bar}></div></div>
             <div className={styles.document_container}>
+                <img src={background} className={styles.topSpace} />
                 <img src={document_FairyNWoodcutter_long} className={styles.document_FairyWoodcutter}/>
-                <div className={styles.title}>공소장</div>
-                <div className={styles.receiver}>수신자 한양중앙지방법원<br/>검사는 아래와 같이 공소를 제기합니다</div>
-                <div className={styles.subtitle0}>0. 공소 내용</div>
-                <div className={styles.event1}>{sin_summary[0]}</div>
-                <div className={styles.event2}>{sin_summary[1]}</div>
-                <div className={styles.event3}>{sin_summary[2]}</div>
-                <img src={sin_src[0]} className={styles.sin1} />
-                <img src={sin_src[1]} className={styles.sin2} />
-                <img src={sin_src[2]} className={styles.sin3} />
-                <div className={styles.subtitle1}>1. 피고인 관련사항</div>
-                <div className={styles.th1}>피고인</div>
-                <div className={styles.td1}>{accused} <br/><br/>{accused_address}<br/><br/>{accused_job}</div>
-                <div className={styles.th2}>죄명</div>
-                <div className={styles.th3}>적용법조</div>
+                <div className={styles.position_setting}>
+                    <div className={styles.title}>공소장</div>
+                    <div className={styles.receiver}>수신자 한양중앙지방법원<br/>검사는 아래와 같이 공소를 제기합니다</div>
+                    <div className={styles.subtitle0}>0. 공소 내용</div>
+                    <div className={styles.event1}>{sin_summary[0]}</div>
+                    <div className={styles.event2}>{sin_summary[1]}</div>
+                    <div className={styles.event3}>{sin_summary[2]}</div>
+                    <img src={sin_src[0]} className={styles.sin1} />
+                    <img src={sin_src[1]} className={styles.sin2} />
+                    <img src={sin_src[2]} className={styles.sin3} />
+                    <div className={styles.subtitle1}>1. 피고인 관련사항</div>
+                    <div className={styles.th1}>피고인</div>
+                    <div className={styles.td1}>{accused} <br/><br/>{accused_address}<br/><br/>{accused_job}</div>
+                    <div className={styles.th2}>죄명</div>
+                    <div className={styles.th3}>적용법조</div>
 
-                <div className={styles.td2Container}>
-                    <div className={styles.td2_1}>{sin_name_1}</div>
-                    <div className={styles.td2_2}>{sin_name_2}</div>
-                    <div className={styles.td2_3}>{sin_name_3}</div>
-                </div>
-                <div className={styles.td3Container}>
-                    <div className={styles.td3_1}>{sin_relative[0]}</div>
-                    <div className={styles.td3_2}>{sin_relative[1]}</div>
-                    <div className={styles.td3_3}>{sin_relative[2]}</div>
-                </div>
+                    <div className={styles.td2Container}>
+                        <div className={styles.td2_1}>{sin_name_1}</div>
+                        <div className={styles.td2_2}>{sin_name_2}</div>
+                        <div className={styles.td2_3}>{sin_name_3}</div>
+                    </div>
+                    <div className={styles.td3Container}>
+                        <div className={styles.td3_1}>{sin_relative[0]}</div>
+                        <div className={styles.td3_2}>{sin_relative[1]}</div>
+                        <div className={styles.td3_3}>{sin_relative[2]}</div>
+                    </div>
 
-                <div className={styles.subtitle2}>2. 공소 사실</div>
-                <div className={styles.subtitle2_1}>범죄 사실</div>
-                <div className={styles.sinWrap}>
+                    <div className={styles.subtitle2}>2. 공소 사실</div>
+                    <div className={styles.subtitle2_1}>범죄 사실</div>
+                    <div className={styles.sinWrap}>
 
-                {/* <div id="contents"></div> */}
-                <div className={styles.sinContainer} id="sinContainer1">
-                    <div className={styles.sinSubContainer}>
-                        <div className={styles.sin_related_1}>1. 피고인 {accused}의 {sin_name_1}</div>
-                        <div className={styles.sin_detail_1}>피고인 {accused}은 xxxx.xx.x일 아래와 같이 {sin_result[0]}</div>
+                    {/* <div id="contents"></div> */}
+                    <div className={styles.sinContainer} id="sinContainer1">
+                        <div className={styles.sinSubContainer}>
+                            <div className={styles.sin_related_1}>1. 피고인 {accused}의 {sin_name_1}</div>
+                            <div className={styles.sin_detail_1}>피고인 {accused}은 xxxx.xx.x일 아래와 같이 {sin_result[0]}</div>
+                        </div>
+                        <div className={styles.sinSubContainer}>
+                            <div>가. {sin_title[0]}</div>
+                            <div className={styles.sinDetail}>피고인 {accused}은 {sin_detail[0]}<br/><br/>이로써 피고인 {accused}은 {sin_result[0]}</div>
+                        </div>
                     </div>
-                    <div className={styles.sinSubContainer}>
-                        <div>가. {sin_title[0]}</div>
-                        <div className={styles.sinDetail}>피고인 {accused}은 {sin_detail[0]}<br/><br/>이로써 피고인 {accused}은 {sin_result[0]}</div>
+                    <div className={styles.sinContainer} id="sinContainer2">
+                        <div className={styles.sinSubContainer}>
+                            <div className={styles.sin_related_2}>2. 피고인 {accused}의 {sin_name_2}</div>
+                            <div className={styles.sin_detail_2}>피고인 {accused}은 xxxx.xx.x일 아래와 같이 {sin_result[1]}</div>
+                        </div>
+                        <div className={styles.sinSubContainer}>
+                            <div>가. {sin_title[1]}</div>
+                            <div className={styles.sinDetail}>피고인 {accused}은 {sin_detail[1]}<br/><br/>이로써 피고인 {accused}은 {sin_result[1]}</div>
+                        </div>
                     </div>
-                </div>
-                <div className={styles.sinContainer} id="sinContainer2">
-                    <div className={styles.sinSubContainer}>
-                        <div className={styles.sin_related_2}>2. 피고인 {accused}의 {sin_name_2}</div>
-                        <div className={styles.sin_detail_2}>피고인 {accused}은 xxxx.xx.x일 아래와 같이 {sin_result[1]}</div>
+                    <div className={styles.sinContainer} id="sinContainer3">
+                        <div className={styles.sinSubContainer}>
+                            <div className={styles.sin_related_3}>3. 피고인 {accused}의 {sin_name_3}</div>
+                            <div className={styles.sin_detail_3}>피고인 {accused}은 xxxx.xx.x일 아래와 같이 {sin_result[2]}</div>
+                        </div>
+                        <div className={styles.sinSubContainer}>
+                            <div>가. {sin_title[2]}</div>
+                            <div className={styles.sinDetail}>피고인 {accused}은 {sin_detail[2]}<br/><br/>이로써 피고인 {accused}은 {sin_result[2]}</div>
+                        </div>
                     </div>
-                    <div className={styles.sinSubContainer}>
-                        <div>가. {sin_title[1]}</div>
-                        <div className={styles.sinDetail}>피고인 {accused}은 {sin_detail[1]}<br/><br/>이로써 피고인 {accused}은 {sin_result[1]}</div>
                     </div>
-                </div>
-                <div className={styles.sinContainer} id="sinContainer3">
-                    <div className={styles.sinSubContainer}>
-                        <div className={styles.sin_related_3}>3. 피고인 {accused}의 {sin_name_3}</div>
-                        <div className={styles.sin_detail_3}>피고인 {accused}은 xxxx.xx.x일 아래와 같이 {sin_result[2]}</div>
-                    </div>
-                    <div className={styles.sinSubContainer}>
-                        <div>가. {sin_title[2]}</div>
-                        <div className={styles.sinDetail}>피고인 {accused}은 {sin_detail[2]}<br/><br/>이로써 피고인 {accused}은 {sin_result[2]}</div>
-                    </div>
-                </div>
-                
                 </div>
                 <div className={styles.end}>피고인 {accused}에게 위와 같은 죄명으로 공소를 제기합니다.</div>
+                <img src={background} className={styles.bottomSpace} />
             </div>
             </div>
         </div>

@@ -5,7 +5,7 @@ import { getResizeEventListener } from "./services/responsiveFrame";
 import Intro from "./components/IntroUI/Intro";
 
 import Loading from "./components/Loading";
-import IndictResult from "./pages/indict_result/index2.jsx"
+import IndictResult from "./pages/indict_result"
 
 export default () => {
   const [volume, setVolume] = useState([0.5, 0.5, 0.5]);
