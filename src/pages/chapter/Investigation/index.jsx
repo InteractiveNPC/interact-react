@@ -38,12 +38,12 @@ export default ({ chapter, moveRecord }) => {
 
   return (
     <>
-    { (process < 3  && !chapterContext[chapter]) &&
+    { (process < 2  && !chapterContext[chapter]) &&
       <>
          <MoveUI
           chapter={chapter}
           disabled={true}
-          hero={heroDisabled}
+          hero={true}
         />
         { process === 0 && 
           <div
@@ -78,12 +78,22 @@ export default ({ chapter, moveRecord }) => {
                 else setWho('홍련');
                 setDialogueDisabled(true);
                 setProcess(2);
+                setHeroDisabled(false);
               }}
             />
             </div>
           </>
         }
-         { process === 2 && 
+        
+      </>
+    }
+     { process === 2 && 
+        <>
+        <MoveUI
+          chapter={chapter}
+          disabled={true}
+          hero={false}
+        />
           <div className={styles.background}>
             <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
               <div id='bHelp' style={{zIndex:'2000'}}
@@ -96,8 +106,7 @@ export default ({ chapter, moveRecord }) => {
               {bHelpDisabled? <Bhelp who={who} setActive={settingbHelpDisabled} chapter={chapter} /> : null}
             </div>
           </div>
-        }
-      </>
+        </>  
     }
     { process === 3 && 
       <>

@@ -72,7 +72,7 @@ const handleChecked = (checkid) => {
   }
 }
 
-function Indict(){
+function Indict(props){
   
   const chapter = "1_2"
     const [ data, setData] = useState(
@@ -275,7 +275,8 @@ const handleClick_change = () => {
         onMouseLeave={handleMouseLeave}
         onClick={() => {
           handleClick_change();
-          session_crime(1);
+          
+          props.onSubmit() ;
         }}
       />
     </div>
@@ -326,6 +327,7 @@ const handleClick_change = () => {
         onClick={() => { effectPlay("paperbutton");
         decreaseOpacity('check1', 'crimenormal1');
         handleChecked(1);
+        session_crime(1);
         } }
         data-id="check1"
         className="my-image"
@@ -341,6 +343,7 @@ const handleClick_change = () => {
           effectPlay("paperbutton");
           decreaseOpacity('check2'); 
           handleChecked(2);
+          session_crime(1);
         } }
         className="my-image"
         data-id="check2"
@@ -357,6 +360,7 @@ const handleClick_change = () => {
         onClick={() => {decreaseOpacity('check3');
         effectPlay("paperbutton");
         handleChecked(3);
+        session_crime(1);
       }}
         className="my-image"
         data-id="check3"
@@ -386,7 +390,7 @@ const handleClick_change = () => {
         alt={isImageChanged ? 'Changed Image' : 'Original Image'}
         onClick={()=> {
           effectPlay("paperbutton");
-          
+          handleGiso(1);
           handleClick();}}>
         </img>
 

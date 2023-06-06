@@ -77,7 +77,7 @@ function Dialogue(props) {
       return;
     }
     if(hold != true) {
-      axios.get('/chapter?id=' + id + "&scene=" + scene + "&flag=" + flag + "&index=" + index)
+      axios.get("/chapter?id=" + id + "&scene=" + scene + "&flag=" + flag + "&index=" + index)
       .then(async (res) => {
         console.log(res);
 
@@ -99,7 +99,10 @@ function Dialogue(props) {
         if(size < index && res.data.scene >= end) {
           $("#dialogue").off("click").on("click", {code: 0, scene: scene}, clickHandler);
         }
-        if(scene == 0 && res.data.index == 0 && size+1 >= res.data.len) {
+        if((
+            (scene == 0 && res.data.index == 0) ||
+            (scene == 7 && res.data.index == 0 && flag == 0)
+          ) && size+1 >= res.data.len) {
           $("#dialogue").off("click").on("click", {code: 0, scene: scene}, clickHandler);
           setHold(true);
         }
@@ -170,8 +173,13 @@ function Dialogue(props) {
         {show ? (
           <div id="dialogue" onClick={dialogueHandler}>
             {
-              (data.scene != -1 && data.scene != 0 && !( data.scene == 1 && data.index == 0 ) ) &&
-              <div className="blur"></div>
+              (data.scene != 0
+                && data.scene != -1
+                && data.scene != -2
+                && !( data.scene == 1 && data.index == 0 )
+                && !( data.id == 1 && ( data.scene == 9 || data.scene == 10 ) )
+                && !( data.id == 3 && ( data.scene == 11 || data.scene == 12 ) )
+              ) && <div className="blur"></div>
             }
             <img id="character" src={data.image}/>
             <div id="dialogue_bg"></div>

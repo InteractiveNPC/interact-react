@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useHaveItem } from "./config";
+import { useHaveItem, meet_character } from "./config";
 import { divToImg } from "../../services/propsFormat";
 
 import Find3 from "pages/Find3";
@@ -22,6 +22,7 @@ export default [
   // 수사실
   ({ onTalk, hero }) => {
     useBGM("NakhwaNansangji");
+    const have = useHaveItem("비녀");
 
     const [heroDisabled, setHeroDisabled] = useState(hero);
     return (
@@ -40,7 +41,8 @@ export default [
               src={halfWebpBase + "Hongryeon_normal_X_office.webp"}
               {...setPosWithIdx(0, 0, 1000)}
               onClick={() => {
-                onTalk({ idx: "3", scene: "-1", "flag": "0", index: "0" });
+                const scene = have ? "-2" : "-1";
+                onTalk({ idx: "3", scene: scene, "flag": "0", index: "0" });
               }}
             />
           </div>
@@ -70,6 +72,7 @@ export default [
           src={fullWebpBase + "Mrs.Heo.webp"}
           {...setPos(645, 607)}
           onClick={() => {
+            meet_character(3, 2);
             onTalk({ idx: "3", scene: "1", flag: "0", index: "0" });
           }}
         />
@@ -77,6 +80,7 @@ export default [
           src={fullWebpBase + "Jangsoe.webp"}
           {...setPos(1181, 613)}
           onClick={() => {
+            meet_character(3, 3);
             onTalk({ idx: "3", scene: "3", flag: "0", index: "0" });
           }}
         />
@@ -84,6 +88,7 @@ export default [
           src={fullWebpBase + "Mr.Bae.webp"}
           {...setPos(1508, 607)}
           onClick={() => {
+            meet_character(3, 4);
             onTalk({ idx: "3", scene: "5", flag: "0", index: "0" });
           }}
         />
@@ -111,6 +116,7 @@ export default [
           {...setPos(594, 284)}
           onClick={() => {
             if(!disabled) {
+              meet_character(3, 5);
               onTalk({ idx: "3", scene: "7", flag: "0", index: "0" });
             }
           }}
@@ -145,6 +151,7 @@ export default [
           src={fullWebpBase + "Maid.webp"}
           {...setPos(720, 620)}
           onClick={() => {
+            meet_character(3, 6);
             onTalk({ idx: "3", scene: "9", flag: "0", index: "0" });
           }}
         />

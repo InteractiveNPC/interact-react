@@ -13,34 +13,28 @@ function Intro(props) {
     $("#begin").hide();
 
     $(".background").click(function () {
-      $(".background").off("click").click(next);
-      $("#start").fadeIn(1000).fadeOut(1000).hide();
-      $("#info").fadeIn(1000).fadeOut(1000).hide();
-      setTimeout(next, 3000);
+      $(".background").off("click");
+      $("video").fadeIn(2000);
+      $("video").get(0).play();
+      $("video").on("click", next);
+      setTimeout(next, 10000);
     });
 
     function next() {
-      $("#start").fadeOut(100).hide();
-      $("#info").fadeOut(100).hide();
-      $(".background").off("click");
-      $("video").fadeIn(2000);
+      setAudio(true);
       setTimeout(function () {
-        setAudio(true);
-        $("video").get(0).play();
-        setTimeout(function () {
-          $("#begin").fadeIn(1000);
-          var blink = setInterval(function () {
-            $("#begin").fadeOut(1000).fadeIn(1000);
+        $("#begin").fadeIn(1000);
+        var blink = setInterval(function () {
+          $("#begin").fadeOut(1000).fadeIn(1000);
+        }, 2000);
+        $(".background").click(function () {
+          $(".background").fadeOut(2000);
+          clearInterval(blink);
+          setTimeout(function () {
+            setShow(false);
           }, 2000);
-          $(".background").click(function () {
-            $(".background").fadeOut(2000);
-            clearInterval(blink);
-            setTimeout(function () {
-              setShow(false);
-            }, 2000);
-          });
-        }, 3000);
-      }, 2000);
+        });
+      }, 3000);
     }
   }, []);
 
@@ -48,21 +42,6 @@ function Intro(props) {
     <div>
       {show ? (
         <div className="background">
-          <div id="start">
-            무원(無寃) 이란 '원통함, 억울함이 없게 하다'라는 뜻으로,
-            <br />
-            원통한 일이 없도록 사건수사에 도움이 되는 법의학적 실무지식을 수집,
-            정리한 책이 '무원록'입니다.
-            <br />
-            전래동화 속 원통한 일을 겪은 인물들을 만나 수사를 진행하며 당신만의
-            무원록을 완성하십시오.
-          </div>
-          <div id="info">
-            * 본 컨텐츠는 전래동화 속 범죄를 수사하는 컨텐츠로,
-            <br />
-            기존의 전래동화를 바탕으로 일부의 상상력을 보태어 만들어졌으며,
-            수사에 있어서 검찰의 공식적인 절차와 다를 수 있음을 알려드립니다.
-          </div>
           { audio &&
             <audio id="bgm" src="/sound/bgm_intro.mp3" autoPlay/>
           }

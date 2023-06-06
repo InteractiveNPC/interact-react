@@ -141,6 +141,7 @@ export default function Find3_2(props) {
             }}
             onClick={() => {
               axios.get('/meet/3/7');
+              axios.get('/item/3/7_1');
               $("div#step2").fadeOut({ fadeT });
               setTimeout(() => {
                 $("div#result").fadeIn({ fadeT });

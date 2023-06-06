@@ -5,16 +5,381 @@
     font-style: normal;
 }
 
+.node1_behind {
+    display: none;
+}
+
 .tape1_1 {
+    position: absolute;
+    left: 1407.95px;
+    top: 375.76px;
+    transform: rotate(-24.78deg);
+}
+
+.tape1_2 {    
+    position: absolute;
+    left: 1509.95px;
+    top: 530.76px;
+    transform: rotate(-24.78deg);
+}
+
+.name_ui_1 {
+    position: absolute;
+    left: 1502.53px;
+    top: 351px;
+    transform: rotate(4.5deg);
+}
+
+.name_1 {
+    position: absolute;
+    width: 30px;
+    height: 23px;
+    left: 1541.94px;
+    top: 373.72px;
+    
+    font-family: 'Kim jung chul Script';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 23px;
+    text-align: center;
+    
+    color: #000000;
+}
+
+.node1_info {
+    position: absolute;
+    left: 1474.95px;
+    top: 325.37px;
+    transform: rotate(-3.5deg);
+}
+
+.node1_1 {
+    position: absolute;
+    left: 1312.17px;
+    top: 487px;
+    transform: rotate(10.1deg);
+}
+
+.node1_2 {
+    position: absolute;
+    left: 1455.95px;
+    top: 616.91px;
+    transform: rotate(-3.5deg);
+}
+
+.node1_3 {
+    position: absolute;
+    left: 1625.95px;
+    top: 516.72px;
+    transform: rotate(-9.5deg);
+}
+
+.tape2_1 {
     position: absolute;
     left: 521.9px;
     top: 193px;
     transform: rotate(41.62deg);
 }
 
-.tape1_2 {
+.tape2_2 {
     position: absolute;
     left: 400.9px;
     top: 326px;
     transform: rotate(41.62deg);
+}
+
+.name_ui_2 {
+    position: absolute;
+    left: 452.95px;
+    top: 360.8px;
+    transform: rotate(-10.5deg);
+}
+
+.name_2 {
+    position: absolute;
+    width: 30px;
+    height: 23px;
+    left: 497.7px;
+    top: 372.28px;
+
+    font-family: 'Kim jung chul Script';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 23px;
+    text-align: center;
+
+    color: #000000;
+
+    transform: rotate(-10.5deg);
+}
+
+.node2_info {
+    position: absolute;
+    left: 64.95px;
+    top: 171.06px;
+    transform: rotate(-4.24deg);
+}
+
+.node2_1 {
+    display: none;
+    position: absolute;
+    left: 208.95px;
+    top: 62.65px;
+    transform: rotate(-5deg);
+}
+
+.node2_2 {
+    display: none;
+    position: absolute;
+    left: 442.44px;
+    top: 34px;
+    transform: rotate(7deg);
+}
+
+.node2_3 {
+    display: none;
+    position: absolute;
+    left: 542.95px;
+    top: 180.95px;
+    transform: rotate(-6deg);
+}
+
+
+.node3_behind {
+    display: none;
+}
+
+.tape3_1 {
+    position: absolute;
+    left: 1277.37px;
+    top: 20px;
+    transform: rotate(26.66deg);
+}
+
+.name_ui_3 {
+    position: absolute;
+    left: 1186.95px;
+    top: 168.99px;
+    transform: rotate(-1.5deg);
+}
+
+.name_3 {
+    position: absolute;
+    width: 64px;
+    height: 23px;
+    left: 1211.52px;
+    top: 187.9px;
+    
+    font-family: 'Kim jung chul Script';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 23px;
+    text-align: center;
+    
+    color: #000000;    
+}
+
+.node3_info {
+    position: absolute;
+    left: 1247.95px;
+    top: 0px;
+}
+
+.node3_1 {
+    position: absolute;
+    left: 1074.95px;
+    top: 195px;
+}
+
+.node3_2 {
+    position: absolute;
+    left: 1301.23px;
+    top: 196.24px;
+    transform: rotate(-12deg);
+}
+
+.node4_behind {
+    display: none;
+}
+
+.tape4_1 {
+    position: absolute;
+    left: 368.95px;
+    top: 522.24px;
+    transform: rotate(-22.56deg);
+}
+
+.name_ui_4 {
+    position: absolute;
+    left: 401.95px;
+    top: 648.93px;
+    transform: rotate(-6deg);
+}
+
+.name_4 {
+    position: absolute;
+    width: 94px;
+    height: 23px;
+    left: 413.01px;
+    top: 667.43px;
+    
+    font-family: 'Kim jung chul Script';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 23px;
+    text-align: center;
+    
+    color: #000000;
+    
+    transform: rotate(-6deg); 
+}
+
+.node4_info {
+    position: absolute;
+    left: -6px;
+    top: 492.51px;
+    transform: rotate(-9deg);
+}
+
+.node4_1 {
+    position: absolute;
+    left: 28.7px;
+    top: 653.51px;
+    transform: rotate(4deg);
+}
+
+.node4_2 {
+    position: absolute;
+    left: 15.2px;
+    top: 832.17px;
+    transform: rotate(-19deg);
+}
+
+.node4_3 {
+    position: absolute;
+    left: 295.08px;
+    top: 686.32px;
+    transform: rotate(-3deg);
+}
+
+
+.node5_behind {
+    display: none;
+}
+
+.tape5_1 {
+    position: absolute;
+    left: 659.95px;
+    top: 392.76px;
+    transform: rotate(-24.78deg);
+}
+
+.name_ui_5 {
+    position: absolute;
+    left: 693.53px;
+    top: 508px;
+    transform: rotate(4.5deg);
+    
+}
+
+.name_5 {
+    position: absolute;
+    width: 45px;
+    height: 23px;
+    left: 725.96px;
+    top: 530.17px;
+    
+    font-family: 'Kim jung chul Script';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 23px;
+    text-align: center;
+    
+    color: #000000;
+    
+    transform: rotate(4.5deg);
+}
+
+.node5_info {
+    position: absolute;
+    left: 751.78px;
+    top: 301px;
+    transform: rotate(2.69deg);
+}
+
+.node5_1 {
+    position: absolute;
+    left: 662.79px;
+    top: 580.96px;
+    transform: rotate(9deg);
+}
+
+.node5_2 {
+    position: absolute;
+    left: 851.51px;
+    top: 592.15px;
+    transform: rotate(-9deg);
+}
+
+.node5_3 {
+    position: absolute;
+    left: 1048.95px;
+    top: 622.25px;
+    transform: rotate(-1.5deg);
+}
+
+.node6_behind {
+    display: none;
+}
+
+.tape6_1 {
+    position: absolute;
+    left: 1040.95px;
+    top: 902.76px;
+    transform: rotate(-24.78deg);
+}
+
+.name_ui_6 {
+    position: absolute;
+    left: 1080.61px;
+    top: 987.46px;
+    transform: rotate(-11.5deg);
+}
+
+.name_6 {
+    position: absolute;
+    width: 45px;
+    height: 23px;
+    left: 1117.89px;
+    top: 999.82px;
+
+    font-family: 'Kim jung chul Script';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 23px;
+    text-align: center;
+
+    color: #000000;
+
+    transform: rotate(-11.5deg);
+}
+
+.node6_info {
+    position: absolute;
+    left: 1105.54px;
+    top: 796px;
+    transform: rotate(3.54deg);
+}
+
+.node6_1 {
+    position: absolute;
+    left: 790.97px;
+    top: 868px;
+    transform: rotate(4.5deg);
 }

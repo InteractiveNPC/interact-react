@@ -37,7 +37,7 @@ const handleGiso = (id) => {
 }
 
 const chapter = "1_1"
-function Indict(){
+function Indict(props){
   const [ data, setData] = useState(
     {"chapter":1_1, "scene": 36, "name":"", "item": [{}, {}],
      "court":"", "script": ""}
@@ -271,7 +271,8 @@ function Indict(){
         onMouseLeave={handleMouseLeave}
         onClick={() => {
           handleClick_change();
-          session_crime(1);
+          
+          props.onSubmit() ;
         }}
       />
     </div>
@@ -314,6 +315,7 @@ function Indict(){
         onClick={() => { effectPlay("paperbutton");
         decreaseOpacity('check1', 'crimenormal1')
         handleChecked(1);
+        session_crime(1);
         } }
         data-id="check1"
         className="my-image"
@@ -330,6 +332,7 @@ function Indict(){
           effectPlay("paperbutton");
           decreaseOpacity('check2'); 
           handleChecked(2);
+          session_crime(1);
         } 
           
         }
@@ -348,6 +351,7 @@ function Indict(){
         onClick={() => {decreaseOpacity('check3');
         effectPlay("paperbutton");
         handleChecked(3);
+        session_crime(1);
       }}
         className="my-image"
         data-id="check3"
@@ -378,6 +382,7 @@ function Indict(){
         alt={isImageChanged ? 'Changed Image' : 'Original Image'}
         onClick={()=> {
           effectPlay("paperbutton");
+          handleGiso(1);
           handleClick();}}>
         </img>
 
