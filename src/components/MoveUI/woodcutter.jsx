@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useHaveItem } from "./config";
 import { divToImg } from "../../services/propsFormat";
 import Find from "../../pages/Find";
 
@@ -60,6 +61,7 @@ export default [
   // 나무꾼의 집
   ({ onTalk }) => {
     useBGM("spring_reunion");
+
     return (
       <div className={styles.location}>
         <video muted autoPlay loop playsInline>
@@ -90,11 +92,13 @@ export default [
   // 나무꾼의 방 (증거 찾기)
   ({ onTalk, goOffice }) => {
     useBGM("spring_reunion");
+    const item = useHaveItem("선녀옷");
+
     return (
       <div className={styles.location}
         {...divToImg(BackgroundImgBase + "illust_FairyNWoodcutter_Woodcutter_room.png")}
         >
-        <Find goOffice={goOffice} />
+        {item && <Find goOffice={goOffice} />}
       </div>
     );
   },

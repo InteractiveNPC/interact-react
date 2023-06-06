@@ -5,6 +5,12 @@
     font-style: normal;
 }
 
+@font-face {
+    font-family: 'Pretendard';
+    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Medium.woff') format('woff');
+    font-style: normal;
+}
+
 div#backgroundS,
 div#pop {
   position: absolute;
@@ -115,7 +121,7 @@ div#fBtn2{
   left: 661px;
   top: 595px;
 
-  font-family: 'GyeonggiBatang';
+  font-family: 'Pretendard';
   font-style: normal;
   font-weight: 700;
   font-size: 24px;
@@ -133,7 +139,7 @@ div#fBtn2{
   left: 1130px;
   top: 595px;
 
-  font-family: 'GyeonggiBatang';
+  font-family: 'Pretendard';
   font-style: normal;
   font-weight: 700;
   font-size: 24px;
@@ -158,7 +164,7 @@ div#fBtn2{
   left: 660px;
   top: 468px;
 
-  font-family: 'GyeonggiBatang';
+  font-family: 'Pretendard';
   font-style: normal;
   font-weight: 700;
   font-size: 24px;
@@ -173,10 +179,10 @@ div#fBtn2{
   position: absolute;
   width: 800px;
   height: 30px;
-  left: 645.56px;
+  left: 560px;
   top: 508px;
 
-  font-family: 'GyeonggiBatang';
+  font-family: 'Pretendard';
   font-style: normal;
   font-weight: 400;
   font-size: 20px;
@@ -219,13 +225,12 @@ div#fBtn2{
   left: 350px;
   top: 925px;
 
-  font-family: 'GyeonggiBatang';
+  font-family: 'Pretendard';
   font-style: normal;
-  font-weight: 400;
-  font-size: 18px;
-  line-height: 170%;
-  letter-spacing: -0.025em;
-  color: #F8F1DA;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 35px;
+  color: #FFFFFF;
 }
 img,
 p,

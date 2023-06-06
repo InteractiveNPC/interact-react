@@ -48,8 +48,22 @@ export default ({ home, ending, document, record, moveDocument, moveRecord, goHo
       setButtonEvent(button[0].current, false);
       setButtonEvent(button[1].current, false);
     }
-    setButtonEvent(button[2].current, img_base + "UI_help");
-    setButtonEvent(button[3].current, img_base + "UI_setting");
+    
+    if(window === "help") {
+      setButtonEvent(button[2].current, false);
+      button[2].current.style.backgroundImage = `url(${
+        process.env.PUBLIC_URL + img_base}UI_help_click.png)`;
+    } else {
+      setButtonEvent(button[2].current, img_base + "UI_help");
+    }
+
+    if(window == "setting") {
+      setButtonEvent(button[3].current, false);
+      button[3].current.style.backgroundImage = `url(${
+        process.env.PUBLIC_URL + img_base}UI_setting_click.png)`;
+    } else {
+      setButtonEvent(button[3].current, img_base + "UI_setting");
+    }
   });
 
   return (
