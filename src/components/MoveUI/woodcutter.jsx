@@ -2,8 +2,6 @@ import { useState } from "react";
 import { divToImg } from "../../services/propsFormat";
 import Find from "../../pages/Find";
 
-import Bhelp from '../../pages/Help';
-import $ from "jquery";
 
 import styles from "./style.module.scss";
 import { useBGM } from "../../services/audioManager";
@@ -29,15 +27,9 @@ export default [
     useBGM("NakhwaNansangji");
 
     const [heroDisabled, setHeroDisabled] = useState(hero);
-    const [ bHelpDisabled, setbHelpDisabled ] = useState(true);
-    const settingbHelpDisabled=()=>{
-      setbHelpDisabled(!bHelpDisabled);
-    };
-    //const [clickCount, setClickCount] = useState(0);
     console.log(hero);
     return (
       <div className={styles.location}>
-        <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
           <video muted autoPlay loop playsInline>
           <source
             src={`${
@@ -54,8 +46,6 @@ export default [
               {...setPosWithIdx(0, 0, 1000)}
               onClick={() => {
                 onTalk({ idx: "1", scene: "-1", "flag": "0", index: "0" });
-              }} onMouseOver={()=>{
-                $('div#bHelp').removeClass('display-none');
               }}
             />
             </div>
@@ -64,14 +54,6 @@ export default [
             className={styles.desk}
             {...divToImg(BackgroundImgBase + "illust_FairyNWoodcutter_desk.png")}
           />
-          <div id='bHelp' className="display-none" style={{zIndex:'2000'}}
-          onClick={()=>{
-            if(!bHelpDisabled){
-              $('div#bHelp').css('zIndex','500');
-            }
-          }}>
-            {bHelpDisabled? <Bhelp who={'선녀'} setActive={settingbHelpDisabled}/> : null}
-          </div>
       </div>
     );
   },
