@@ -16,6 +16,12 @@ div#backgroundS, div#pop{
     top: 0%;
     z-index: 3000;
 }
+div#makeDark{
+    background-color: rgba(0,0,0,0.6);
+    position: absolute;
+    width:1920px;
+    height: 1080px;
+}
 
 #pop, #backgroundS, #step1, #step2, #result{
     width:100%;
