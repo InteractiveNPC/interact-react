@@ -5,7 +5,7 @@ import $ from 'jquery';
 
 <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
 
-export default function Indict_Result() {
+export default function Indict_Result(props) {
     const $contents = document.getElementById('contents')
 
     const background = '/image/IndictResult/background/background-long.png';
@@ -138,15 +138,19 @@ export default function Indict_Result() {
     
             setData();
         })
+        .catch(error => console.log(error))
     });
 
     //event function
     function onClick_prev() {
         click_prevbutton(prevbutton_click);
+        props.onPrev();
     }
 
     function onClick_go_court() {
         click_go_court(go_court_click);
+        // console.log(props);
+        props.onSubmit();
     }
 
     //나중에 시간 되면 바로 구현

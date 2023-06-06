@@ -140,6 +140,7 @@ export default function Indict_Result() {
     
             setData();
         })
+        .catch(error => console.log(error))
     });
 
     //event function

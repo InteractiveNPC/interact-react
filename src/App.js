@@ -6,7 +6,6 @@ import Intro from "./components/IntroUI/Intro";
 
 
 import Loading from "./components/Loading";
-import IndictResult from "./pages/indict_result/"
 
 export default () => {
   const [volume, setVolume] = useState([0.5, 0.5, 0.5]);
@@ -21,8 +20,7 @@ export default () => {
    return (
       <div id="App">
         <ContextProvider volumeData={[volume, setVolume]} chapterData={[chapter, setChapter]}>
-        {/* <Intro /> */}
-        <IndictResult />
+        <Intro />
         </ContextProvider>
         <audio id="bgm" loop={true} autoPlay={true} volume={volume[0]}/>
         <div id="effect" className={volume[1]}/>
