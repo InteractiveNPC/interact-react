@@ -69,7 +69,7 @@ export default function Find3_2(props) {
         <div id="step1">
           <img
             id="findE"
-            src="/image/evidence/Certificatepaper.png"
+            src="/image/evidence/certificatepaper.png"
             className="clueA"
             onMouseOver={() => {
               $("img#findE").addClass("find");
@@ -130,7 +130,7 @@ export default function Find3_2(props) {
         </div>
         <div id="step2" className="display-none">
           <img
-            src="/image/evidence/Certificatepaper.png"
+            src="/image/evidence/certificatepaper.png"
             id="findE2"
             className="clueA"
             onMouseOver={() => {

@@ -24,6 +24,10 @@ export default ({ chapter, moveRecord }) => {
     };
   const [who, setWho] = useState('temp');
 
+  const settingDdata = (idx, scene, flag, index)=>{
+    setDialogueData(idx, scene, flag, index);
+  }
+
   return (
     <>
     { process < 2 &&
