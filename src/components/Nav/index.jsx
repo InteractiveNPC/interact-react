@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 
 import { divToImg } from "../../services/propsFormat";
+import { existNewNode } from "../Record/hook";
 
 import Help from "./Help";
 import Setting from "./Setting";
@@ -30,7 +31,15 @@ export default ({ home, ending, document, record, moveDocument, moveRecord, goHo
     navEvent.slice(1).forEach((e, idx) => (button[idx].current.onclick = e));
 
     if(!home && !ending) {
-      if(!record) setButtonEvent(button[0].current, img_base + "UI_record");
+      if(!record) {
+        setButtonEvent(button[0].current, img_base + "UI_record");
+
+        // (async () => {
+        //   if(await existNewNode(chapter)) {
+            
+        //   }
+        // })();
+      }
       else {
         setButtonEvent(button[0].current, false);
         button[0].current.style.backgroundImage = `url(${

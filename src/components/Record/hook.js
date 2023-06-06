@@ -67,6 +67,19 @@ export const visitNode = (chapter, id) => {
     });    
 }
 
+export const existNewNode = async (chapter) => {
+    const mainNodes = await getMainNodes(chapter);
+    for(const {have, visited} of Object.values(mainNodes)) {
+        if(have && !visited) return true;
+    }
+
+    const nodes = await getNodes(chapter);
+    for(const {have, visited} of Object.values(nodes)) {
+        if(have && !visited) return true;
+    }
+    return false;
+};
+
 const getMeets = (chapter) => {
     return new Promise((resolve) =>
         axios
