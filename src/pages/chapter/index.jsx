@@ -27,10 +27,7 @@ export default ({ chapter }) => {
             moveRecord={() => {
               if(!document) setRecord(!record);
             }}
-            goHome={async () => {
-              await resetChapterSession(chapter);
-              setProcess(-1);
-            }}
+            goHome={() => setProcess(-1)}
             ending={process === 1}
             document={document}
             record={record}
