@@ -6,15 +6,15 @@ import Investigation from "./Investigation";
 import Document from "./Document";
 import Ending from "./Ending";
 import Home from "components/HomeUI/Home";
-
-import { resetChapterSession } from "./Ending/hook";
+import Record1 from "../eventRecord1";
+import Record3 from "../eventRecord2";
 
 export default ({ chapter }) => {
   const [process, setProcess] = useState(0);
   const [document, setDocument] = useState(false);
   const [record, setRecord] = useState(false);
 
-  return (
+  return ( 
     <>
       {process === -1 ? (
         <Home />
@@ -27,35 +27,30 @@ export default ({ chapter }) => {
             moveRecord={() => {
               if(!document) setRecord(!record);
             }}
-            goHome={async () => {
-              await resetChapterSession(chapter);
-              setProcess(-1);
-            }}
+            goHome={() => setProcess(-1)}
             ending={process === 1}
             document={document}
             record={record}
           />
-          {process === 0 && (
+          {(process === 0 && !record) && (
             <Investigation
               chapter={chapter}
-              moveRecord={() => setDocument(true)}
+              moveRecord={() => setRecord(true)}
             />
           )}
           {process === 1 && (
             <Ending
               chapter={chapter}
-              replay={async () => {
-                await resetChapterSession(chapter);
-                setProcess(0);
-              }}
-              goHome={async () => {
-                await resetChapterSession(chapter);
-                setProcess(-1);
-              }}
+              replay={() => setProcess(0)}
             />
           )}
           {document && <Document chapter={chapter} onSubmit={() => setProcess(1)}/>}
-          {record && <Document chapter={chapter} onSubmit={() => setProcess(1)}/>}
+          {record && 
+            <>
+              {chapter === 1 && <Record1/>}
+              {chapter === 3 && <Record3/>}
+            </>
+          }
         </>
       )}
     </>
