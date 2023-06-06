@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from 'axios';
 import styles from '../styles/eventRecord1.css';
 import { getMainNodes, getNodes, visitMainNode, visitNode } from "components/Record/hook";
@@ -50,7 +50,7 @@ export default function Record(){
 
     useEffect(() => {
       axios.get('/item/getItems/1')
-        .then(response => {
+        .then(res => {
           console.log(res.data)
           setData({"name": res.data.name, "kind": res.data.kind,
           "id": res.data.id, "script": res.data.chapter
