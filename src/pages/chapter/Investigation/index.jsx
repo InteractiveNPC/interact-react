@@ -25,20 +25,20 @@ export default ({ chapter, moveRecord }) => {
   const [ bHelpDisabled, setbHelpDisabled ] = useState(true);
   const settingbHelpDisabled=()=>{
     setbHelpDisabled(!bHelpDisabled);
+    setProcess(3)
   };
   const [who, setWho] = useState('temp');
 
   useEffect(() => {
     if (process == 0 && chapterContext[chapter]) {
-      settingbHelpDisabled();
       setHeroDisabled(false);
-      setProcess(2);
+      setProcess(3);
     }
   });
 
   return (
     <>
-    { (process < 2  && !chapterContext[chapter]) &&
+    { (process < 3  && !chapterContext[chapter]) &&
       <>
          <MoveUI
           chapter={chapter}
@@ -66,7 +66,7 @@ export default ({ chapter, moveRecord }) => {
         }
         { process === 1 && 
           <>
-            <div>
+            <div className={styles.background}>
               <Dialogue {...dialogueData}
               onInit={() => {
                 setHeroDisabled(false);
@@ -83,38 +83,40 @@ export default ({ chapter, moveRecord }) => {
             </div>
           </>
         }
+         { process === 2 && 
+          <div className={styles.background}>
+            <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+              <div id='bHelp' style={{zIndex:'2000'}}
+                onClick={()=>{
+                  if(!bHelpDisabled){
+                    $('div#bHelp').css('zIndex','500');
+                    $('div#dia').removeClass('display-none');
+                  }
+              }}>
+              {bHelpDisabled? <Bhelp who={who} setActive={settingbHelpDisabled} chapter={chapter} /> : null}
+            </div>
+          </div>
+        }
       </>
     }
-    { process === 2 && 
+    { process === 3 && 
       <>
         <MoveUI
           chapter={chapter}
           onTalk={(data) => {
             setDialogueData(data);
             setDialogueDisabled(false);
+
           }}
           dialogueDisabled={dialogueDisabled}
           hero={heroDisabled}
           moveRecord={moveRecord}
+          setDialogueDisabled={setDialogueDisabled}
         />
         {dialogueDisabled || (
-          <div>
-          <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
-            <div id='bHelp' style={{zIndex:'2000'}}
-              onClick={()=>{
-                if(!bHelpDisabled){
-                  $('div#bHelp').css('zIndex','500');
-                  $('div#dia').removeClass('display-none');
-                }
-            }}>
-              {bHelpDisabled? <Bhelp who={who} setActive={settingbHelpDisabled} chapter={chapter} /> : null}
-            </div>
-            <div id='dia' className="display-none">
-            <Dialogue {...dialogueData}
-              onInit={() => setHeroDisabled(false)}
-              onClose={() => setDialogueDisabled(true)} />
-            </div>
-          </div>
+          <Dialogue {...dialogueData}
+            onInit={() => setHeroDisabled(false)}
+            onClose={() => setDialogueDisabled(true)} />
         )}
       </>
     }
