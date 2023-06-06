@@ -52,6 +52,24 @@ function Indict(){
      "court":"", "script": ""}
   ) // 초기화
 
+   
+  useEffect(() => {
+    axios.get('/document?chapter=' + chapter + '&scene=35')
+    .then(res => {
+      console.log(res.data)
+      const itemData = res.data.item;
+      setData({"chapter": res.data.chapter, "scene": res.data.scene,
+                "name": res.data.name, "item": res.data.item,
+                "court": res.data.court, "script": res.data.script
+              })
+             
+              console.log(res.data.item["4"].info); //이건 출력이 잘 됨.
+    })
+    .catch(error => console.log(error))
+    
+  }, []);  //json에서 데이터 불러옴
+  
+
   const [paper, setPaper] = useState(
     {"chapter": 35, "scene": 35, "crime": "" }
   )
@@ -142,22 +160,7 @@ const handleClick_change = () => {
   }, []);
 
   ////////////////////////////////////////
-  
-  useEffect(() => {
-    axios.get('/document?chapter=' + chapter + '&scene=35')
-    .then(res => {
-      console.log(res.data)
-      const itemData = res.data.item;
-      setData({"chapter": res.data.chapter, "scene": res.data.scene,
-                "name": res.data.name, "item": res.data.item,
-                "court": res.data.court, "script": res.data.script
-              })
-             
-              console.log(res.data.item["4"].info); //이건 출력이 잘 됨.
-    })
-    .catch(error => console.log(error))
-    
-  }, []);  //json에서 데이터 불러옴
+ 
 
   
  
@@ -397,9 +400,6 @@ const handleClick_change = () => {
         data-id="check2"
         className="my-image"
         id="crime_click2" />
-
-        
-
 
         <img src={crime_click}
         data-id="check3"
