@@ -38,7 +38,7 @@ export default function Record(){
         
       <div>
         <div>
-          <img id="backgroud" src="public\image\Record\Background\Background.png" style={{ position: "absolute"}}></img>
+          <img id="backgroud" src="image/Record/Background/Background.png" style={{ position: "absolute"}}></img>
         </div>
         
         <div>

@@ -35,7 +35,7 @@ export default function Record(){
         
       <div>
         <div>
-          <img id="backgroud" src="public\image\Record\Background\Background.png"></img>
+          <img id="backgroud" src="image/Record/Background/Background.png"></img>
         </div>
         
         <div>
