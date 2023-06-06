@@ -99,7 +99,10 @@ function Dialogue(props) {
         if(size < index && res.data.scene >= end) {
           $("#dialogue").off("click").on("click", {code: 0, scene: scene}, clickHandler);
         }
-        if(scene == 0 && res.data.index == 0 && size+1 >= res.data.len) {
+        if((
+            (scene == 0 && res.data.index == 0) ||
+            (scene == 7 && res.data.index == 0)
+          ) && size+1 >= res.data.len) {
           $("#dialogue").off("click").on("click", {code: 0, scene: scene}, clickHandler);
           setHold(true);
         }
@@ -173,9 +176,9 @@ function Dialogue(props) {
               (data.scene != 0
                 && data.scene != -1
                 && data.scene != -2
-                && !( data.id == 1 && data.scene == 9 )
-                && !( data.id == 3 && data.scene == 11 )
                 && !( data.scene == 1 && data.index == 0 )
+                && !( data.id == 1 && ( data.scene == 9 || data.scene == 10 ) )
+                && !( data.id == 3 && ( data.scene == 11 || data.scene == 12 ) )
               ) && <div className="blur"></div>
             }
             <img id="character" src={data.image}/>
