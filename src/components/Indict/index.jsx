@@ -97,12 +97,12 @@ function Indict(props){
  // const [item, setItem] = useState(
 
     const session_bulgiso = () => {
-      axios.get('/document/"1_0"/false')
+      axios.get('/document/1_0/false')
     }
     
     const session_crime = (giso) => {
       if(isCheck1 == 1 && giso == 1)
-        axios.get('/document/"1_0"?crime=' + "재물손괴죄")
+        axios.get('/document/1_0?crime=' + "재물손괴죄")
         .then(function (response) {
           console.log(response);
         })
@@ -110,7 +110,7 @@ function Indict(props){
           console.log(error);
         })
       if(isCheck2 == 1 && giso == 1)
-        axios.get('/document/"1_0"?crime=' + "감금죄")
+        axios.get('/document/1_0?crime=' + "감금죄")
         .then(function (response) {
           console.log(response);
         })
@@ -118,7 +118,7 @@ function Indict(props){
           console.log(error);
         })
       if(isCheck3 == 1 && giso == 1)
-        axios.get('/document/"1_0"?crime=' + "추행 등 목적 약취 유인죄")
+        axios.get('/document/1_0?crime=' + "추행 등 목적 약취 유인죄")
         .then(function (response) {
           console.log(response);
         })
