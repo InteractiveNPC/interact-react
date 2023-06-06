@@ -67,6 +67,7 @@ export default function Find3_2(props) {
 
       <div id="backgroundS" className="display-none App">
         <div id="step1">
+        <div id='makeDark'/>
           <img
             id="findE"
             src="/image/evidence/Certificatepaper.png"
@@ -129,6 +130,7 @@ export default function Find3_2(props) {
           </div>
         </div>
         <div id="step2" className="display-none">
+        <div id='makeDark'/>
           <img
             src="/image/evidence/Certificatepaper.png"
             id="findE2"
@@ -151,6 +153,7 @@ export default function Find3_2(props) {
         </div>
       </div>
       <div id="result" className="display-none">
+      <div id='makeDark'/>
         <img src={popup} className="banner"></img>
         <div id='btnFirst'>
                     <img src={button} className="btn1"></img>

@@ -10,7 +10,12 @@
     src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Medium.woff') format('woff');
     font-style: normal;
 }
-
+div#makeDark{
+  background-color: rgba(0,0,0,0.6);
+  position: absolute;
+  width:1920px;
+  height: 1080px;
+}
 .display-none{
   display: none;
 }

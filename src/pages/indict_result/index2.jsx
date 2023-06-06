@@ -132,15 +132,16 @@ export default function Indict_Result() {
     }
 
     //axios
+    let chapter=2
     useEffect(() => {
-        Axios.get('/document/result/3')
-        .then(response => {
-            data = response.data;
-            console.log(data);
-    
-            setData();
-        })
-        .catch(error => console.log(error))
+        Axios.get('/document/result/' + chapter)
+            .then(response => {
+                data = response.data;
+                console.log(data);
+                console.log(data['accused'])
+                setData();
+            })
+            .catch(error => console.log(error))
     });
 
     //event function

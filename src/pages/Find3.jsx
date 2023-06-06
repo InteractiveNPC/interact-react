@@ -29,8 +29,9 @@ export default function Find3(props) {
               $('img#pack').fadeOut({fadeT});
               $('div#step1').fadeIn({fadeT});
             }}></img>
-
+            
             <div id='step1' className='display-none'>
+            <div id='makeDark'/>
                 <img src={pack2} className='bigPack'></img>
                 <img id='shine' src={binyeo} className='hairPin'
                     onMouseOver={()=>{
@@ -56,6 +57,7 @@ export default function Find3(props) {
             </div>
 
             <div id='step2' className='display-none'>
+            <div id='makeDark'/>
                 <img src={popup}  className='banner'></img>
                 <div id='btnFirst'>
                     <img src={button} className="btn1"></img>
