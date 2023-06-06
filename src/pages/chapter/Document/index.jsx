@@ -7,18 +7,25 @@ import { useBGM, effectPlay } from "../../../services/audioManager";
 
 import Indict_Result from "pages/indict_result";
 
+import { getCourtResult } from "../Ending/hook";
+
 export default ({ chapter, onSubmit }) => {
   useBGM("March_swish");
 
   const [idx, setIdx] = useState(0);
   const [process, setProcess] = useState(0);
+  const [warning, setWarning] = useState(false);
+
   const Indict = indictComponent[chapter][idx];
 
   return (
     <div className={styles.background}>
       { process === 0 &&
         <>
-        <Indict onSubmit={() => setProcess(1)}/>
+        <Indict onSubmit={async () => {
+          if((await getCourtResult(chapter)).length > 0) setProcess(1);
+          else setWarning(true);
+        }}/>
         <div className={styles.nav}>
           {["공소사건 01", "공소사건 02", "공소사건 03"].map((title, i) => 
             <div key={title} onClick={() => {
@@ -53,6 +60,12 @@ export default ({ chapter, onSubmit }) => {
               }} 
               src="/image/Paper/Paper_make/UI/paper_make_next_page.png"/>}
         </div>
+        {warning && 
+          <div className={styles.warning}
+            {...divToImg("/image/Notice/proof_find_info_background.png")}>
+              <div className={styles.content}>적어도 하나의 사건에 대해 기소해주세요.</div>
+              <div className={styles.button} onClick={()=>setWarning(false)}>확인</div>
+          </div>}
         </>
       }
       { process === 1 && <Indict_Result chapter={chapter} onPrev={() => setProcess(0)} onSubmit={onSubmit} />}
