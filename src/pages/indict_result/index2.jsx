@@ -50,6 +50,7 @@ export default function Indict_Result() {
 
     let accused_info = [];
     let crime_list = [];
+    let name_list = [];
     // let select_list = [];
 
     function setImageLink(sinName, idx) {
