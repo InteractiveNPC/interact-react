@@ -5,6 +5,12 @@
     font-style: normal;
 }
 
+@font-face {
+    font-family: 'Pretendard';
+    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Medium.woff') format('woff');
+    font-style: normal;
+}
+
 audio { display:none; }
 
 #dialogue_container {
@@ -22,7 +28,7 @@ audio { display:none; }
 	width: 1716px;
 	height: 215px;
 	left: 102px;
-	top: 828px;
+	top: 800px;
 	background: url("ScriptBackground.png");
 }
 
@@ -56,13 +62,12 @@ audio { display:none; }
 	position: absolute;
 	z-index: 3333;
 	height: 45px;
-	left: 350px;
-	top: 855px;
+	left: 377px;
+	top: 833px;
 	font-family: 'GyeonggiBatang';
 	font-style: normal;
 	font-weight: 700;
-	font-size: 20px;
-	line-height: 20px;
+	font-size: 24px;
 	text-align: center;
 	color: #DAD5AB;
 }
@@ -79,16 +84,14 @@ audio { display:none; }
 	z-index: 3333;
 	width: 1200px;
 	height: 111px;
-	left: 350px;
-	top: 925px;
-	font-family: 'GyeonggiBatang';
+	left: 377px;
+	top: 894px;
+	font-family: 'Pretendard';
 	font-style: normal;
-	font-weight: 400;
-	font-size: 18px;
-	line-height: 170%;
-	letter-spacing: -0.025em;
-	color: #F8F1DA;
-	white-space: pre-line;
+	font-weight: 500;
+	font-size: 24px;
+	line-height: 35px;
+	color: #FFFFFF;
 }
 
 #point {
@@ -123,7 +126,7 @@ audio { display:none; }
 	height: 39px;
 	left: 844px;
 	top: 270px;
-	font-family: 'GyeonggiBatang';
+	font-family: 'Pretendard';
 	font-style: normal;
 	font-weight: 700;
 	font-size: 32px;

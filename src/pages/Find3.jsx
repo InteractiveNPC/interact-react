@@ -11,7 +11,7 @@ export default function Find3(props) {
     const pack = '/image/evidence/cloth_Background.png';    //배경아이템
     const pack2 = '/image/evidence/cloth.png'; //비녀x
     const handle = '/image/evidence/cloth_handle.png';
-    const binyeo = '/image/evidence/hairpin.png';
+    const binyeo = '/image/evidence/Hairpin.png';
 
     const popup = '/image/Investigation/Talk/UI/proof_find_info_background.png';
     const button = '/image/Investigation/Talk/UI/proof_find_info_button_normal.png';
