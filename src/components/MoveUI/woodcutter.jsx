@@ -27,6 +27,7 @@ export default [
   // 수사실
   ({ onTalk, hero }) => {
     useBGM("NakhwaNansangji");
+    const have = useHaveItem("선녀옷");
 
     const [heroDisabled, setHeroDisabled] = useState(hero);
     console.log(hero);
@@ -47,7 +48,8 @@ export default [
                 src={halfWebpBase + "Fairy_normal_X_office.webp"}
                 {...setPosWithIdx(0, 0, 1000)}
                 onClick={() => {
-                  onTalk({ idx: "1", scene: "-1", "flag": "0", index: "0" });
+                  const scene = have ? "-2" : "-1";
+                  onTalk({ idx: "1", scene: scene, "flag": "0", index: "0" });
                 }}
               />
             </div>
