@@ -310,9 +310,9 @@
 }
 .title {
     position: absolute;
-    width: 500px;
+    width: 700px;
     height: 29px;
-    left: 390px;
+    left: 290px;
     top: 135px;
     z-index: 1000;
 

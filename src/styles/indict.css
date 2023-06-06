@@ -550,11 +550,11 @@
     z-index: 1000;
 }
 
-.crimeTitle3_0 {
+.crimeTitle3_0_ {
     position: absolute;
-    width: 400px;
+    width: 900px;
     height: 24px;
-    left: 930px;
+    left: 680px;
     top: 453px;
     
     font-family: 'Inter';
@@ -595,7 +595,7 @@
     width: 40px;
     height: 29px;
     left: 1114px;
-    top: 925px;
+    top: 945px;
     
     font-family: 'Inter';
     font-style: normal;

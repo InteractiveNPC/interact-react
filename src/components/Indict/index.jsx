@@ -1,7 +1,6 @@
 import React, { useState,  useEffect } from "react";
 import Move from '../../pages/chapter/Document/index'
 import { effectPlay } from "../../services/audioManager";
-import Cookies from 'js-cookie';
 import axios from 'axios';
 
 import styles from '../../styles/indict.css';
@@ -9,6 +8,36 @@ import styles from '../../styles/indict.css';
 let isCheck1 = 0;
 let isCheck2 = 0;
 let isCheck3 = 0;
+
+let giso = 0;
+let bulgiso = 0;
+
+const handleGiso = (id) => {
+  if (id == 1) {
+    if(giso == 0)
+      {giso = 1;
+        console.log(giso)
+        console.log(bulgiso)} 
+    else if (giso == 1) {
+      giso = 0;
+      console.log(giso)
+      console.log(bulgiso)
+      } 
+    }
+  else if (id == 0) {
+    if(bulgiso == 0) {
+      bulgiso = 1;
+      console.log(giso)
+      console.log(bulgiso)
+    }
+    else if(bulgiso == 1) {
+      bulgiso = 0;
+      console.log(giso)
+      console.log(bulgiso)
+    }
+      
+  }
+}
 
 const handleChecked = (checkid) => {
   if (checkid == 1) {
@@ -44,36 +73,76 @@ const handleChecked = (checkid) => {
 }
 
 const chapter = "1_0"
-function Indict(){
+function Indict(props){
   const [ data, setData] = useState(
-    {"chapter":1_0, "scene": 35, "name":"", "item": "",
-     "court":"", "script": ""}
+    {"chapter":1_0, "scene": 35, "name":"", "item": [{}, {}],
+     "court":"", "script": "", "found": "", "met": ""}
   ) // 초기화
 
    
   useEffect(() => {
     axios.get('/document?chapter=' + chapter + '&scene=35')
     .then(res => {
-      console.log(res.data)
-      const itemData = res.data.item;
       setData({"chapter": res.data.chapter, "scene": res.data.scene,
-                "name": res.data.name, "item": res.data.item,
-                "court": res.data.court, "script": res.data.script
+                "name": res.data.name, "item": [res.data.item4, res.data.item5],
+                "court": res.data.court, "script": res.data.script,
+                "found": res.data.found, "met": res.data.met
               })
-             
-              console.log(res.data.item5.info); //이건 출력이 잘 됨.  
-              //그러나 밑에서 item을 사용하려고 하면 읽어지지 않음. 
     })
     .catch(error => console.log(error))
     
+    
   }, []);  //json에서 데이터 불러옴
+
+ // const [item, setItem] = useState(
+
+    const session_crime = (giso) => {
+      if(isCheck1 == 1 && giso == 1)
+        axios.get('/document/"1_0"?crime=' + "재물손괴죄")
+        .then(function (response) {
+          console.log(response);
+        })
+        .catch(function (error) {
+          console.log(error);
+        })
+      if(isCheck2 == 1 && giso == 1)
+        axios.get('/document/"1_0"?crime=' + "감금죄")
+        .then(function (response) {
+          console.log(response);
+        })
+        .catch(function (error) {
+          console.log(error);
+        })
+      if(isCheck3 == 1 && giso == 1)
+        axios.get('/document/"1_0"?crime=' + "추행 등 목적 약취 유인죄")
+        .then(function (response) {
+          console.log(response);
+        })
+        .catch(function (error) {
+          console.log(error);
+        })
+      }
+
+    // const handleSubmit = async (e) => {
+    //   e.preventDefault();
   
+    //   try {
+    //     const response = await fetch(`/document/${chapter}?crime=${crime}`, {
+    //       method: 'GET', 
+    //     });
+    //     //const data = await response.text();
+      
+    //   } catch (error) {
+    //     console.error('Error');
+    //   }
+    // };
+
 
   const [paper, setPaper] = useState(
     {"chapter": 35, "scene": 35, "crime": "" }
   )
 
-  ////////////// 세션값 서버에 전달///////////////
+  //////////// 세션값 서버에 전달///////////////
   // useEffect(() => {
   //   // 세션에 저장할 데이터
   //     const chapter = '1_0';
@@ -128,41 +197,6 @@ const handleClick_change = () => {
   setIsClicked(!isClicked);
 };
 
-  /////////////MAP 파싱///////////////
-  const [items, setItems] = useState(new Map());
-
-  useEffect(() => {
-    // 세션 시작 시 쿠키에 데이터 저장
-    Cookies.set('session', 'session_value');
-
-    // 세션 종료 시 쿠키 삭제
-    return () => {
-      Cookies.remove('session');
-    };
-  }, []);
-
-  useEffect(() => {
-    // 데이터를 가져오는 함수를 정의
-    const fetchData = async () => {
-      try {
-        const response = await axios.get('/document?chapter=' + chapter + '&scene=35'); 
-        const data = response.data; 
-  
-        // 데이터를 파싱하여 Map으로 변환
-        const itemMap = new Map(Object.entries(data.item));
-        setItems(itemMap);
-      } catch (error) {
-        console.error(error);
-      }
-    };
-    fetchData();
-  }, []);
-
-  ////////////////////////////////////////
- 
-
-  
- 
 
   const [imageOpacity, setImageOpacity] = useState({ 
     check1: 0, check2: 0, check3: 0,
@@ -258,9 +292,8 @@ const handleClick_change = () => {
   const bulgiso = "불기소"
   const crime1 = data.court["재물손괴죄"];
   const crime2 = data.court["감금죄"];
-  const crime3 = data.court["추행등목적약취유인죄"];
-  console.log(data.item);
-  const item4_info = data.item;
+  const crime3 = data.court["추행 등 목적 약취 유인죄"];
+ // const item4_info = data.item4["info"]; //state
   //const item4info = data.item4.info;
   
  
@@ -274,10 +307,10 @@ const handleClick_change = () => {
 
 
        <div className="proof1_0" >
-        <p>{item4_info}</p>
+        <p>{data.item[1].info}</p>
       </div> 
       <div className="proof2_0">
-        <p>임시2</p>
+        <p>{data.item[0].info}</p>
       </div>
 
       <div className="sageonseosul" dangerouslySetInnerHTML={ {__html: data.script} }>
@@ -316,7 +349,12 @@ const handleClick_change = () => {
         alt="Image"
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
-        onClick={handleClick_change}
+        onClick={() => {
+          handleClick_change();
+          session_crime(1);
+          props.onSubmit() 
+        }}
+        
       />
     </div>
 
@@ -339,7 +377,7 @@ const handleClick_change = () => {
         <div className="crimeTitle2_0">
         <p>{crimeTitle2}</p>
         </div>
-        <div className="crimeTitle3_0">
+        <div className="crimeTitle3_0_">
         <p>{crimeTitle3}</p>
         </div>
       </div>
@@ -358,6 +396,7 @@ const handleClick_change = () => {
         onClick={() => { effectPlay("paperbutton");
         decreaseOpacity('check1', 'crimenormal1');
         handleChecked(1);
+        session_crime(1);
         } }
         data-id="check1"
         className="my-image"
@@ -368,6 +407,7 @@ const handleClick_change = () => {
           effectPlay("paperbutton");
           decreaseOpacity('check2'); 
           handleChecked(2);
+          session_crime(1);
         } }
         className="my-image"
         data-id="check2"
@@ -378,6 +418,7 @@ const handleClick_change = () => {
         onClick={() => {decreaseOpacity('check3');
         effectPlay("paperbutton");
         handleChecked(3);
+        session_crime(1);
       }}
         className="my-image"
         data-id="check3"
@@ -421,13 +462,17 @@ const handleClick_change = () => {
         alt={isImageChanged ? 'Changed Image' : 'Original Image'}
         onClick={()=> {
           effectPlay("paperbutton");
-          handleClick();}}>
+          handleGiso(1);
+          handleClick();
+          
+          }}>
         </img>
 
         <img src={getImageSource2()} id = "indict_normal2"
         alt={isImageChanged2 ? 'Changed Image' : 'Original Image'}
         onClick={()=> {
           effectPlay("paperbutton");
+          handleGiso(0);
           handleClick2();
           }}>
         </img>
@@ -438,7 +483,7 @@ const handleClick_change = () => {
                   zIndex: 1}} />
         </div>
       </div>
-
+          
      </div>
    );
 

@@ -3,10 +3,43 @@ import axios from 'axios';
 import styles from '../../styles/indict2.css';
 import { effectPlay } from "../../services/audioManager";
 
+let isCheck1 = 0;
+let isCheck2 = 0;
+let isCheck3 = 0;
+
+let giso = 0;
+let bulgiso = 0;
+const handleGiso = (id) => {
+  if (id == 1) {
+    if(giso == 0)
+      {giso = 1;
+        console.log(giso)
+        console.log(bulgiso)} 
+    else if (giso == 1) {
+      giso = 0;
+      console.log(giso)
+      console.log(bulgiso)
+      } 
+    }
+  else if (id == 0) {
+    if(bulgiso == 0) {
+      bulgiso = 1;
+      console.log(giso)
+      console.log(bulgiso)
+    }
+    else if(bulgiso == 1) {
+      bulgiso = 0;
+      console.log(giso)
+      console.log(bulgiso)
+    }
+      
+  }
+}
+
 const chapter = "1_1"
-function Indict(){
+function Indict(props){
   const [ data, setData] = useState(
-    {"chapter":1_1, "scene": 36, "name":"", "item": "",
+    {"chapter":1_1, "scene": 36, "name":"", "item": [{}, {}],
      "court":"", "script": ""}
   ) // 초기화
 
@@ -29,13 +62,12 @@ function Indict(){
   useEffect(() => {
     axios.get('/document?chapter=' + chapter + '&scene=36')
     .then(res => {
-      const itemData = res.data.item;
       console.log(res.data)
       setData({"chapter": res.data.chapter, "scene": res.data.scene,
-                "name": res.data.name, "item": itemData,
+                "name": res.data.name,"item": [res.data.item5, res.data.item6],
                 "court": res.data.court, "script": res.data.script
               })
-      console.log(data.item) //여기까진 잘 받아짐..
+      console.log(res.data.item5) //여기까진 잘 받아짐..
 
     })
     .catch(error => console.log(error))
@@ -77,6 +109,65 @@ function Indict(){
         }));
       }
     };
+    const session_crime = (giso) => {
+      if(isCheck1 == 1 && giso == 1)
+        axios.get('/document/"1_1"?crime=' + "재물손괴죄")
+        .then(function (response) {
+          console.log(response);
+        })
+        .catch(function (error) {
+          console.log(error);
+        })
+      if(isCheck2 == 1 && giso == 1)
+        axios.get('/document/"1_1"?crime=' + "감금죄")
+        .then(function (response) {
+          console.log(response);
+        })
+        .catch(function (error) {
+          console.log(error);
+        })
+      if(isCheck3 == 1 && giso == 1)
+        axios.get('/document/"1_1"?crime=' + "추행 등 목적 약취 유인죄")
+        .then(function (response) {
+          console.log(response);
+        })
+        .catch(function (error) {
+          console.log(error);
+        })
+      }
+
+      const handleChecked = (checkid) => {
+        if (checkid == 1) {
+          if(isCheck1 == 0)
+            isCheck1 = 1;
+          else if(isCheck1 == 1)
+            isCheck1 = 0;
+      
+          console.log("isCheck1: " + isCheck1)
+          console.log("isCheck2: " + isCheck2)
+          console.log("isCheck3: " + isCheck3)
+        }
+        if (checkid == 2) {
+          if(isCheck2 == 0)
+              isCheck2 = 1;
+          else if(isCheck2 == 1)
+              isCheck2 = 0;
+      
+          console.log("isCheck1: " + isCheck1)
+          console.log("isCheck2: " + isCheck2)
+          console.log("isCheck3: " + isCheck3)
+        }
+        if (checkid == 3) {
+          if(isCheck3 == 0)
+              isCheck3 = 1;
+          else if(isCheck3 == 1)
+              isCheck3 = 0;
+          
+          console.log("isCheck1: " + isCheck1)
+          console.log("isCheck2: " + isCheck2)
+          console.log("isCheck3: " + isCheck3)
+        }
+      }
 
     const [isImageChanged, setIsImageChanged] = useState(false);
       const [isImageChanged2, setIsImageChanged2] = useState(false);
@@ -135,7 +226,9 @@ function Indict(){
 
   const crime1 = data.court["재물손괴죄"];
   const crime2 = data.court["감금죄"];
-  const crime3 = data.court["추행등목적약취유인죄"];
+  const crime3 = data.court["추행 등 목적 약취 유인죄"];
+
+
 
   return (
     <div className="Indict">
@@ -145,11 +238,11 @@ function Indict(){
       <div className="title2">
         <p>{data.name}</p>
       </div>
-      <div className="proof1">
-        <p>{proof1}</p>
+      <div className="proof1_0">
+        <p>{data.item[1].info}</p>
       </div>
-      <div className="proof2">
-        <p>{proof2}</p>
+      <div className="proof2_0">
+        <p>{data.item[0].info}</p>
       </div>
       <div className="sageonseosul" dangerouslySetInnerHTML={ {__html: data.script} }>
         {/* <p>{data.script}</p> */}
@@ -176,7 +269,11 @@ function Indict(){
         alt="Image"
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
-        onClick={handleClick_change}
+        onClick={() => {
+          handleClick_change();
+          
+          props.onSubmit() ;
+        }}
       />
     </div>
 
@@ -199,7 +296,7 @@ function Indict(){
         <div className="crimeTitle2_0">
         <p>{crimeTitle2}</p>
         </div>
-        <div className="crimeTitle3_0">
+        <div className="crimeTitle3_0_">
         <p>{crimeTitle3}</p>
         </div>
       </div>
@@ -217,6 +314,8 @@ function Indict(){
         <img src={check}  
         onClick={() => { effectPlay("paperbutton");
         decreaseOpacity('check1', 'crimenormal1')
+        handleChecked(1);
+        session_crime(1);
         } }
         data-id="check1"
         className="my-image"
@@ -231,7 +330,12 @@ function Indict(){
       <img src={check} 
         onClick={() => {
           effectPlay("paperbutton");
-          decreaseOpacity('check2'); } }
+          decreaseOpacity('check2'); 
+          handleChecked(2);
+          session_crime(1);
+        } 
+          
+        }
         className="my-image"
         data-id="check2"
          id="check2">
@@ -245,7 +349,10 @@ function Indict(){
         
       <img src={check}
         onClick={() => {decreaseOpacity('check3');
-        effectPlay("paperbutton");}}
+        effectPlay("paperbutton");
+        handleChecked(3);
+        session_crime(1);
+      }}
         className="my-image"
         data-id="check3"
         id="check3" />
@@ -275,6 +382,7 @@ function Indict(){
         alt={isImageChanged ? 'Changed Image' : 'Original Image'}
         onClick={()=> {
           effectPlay("paperbutton");
+          handleGiso(1);
           handleClick();}}>
         </img>
 
