@@ -6,15 +6,15 @@ import Investigation from "./Investigation";
 import Document from "./Document";
 import Ending from "./Ending";
 import Home from "components/HomeUI/Home";
-
-import { resetChapterSession } from "./Ending/hook";
+import Record1 from "../eventRecord1";
+import Record3 from "../eventRecord2";
 
 export default ({ chapter }) => {
   const [process, setProcess] = useState(0);
   const [document, setDocument] = useState(false);
   const [record, setRecord] = useState(false);
 
-  return (
+  return ( 
     <>
       {process === -1 ? (
         <Home />
@@ -35,7 +35,7 @@ export default ({ chapter }) => {
           {(process === 0 && !record) && (
             <Investigation
               chapter={chapter}
-              moveRecord={() => setDocument(true)}
+              moveRecord={() => setRecord(true)}
             />
           )}
           {process === 1 && (
@@ -45,10 +45,12 @@ export default ({ chapter }) => {
             />
           )}
           {document && <Document chapter={chapter} onSubmit={() => setProcess(1)}/>}
-          {record && <Ending chapter={chapter} replay={() => {
-            setRecord(false);
-            setProcess(0);
-          }}/>}
+          {record && 
+            <>
+              {chapter === 1 && <Record1/>}
+              {chapter === 3 && <Record3/>}
+            </>
+          }
         </>
       )}
     </>
