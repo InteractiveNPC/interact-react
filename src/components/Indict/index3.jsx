@@ -33,6 +33,22 @@ function Indict(){
     check1: 0, check2: 0, check3: 0,
   crimenormal: 1 });
 
+  const [isHovered, setIsHovered] = useState(false);
+
+  const handleMouseEnter = () => {
+    setIsHovered(true);
+  };
+
+  const handleMouseLeave = () => {
+    setIsHovered(false);
+    };
+
+const [isClicked, setIsClicked] = useState(false);
+
+const handleClick_change = () => {
+  setIsClicked(!isClicked);
+};
+
   useEffect(() => {
     const updateImageOpacity = () => {
       const images = document.querySelectorAll('.my-image');
@@ -146,6 +162,25 @@ function Indict(){
       <div className="sageonseosul" dangerouslySetInnerHTML={ {__html: data.script} }>
         {/* <p>{data.script}</p> */}
       </div>
+
+      <div>
+      <img
+        id = "paper_make"
+        src={
+          isClicked
+            ? '/image/indict/paper_make_button_click.png'
+            : isHovered
+            ? '/image/indict/paper_make_button_hover.png'
+            : '/image/indict/paper_make_button_normal.png'
+        }
+        //src={isHovered ? '/image/indict/paper_make_button_hover.png' : '/image/indict/paper_make_button_normal.png'}
+        alt="Image"
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+        onClick={handleClick_change}
+      />
+    </div>
+    
       <div className="giso">
         <p>{giso}</p>
       </div>

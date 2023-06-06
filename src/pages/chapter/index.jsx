@@ -12,6 +12,7 @@ import { resetChapterSession } from "./Ending/hook";
 export default ({ chapter }) => {
   const [process, setProcess] = useState(0);
   const [document, setDocument] = useState(false);
+  const [record, setRecord] = useState(false);
 
   return (
     <>
@@ -20,19 +21,24 @@ export default ({ chapter }) => {
       ) : (
         <>
           <Nav
-            moveDocument={() => setDocument(!document)}
-            displayNote={() => setProcess(1)}
+            moveDocument={() => {
+              if(!record) setDocument(!document);
+            }}
+            moveRecord={() => {
+              if(!document) setRecord(!record);
+            }}
             goHome={async () => {
               await resetChapterSession(chapter);
               setProcess(-1);
             }}
             ending={process === 1}
             document={document}
+            record={record}
           />
           {process === 0 && (
             <Investigation
               chapter={chapter}
-              moveDocument={() => setProcess(1)}
+              moveRecord={() => setDocument(true)}
             />
           )}
           {process === 1 && (
@@ -49,6 +55,7 @@ export default ({ chapter }) => {
             />
           )}
           {document && <Document chapter={chapter} onSubmit={() => setProcess(1)}/>}
+          {record && <Document chapter={chapter} onSubmit={() => setProcess(1)}/>}
         </>
       )}
     </>

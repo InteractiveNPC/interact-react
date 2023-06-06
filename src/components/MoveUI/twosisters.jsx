@@ -1,10 +1,8 @@
 import { useState } from "react";
 import { divToImg } from "../../services/propsFormat";
 
-import Bhelp from '../../pages/Help';
 import Find3 from "pages/Find3";
 import Find3_2 from "pages/Find3_2";
-import $ from "jquery";
 
 import styles from "./style.module.scss";
 import { useBGM } from "../../services/audioManager";
@@ -25,13 +23,8 @@ export default [
     useBGM("NakhwaNansangji");
 
     const [heroDisabled, setHeroDisabled] = useState(hero);
-    const [ bHelpDisabled, setbHelpDisabled ] = useState(true);
-    const settingbHelpDisabled=()=>{
-      setbHelpDisabled(!bHelpDisabled);
-    };
     return (
       <div className={styles.location}>
-        <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
         <video muted autoPlay loop playsInline>
           <source
             src={`${
@@ -46,9 +39,6 @@ export default [
             {...setPosWithIdx(0, 0, 1000)}
             onClick={() => {
               onTalk({ idx: "3", scene: "-1", "flag": "0", index: "0" });
-            }} onMouseOver={()=>{
-              $('div#bHelp').fadeIn(1000);
-              setTimeout(()=>{$('div#bHelp').removeClass('display-none');}, 1000);
             }}
           />
         )}
@@ -56,14 +46,6 @@ export default [
           className={styles.desk}
           {...divToImg(BackgroundImgBase + "illust_TwoSisters_desk.png")}
         />
-        <div id='bHelp' className="display-none" style={{zIndex:'1000'}}
-          onClick={()=>{
-            if(!bHelpDisabled){
-              $('div#bHelp').css('zIndex','500');
-            }
-          }}>
-            {bHelpDisabled? <Bhelp who={'홍련'} setActive={settingbHelpDisabled}/> : null}
-          </div>
       </div>
     );
   },
@@ -157,14 +139,14 @@ export default [
     );
   },
   // 관아 안
-  ({ onTalk, moveDocument }) => {
+  ({ onTalk, moveRecord }) => {
     useBGM("biga");
     return (
       <div
         className={styles.location}
         {...divToImg(BackgroundImgBase + "illust_TwoSisters_police_room.png")}
       >
-        <Find3_2 moveDocument={moveDocument}/>
+        <Find3_2 moveRecord={moveRecord}/>
       </div>
     );
   },

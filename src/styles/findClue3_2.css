@@ -78,19 +78,41 @@ top: 300px;
 .find {
   filter: drop-shadow(0px 0px 50px rgba(255, 255, 255, 0.8));
 }
-.btn {
+.btn2 {
   position: absolute;
   width: 340px;
   height: 60px;
-  left: 789px;
+  left: 1025px;
+  top: 579px;
+}
+.btn1 {
+  position: absolute;
+  width: 340px;
+  height: 60px;
+  left: 556px;
   top: 579px;
 }
 
-.button-txtC {
+div#fBtn1{
   position: absolute;
-  width: 100px;
+  width: 340px;
+  height: 60px;
+  left: 556px;
+  top: 579px;
+}
+div#fBtn2{
+  position: absolute;
+  width: 340px;
+  height: 60px;
+  left: 1025px;
+  top: 579px;
+}
+
+.button-txt{
+  position: absolute;
+  width: 140px;
   height: 29px;
-  left: 910px;
+  left: 661px;
   top: 595px;
 
   font-family: 'GyeonggiBatang';
@@ -102,7 +124,25 @@ top: 300px;
 
   text-align: center;
 
-  color: #dacca7;
+  color: #DACCA7;
+}
+.button-txt2{
+  position: absolute;
+  width: 140px;
+  height: 29px;
+  left: 1130px;
+  top: 595px;
+
+  font-family: 'GyeonggiBatang';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 29px;
+  /* identical to box height */
+
+  text-align: center;
+
+  color: #DACCA7;
 }
 .banner {
   position: absolute;
@@ -129,7 +169,21 @@ top: 300px;
 
   color: #dacca7;
 }
+.banner-txt2 {
+  position: absolute;
+  width: 800px;
+  height: 30px;
+  left: 645.56px;
+  top: 508px;
 
+  font-family: 'GyeonggiBatang';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 150%;
+  text-align: center;
+  color: #DACCA7;
+}
 .banner2 {
   position: absolute;
   width: 1716px;

@@ -10,13 +10,13 @@ import index_styles from "./style.module.scss";
 
 const img_base = "/image/Investigation/Talk/UI/";
 
-export default ({ home, ending, document, moveDocument, displayNote, goHome }) => {
+export default ({ home, ending, document, record, moveDocument, moveRecord, goHome }) => {
   const [window, setWindow] = useState(null);
   const button = [useRef(), useRef(), useRef(), useRef(), useRef()];
 
   const navEvent = [
     home ? ()=>{} : goHome,
-    (home || ending) ? ()=>{} : displayNote,
+    (home || ending) ? ()=>{} : moveRecord,
     (home || ending) ? ()=>{} : moveDocument,
     () => {
       window === "help" ? setWindow(null) : setWindow("help");
@@ -30,7 +30,13 @@ export default ({ home, ending, document, moveDocument, displayNote, goHome }) =
     navEvent.slice(1).forEach((e, idx) => (button[idx].current.onclick = e));
 
     if(!home && !ending) {
-      setButtonEvent(button[0].current, img_base + "UI_record");
+      if(!record) setButtonEvent(button[0].current, img_base + "UI_record");
+      else {
+        setButtonEvent(button[0].current, false);
+        button[0].current.style.backgroundImage = `url(${
+          process.env.PUBLIC_URL + img_base}UI_record_click.png)`;
+      }
+      
       if(!document) setButtonEvent(button[1].current, img_base + "UI_paper_make");
       else {
         setButtonEvent(button[1].current, false);

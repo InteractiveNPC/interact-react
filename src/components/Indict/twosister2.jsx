@@ -43,6 +43,22 @@ function Indict(){
         }));
       }
     };
+
+    const [isHovered, setIsHovered] = useState(false);
+
+    const handleMouseEnter = () => {
+      setIsHovered(true);
+    };
+
+    const handleMouseLeave = () => {
+      setIsHovered(false);
+    };
+
+    const [isClicked, setIsClicked] = useState(false);
+
+    const handleClick_change = () => {
+      setIsClicked(!isClicked);
+    };
     
     const [isImageChanged, setIsImageChanged] = useState(false);
       const [isImageChanged2, setIsImageChanged2] = useState(false);
@@ -121,7 +137,24 @@ function Indict(){
       <div className="proof2">
         <p>{proof2}</p>
       </div>
-
+      
+      <div>
+      <img
+        id = "paper_make"
+        src={
+          isClicked
+            ? '/image/indict/paper_make_button_click.png'
+            : isHovered
+            ? '/image/indict/paper_make_button_hover.png'
+            : '/image/indict/paper_make_button_normal.png'
+        }
+        //src={isHovered ? '/image/indict/paper_make_button_hover.png' : '/image/indict/paper_make_button_normal.png'}
+        alt="Image"
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+        onClick={handleClick_change}
+      />
+    </div>
 
       <div className="giso">
         <p>{giso}</p>

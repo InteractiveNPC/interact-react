@@ -10,7 +10,21 @@ function Indict(){
      "court":"", "script": ""}
   ) // 초기화
 
+  const [isHovered, setIsHovered] = useState(false);
 
+  const handleMouseEnter = () => {
+    setIsHovered(true);
+  };
+  
+  const handleMouseLeave = () => {
+    setIsHovered(false);
+  };
+  
+  const [isClicked, setIsClicked] = useState(false);
+  
+  const handleClick_change = () => {
+    setIsClicked(!isClicked);
+  };
 
   useEffect(() => {
     axios.get('/document?chapter=' + chapter + '&scene=36')
@@ -147,6 +161,24 @@ function Indict(){
       <div className="bulgiso">
         <p>{bulgiso}</p>
       </div>
+
+      <div>
+      <img
+        id = "paper_make"
+        src={
+          isClicked
+            ? '/image/indict/paper_make_button_click.png'
+            : isHovered
+            ? '/image/indict/paper_make_button_hover.png'
+            : '/image/indict/paper_make_button_normal.png'
+        }
+        //src={isHovered ? '/image/indict/paper_make_button_hover.png' : '/image/indict/paper_make_button_normal.png'}
+        alt="Image"
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+        onClick={handleClick_change}
+      />
+    </div>
 
       <div className="crimeTexts">
         <div className="crime1_0" dangerouslySetInnerHTML={ {__html: crime1} }>

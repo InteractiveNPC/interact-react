@@ -1,7 +1,7 @@
 import React, { useState,  useEffect } from "react";
 import Move from '../../pages/chapter/Document/index'
 import { effectPlay } from "../../services/audioManager";
-
+import Cookies from 'js-cookie';
 import axios from 'axios';
 
 import styles from '../../styles/indict.css';
@@ -9,6 +9,8 @@ import styles from '../../styles/indict.css';
 let isCheck1 = 0;
 let isCheck2 = 0;
 let isCheck3 = 0;
+
+
 
 const handleChecked = (checkid) => {
   if (checkid == 1) {
@@ -55,37 +57,43 @@ function Indict(){
   )
 
   ////////////// 세션값 서버에 전달///////////////
-  const sendSessionData = async (chapter, scene, crime) => {
-    if(isCheck1 == 1) {
-      chapter = "1_0";
-      scene = 35;
-      crime = "재물손괴죄";
-    }
-    else if(isCheck2 == 1) {
-      chapter = "1_0";
-      scene = 35;
-      crime = "감금죄";
-    }
+  // useEffect(() => {
+  //   // 세션에 저장할 데이터
+  //     const chapter = '1_0';
+  //     const scene = 35;
+  //     let crime = '';
 
-    else if(isCheck3 == 1) {
-      chapter = "1_0";
-      scene = 35;
-      crime = "추행 등 목적 약취, 유인죄";
-    }
-  try {
-    const response = await axios.get('/document', {
-      params: {
-        chapter: chapter,
-        scene: scene,
-        crime: crime,
-      },
-    });
-    const data = response.data; // 컨트롤러에서 반환한 데이터
+  //     if(isCheck1 == 1) {
+  //       crime = "재물손괴죄";
+  //     }
+  //     else if(isCheck2 == 1) {
+  //       crime = "감금죄";
+  //     }
+  //     else if(isCheck3 == 1) {
+  //       crime = "추행 등 목적 약취, 유인죄";
+  //     }
+    
+    
+  //   // 서버에 세션 데이터 저장 요청 보내기
+  //   axios.get('/document', {
+  //     params: {
+  //       chapter,
+  //       scene,
+  //       crime
+  //     },
+  //     withCredentials: true, // 세션을 유지하기 위해 withCredentials 옵션 사용
+  //   })
+  //     .then((response) => {
+  //       console.log("성공")
+       
+  //       console.log(response.data);
+  //     })
+  //     .catch((error) => {
+  //       console.log("실패")
+  //       console.error(error);
+  //     });
+  // }, []);
 
-  } catch (error) {
-    console.error('Error sending session data:', error);
-  }
-};
 ///////////////////////////////////////////////////
 const [isHovered, setIsHovered] = useState(false);
 
@@ -105,6 +113,16 @@ const handleClick_change = () => {
 
   /////////////MAP 파싱///////////////
   const [items, setItems] = useState(new Map());
+
+  useEffect(() => {
+    // 세션 시작 시 쿠키에 데이터 저장
+    Cookies.set('session', 'session_value');
+
+    // 세션 종료 시 쿠키 삭제
+    return () => {
+      Cookies.remove('session');
+    };
+  }, []);
 
   useEffect(() => {
     // 데이터를 가져오는 함수를 정의

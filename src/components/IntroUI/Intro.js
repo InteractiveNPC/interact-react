@@ -5,6 +5,7 @@ import "./intro.css";
 
 function Intro(props) {
   const [show, setShow] = useState(true);
+  const [audio, setAudio] = useState(false);
 
   useEffect(() => {
     $("#start").hide();
@@ -24,6 +25,7 @@ function Intro(props) {
       $(".background").off("click");
       $("video").fadeIn(2000);
       setTimeout(function () {
+        setAudio(true);
         $("video").get(0).play();
         setTimeout(function () {
           $("#begin").fadeIn(1000);
@@ -61,6 +63,9 @@ function Intro(props) {
             기존의 전래동화를 바탕으로 일부의 상상력을 보태어 만들어졌으며,
             수사에 있어서 검찰의 공식적인 절차와 다를 수 있음을 알려드립니다.
           </div>
+          { audio &&
+            <audio id="bgm" src="/sound/bgm_intro.mp3" autoPlay/>
+          }
           <video preload="auto">
             <source type="video/mp4" src="image/Intro/title.mp4" />
           </video>

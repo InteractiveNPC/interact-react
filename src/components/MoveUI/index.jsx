@@ -4,7 +4,7 @@ import { locationNames, locations } from "./config";
 
 import Nav from "./nav";
 
-export default ({ chapter, onTalk, disabled, moveDocument, hero }) => {
+export default ({ chapter, onTalk, disabled, moveRecord, hero }) => {
   const locNames = locationNames[chapter];
 
   const [idx, setIdx] = useState(0);
@@ -19,7 +19,7 @@ export default ({ chapter, onTalk, disabled, moveDocument, hero }) => {
         goOffice={() => {
           setIdx(0);
         }}
-        moveDocument={moveDocument}
+        moveRecord={moveRecord}
       />
       <Nav
         locationNames={locNames}

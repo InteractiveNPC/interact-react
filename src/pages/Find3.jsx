@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { useBGM, effectPlay } from "../services/audioManager";
 import styles from '../styles/findClue3.css';
 import $ from 'jquery';
 
@@ -37,6 +38,7 @@ export default function Find3(props) {
                     }} onMouseLeave={()=>{
                             $('img#shine').removeClass("shining");
                     }} onClick={()=>{
+                        effectPlay("coin");
                         $('img#shine').addClass('shining2');
                         $('img#handle').fadeOut({fadeT});
                         setTimeout(()=>{
@@ -56,28 +58,22 @@ export default function Find3(props) {
             <div id='step2' className='display-none'>
                 <img src={popup}  className='banner'></img>
                 <div id='btnFirst'>
-                    <img src={button} className="btn1" onMouseOver={()=>{
-                            $('img#hov1').removeClass('display-none');
-                        }} onMouseLeave={()=>{
-                            $('img#hov1').addClass('display-none');
-                    }}></img>
+                    <img src={button} className="btn1"></img>
                     <img id='hov1' className='display-none btn1' src={hButton}></img>
-                    <p className='button-txt' onMouseOver={()=>{
+                    <p className='button-txt'>홍련에게 가기</p>
+                    <div id='fBtn1' onMouseDown={()=>{
                             $('img#hov1').removeClass('display-none');
                         }} onMouseLeave={()=>{
                             $('img#hov1').addClass('display-none');
-                    }} onClick={()=>{
-                        props.goOffice();
-                    }}>홍련에게 가기</p>
+                        }} onClick={()=>{
+                            props.goOffice();
+                        }}></div>
                 </div>
                 <div id='btnSecond'>
-                    <img src={button} className="btn2" onMouseOver={()=>{
-                            $('img#hov2').removeClass('display-none');
-                        }} onMouseLeave={()=>{
-                            $('img#hov2').addClass('display-none');
-                    }}></img>
+                    <img src={button} className="btn2"></img>
                     <img id='hov2' className='display-none btn2' src={hButton}></img>
-                    <p className='button-txt2' onMouseOver={()=>{
+                    <p className='button-txt2'>수사 계속하기</p>
+                        <div id='fBtn2' onMouseDown={()=>{
                             $('img#hov2').removeClass('display-none');
                         }} onMouseLeave={()=>{
                             $('img#hov2').addClass('display-none');
@@ -86,7 +82,7 @@ export default function Find3(props) {
                                 setF3Click(!f3Click);
                                 $('div#step2').fadeOut({fadeT});
                             }
-                        }}>수사 계속하기</p>
+                        }}></div>
                 </div>          
                 <p className='banner-txt1'>{clue}</p>
                 <p className='banner-txt2'>{explain}</p>
