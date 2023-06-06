@@ -72,3 +72,61 @@
     }
 
 }
+
+.warning {
+    position: absolute;
+    z-index: 9999;
+
+    width: 1000px;
+    height: 315px;
+
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    .content {
+        position: absolute;   
+        top: 100px;
+        left: 50%;
+        transform: translateX(-50%);
+
+        font-family: 'Pretendard';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 24px;
+        line-height: 150%;
+        /* or 36px */
+
+        text-align: center;
+
+        color: #DACCA7;
+    }
+    .button {
+        position: absolute;
+        width: 340px;
+        height: 60px;
+
+        bottom: 58px;
+        left: 50%;
+        transform: translateX(-50%);
+
+        border: 1px solid #DACCA7;
+        border-radius: 50px;
+
+        font-family: 'Pretendard';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 24px;
+        line-height: 60px;
+        /* identical to box height */
+
+        text-align: center;
+
+        color: #DACCA7;
+
+        &:active {
+            background: #DACCA7;
+            color: black;
+        }
+    }
+}
