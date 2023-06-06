@@ -131,7 +131,7 @@ export default function Indict_Result(props) {
 
     //axios
     useEffect(() => {
-        Axios.get('http://localhost:8080/document/result/1')
+        Axios.get('/document/result/1')
         .then(response => {
             data = response.data;
             console.log(data);
