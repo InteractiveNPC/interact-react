@@ -120,8 +120,6 @@ export default function Indict_Result() {
         } else if (Loop == 2) {
             $(document).find("#sinContainer3").hide();
         }
-
-        console.log("errortest" + sin_summary);
     }
 
     function setData() {
@@ -151,10 +149,12 @@ export default function Indict_Result() {
     //event function
     function onClick_prev() {
         click_prevbutton(prevbutton_click);
+        props.onPrev();
     }
 
     function onClick_go_court() {
         click_go_court(go_court_click);
+        props.onSubmit();
     }
 
     return (

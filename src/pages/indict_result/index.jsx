@@ -165,7 +165,6 @@ export default function Indict_Result(props) {
 
     function onClick_go_court() {
         click_go_court(go_court_click);
-        // console.log(props);
         props.onSubmit();
     }
 
