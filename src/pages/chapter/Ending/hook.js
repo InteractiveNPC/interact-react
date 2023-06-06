@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { endingDialog } from "./config";
 
-const getCourtResult = (tale) => {
+export const getCourtResult = (tale) => {
   return new Promise((resolve) =>
     axios
       .get(`/court/${tale}`)
@@ -12,7 +12,7 @@ const getCourtResult = (tale) => {
       })
       .catch((error) => {
         console.log(error);
-        resolve();
+        resolve([]);
       })
   );
 };
