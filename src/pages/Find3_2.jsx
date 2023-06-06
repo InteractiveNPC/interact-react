@@ -53,7 +53,7 @@ export default function Find3_2(props) {
   const [f3_2Click, setF3_2Click]=useState(false);
 
   return (
-    <div style={{zIndex: '3000'}}>
+    <div style={{position:'absolute', zIndex:'3000'}}>
       <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
       <img
         id="find"
@@ -68,7 +68,7 @@ export default function Find3_2(props) {
       <div id="backgroundS" className="display-none App">
         <div id="step1">
           <img
-            id="findE" style={{zIndex: '3000'}}
+            id="findE"
             src="/image/evidence/Certificatepaper.png"
             className="clueA"
             onMouseOver={() => {
@@ -129,7 +129,7 @@ export default function Find3_2(props) {
           </div>
         </div>
         <div id="step2" className="display-none">
-          <img style={{zIndex: '3000'}}
+          <img
             src="/image/evidence/Certificatepaper.png"
             id="findE2"
             className="clueA"
