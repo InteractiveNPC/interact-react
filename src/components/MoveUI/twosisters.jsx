@@ -35,13 +35,15 @@ export default [
           />
         </video>
         {heroDisabled ? null : (
-          <img
-            src={halfWebpBase + "Hongryeon_normal_X_office.webp"}
-            {...setPosWithIdx(0, 0, 1000)}
-            onClick={() => {
-              onTalk({ idx: "3", scene: "-1", "flag": "0", index: "0" });
-            }}
-          />
+          <div>
+            <img
+              src={halfWebpBase + "Hongryeon_normal_X_office.webp"}
+              {...setPosWithIdx(0, 0, 1000)}
+              onClick={() => {
+                onTalk({ idx: "3", scene: "-1", "flag": "0", index: "0" });
+              }}
+            />
+          </div>
         )}
         <div
           className={styles.desk}
