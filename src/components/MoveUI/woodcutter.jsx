@@ -100,7 +100,7 @@ export default [
         {...divToImg(BackgroundImgBase + "illust_FairyNWoodcutter_Woodcutter_room.png")}
         >
         {have || 
-        <Find style={{zIndex:'3000'}}
+        <Find
           goOffice={() => {
             onTalk({ idx: "1", scene: "-2", flag: "0", index: "0" });
             goOffice();

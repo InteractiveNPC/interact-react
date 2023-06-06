@@ -23,7 +23,7 @@ export default function Find3(props) {
     const [f3Click, setF3Click] = useState(false);
 
     return (
-        <div>
+        <div style={{zIndex:'3000'}}>
             <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
             <img id='pack' src={pack} style={{ position: "absolute", top:"750px", left:"1500px"}} onClick={()=>{
               $('img#pack').fadeOut({fadeT});
