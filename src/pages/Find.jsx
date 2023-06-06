@@ -5,6 +5,7 @@ import {useState} from 'react';
 import {useDrag} from 'react-use-gesture';
 import styles from '../styles/findClue.css';
 import { useBGM, effectPlay } from "../services/audioManager";
+import {settingDdata} from "../pages/chapter/Investigation/index";
 import $ from 'jquery';
 import popup2 from '../components/DialogueUI/ScriptBackground.png';
 import name from '../components/DialogueUI/Namebox_01.png';
