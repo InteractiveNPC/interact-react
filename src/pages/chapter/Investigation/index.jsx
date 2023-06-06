@@ -90,7 +90,6 @@ export default ({ chapter, moveRecord }) => {
         <MoveUI
           chapter={chapter}
           onTalk={(data) => {
-            console.log("Talkkkkkkk!");
             setDialogueData(data);
             setDialogueDisabled(false);
           }}

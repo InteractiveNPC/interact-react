@@ -32,7 +32,7 @@ export default ({ chapter }) => {
             document={document}
             record={record}
           />
-          {process === 0 && (
+          {(process === 0 && !record) && (
             <Investigation
               chapter={chapter}
               moveRecord={() => setDocument(true)}
@@ -41,18 +41,14 @@ export default ({ chapter }) => {
           {process === 1 && (
             <Ending
               chapter={chapter}
-              replay={async () => {
-                await resetChapterSession(chapter);
-                setProcess(0);
-              }}
-              goHome={async () => {
-                await resetChapterSession(chapter);
-                setProcess(-1);
-              }}
+              replay={() => setProcess(0)}
             />
           )}
           {document && <Document chapter={chapter} onSubmit={() => setProcess(1)}/>}
-          {record && <Document chapter={chapter} onSubmit={() => setProcess(1)}/>}
+          {record && <Ending chapter={chapter} replay={() => {
+            setRecord(false);
+            setProcess(0);
+          }}/>}
         </>
       )}
     </>
