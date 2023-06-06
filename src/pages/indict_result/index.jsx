@@ -62,7 +62,7 @@ export default function Indict_Result() {
         } else if (name == '감금죄') {
             sin_src[idx] = `/image/IndictResult/source/document_FairyMWoodcutter_02.png`;
             sin_summary[idx] = `공소사건 0${idx + 1}. 밤새 내내 갇혀있던 선녀`;
-        } else if (name == '추행등목적약취유인죄') {
+        } else if (name == '추행 등 목적 약취 유인죄') {
             sin_src[idx] = `/image/IndictResult/source/document_FairyMWoodcutter_03.png`;
             sin_summary[idx] = `공소사건 0${idx + 1}. 나무꾼에게 강요받아 이루어진 결혼`;
         }
