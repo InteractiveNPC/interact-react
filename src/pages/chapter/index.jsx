@@ -32,7 +32,7 @@ export default ({ chapter }) => {
             document={document}
             record={record}
           />
-          {(process === 0 && !record) && (
+          {(process === 0) && (
             <Investigation
               chapter={chapter}
               moveRecord={() => setRecord(true)}
