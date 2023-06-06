@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useHaveItem } from "./config";
 import { divToImg } from "../../services/propsFormat";
 import Find from "../../pages/Find";
+import $ from 'jquery';
 
 
 import styles from "./style.module.scss";
@@ -92,13 +93,18 @@ export default [
   // 나무꾼의 방 (증거 찾기)
   ({ onTalk, goOffice }) => {
     useBGM("spring_reunion");
-    const item = useHaveItem("선녀옷");
+    const have = useHaveItem("선녀옷");
 
     return (
       <div className={styles.location}
         {...divToImg(BackgroundImgBase + "illust_FairyNWoodcutter_Woodcutter_room.png")}
         >
-        {item && <Find goOffice={goOffice} />}
+        {have || 
+        <Find style={{zIndex:'3000'}}
+          goOffice={() => {
+            onTalk({ idx: "1", scene: "-2", flag: "0", index: "0" });
+            goOffice();
+          }}/>}
       </div>
     );
   },

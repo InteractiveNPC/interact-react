@@ -29,7 +29,7 @@ export const useHaveItem = (itemName) => {
       if(itemName === "비녀") {
         have = await session_item(3, 8);
       }
-      setItem(!have);
+      setItem(have);
     })();
   })
 

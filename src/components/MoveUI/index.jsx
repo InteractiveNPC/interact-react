@@ -17,6 +17,7 @@ export default ({ chapter, onTalk, disabled, moveRecord, hero }) => {
         onTalk={disabled ?  () => {} : onTalk}
         goOffice={() => {
           setIdx(0);
+          setTimeout(()=>{ document.getElementById("dia").className = ""; }, 1000);
         }}
         moveRecord={moveRecord}
       />
