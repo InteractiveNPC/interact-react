@@ -20,7 +20,7 @@ export default function Record(){
     const [sessionValue, setSessionValue] = useState(true);
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
   
-    const visitMainNode = (have) => {
+    const getMainNodes = (have) => {
       if (have === true) {
         setSessionValue(true);
       } else {
@@ -29,7 +29,7 @@ export default function Record(){
     };
   
     const handleClickImage = () => {
-      if (visitMainNode) {
+      if (sessionValue) {
         setCurrentImageIndex((prevIndex) => (prevIndex + 1) % 3);
       } 
     };
@@ -38,36 +38,36 @@ export default function Record(){
         
       <div>
         <div>
-          <img id="backgroud" src="public\image\Record\Background\Background.png"></img>
+          <img id="backgroud" src="public\image\Record\Background\Background.png" style={{ position: "absolute"}}></img>
         </div>
         
         <div>
         <img src={node1[currentImageIndex]} style={{ position: "absolute", top:"988px", left:"1953px"}} onClick={handleClickImage} />
-        <button onClick={() => visitMainNode(have)}></button>
+        <button onClick={() => getMainNodes('have')}></button>
 
         <img src={node2[currentImageIndex]} style={{ position: "absolute", top:"413px", left:"119px"}} onClick={handleClickImage} />
-        <button onClick={() => visitMainNode(have)}></button>
+        <button onClick={() => getMainNodes('have')}></button>
 
         <img src={node3[currentImageIndex]} style={{ position: "absolute", top:"184px", left:"896px"}} onClick={handleClickImage} />
-        <button onClick={() => visitMainNode(have)}></button>
+        <button onClick={() => getMainNodes('have')}></button>
 
         <img src={node4[currentImageIndex]} style={{ position: "absolute", top:"783px", left:"942px"}} onClick={handleClickImage} />
-        <button onClick={() => visitMainNode(have)}></button>
+        <button onClick={() => getMainNodes('have')}></button>
 
         <img src={node5[currentImageIndex]} style={{ position: "absolute", top:"43px", left:"1532px"}} onClick={handleClickImage} />
-        <button onClick={() => visitMainNode(have)}></button>
+        <button onClick={() => getMainNodes('have')}></button>
 
         <img src={node6[currentImageIndex]} style={{ position: "absolute", top:"410px", left:"1898px"}} onClick={handleClickImage} />
-        <button onClick={() => visitMainNode(have)}></button>
+        <button onClick={() => getMainNodes('have')}></button>
 
         <img src={node7[currentImageIndex]} style={{ position: "absolute", top:"420px", left:"1026px"}} onClick={handleClickImage} />
-        <button onClick={() => visitMainNode(have)}></button>
+        <button onClick={() => getMainNodes('have')}></button>
         
         <img src={node8[currentImageIndex]} style={{ position: "absolute", top:"904px", left:"164px"}} onClick={handleClickImage} />
-        <button onClick={() => visitMainNode(have)}></button>
+        <button onClick={() => getMainNodes('have')}></button>
         
         <img src={node9[currentImageIndex]} style={{ position: "absolute", top:"1100px", left:"874px"}} onClick={handleClickImage} />
-        <button onClick={() => visitMainNode(have)}></button>
+        <button onClick={() => getMainNodes('have')}></button>
       </div>
       </div>
     )
