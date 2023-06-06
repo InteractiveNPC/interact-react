@@ -114,7 +114,7 @@ export default [
           }}
         />
         {have 
-          || <Find3 
+          || <Find3 style={{zIndex: '3000'}}
                 goOffice={() => 
                   {
                     onTalk({ idx: "3", scene: "-2", flag: "0", index: "0" });
@@ -159,7 +159,7 @@ export default [
         className={styles.location}
         {...divToImg(BackgroundImgBase + "illust_TwoSisters_police_room.png")}
       >
-        {have || <Find3_2 moveRecord={moveRecord}/>}
+        {have || <Find3_2 style={{zIndex: '3000'}} moveRecord={moveRecord}/>}
       </div>
     );
   },
