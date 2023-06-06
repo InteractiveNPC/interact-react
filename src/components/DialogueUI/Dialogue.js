@@ -101,7 +101,7 @@ function Dialogue(props) {
         }
         if((
             (scene == 0 && res.data.index == 0) ||
-            (scene == 7 && res.data.index == 0)
+            (scene == 7 && res.data.index == 0 && flag == 0)
           ) && size+1 >= res.data.len) {
           $("#dialogue").off("click").on("click", {code: 0, scene: scene}, clickHandler);
           setHold(true);
