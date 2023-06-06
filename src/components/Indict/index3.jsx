@@ -2,7 +2,7 @@ import React, { useState,  useEffect } from "react";
 import { effectPlay } from "../../services/audioManager";
 import axios from 'axios';
 import Indict2 from './index2'
-
+import $ from 'jquery';
 
 import styles from '../../styles/indict3.css';
 let isCheck1 = 0;
@@ -207,6 +207,14 @@ const handleClick_change = () => {
         }
       };
 
+      
+    if(data.met == null) {
+      $(document).find("#mom").hide();
+      $(document).find("#cloth").hide();
+      $(document).find(".proof1_0").hide();
+      $(document).find(".proof2_0").hide();
+    }
+
   const selectComponent = {
     second: <Indict2 />
   };
@@ -378,8 +386,8 @@ const handleClick_change = () => {
       {/* checkbox Event */}
 
 
-        <img src={cloth} id="sister" />
-        <img src={mom} id="deer" />
+        <img src={cloth} id="cloth" />
+        <img src={mom} id="mom" />
         <img src={proofpic} id="proofpic1"/>
         <img src={proofpic} id="proofpic2"/>
 

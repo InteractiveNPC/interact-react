@@ -2,6 +2,7 @@ import React, { useState,  useEffect } from "react";
 import { effectPlay } from "../../services/audioManager";
 import Indict2 from './index2'
 import axios from 'axios';
+import $ from 'jquery';
 
 import styles from '../../styles/twsister1.css';
 let isCheck1 = 0;
@@ -117,6 +118,13 @@ function Indict(){
       .catch(function (error) {
         console.log(error);
       })
+    }
+
+    if(data.met == null) {
+      $(document).find("#maid").hide();
+      $(document).find("#bae").hide();
+      $(document).find(".proof1_0").hide();
+      $(document).find(".proof2_0").hide();
     }
 
   const [imageOpacity, setImageOpacity] = useState({ 
@@ -368,8 +376,8 @@ function Indict(){
       {/* checkbox Event */}
 
 
-        <img src={maid} id="sister" />
-        <img src={bae} id="deer" />
+        <img src={maid} id="maid" />
+        <img src={bae} id="bae" />
 
         <img src={proofpic} id="proofpic1"/>
         <img src={proofpic} id="proofpic2"/>

@@ -2,6 +2,7 @@ import React, { useState,  useEffect } from "react";
 import axios from 'axios';
 import styles from '../../styles/indict2.css';
 import { effectPlay } from "../../services/audioManager";
+import $ from 'jquery';
 
 let isCheck1 = 0;
 let isCheck2 = 0;
@@ -35,6 +36,8 @@ const handleGiso = (id) => {
       
   }
 }
+
+
 
 const chapter = "1_1"
 function Indict(props){
@@ -76,6 +79,15 @@ function Indict(props){
     })
     .catch(error => console.log(error))
   }, []);  //json에서 데이터 불러옴
+
+  
+  if(data.met == null) {
+  $(document).find("#sister").hide();
+  $(document).find("#cloth").hide();
+  $(document).find(".proof1_0").hide();
+  $(document).find(".proof2_0").hide();
+  }
+
   const [imageOpacity, setImageOpacity] = useState({ 
     check1: 0, check2: 0, check3: 0,
   crimenormal: 1 });

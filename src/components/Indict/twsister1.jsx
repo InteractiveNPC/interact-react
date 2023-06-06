@@ -2,6 +2,7 @@ import React, { useState,  useEffect } from "react";
 import { effectPlay } from "../../services/audioManager";
 import Indict2 from './index2'
 import axios from 'axios';
+import $ from 'jquery';
 
 import styles from '../../styles/twsister1.css';
 
@@ -117,6 +118,13 @@ function Indict(){
       .catch(function (error) {
         console.log(error);
       })
+    }
+
+    if(data.met == null) {
+      $(document).find("#hairpin").hide();
+      $(document).find("#tiger").hide();
+      $(document).find(".proof1_0").hide();
+      $(document).find(".proof2_0").hide();
     }
 
 
@@ -370,8 +378,8 @@ const handleClick_change = () => {
       {/* checkbox Event */}
 
 
-        <img src={hairpin} id="sister" />
-        <img src={tiger} id="deer" />
+        <img src={hairpin} id="hairpin" />
+        <img src={tiger} id="tiger" />
         <img src={proofpic} id="proofpic1"/>
         <img src={proofpic} id="proofpic2"/>
 

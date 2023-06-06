@@ -2,6 +2,7 @@ import React, { useState,  useEffect } from "react";
 import Move from '../../pages/chapter/Document/index'
 import { effectPlay } from "../../services/audioManager";
 import axios from 'axios';
+import $ from 'jquery';
 
 import styles from '../../styles/indict.css';
 
@@ -11,6 +12,7 @@ let isCheck3 = 0;
 
 let giso = 0;
 let bulgiso = 0;
+
 
 
 const handleGiso = (id) => {
@@ -95,7 +97,12 @@ function Indict(props){
     
   }, []);  //json에서 데이터 불러옴
 
- // const [item, setItem] = useState(
+  if(data.met == null) {
+    $(document).find("#sister").hide();
+    $(document).find("#deer").hide();
+    $(document).find(".proof1_0").hide();
+    $(document).find(".proof2_0").hide();
+  }
 
     const session_bulgiso = () => {
       axios.get('/document/1_0/false')

@@ -3,6 +3,7 @@ import { effectPlay } from "../../services/audioManager";
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import Indict2 from './index2'
 import axios from 'axios';
+import $ from 'jquery';
 
 import styles from '../../styles/twosister3.css';
 let isCheck1 = 0;
@@ -119,6 +120,13 @@ function Indict(){
       })
     }
 
+    if(data.met == null) {
+      $(document).find("#sister").hide();
+      $(document).find("#deer").hide();
+      $(document).find(".proof1_0").hide();
+      $(document).find(".proof2_0").hide();
+    }
+    
   const [imageOpacity, setImageOpacity] = useState({ 
     check1: 0, check2: 0, check3: 0,
   crimenormal: 1 });
