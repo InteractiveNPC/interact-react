@@ -2,6 +2,7 @@ import React, { useState,  useEffect } from "react";
 import { effectPlay } from "../../services/audioManager";
 import Indict2 from './index2'
 import axios from 'axios';
+import $ from 'jquery';
 
 import styles from '../../styles/twsister1.css';
 let isCheck1 = 0;
@@ -94,7 +95,7 @@ function Indict(){
 
   const session_crime = (giso) => {
     if(isCheck1 == 1 && giso == 1)
-      axios.get('/document/"3_1"?crime=' + "아동복지법위반죄")
+      axios.get('/document/3_1?crime=' + "아동복지법위반죄")
       .then(function (response) {
         console.log(response);
       })
@@ -102,7 +103,7 @@ function Indict(){
         console.log(error);
       })
     if(isCheck2 == 1 && giso == 1)
-      axios.get('/document/"3_1"?crime=' + "살인교사죄")
+      axios.get('/document/3_1?crime=' + "살인교사죄")
       .then(function (response) {
         console.log(response);
       })
@@ -110,13 +111,20 @@ function Indict(){
         console.log(error);
       })
     if(isCheck3 == 1 && giso == 1)
-      axios.get('/document/"3_1"?crime=' + "살인죄")
+      axios.get('/document/3_1?crime=' + "살인죄")
       .then(function (response) {
         console.log(response);
       })
       .catch(function (error) {
         console.log(error);
       })
+    }
+
+    if(data.met == null) {
+      $(document).find("#maid").hide();
+      $(document).find("#bae").hide();
+      $(document).find(".proof1_0").hide();
+      $(document).find(".proof2_0").hide();
     }
 
   const [imageOpacity, setImageOpacity] = useState({ 
@@ -157,6 +165,10 @@ function Indict(){
     };
 
     const [isHovered, setIsHovered] = useState(false);
+
+    const session_bulgiso = () => {
+      axios.get('/document/3_1/false')
+    }
 
     const handleMouseEnter = () => {
       setIsHovered(true);
@@ -364,8 +376,8 @@ function Indict(){
       {/* checkbox Event */}
 
 
-        <img src={maid} id="sister" />
-        <img src={bae} id="deer" />
+        <img src={maid} id="maid" />
+        <img src={bae} id="bae" />
 
         <img src={proofpic} id="proofpic1"/>
         <img src={proofpic} id="proofpic2"/>
@@ -388,6 +400,7 @@ function Indict(){
         alt={isImageChanged2 ? 'Changed Image' : 'Original Image'}
         onClick={()=> {
           effectPlay("paperbutton");
+          session_bulgiso();
           handleClick2();
           }}>
         </img>

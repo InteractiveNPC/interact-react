@@ -3,6 +3,7 @@ import { effectPlay } from "../../services/audioManager";
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import Indict2 from './index2'
 import axios from 'axios';
+import $ from 'jquery';
 
 import styles from '../../styles/twosister3.css';
 let isCheck1 = 0;
@@ -94,7 +95,7 @@ function Indict(){
 
   const session_crime = (giso) => {
     if(isCheck1 == 1 && giso == 1)
-      axios.get('/document/"3_2"?crime=' + "아동복지법위반죄")
+      axios.get('/document/3_2?crime=' + "아동복지법위반죄")
       .then(function (response) {
         console.log(response);
       })
@@ -102,7 +103,7 @@ function Indict(){
         console.log(error);
       })
     if(isCheck2 == 1 && giso == 1)
-      axios.get('/document/"3_2"?crime=' + "살인교사죄")
+      axios.get('/document/3_2?crime=' + "살인교사죄")
       .then(function (response) {
         console.log(response);
       })
@@ -110,7 +111,7 @@ function Indict(){
         console.log(error);
       })
     if(isCheck3 == 1 && giso == 1)
-      axios.get('/document/"3_2"?crime=' + "살인죄")
+      axios.get('/document/3_2?crime=' + "살인죄")
       .then(function (response) {
         console.log(response);
       })
@@ -119,6 +120,13 @@ function Indict(){
       })
     }
 
+    if(data.met == null) {
+      $(document).find("#sister").hide();
+      $(document).find("#deer").hide();
+      $(document).find(".proof1_0").hide();
+      $(document).find(".proof2_0").hide();
+    }
+    
   const [imageOpacity, setImageOpacity] = useState({ 
     check1: 0, check2: 0, check3: 0,
   crimenormal: 1 });
@@ -140,6 +148,10 @@ function Indict(){
   }, [imageOpacity]);
 
   const [isHovered, setIsHovered] = useState(false);
+
+  const session_bulgiso = () => {
+    axios.get('/document/3_2/false')
+  }
 
   const handleMouseEnter = () => {
     setIsHovered(true);
@@ -388,6 +400,7 @@ function Indict(){
         alt={isImageChanged2 ? 'Changed Image' : 'Original Image'}
         onClick={()=> {
           effectPlay("paperbutton");
+          session_bulgiso();
           handleClick2();
           }}>
         </img>

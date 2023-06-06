@@ -2,6 +2,7 @@ import React, { useState,  useEffect } from "react";
 import Move from '../../pages/chapter/Document/index'
 import { effectPlay } from "../../services/audioManager";
 import axios from 'axios';
+import $ from 'jquery';
 
 import styles from '../../styles/indict.css';
 
@@ -11,6 +12,8 @@ let isCheck3 = 0;
 
 let giso = 0;
 let bulgiso = 0;
+
+
 
 const handleGiso = (id) => {
   if (id == 1) {
@@ -94,11 +97,20 @@ function Indict(props){
     
   }, []);  //json에서 데이터 불러옴
 
- // const [item, setItem] = useState(
+  if(data.met == null) {
+    $(document).find("#sister").hide();
+    $(document).find("#deer").hide();
+    $(document).find(".proof1_0").hide();
+    $(document).find(".proof2_0").hide();
+  }
 
+    const session_bulgiso = () => {
+      axios.get('/document/1_0/false')
+    }
+    
     const session_crime = (giso) => {
       if(isCheck1 == 1 && giso == 1)
-        axios.get('/document/"1_0"?crime=' + "재물손괴죄")
+        axios.get('/document/1_0?crime=' + "재물손괴죄")
         .then(function (response) {
           console.log(response);
         })
@@ -106,7 +118,7 @@ function Indict(props){
           console.log(error);
         })
       if(isCheck2 == 1 && giso == 1)
-        axios.get('/document/"1_0"?crime=' + "감금죄")
+        axios.get('/document/1_0?crime=' + "감금죄")
         .then(function (response) {
           console.log(response);
         })
@@ -114,7 +126,7 @@ function Indict(props){
           console.log(error);
         })
       if(isCheck3 == 1 && giso == 1)
-        axios.get('/document/"1_0"?crime=' + "추행 등 목적 약취 유인죄")
+        axios.get('/document/1_0?crime=' + "추행 등 목적 약취 유인죄")
         .then(function (response) {
           console.log(response);
         })
@@ -472,7 +484,7 @@ const handleClick_change = () => {
         alt={isImageChanged2 ? 'Changed Image' : 'Original Image'}
         onClick={()=> {
           effectPlay("paperbutton");
-          handleGiso(0);
+          session_bulgiso();
           handleClick2();
           }}>
         </img>
