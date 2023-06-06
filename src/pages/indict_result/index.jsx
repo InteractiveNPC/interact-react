@@ -176,17 +176,19 @@ export default function Indict_Result() {
                 <div className={styles.th1}>피고인</div>
                 <div className={styles.td1}>{accused} <br/><br/>{accused_address}<br/><br/>{accused_job}</div>
                 <div className={styles.th2}>죄명</div>
-
-                <div className={styles.td2_1}>{sin_name_1}</div>
-                <div className={styles.td2_2}>{sin_name_2}</div>
-                <div className={styles.td2_3}>{sin_name_3}</div>
-
                 <div className={styles.th3}>적용법조</div>
-                <div>
+
+                <div className={styles.td2Container}>
+                    <div className={styles.td2_1}>{sin_name_1}</div>
+                    <div className={styles.td2_2}>{sin_name_2}</div>
+                    <div className={styles.td2_3}>{sin_name_3}</div>
+                </div>
+                <div className={styles.td3Container}>
                     <div className={styles.td3_1}>{sin_relative[0]}</div>
                     <div className={styles.td3_2}>{sin_relative[1]}</div>
                     <div className={styles.td3_3}>{sin_relative[2]}</div>
                 </div>
+
                 <div className={styles.subtitle2}>2. 공소 사실</div>
                 <div className={styles.subtitle2_1}>범죄 사실</div>
                 <div className={styles.sinWrap}>

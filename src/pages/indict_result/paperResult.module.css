@@ -239,7 +239,6 @@
 }
 
 .td1, .td2_1, .td2_2, .td2_3, .td3_1, .td3_2, .td3_3 {
-    position: absolute;
     font-family: 'GyeonggiBatang';
     font-style: normal;
     font-weight: 400;
@@ -250,38 +249,29 @@
 }
 
 .td1 {
+    position: absolute;
     left: 196.57px;
     top: 468px;
 }
 
-.td2_1{
+.td2Container {
+    position: absolute;
+    width:500px;
     left: 197px;
-    top: 591.6px;
+    top: 589px;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
 }
 
-.td2_2 {
-    left: calc(50% - 75px/2 - 100.5px);
-    top: 591.6px;
-}
-
-.td2_3 {
-    left: 503px;
-    top: 591.6px;
-}
-
-.td3_1 {
+.td3Container {
+    position: absolute;
+    width:500px;
     left: 197px;
     top: 647.6px;
-}
 
-.td3_2 {
-    left: calc(50% - 118px/2 - 101px);
-    top: 647.6px;
-}
-
-.td3_3 {
-    left: calc(50% - 99px/2 + 63.14px);
-    top: 647.6px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
 }
 
 .subtitle2 {
