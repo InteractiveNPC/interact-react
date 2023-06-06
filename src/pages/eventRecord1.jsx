@@ -14,29 +14,31 @@ export default function Record(){
    
     // 노드 획득 시 이미지 변경(pre->glow), 이름표 추가, 선 추가
     // 획득한 노드 획득 시 이미지 변경(glow->normal)
-    const [sessionValue, setSessionValue] = useState(false);
-    const [currentImageIndex, setCurrentImageIndex] = useState(0);
+    // const [sessionValue, setSessionValue] = useState(false);
+    // const [currentImageIndex, setCurrentImageIndex] = useState(0);
   
-    const visitMainNode = (have) => {
-      if (have === true) {
-        setSessionValue(true);
-      } else {
-        setSessionValue(false);
-      }
-    };
+    // const visitMainNode = (have) => {
+    //   if (have === true) {
+    //     setSessionValue(true);
+    //   } else {
+    //     setSessionValue(false);
+    //   }
+    // };
   
-    const handleClickImage = () => {
-      if (visitMainNode) {
-        setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
-      } 
-    };
+    // const handleClickImage = () => {
+    //   if (visitMainNode) {
+    //     setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
+    //   } 
+    // };
   
     return (
+        
       <div>
         <div>
           <img id="backgroud" src="public\image\Record\Background\Background.png"></img>
         </div>
-        <div>
+        
+        {/* <div>
         <img src={node1[currentImageIndex]} style={{ position: "absolute", top:"360px", left:"1425px"}} onClick={handleClickImage} />
         <button onClick={() => visitMainNode(have)}></button>
 
@@ -54,7 +56,7 @@ export default function Record(){
 
         <img src={node6[currentImageIndex]} style={{ position: "absolute", top:"900px", left:"1060px"}} onClick={handleClickImage} />
         <button onClick={() => visitMainNode(have)}></button>
-      </div>
+      </div> */}
       </div>
     )
 }
