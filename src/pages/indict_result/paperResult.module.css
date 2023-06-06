@@ -355,12 +355,12 @@
 
 .end {
     position: absolute;
-    width: 469px;
+    /* width: 469px; */
     height: 23px;
     left: 264px;
     top: 2189px;
 
-    font-family: 'NanumMyeongjo';
+    font-family: 'GyeonggiBatang';
     font-style: normal;
     font-weight: 400;
     font-size: 18.1277px;
