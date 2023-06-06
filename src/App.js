@@ -20,7 +20,7 @@ export default () => {
    return (
       <div id="App">
         <ContextProvider volumeData={[volume, setVolume]} chapterData={[chapter, setChapter]}>
-        <Intro />
+        <Loading App={<Intro/>} />
         </ContextProvider>
         <audio id="bgm" loop={true} autoPlay={true} volume={volume[0]}/>
         <div id="effect" className={volume[1]}/>

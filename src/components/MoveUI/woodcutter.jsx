@@ -28,9 +28,10 @@ export default [
   ({ onTalk, hero }) => {
     useBGM("NakhwaNansangji");
     const have = useHaveItem("선녀옷");
-
     const [heroDisabled, setHeroDisabled] = useState(hero);
-    console.log(hero);
+    $("#hero").bind("hero", function() {
+      setHeroDisabled(false);
+    });
     return (
       <div className={styles.location}>
           <video muted autoPlay loop playsInline>
@@ -42,19 +43,21 @@ export default [
           />
           </video>
           
-          {heroDisabled ? null : (
+          {!heroDisabled && (
             <div>
               <img
                 src={halfWebpBase + "Fairy_normal_X_office.webp"}
                 {...setPosWithIdx(0, 0, 1000)}
                 onClick={() => {
                   const scene = have ? "-2" : "-1";
+                  setHeroDisabled(true);
                   onTalk({ idx: "1", scene: scene, "flag": "0", index: "0" });
                 }}
               />
             </div>
           )}
           <div
+            id="hero"
             className={styles.desk}
             {...divToImg(BackgroundImgBase + "illust_FairyNWoodcutter_desk.png")}
           />
