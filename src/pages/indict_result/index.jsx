@@ -138,7 +138,7 @@ export default function Indict_Result(props) {
                 data = response.data;
                 console.log(data);
                 console.log(data['accused'])
-                //setData();
+                setData();
             })
             .catch(error => console.log(error))
     });
