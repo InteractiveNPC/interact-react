@@ -36,6 +36,17 @@ export const useHaveItem = (itemName) => {
   return item;
 };
 
+export const meet_character = (chapter, chapter_id) => {
+  axios
+  .get(`/meet/${chapter}/${chapter_id}`)
+  .then((res) => {
+    console.log(res);
+  })
+  .catch((error) => {
+    console.log(error);
+  });
+}
+
 const session_item = (chapter, item_id) => {
   return new Promise((resolve) =>
     axios
