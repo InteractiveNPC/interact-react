@@ -3,6 +3,7 @@ import { ContextProvider } from "./contexts";
 import { getResizeEventListener } from "./services/responsiveFrame";
 import Document from "pages/chapter/Document";
 import Intro from "./components/IntroUI/Intro";
+import Ending from "./pages/chapter/Ending"
 
 
 import Loading from "./components/Loading";
