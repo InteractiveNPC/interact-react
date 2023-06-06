@@ -43,13 +43,13 @@ export default [
           
           {heroDisabled ? null : (
             <div>
-            <img
-              src={halfWebpBase + "Fairy_normal_X_office.webp"}
-              {...setPosWithIdx(0, 0, 1000)}
-              onClick={() => {
-                onTalk({ idx: "1", scene: "-1", "flag": "0", index: "0" });
-              }}
-            />
+              <img
+                src={halfWebpBase + "Fairy_normal_X_office.webp"}
+                {...setPosWithIdx(0, 0, 1000)}
+                onClick={() => {
+                  onTalk({ idx: "1", scene: "-1", "flag": "0", index: "0" });
+                }}
+              />
             </div>
           )}
           <div

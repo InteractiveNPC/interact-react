@@ -54,7 +54,7 @@ export default function Find(props){
     const [fClick, setFClick] = useState(false);
 
     return (
-        <div style={{zIndex:'3000'}}>
+        <div style={{position:'absolute', zIndex:'3000'}}>
             <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
             <img id="find" src="/image/clothes/cloth_00.png" style={{ position: "absolute", top:"641px", left:"1327px"}} onClick={()=>{
                 $('div#backgroundS').fadeIn({fadeT});
