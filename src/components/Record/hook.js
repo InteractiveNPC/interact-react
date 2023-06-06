@@ -1,5 +1,4 @@
 import axios from "axios";
-import {settingDdata} from "../../pages/chapter/Investigation/index";
 
 // getMainNodes와 getNodes는 async 함수 내에서 await으로 값을 기다려서 받기 (스프링에서 값을 가져오는 시간)
 /* example
@@ -35,11 +34,6 @@ export const visitMainNode = (chapter, id) => {
     .get(`node/meet/${chapter}/${id}`)
     .then((res) => {
         console.log("챕터 " + chapter + "의 중심 노드 " + id + "획득!!");
-        if(chapter==1 && id==6){
-            settingDdata(1, 9, 0 ,0);
-        }else if(chapter==3 && id==8){
-            settingDdata(1, 9, 0 ,0);
-        }
     })
     .catch((error) => {
         console.log(error);

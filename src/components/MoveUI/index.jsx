@@ -1,5 +1,4 @@
 import { useState } from "react";
-
 import { locationNames, locations } from "./config";
 
 import Nav from "./nav";
