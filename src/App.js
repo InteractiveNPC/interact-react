@@ -9,7 +9,7 @@ import Loading from "./components/Loading";
 
 export default () => {
   const [volume, setVolume] = useState([0.5, 0.5, 0.5]);
-  const [chapter, setChapter] = useState(0);
+  const [chapter, setChapter] = useState({ 1: false, 3: false });
 
   useEffect(()=>{
     const FixRatio = getResizeEventListener(1920, 1080);

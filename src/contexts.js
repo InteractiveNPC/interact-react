@@ -4,11 +4,15 @@ import axios from "axios";
 export const ContextProvider = ({ children, volumeData, chapterData }) => {
     const [volume, setVolume] = volumeData;
     const [chapter, setChapter] = chapterData;
-    const chapterStart = (idx) => {
-        if (chapter === idx) return;
-        if (idx != 1) resetChapterSession(1);
-        if (idx != 3) resetChapterSession(3);
-        setChapter(idx);
+    const chapterStart = (idx, start) => {
+        if (start) {
+            chapter[idx] = true;
+        }
+        else {
+            resetChapterSession(idx);
+            chapter[idx] = false;
+        }
+        setChapter(chapter);
     };
 
     return (
