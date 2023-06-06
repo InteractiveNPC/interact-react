@@ -27,39 +27,39 @@ export default function Record(){
 
     // 노드 획득 시 이미지 변경(pre->glow), 이름표 추가, 선 추가
     // 획득한 노드 획득 시 이미지 변경(glow->normal)
-    const [sessionValue, setSessionValue] = useState(false);
-    const [currentImageIndex, setCurrentImageIndex] = useState(0);
+    // const [sessionValue, setSessionValue] = useState(false);
+    // const [currentImageIndex, setCurrentImageIndex] = useState(0);
   
-    const getMainNodes = (have) => {
-      if (have === true) {
-        setSessionValue(true);
-      } else {
-        setSessionValue(false);
-      }
-    };
+    // const getMainNodes = (have) => {
+    //   if (have === true) {
+    //     setSessionValue(true);
+    //   } else {
+    //     setSessionValue(false);
+    //   }
+    // };
   
-    const handleClickImage = () => {
-      if (sessionValue) {
-        setCurrentImageIndex((prevIndex) => (prevIndex + 1) % 3);
-      } 
-    };
+    // const handleClickImage = () => {
+    //   if (sessionValue) {
+    //     setCurrentImageIndex((prevIndex) => (prevIndex + 1) % 3);
+    //   } 
+    // };
   
 
     // json data 불러오기
-    const [data, setData] = useState(null);
+    // const [data, setData] = useState(null);
 
-    useEffect(() => {
-      axios.get('/item/getItems/1')
-        .then(response => {
-          console.log(res.data)
-          setData({"name": res.data.name, "kind": res.data.kind,
-          "id": res.data.id, "script": res.data.chapter
-        });
-        })
-        .catch(error => {
-          console.log(error);
-        });
-    }, []);
+    // useEffect(() => {
+    //   axios.get('/item/getItems/1')
+    //     .then(response => {
+    //       console.log(res.data)
+    //       setData({"name": res.data.name, "kind": res.data.kind,
+    //       "id": res.data.id, "script": res.data.chapter
+    //     });
+    //     })
+    //     .catch(error => {
+    //       console.log(error);
+    //     });
+    // }, []);
 
     return (
         

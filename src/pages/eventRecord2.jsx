@@ -26,22 +26,22 @@ export default function Record(){
     
     // 노드 획득 시 이미지 변경(pre->glow), 이름표 추가, 선 추가
     // 획득한 노드 획득 시 이미지 변경(glow->normal)
-    const [sessionValue, setSessionValue] = useState(true);
-    const [currentImageIndex, setCurrentImageIndex] = useState(0);
+    // const [sessionValue, setSessionValue] = useState(true);
+    // const [currentImageIndex, setCurrentImageIndex] = useState(0);
   
-    const getMainNodes = (have) => {
-      if (have === true) {
-        setSessionValue(true);
-      } else {
-        setSessionValue(false);
-      }
-    };
+    // const getMainNodes = (have) => {
+    //   if (have === true) {
+    //     setSessionValue(true);
+    //   } else {
+    //     setSessionValue(false);
+    //   }
+    // };
   
-    const handleClickImage = () => {
-      if (sessionValue) {
-        setCurrentImageIndex((prevIndex) => (prevIndex + 1) % 3);
-      } 
-    };
+    // const handleClickImage = () => {
+    //   if (sessionValue) {
+    //     setCurrentImageIndex((prevIndex) => (prevIndex + 1) % 3);
+    //   } 
+    // };
   
 
     // json data 불러오기
