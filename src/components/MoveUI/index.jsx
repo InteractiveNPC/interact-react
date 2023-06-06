@@ -3,7 +3,7 @@ import { locationNames, locations } from "./config";
 
 import Nav from "./nav";
 
-export default ({ chapter, onTalk, disabled, moveRecord, hero }) => {
+export default ({ chapter, onTalk, disabled, moveRecord, hero, setDialogueDisabled}) => {
   const locNames = locationNames[chapter];
 
   const [idx, setIdx] = useState(0);
@@ -17,14 +17,17 @@ export default ({ chapter, onTalk, disabled, moveRecord, hero }) => {
         onTalk={disabled ?  () => {} : onTalk}
         goOffice={() => {
           setIdx(0);
-          setTimeout(()=>{ document.getElementById("dia").className = ""; }, 1000);
+          // setTimeout(()=>{ document.getElementById("dia").className = ""; }, 1000);
         }}
         moveRecord={moveRecord}
       />
       <Nav
         locationNames={locNames}
         idx={idx}
-        setIdx={setIdx}
+        setIdx={(i) => {
+          setIdx(i);
+          // setDialogueDisabled(true);
+        }}
         disabled={disabled}
       />
     </>
