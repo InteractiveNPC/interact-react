@@ -72,11 +72,11 @@ const handleChecked = (checkid) => {
     console.log("isCheck3: " + isCheck3)
   }
 }
-function Indict(){
+function Indict(props){
   const chapter = "3_0"
   const [ data, setData] = useState(
     {"chapter":3_0, "scene": 35, "name":"", "item": [{}, {}],
-     "court":"", "script": ""}
+     "court":"", "script": "", "met": ""}
   )
 
   useEffect(() => {
@@ -85,7 +85,7 @@ function Indict(){
       console.log(res.data)
       setData({"chapter": res.data.chapter, "scene": res.data.scene,
                 "name": res.data.name,"item": [res.data.item5, res.data.item8],
-                "court": res.data.court, "script": res.data.script
+                "court": res.data.court, "script": res.data.script, "met": res.data.met
               })
       
 
@@ -93,9 +93,10 @@ function Indict(){
     .catch(error => console.log(error))
   }, []);
 
+
   const session_crime = (giso) => {
     if(isCheck1 == 1 && giso == 1)
-      axios.get('/document/3_0?crime=' + "아동복지법위반죄")
+      axios.get('/document/3_0?crime=' + '아동복지법위반죄')
       .then(function (response) {
         console.log(response);
       })
@@ -103,7 +104,7 @@ function Indict(){
         console.log(error);
       })
     if(isCheck2 == 1 && giso == 1)
-      axios.get('/document/3_0?crime=' + "살인교사죄")
+      axios.get('/document/3_0?crime=' + '살인교사죄')
       .then(function (response) {
         console.log(response);
       })
@@ -111,7 +112,7 @@ function Indict(){
         console.log(error);
       })
     if(isCheck3 == 1 && giso == 1)
-      axios.get('/document/3_0?crime=' + "살인죄")
+      axios.get('/document/3_0?crime=' + '살인죄')
       .then(function (response) {
         console.log(response);
       })
@@ -288,6 +289,8 @@ const handleClick_change = () => {
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
         onClick={() => {
+          session_crime(1);
+          props.onSubmit()
           handleClick_change();
          
         }}
@@ -328,7 +331,6 @@ const handleClick_change = () => {
         <img src={checkbox} id="checkbox2" />
         <img src={checkbox} id="checkbox3" />
 
-
         <img src={check}  
         onClick={() => { effectPlay("paperbutton");
         decreaseOpacity('check1', 'crimenormal1');
@@ -343,8 +345,8 @@ const handleClick_change = () => {
         onClick={() => {
           effectPlay("paperbutton");
           decreaseOpacity('check2'); 
-          session_crime(2);
           handleChecked(2);
+          session_crime(1);
         } }
         className="my-image"
         data-id="check2"
@@ -354,17 +356,19 @@ const handleClick_change = () => {
          <img src={check}
         onClick={() => {decreaseOpacity('check3');
         effectPlay("paperbutton");
-        session_crime(3);
         handleChecked(3);
+        session_crime(1);
       }}
         className="my-image"
         data-id="check3"
         id="check3" />
-        
+
+
         <img src={crime_click}
         data-id="check1"
         className="my-image"
         id="crime_click1" />
+
 
 
         <img src={crime_click}
@@ -372,11 +376,10 @@ const handleClick_change = () => {
         className="my-image"
         id="crime_click2" />
 
-
         <img src={crime_click}
         data-id="check3"
         className="my-image"
-        id="crime_click3" /> 
+        id="crime_click3" />  
 
       {/* checkbox Event */}
 

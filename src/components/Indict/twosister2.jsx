@@ -72,11 +72,11 @@ const handleChecked = (checkid) => {
   }
 }
 
-function Indict(){
+function Indict(props){
   const chapter = "3_1"
   const [ data, setData] = useState(
     {"chapter":3_1, "scene": 35, "name":"", "item": [{}, {}],
-     "court":"", "script": ""}
+     "court":"", "script": "", "met": ""}
   )
 
   useEffect(() => {
@@ -85,7 +85,7 @@ function Indict(){
       console.log(res.data)
       setData({"chapter": res.data.chapter, "scene": res.data.scene,
                 "name": res.data.name,"item": [res.data.item6, res.data.item4],
-                "court": res.data.court, "script": res.data.script
+                "court": res.data.court, "script": res.data.script, "met": res.data.met
               })
       
 
@@ -232,7 +232,7 @@ function Indict(){
   const indict_normal = '/image/indict/indict_normal.png'
   const indict_click = '/image/indict/indict_click.png'
   const crime_click = '/image/indict/crime_click.png'
-  const title = "공소사건 02. 자매를 지속해서 학대했던 허씨부인";
+  const title = data.name;
 
   const crimeTitle1 = "아동복지법위반죄";
   const crimeTitle2 = "살인교사죄";
@@ -275,7 +275,8 @@ function Indict(){
         onMouseLeave={handleMouseLeave}
         onClick={() => {
           handleClick_change();
-          
+          session_crime(1);
+          props.onSubmit() 
           
         }}
       />
@@ -314,8 +315,9 @@ function Indict(){
         </div>
       </div>
 
-         {/* checkbox Event */}
-         <div className="imgs">
+      {/* checkbox Event */}
+
+      <div className="imgs">
         <img src={crime01} id="crime01"/>
         <img src={CrimeScenebg} id="crimescene" />
         <img src={book} id="book" />
@@ -323,7 +325,6 @@ function Indict(){
         <img src={checkbox} id="checkbox1" />
         <img src={checkbox} id="checkbox2" />
         <img src={checkbox} id="checkbox3" />
-
 
         <img src={check}  
         onClick={() => { effectPlay("paperbutton");
@@ -339,8 +340,8 @@ function Indict(){
         onClick={() => {
           effectPlay("paperbutton");
           decreaseOpacity('check2'); 
-          session_crime(2);
           handleChecked(2);
+          session_crime(1);
         } }
         className="my-image"
         data-id="check2"
@@ -350,17 +351,19 @@ function Indict(){
          <img src={check}
         onClick={() => {decreaseOpacity('check3');
         effectPlay("paperbutton");
-        session_crime(3);
         handleChecked(3);
+        session_crime(1);
       }}
         className="my-image"
         data-id="check3"
         id="check3" />
-        
+
+
         <img src={crime_click}
         data-id="check1"
         className="my-image"
         id="crime_click1" />
+
 
 
         <img src={crime_click}
@@ -368,11 +371,12 @@ function Indict(){
         className="my-image"
         id="crime_click2" />
 
-
         <img src={crime_click}
         data-id="check3"
         className="my-image"
         id="crime_click3" /> 
+
+      {/* checkbox Event */}
 
 
         <img src={maid} id="maid" />

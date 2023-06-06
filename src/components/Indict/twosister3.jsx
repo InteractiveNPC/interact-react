@@ -76,7 +76,7 @@ function Indict(props){
   const chapter = "3_2"
   const [ data, setData] = useState(
     {"chapter":3_2, "scene": 37, "name":"", "item": [{}, {}],
-     "court":"", "script": ""}
+     "court":"", "script": "", "met": ""}
   )
 
   useEffect(() => {
@@ -85,7 +85,7 @@ function Indict(props){
       console.log(res.data)
       setData({"chapter": res.data.chapter, "scene": res.data.scene,
                 "name": res.data.name,"item": [res.data.item7, res.data.item4],
-                "court": res.data.court, "script": res.data.script
+                "court": res.data.court, "script": res.data.script, "met": res.data.met
               })
       
 
@@ -318,8 +318,7 @@ function Indict(props){
         </div>
       </div>
 
-          {/* checkbox Event */}
-          <div className="imgs">
+      <div className="imgs">
         <img src={crime01} id="crime01"/>
         <img src={CrimeScenebg} id="crimescene" />
         <img src={book} id="book" />
@@ -327,7 +326,6 @@ function Indict(props){
         <img src={checkbox} id="checkbox1" />
         <img src={checkbox} id="checkbox2" />
         <img src={checkbox} id="checkbox3" />
-
 
         <img src={check}  
         onClick={() => { effectPlay("paperbutton");
@@ -343,8 +341,8 @@ function Indict(props){
         onClick={() => {
           effectPlay("paperbutton");
           decreaseOpacity('check2'); 
-          session_crime(2);
           handleChecked(2);
+          session_crime(1);
         } }
         className="my-image"
         data-id="check2"
@@ -354,24 +352,25 @@ function Indict(props){
          <img src={check}
         onClick={() => {decreaseOpacity('check3');
         effectPlay("paperbutton");
-        session_crime(3);
         handleChecked(3);
+        session_crime(1);
       }}
         className="my-image"
         data-id="check3"
         id="check3" />
-        
+
+
         <img src={crime_click}
         data-id="check1"
         className="my-image"
         id="crime_click1" />
 
 
+
         <img src={crime_click}
         data-id="check2"
         className="my-image"
         id="crime_click2" />
-
 
         <img src={crime_click}
         data-id="check3"
