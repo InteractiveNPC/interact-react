@@ -38,18 +38,18 @@ export default function Record(){
     // json data 불러오기
     const [data, setData] = useState(null);
 
-    useEffect(() => {
-      axios.get('/item/getItems/2')
-        .then(response => {
-          console.log(res.data)
-          setData({"name": res.data.name, "kind": res.data.kind,
-          "id": res.data.id, "script": res.data.chapter
-        });
-        })
-        .catch(error => {
-          console.log(error);
-        });
-    }, []);    
+    // useEffect(() => {
+    //   axios.get('/item/getItems/2')
+    //     .then(response => {
+    //       console.log(res.data)
+    //       setData({"name": res.data.name, "kind": res.data.kind,
+    //       "id": res.data.id, "script": res.data.chapter
+    //     });
+    //     })
+    //     .catch(error => {
+    //       console.log(error);
+    //     });
+    // }, []);    
     return (
         
       <div>

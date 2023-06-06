@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import axios from 'axios';
 import styles from '../styles/eventRecord1.css';
 import { getMainNodes, getNodes, visitMainNode, visitNode } from "components/Record/hook";
 
@@ -31,6 +32,23 @@ export default function Record(){
       } 
     };
   
+
+    // json data 불러오기
+    const [data, setData] = useState(null);
+
+    // useEffect(() => {
+    //   axios.get('/item/getItems/1')
+    //     .then(response => {
+    //       console.log(res.data)
+    //       setData({"name": res.data.name, "kind": res.data.kind,
+    //       "id": res.data.id, "script": res.data.chapter
+    //     });
+    //     })
+    //     .catch(error => {
+    //       console.log(error);
+    //     });
+    // }, []);
+
     return (
         
       <div>
@@ -41,7 +59,11 @@ export default function Record(){
         <div>
         <img src={node1[currentImageIndex]} style={{ position: "absolute", top:"360px", left:"1425px"}} onClick={handleClickImage} />
         <button onClick={() => getMainNodes('have')}></button>
+        <img src="image/Record/UI/tape.png" className="tape1_1"></img>
+        <img src="image/Record/UI/tape.png" className="tape1_2"></img>
+        </div>
 
+        <div>
         <img src={node2[currentImageIndex]} style={{ position: "absolute", top:"198px", left:"438px"}} onClick={handleClickImage} />
         <button onClick={() => getMainNodes('have')}></button>
 

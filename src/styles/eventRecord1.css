@@ -4,3 +4,17 @@
     font-weight: normal;
     font-style: normal;
 }
+
+.tape1_1 {
+    position: absolute;
+    left: 521.9px;
+    top: 193px;
+    transform: rotate(41.62deg);
+}
+
+.tape1_2 {
+    position: absolute;
+    left: 400.9px;
+    top: 326px;
+    transform: rotate(41.62deg);
+}
