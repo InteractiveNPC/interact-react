@@ -5,7 +5,8 @@ import { divToImg } from "../../../services/propsFormat";
 import styles from "./style.module.scss";
 import { useBGM, effectPlay } from "../../../services/audioManager";
 
-import Indict_Result from "pages/indict_result";
+import Indict_Result1 from "pages/indict_result/index";
+import Indict_Result3 from "pages/indict_result/index2";
 
 import { getCourtResult } from "../Ending/hook";
 
@@ -69,7 +70,12 @@ export default ({ chapter, onSubmit }) => {
           </div>}
         </>
       }
-      { process === 1 && <Indict_Result chapter={chapter} onPrev={() => setProcess(0)} onSubmit={onSubmit} />}
+      { process === 1 && 
+        <>
+          { chapter === 1 && <Indict_Result1 chapter={chapter} onPrev={() => setProcess(0)} onSubmit={onSubmit} />}
+          { chapter === 3 && <Indict_Result3 chapter={chapter} onPrev={() => setProcess(0)} onSubmit={onSubmit} />}
+        </>
+      }
     </div>
   );
 };
