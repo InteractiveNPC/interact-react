@@ -94,7 +94,7 @@ function Indict(){
 
   const session_crime = (giso) => {
     if(isCheck1 == 1 && giso == 1)
-      axios.get('/document/"3_2"?crime=' + "아동복지법위반죄")
+      axios.get('/document/3_2?crime=' + "아동복지법위반죄")
       .then(function (response) {
         console.log(response);
       })
@@ -102,7 +102,7 @@ function Indict(){
         console.log(error);
       })
     if(isCheck2 == 1 && giso == 1)
-      axios.get('/document/"3_2"?crime=' + "살인교사죄")
+      axios.get('/document/3_2?crime=' + "살인교사죄")
       .then(function (response) {
         console.log(response);
       })
@@ -110,7 +110,7 @@ function Indict(){
         console.log(error);
       })
     if(isCheck3 == 1 && giso == 1)
-      axios.get('/document/"3_2"?crime=' + "살인죄")
+      axios.get('/document/3_2?crime=' + "살인죄")
       .then(function (response) {
         console.log(response);
       })
@@ -140,6 +140,10 @@ function Indict(){
   }, [imageOpacity]);
 
   const [isHovered, setIsHovered] = useState(false);
+
+  const session_bulgiso = () => {
+    axios.get('/document/3_2/false')
+  }
 
   const handleMouseEnter = () => {
     setIsHovered(true);
@@ -388,6 +392,7 @@ function Indict(){
         alt={isImageChanged2 ? 'Changed Image' : 'Original Image'}
         onClick={()=> {
           effectPlay("paperbutton");
+          session_bulgiso();
           handleClick2();
           }}>
         </img>

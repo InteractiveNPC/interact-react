@@ -12,6 +12,7 @@ let isCheck3 = 0;
 let giso = 0;
 let bulgiso = 0;
 
+
 const handleGiso = (id) => {
   if (id == 1) {
     if(giso == 0)
