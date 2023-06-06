@@ -36,12 +36,12 @@ export default function Record(){
     // const [sessionValue, setSessionValue] = useState(true);
     // const [currentImageIndex, setCurrentImageIndex] = useState(0);
   
-    // const [message, setMessage] = useState('');
-    // const clickPreNode  = (num) => {
-    //   if (num === 0) {
-    //     setMessage('획득할 수 있습니다');
-    //   }
-    // };
+    const [message, setMessage] = useState('');
+    const clickPreNode  = (num) => {
+      if (num === 0) {
+        setMessage('이 노드는 ' + '에 있습니다\n해당 장소로 이동하여 노드를 획득해보세요.');
+      }
+    };
   
     return (
         
@@ -51,49 +51,49 @@ export default function Record(){
         </div>
         
         <div>
-        <img src={node1[nodeIndex[0]]} style={{ position: "absolute", top:"988px", left:"1953px"}} onClick={handleClickImage} />
+        <img src={node1[nodeIndex[0]]} style={{ position: "absolute", top:"988px", left:"1953px"}} />
         <button onClick={() => visitMainNode(3, 7) && clickPreNode(nodeIndex[0])}></button>
           <div className="node1_behind">
           <img src={nameUI} className="name_ui_1"></img>
           <p className="name_1">사체 부검결과서</p>
 
           <img src={infoNode3[0]} className="node1_info"></img>
-          <img src={subNode[0]} className="node1_1" onClick={handleClickImage} />
+          <img src={subNode[0]} className="node1_1" />
           <button onClick={() => visitNode(3, 7_1)}></button>
           </div></div>
 
         <div>
-        <img src={node2[nodeIndex[1]]} style={{ position: "absolute", top:"413px", left:"119px"}} onClick={handleClickImage} />
+        <img src={node2[nodeIndex[1]]} style={{ position: "absolute", top:"413px", left:"119px"}} />
         <button onClick={() => visitMainNode(3, 7) && clickPreNode(nodeIndex[0])}></button>
           <img src={nameUI} className="name_ui_1"></img>
           <p className="name_1">사체 부검결과서</p>
 
           <img src={infoNode3[0]} className="node1_info"></img>
           <div className="node2_behind">
-          <img src={subNode[0]} className="node1_1" onClick={handleClickImage} />
+          <img src={subNode[0]} className="node1_1"/>
           <button onClick={() => visitNode(3, 7_1)}></button>
           </div></div>
 
         <div>
-        <img src={node3[currentImageIndex]} style={{ position: "absolute", top:"184px", left:"896px"}} onClick={handleClickImage} />
+        <img src={node3[nodeIndex[2]]} style={{ position: "absolute", top:"184px", left:"896px"}}  />
         <button onClick={() => getMainNodes('have')}></button>
 
-        <img src={node4[currentImageIndex]} style={{ position: "absolute", top:"783px", left:"942px"}} onClick={handleClickImage} />
+        <img src={node4[nodeIndex[3]]} style={{ position: "absolute", top:"783px", left:"942px"}} />
         <button onClick={() => getMainNodes('have')}></button>
 
-        <img src={node5[currentImageIndex]} style={{ position: "absolute", top:"43px", left:"1532px"}} onClick={handleClickImage} />
+        <img src={node5[nodeIndex[4]]} style={{ position: "absolute", top:"43px", left:"1532px"}} />
         <button onClick={() => getMainNodes('have')}></button>
 
-        <img src={node6[currentImageIndex]} style={{ position: "absolute", top:"410px", left:"1898px"}} onClick={handleClickImage} />
+        <img src={node6[nodeIndex[5]]} style={{ position: "absolute", top:"410px", left:"1898px"}} />
         <button onClick={() => getMainNodes('have')}></button>
 
-        <img src={node7[currentImageIndex]} style={{ position: "absolute", top:"420px", left:"1026px"}} onClick={handleClickImage} />
+        <img src={node7[nodeIndex[6]]} style={{ position: "absolute", top:"420px", left:"1026px"}}  />
         <button onClick={() => getMainNodes('have')}></button>
         
-        <img src={node8[currentImageIndex]} style={{ position: "absolute", top:"904px", left:"164px"}} onClick={handleClickImage} />
+        <img src={node8[nodeIndex[7]]} style={{ position: "absolute", top:"904px", left:"164px"}} />
         <button onClick={() => getMainNodes('have')}></button>
         
-        <img src={node9[currentImageIndex]} style={{ position: "absolute", top:"1100px", left:"874px"}} onClick={handleClickImage} />
+        <img src={node9[nodeIndex[8]]} style={{ position: "absolute", top:"1100px", left:"874px"}}  />
         <button onClick={() => getMainNodes('have')}></button>
       </div>
       </div>

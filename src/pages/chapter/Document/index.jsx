@@ -23,8 +23,9 @@ export default ({ chapter, onSubmit }) => {
       { process === 0 &&
         <>
         <Indict onSubmit={async () => {
-          if((await getCourtResult(chapter)).length > 0) setProcess(1);
-          else setWarning(true);
+          // if((await getCourtResult(chapter)).length > 0)
+           setProcess(1);
+          // else setWarning(true);
         }}/>
         <div className={styles.nav}>
           {["공소사건 01", "공소사건 02", "공소사건 03"].map((title, i) => 
