@@ -42,7 +42,7 @@ export default ({ chapter, onSubmit }) => {
                 effectPlay("papernext");
                 setIdx(idx-1);
               }} 
-              src="/image/Paper/paper_make/UI/paper_make_prev_page.png"
+              src="/image/Paper/Paper_make/UI/paper_make_prev_page.png"
             />}
           {idx < indictComponent[chapter].length - 1 && 
             <img 
@@ -51,7 +51,7 @@ export default ({ chapter, onSubmit }) => {
                 effectPlay("papernext");
                 setIdx(idx+1);
               }} 
-              src="/image/Paper/paper_make/UI/paper_make_next_page.png"/>}
+              src="/image/Paper/Paper_make/UI/paper_make_next_page.png"/>}
         </div>
         </>
       }
