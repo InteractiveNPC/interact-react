@@ -92,7 +92,7 @@ export default [
   ({ onTalk, goOffice }) => {
     useBGM("biga");
     const [ disabled, setDisabled ] = useState(false);
-    const item = useHaveItem("비녀");
+    const have = useHaveItem("비녀");
 
     return (
       <div className={styles.location}>
@@ -113,7 +113,16 @@ export default [
             }
           }}
         />
-        {item && <Find3 goOffice={goOffice} setActive={setDisabled}/>}
+        {have 
+          || <Find3 
+                goOffice={() => 
+                  {
+                    onTalk({ idx: "3", scene: "-2", flag: "0", index: "0" });
+                    goOffice(); 
+                  }}
+                  setActive={setDisabled}/>
+        }
+
       </div>
     );
   },
@@ -143,14 +152,14 @@ export default [
   // 관아 안
   ({ onTalk, moveRecord }) => {
     useBGM("biga");
-    const item = useHaveItem("부검서");
+    const have = useHaveItem("부검서");
 
     return (
       <div
         className={styles.location}
         {...divToImg(BackgroundImgBase + "illust_TwoSisters_police_room.png")}
       >
-        {item && <Find3_2 moveRecord={moveRecord}/>}
+        {have || <Find3_2 moveRecord={moveRecord}/>}
       </div>
     );
   },
