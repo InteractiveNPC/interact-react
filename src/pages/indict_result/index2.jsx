@@ -16,9 +16,7 @@ export default function Indict_Result() {
     const prevbutton_normal = '/image/IndictResult/ui/Paper_result_prevbutton_normal.png';
     const go_court_click = '/image/IndictResult/ui/Paper_result_go_court_click.png';
     const go_court_normal = '/image/IndictResult/ui/Paper_result_go_court_normal.png';
-    const sin2_1 = '/image/IndictResult/source/document_TwoSisters_01.png';
-    const sin2_2 = '/image/IndictResult/source/document_TwoSisters_02.png';
-    const sin2_3 = '/image/IndictResult/source/document_TwoSisters_03.png';
+    const stamp_link = '/image/IndictResult/source/stamp.png';
 
     const [prevbutton_src, click_prevbutton] = useState(prevbutton_normal);
     const [go_court_src, click_go_court] = useState(go_court_normal);
@@ -142,6 +140,7 @@ export default function Indict_Result() {
     
             setData();
         })
+        .catch(error => console.log(error))
     });
 
     //event function
@@ -228,10 +227,10 @@ export default function Indict_Result() {
                             <div className={styles.sinDetail}>피고인 {accused}은 {sin_detail[2]}<br/><br/>이로써 피고인 {accused}은 {sin_result[2]}</div>
                         </div>
                     </div>
-                    
                     </div>
                     <div className={styles.end}>피고인 {accused}에게 위와 같은 죄명으로 공소를 제기합니다.</div>
                     <img src={background_bottom} className={styles.bottomSpace} />
+                    <img src={stamp_link} className={styles.stamp} />
                 </div>
             </div>
             </div>

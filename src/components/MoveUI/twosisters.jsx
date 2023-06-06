@@ -4,6 +4,7 @@ import { divToImg } from "../../services/propsFormat";
 
 import Find3 from "pages/Find3";
 import Find3_2 from "pages/Find3_2";
+import $ from 'jquery';
 
 import styles from "./style.module.scss";
 import { useBGM } from "../../services/audioManager";
@@ -23,8 +24,10 @@ export default [
   ({ onTalk, hero }) => {
     useBGM("NakhwaNansangji");
     const have = useHaveItem("비녀");
-
     const [heroDisabled, setHeroDisabled] = useState(hero);
+    $("#hero").bind("hero", function() {
+      setHeroDisabled(false);
+    });
     return (
       <div className={styles.location}>
         <video muted autoPlay loop playsInline>
@@ -35,19 +38,21 @@ export default [
             type="video/mp4"
           />
         </video>
-        {heroDisabled ? null : (
+        {!heroDisabled && (
           <div>
             <img
               src={halfWebpBase + "Hongryeon_normal_X_office.webp"}
               {...setPosWithIdx(0, 0, 1000)}
               onClick={() => {
                 const scene = have ? "-2" : "-1";
+                setHeroDisabled(true);
                 onTalk({ idx: "3", scene: scene, "flag": "0", index: "0" });
               }}
             />
           </div>
         )}
         <div
+          id="hero"
           className={styles.desk}
           {...divToImg(BackgroundImgBase + "illust_TwoSisters_desk.png")}
         />

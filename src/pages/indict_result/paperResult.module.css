@@ -368,3 +368,11 @@
 
     color: #221608;
 }
+
+.stamp {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    left: 653px;
+    top: 2050px;
+}

@@ -4,3 +4,52 @@
     font-weight: normal;
     font-style: normal;
 }
+
+.node1_behind {
+    display: none;
+}
+
+.name_ui_1 {
+    position: absolute;
+    width: 114.12px;
+    height: 71.17px;
+    left: 2028.52px;
+    top: 1057px;
+    transform: rotate(8.5deg);
+}
+
+.name_1 {
+    position: absolute;
+    width: 108px;
+    height: 23px;
+    left: 2027.68px;
+    top: 1076.65px;
+    
+    font-family: 'Kim jung chul Script';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 23px;
+    text-align: center;
+    
+    color: #000000;
+    
+    transform: rotate(8.5deg);
+}
+
+.node1_info {
+    position: absolute;
+    width: 434px;
+    height: 267px;
+    left: 1744px;
+    top: 997px;
+}
+
+.node1_1 {
+    position: absolute;
+    width: 277px;
+    height: 166px;
+    left: 1712.17px;
+    top: 914px;
+    transform: rotate(5.61deg);
+}

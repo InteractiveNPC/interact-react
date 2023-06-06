@@ -11,7 +11,7 @@ export default function Record(){
     const pin = 'image/Record/UI/FairyNWoodcutter/pin.png';
 
     const node1 = ['image/Record/Source/FairyNWoodcutter/Deer_node_dark.png', 'image/Record/Source/FairyNWoodcutter/Deer_node_glow.png', 'image/Record/Source/FairyNWoodcutter/Deer_node_normal.png']
-    const node2 = ['image/Record/Source/FairyNWoodcutter/Fairy_node_glow.png', 'image/Record/Source/FairyNWoodcutter/Fairy_node_normal.png']
+    const node2 = ['','image/Record/Source/FairyNWoodcutter/Fairy_node_glow.png', 'image/Record/Source/FairyNWoodcutter/Fairy_node_normal.png']
     const node3 = ['image/Record/Source/FairyNWoodcutter/Fairy_Sister_node_dark.png', 'image/Record/Source/FairyNWoodcutter/Fairy_Sister_node_glow.png', 'image/Record/Source/FairyNWoodcutter/Fairy_Sister_node_normal.png']
     const node4 = ['image/Record/Source/FairyNWoodcutter/Woodcutter_Mother_node_dark.png', 'image/Record/Source/FairyNWoodcutter/Woodcutter_Mother_node_glow.png', 'image/Record/Source/FairyNWoodcutter/Woodcutter_Mother_node_normal.png']
     const node5 = ['image/Record/Source/FairyNWoodcutter/Woodcutter_node_dark.png', 'image/Record/Source/FairyNWoodcutter/Woodcutter_node_glow.png', 'image/Record/Source/FairyNWoodcutter/Woodcutter_node_normal.png']
@@ -25,41 +25,29 @@ export default function Record(){
     const infoNode4 = ['image/Record/UI/information_04_glow.png', 'image/Record/UI/information_04_normal.png'];
     const infoNode5 = ['image/Record/UI/information_05_glow.png', 'image/Record/UI/information_05_normal.png'];
 
+    // 선녀는 시작부터 있으므로 1부터 시작
+    const nodeIndex = [0, 1, 0, 0, 0, 0];
+
     // 노드 획득 시 이미지 변경(pre->glow), 이름표 추가, 선 추가
     // 획득한 노드 획득 시 이미지 변경(glow->normal)
-    // const [sessionValue, setSessionValue] = useState(false);
-    // const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  
-    // const getMainNodes = (have) => {
-    //   if (have === true) {
-    //     setSessionValue(true);
-    //   } else {
-    //     setSessionValue(false);
+    // const [mainnodes, setMainnodes] = useState({});
+
+    // useEffect() => {
+    //     (async () => {
+    //         const mainNodes = await getMainNodes();
+    //         setMainNodes(mainNodes);
+
+    //         mainNodes[id];
+
+    //     })();
+    // });
+
+    // const [message, setMessage] = useState('');
+    // const clickPreNode  = (num) => {
+    //   if (num === 0) {
+    //     setMessage('획득할 수 있습니다');
     //   }
     // };
-  
-    // const handleClickImage = () => {
-    //   if (sessionValue) {
-    //     setCurrentImageIndex((prevIndex) => (prevIndex + 1) % 3);
-    //   } 
-    // };
-  
-
-    // json data 불러오기
-    // const [data, setData] = useState(null);
-
-    // useEffect(() => {
-    //   axios.get('/item/getItems/1')
-    //     .then(response => {
-    //       console.log(res.data)
-    //       setData({"name": res.data.name, "kind": res.data.kind,
-    //       "id": res.data.id, "script": res.data.chapter
-    //     });
-    //     })
-    //     .catch(error => {
-    //       console.log(error);
-    //     });
-    // }, []);
 
     return (
         
@@ -69,86 +57,102 @@ export default function Record(){
         </div>
 
         <div>
-        <img src={node1[currentImageIndex]} style={{ position: "absolute", top:"360px", left:"1425px"}} onClick={handleClickImage} />
-        <button onClick={() => getMainNodes('have')}></button>
+        <img src={node1[nodeIndex[0]]} style={{ position: "absolute", top:"360px", left:"1425px"}} onClick={handleClickImage} />
+        <button onClick={() => visitMainNode(1, 4) && clickPreNode(nodeIndex[0])}></button>
           <div className="node1_behind">
           <img src={tape} className="tape1_1"></img>
           <img src={tape} className="tape1_2"></img>
           <img src={nameUI} className="name_ui_1"></img>
           <p className="name_1">사슴</p>
 
-          <img src={infoNode4[currentImageIndex]} className="node1_info"></img>
-          <img src={subNode[currentImageIndex]} className="node1_1"></img>
-          <img src={subNode[currentImageIndex]} className="node1_2"></img>
-          <img src={subNode[currentImageIndex]} className="node1_3"></img>
+          <img src={infoNode4[0]} className="node1_info"></img>
+          <img src={subNode[0]} className="node1_1" onClick={handleClickImage} />
+          <button onClick={() => visitNode(1, 4_1)}></button>
+          <img src={subNode[0]} className="node1_2" onClick={handleClickImage} />
+          <button onClick={() => visitNode(1, 4_2)}></button>
+          <img src={subNode[0]} className="node1_3" onClick={handleClickImage} />
+          <button onClick={() => visitNode(1, 4_3)}></button>
           </div></div>
 
         <div>
-        <img src={node2[currentImageIndex]} style={{ position: "absolute", top:"198px", left:"438px"}} onClick={handleClickImage} />
-        <button onClick={() => getMainNodes('have')}></button>
-        <div className="node2_behind">
+        <img src={node2[nodeIndex[1]]} style={{ position: "absolute", width: "137px",
+height: "182px", top:"198px", left:"438px"}} onClick={handleClickImage} />
+        <button onClick={() => visitMainNode(1, 1) && clickPreNode(nodeIndex[1])}></button>
           <img src={tape} className="tape2_1"></img>
           <img src={tape} className="tape2_2"></img>
           <img src={nameUI} className="name_ui_2"></img>
           <p className="name_2">선녀</p>
+          <img src={infoNode2[0]} className="node2_info"></img>
 
-          <img src={infoNode2[currentImageIndex]} className="node2_info"></img>
-          <img src={subNode[currentImageIndex]} className="node2_1"></img>
-          <img src={subNode[currentImageIndex]} className="node2_2"></img>
-          <img src={subNode[currentImageIndex]} className="node2_3"></img>
+          <div className="node2_behind">
+          <img src={subNode[0]} className="node2_1" onClick={handleClickImage} />
+          <button onClick={() => visitNode(1, 1_1)}></button>
+          <img src={subNode[0]} className="node2_2" onClick={handleClickImage} />
+          <button onClick={() => visitNode(1, 1_2)}></button>
+          <img src={subNode[0]} className="node2_3" onClick={handleClickImage} />
+          <button onClick={() => visitNode(1, 1_3)}></button>
         </div></div>
 
         <div>
-        <img src={node3[currentImageIndex]} style={{ position: "absolute", top:"28px", left:"1192px"}} onClick={handleClickImage} />
-        <button onClick={() => getMainNodes('have')}></button>
+        <img src={node3[nodeIndex[2]]} style={{ position: "absolute", top:"28px", left:"1192px"}} onClick={handleClickImage} />
+        <button onClick={() => visitMainNode(1, 5) && clickPreNode(nodeIndex[2])}></button>
         <div className="node3_behind">
           <img src={tape} className="tape3_1"></img>
             <img src={nameUI} className="name_ui_3"></img>
             <p className="name_3">선녀 언니</p>
 
-            <img src={infoNode3[currentImageIndex]} className="node3_info"></img>
-            <img src={subNode[currentImageIndex]} className="node3_1"></img>
-            <img src={subNode[currentImageIndex]} className="node3_2"></img>
+            <img src={infoNode3[0]} className="node3_info"></img>
+            <img src={subNode[0]} className="node3_1" onClick={handleClickImage} />
+          <button onClick={() => visitNode(1, 5_1)}></button>
+            <img src={subNode[0]} className="node3_2" onClick={handleClickImage} />
+          <button onClick={() => visitNode(1, 5_2)}></button>
         </div></div>
 
         <div>
-        <img src={node4[currentImageIndex]} style={{ position: "absolute", top:"502px", left:"371px"}} onClick={handleClickImage} />
-        <button onClick={() => getMainNodes('have')}></button>
+        <img src={node4[nodeIndex[3]]} style={{ position: "absolute", top:"502px", left:"371px"}} onClick={handleClickImage} />
+        <button onClick={() => visitMainNode(1, 2) && clickPreNode(nodeIndex[3])}></button>
         <div className="node4_behind">
           <img src={tape} className="tape4_1"></img>
             <img src={nameUI} className="name_ui_4"></img>
             <p className="name_4">나무꾼 어머니</p>
 
-            <img src={infoNode5[currentImageIndex]} className="node4_info"></img>
-            <img src={subNode[currentImageIndex]} className="node4_1"></img>
-            <img src={subNode[currentImageIndex]} className="node4_2"></img>
-            <img src={subNode[currentImageIndex]} className="node4_3"></img>
+            <img src={infoNode5[0]} className="node4_info"></img>
+            <img src={subNode[0]} className="node4_1" onClick={handleClickImage} />
+          <button onClick={() => visitNode(1, 2_1)}></button>
+            <img src={subNode[0]} className="node4_2" onClick={handleClickImage} />
+          <button onClick={() => visitNode(1, 2_2)}></button>
+            <img src={subNode[0]} className="node4_3" onClick={handleClickImage} />
+          <button onClick={() => visitNode(1, 2_3)}></button>
         </div></div>
 
         <div>
-        <img src={node5[currentImageIndex]} style={{ position: "absolute", top:"379px", left:"672px"}} onClick={handleClickImage} />
-        <button onClick={() => getMainNodes('have')}></button>
+        <img src={node5[nodeIndex[4]]} style={{ position: "absolute", top:"379px", left:"672px"}} onClick={handleClickImage} />
+        <button onClick={() => visitMainNode(1, 3) && clickPreNode(nodeIndex[4])}></button>
         <div className="node5_behind">
           <img src={tape} className="tape5_1"></img>
             <img src={nameUI} className="name_ui_5"></img>
             <p className="name_5">나무꾼</p>
 
-            <img src={infoNode1[currentImageIndex]} className="node5_info"></img>
-            <img src={subNode[currentImageIndex]} className="node5_1"></img>
-            <img src={subNode[currentImageIndex]} className="node5_2"></img>
-            <img src={subNode[currentImageIndex]} className="node5_3"></img>
+            <img src={infoNode1[0]} className="node5_info"></img>
+            <img src={subNode[0]} className="node5_1" onClick={handleClickImage} />
+          <button onClick={() => visitNode(1, 3_1)}></button>
+            <img src={subNode[0]} className="node5_2" onClick={handleClickImage} />
+          <button onClick={() => visitNode(1, 3_2)}></button>
+            <img src={subNode[0]} className="node5_3" onClick={handleClickImage} />
+          <button onClick={() => visitNode(1, 3_3)}></button>
         </div></div>
 
         <div>
-        <img src={node6[currentImageIndex]} style={{ position: "absolute", top:"900px", left:"1060px"}} onClick={handleClickImage} />
-        <button onClick={() => getMainNodes('have')}></button>
+        <img src={node6[nodeIndex[5]]} style={{ position: "absolute", top:"900px", left:"1060px"}} onClick={handleClickImage} />
+        <button onClick={() => visitMainNode(1, 6) && clickPreNode(nodeIndex[5])}></button>
         <div className="node6_behind">
           <img src={tape} className="tape6_1"></img>
             <img src={nameUI} className="name_ui_6"></img>
             <p className="name_6">비단옷</p>
 
-            <img src={infoNode5[currentImageIndex]} className="node6_info"></img>
-            <img src={subNode[currentImageIndex]} className="node6_1"></img>
+            <img src={infoNode5[0]} className="node6_info"></img>
+            <img src={subNode[0]} className="node6_1" onClick={handleClickImage} />
+          <button onClick={() => visitNode(1, 6_1)}></button>
         </div>
       </div>
 
