@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import axios from 'axios';
 import styles from '../styles/eventRecord1.css';
 import { getMainNodes, getNodes, visitMainNode, visitNode } from "components/Record/hook";
 
@@ -15,6 +16,14 @@ export default function Record(){
     const node8 = ['image/Record/Source/TwoSisters/Pack_node_dark.png', 'image/Record/Source/TwoSisters/Pack_node_glow.png', 'image/Record/Source/TwoSisters/Pack_node_normal.png']
     const node9 = ['image/Record/Source/TwoSisters/Tiger_node_dark.png', 'image/Record/Source/TwoSisters/Tiger_node_glow.png', 'image/Record/Source/TwoSisters/Tiger_node_normal.png']
 
+    const subNode = ['image/Record/UI/node_glow.png', 'image/Record/UI/node_normal.png'];
+
+    const infoNode1 = ['image/Record/UI/information_01_glow.png', 'image/Record/UI/information_01_normal.png'];
+    const infoNode2 = ['image/Record/UI/information_02_glow.png', 'image/Record/UI/information_02_normal.png'];
+    const infoNode3 = ['image/Record/UI/information_03_glow.png', 'image/Record/UI/information_03_normal.png'];
+    const infoNode4 = ['image/Record/UI/information_04_glow.png', 'image/Record/UI/information_04_normal.png'];
+    const infoNode5 = ['image/Record/UI/information_05_glow.png', 'image/Record/UI/information_05_normal.png'];
+    
     // 노드 획득 시 이미지 변경(pre->glow), 이름표 추가, 선 추가
     // 획득한 노드 획득 시 이미지 변경(glow->normal)
     const [sessionValue, setSessionValue] = useState(true);
