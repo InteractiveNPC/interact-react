@@ -1,6 +1,8 @@
 import { useSpring, animated } from "react-spring";
 import axios from 'axios';
+import {useState} from 'react';
 import { useDrag } from "react-use-gesture";
+import { useBGM, effectPlay } from "../services/audioManager";
 import styles from "../styles/findClue3_2.css";
 import $ from "jquery";
 
@@ -14,8 +16,9 @@ export default function Find3_2(props) {
   const hButton =
     "/image/Investigation/Talk/UI/proof_find_info_button_click.png";
   const popup2 = "/image/Investigation/Talk/UI/ScriptBackground.png";
-  const name = "/image/Investigation/Talk/UI/Namebox_02.png";
-  const clue = "시체 검안서처럼 보입니다. 장화의 이름이 쓰여있습니다.";
+  const name = "/image/Investigation/Talk/UI/Namebox_01.png";
+  const clue = "관아 안에서 사체부검서를 획득했습니다.";
+  const explain = "수사기록을 확인해 새롭게 알아낸 정보를 확인해보세요.";
   const paper2 = "/image/evidence/paper_01.png";
   const paper3 = "/image/evidence/paper_02.png";
   const paper4 = "/image/evidence/paper_03.png";
@@ -47,8 +50,10 @@ export default function Find3_2(props) {
     $("div#step2").removeClass("display-none");
   };
 
+  const [f3_2Click, setF3_2Click]=useState(false);
+
   return (
-    <div>
+    <div style={{position:'absolute', zIndex:'3000'}}>
       <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
       <img
         id="find"
@@ -57,7 +62,7 @@ export default function Find3_2(props) {
         onClick={() => {
           $("div#backgroundS").fadeIn({ fadeT });
           $("img#find").fadeOut({ fadeT });
-        }}
+        }} onMouseDown={()=>{effectPlay("sisterspaper");}}
       ></img>
 
       <div id="backgroundS" className="display-none App">
@@ -71,7 +76,7 @@ export default function Find3_2(props) {
             }}
             onMouseLeave={() => {
               $("img#findE").removeClass("find");
-            }}
+            }} onMouseDown={()=>{effectPlay("sisterspaper");}}
             onClick={() => {
               $("div#step1_1").fadeOut({ fadeT });
               setTimeout(() => {
@@ -86,7 +91,7 @@ export default function Find3_2(props) {
               style={{
                 x: paperPos5.x,
                 y: paperPos5.y,
-              }}
+              }} onMouseDown={()=>{effectPlay("sisterspaper");}}
             >
               <img src={paper5} className="App-logo p5" />
             </animated.div>
@@ -96,7 +101,7 @@ export default function Find3_2(props) {
               style={{
                 x: paperPos2.x,
                 y: paperPos2.y,
-              }}
+              }} onMouseDown={()=>{effectPlay("sisterspaper");}}
             >
               <img src={paper2} className="App-logo p2" />
             </animated.div>
@@ -107,7 +112,7 @@ export default function Find3_2(props) {
               style={{
                 x: paperPos4.x,
                 y: paperPos4.y,
-              }}
+              }} onMouseDown={()=>{effectPlay("sisterspaper");}}
             >
               <img src={paper4} className="App-logo p4" />
             </animated.div>
@@ -117,7 +122,7 @@ export default function Find3_2(props) {
               style={{
                 x: paperPos3.x,
                 y: paperPos3.y,
-              }}
+              }} onMouseDown={()=>{effectPlay("sisterspaper");}}
             >
               <img src={paper3} className="App-logo p3" />
             </animated.div>
@@ -146,32 +151,35 @@ export default function Find3_2(props) {
       </div>
       <div id="result" className="display-none">
         <img src={popup} className="banner"></img>
-        <div id="btnFirst">
-          <img
-            src={button}
-            className="btn"
-            onMouseOver={() => {
-              $("img#hov1").removeClass("display-none");
-            }}
-            onMouseLeave={() => {
-              $("img#hov1").addClass("display-none");
-            }}
-          ></img>
-          <img id="hov1" className="display-none btn" src={hButton}></img>
-          <p
-            className="button-txtC"
-            onMouseOver={() => {
-              $("img#hov1").removeClass("display-none");
-            }}
-            onMouseLeave={() => {
-              $("img#hov1").addClass("display-none");
-            }}  onClick={()=>{
-              props.moveDocument();
-          }}
-          >
-            확인
-          </p>
+        <div id='btnFirst'>
+                    <img src={button} className="btn1"></img>
+                    <img id='hov1' className='display-none btn1' src={hButton}></img>
+                    <p className='button-txt'>수사기록 확인</p>
+                    <div id='fBtn1' onMouseDown={()=>{
+                            $('img#hov1').removeClass('display-none');
+                        }} onClick={()=>{
+                        props.moveRecord();
+                    }} onMouseLeave={()=>{
+                      $('img#hov1').addClass('display-none');
+                  }}></div>
+                    <div id='btnSecond'>
+                        <img src={button} className="btn2"></img>
+                        <img id='hov2' className='display-none btn2' src={hButton}></img>
+                        <p className='button-txt2'>수사 계속하기</p>
+                        <div id='fBtn2' onMouseDown={()=>{
+                                $('img#hov2').removeClass('display-none');
+                            }} onMouseLeave={()=>{
+                              $('img#hov2').addClass('display-none');
+                          }} onClick={()=>{
+                                if(!f3_2Click){
+                                    setF3_2Click(!f3_2Click);
+                                    $('div#result').fadeOut({fadeT});
+                                    $('div#etc').removeClass('display-none');
+                                }
+                        }}></div>
+                    </div>          
           <p className="banner-txt1">{clue}</p>
+          <p className='banner-txt2'>{explain}</p>
         </div>
       </div>
     </div>

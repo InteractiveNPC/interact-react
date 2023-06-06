@@ -1,12 +1,12 @@
 import { useState } from "react";
+import { useHaveItem } from "./config";
 import { divToImg } from "../../services/propsFormat";
 
-import Bhelp from '../../pages/Help';
 import Find3 from "pages/Find3";
 import Find3_2 from "pages/Find3_2";
-import $ from "jquery";
 
 import styles from "./style.module.scss";
+import { useBGM } from "../../services/audioManager";
 
 const BackgroundImgBase = "/image/Investigation/Talk/Background/TwoSisters/";
 const fullWebpBase = "/image/Investigation/Talk/Source/TwoSisters/full/full_";
@@ -21,14 +21,12 @@ const setPosWithIdx = (x, y, idx) => {
 export default [
   // 수사실
   ({ onTalk, hero }) => {
+    useBGM("NakhwaNansangji");
+    const have = useHaveItem("비녀");
+
     const [heroDisabled, setHeroDisabled] = useState(hero);
-    const [ bHelpDisabled, setbHelpDisabled ] = useState(true);
-    const settingbHelpDisabled=()=>{
-      setbHelpDisabled(!bHelpDisabled);
-    };
     return (
       <div className={styles.location}>
-        <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
         <video muted autoPlay loop playsInline>
           <source
             src={`${
@@ -38,34 +36,28 @@ export default [
           />
         </video>
         {heroDisabled ? null : (
-          <img
-            src={halfWebpBase + "Hongryeon_normal_X_office.webp"}
-            {...setPosWithIdx(0, 0, 1000)}
-            onClick={() => {
-              onTalk({ idx: "3", scene: "-1", "flag": "0", index: "0" });
-            }} onMouseOver={()=>{
-              $('div#bHelp').fadeIn(1000);
-              setTimeout(()=>{$('div#bHelp').removeClass('display-none');}, 1000);
-            }}
-          />
+          <div>
+            <img
+              src={halfWebpBase + "Hongryeon_normal_X_office.webp"}
+              {...setPosWithIdx(0, 0, 1000)}
+              onClick={() => {
+                const scene = have ? "-2" : "-1";
+                onTalk({ idx: "3", scene: scene, "flag": "0", index: "0" });
+              }}
+            />
+          </div>
         )}
         <div
           className={styles.desk}
           {...divToImg(BackgroundImgBase + "illust_TwoSisters_desk.png")}
         />
-        <div id='bHelp' className="display-none" style={{zIndex:'1000'}}
-          onClick={()=>{
-            if(!bHelpDisabled){
-              $('div#bHelp').css('zIndex','500');
-            }
-          }}>
-            {bHelpDisabled? <Bhelp who={'홍련'} setActive={settingbHelpDisabled}/> : null}
-          </div>
       </div>
     );
   },
   // 장화홍련의 집
   ({ onTalk }) => {
+    useBGM("biga");
+
     return (
       <div className={styles.location}>
         <video muted autoPlay loop playsInline>
@@ -102,7 +94,9 @@ export default [
   },
   // 연못
   ({ onTalk, goOffice }) => {
+    useBGM("biga");
     const [ disabled, setDisabled ] = useState(false);
+    const have = useHaveItem("비녀");
 
     return (
       <div className={styles.location}>
@@ -123,12 +117,22 @@ export default [
             }
           }}
         />
-        <Find3 goOffice={goOffice} setActive={setDisabled}/>
+        {have 
+          || <Find3
+                goOffice={() => 
+                  {
+                    onTalk({ idx: "3", scene: "-2", flag: "0", index: "0" });
+                    goOffice(); 
+                  }}
+                  setActive={setDisabled}/>
+        }
+
       </div>
     );
   },
   // 관아 밖
   ({ onTalk }) => {
+    useBGM("biga");
     return (
       <div className={styles.location}>
         <video muted autoPlay loop playsInline>
@@ -150,13 +154,16 @@ export default [
     );
   },
   // 관아 안
-  ({ onTalk, moveDocument }) => {
+  ({ onTalk, moveRecord }) => {
+    useBGM("biga");
+    const have = useHaveItem("부검서");
+
     return (
       <div
         className={styles.location}
         {...divToImg(BackgroundImgBase + "illust_TwoSisters_police_room.png")}
       >
-        <Find3_2 moveDocument={moveDocument}/>
+        {have || <Find3_2 moveRecord={moveRecord}/>}
       </div>
     );
   },

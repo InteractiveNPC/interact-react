@@ -2,8 +2,8 @@
   z-index: 2222;
   position: absolute;
 
-  top: 115px;
-  left: 38px;
+  top: 117px;
+  left: 50px;
 
   font-family: 'GyeonggiBatang';
   font-size: 18px;
@@ -43,19 +43,20 @@
 }
 
 .nav_arrow {
-  z-index: 2222;
-  position: absolute;
-
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-
-  width: 1840px;
-  display: flex;
-  justify-content: space-between;
 
   > img {
+    position: absolute;
+    z-index: 2222;
     cursor: pointer;
+
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  > img:first-child {
+    left: 40px;
+  }
+  > img:last-child {
+    right: 40px;
   }
 }
 
@@ -71,6 +72,7 @@
   > img {
     position: absolute;
     cursor: pointer;
+    z-index: 2500;
   }
   .background,
   video {

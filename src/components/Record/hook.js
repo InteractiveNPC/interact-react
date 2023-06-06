@@ -2,14 +2,30 @@ import axios from "axios";
 
 // getMainNodes와 getNodes는 async 함수 내에서 await으로 값을 기다려서 받기 (스프링에서 값을 가져오는 시간)
 /* example
-    useEffect(async () => {
-        const mainNodes = await getMainNodes();
-        setMainNodes(mainNodes);
+    const [mainnodes, setMainnodes] = useState({});
+
+    useEffect() => {
+        (async () => {
+            const mainNodes = await getMainNodes();
+            setMainNodes(mainNodes);
+
+            mainNodes[id];
+
+        })();
     });
+
+    // mainnode 획득
+    localhost:8080/meet/1(chapter)/2(id)
+    localhost:8080/meet/1(chapter)
+
+    // node
+    localhost:8080/item/1(chapter)/2_1(id)
+    localhost:8080/item/1(chapter)
 */
 
 // 중심 노드 정보 얻기
-/* return [ {name, chapter, id, content, image, place, **have(해당 노드 얻었는지 여부), visited(노드 읽었는지 여부)**}, ...] */
+/* return [ id: {name, chapter, content, image, place, **have(해당 노드 얻었는지 여부), visited(노드 읽었는지 여부)**}, ...] */
+
 export const getMainNodes = async (chapter) => {
     const have_nodeIds =  await getMeets(chapter);
     const visited_nodeIds = await getVisitMeets(chapter);
@@ -19,7 +35,7 @@ export const getMainNodes = async (chapter) => {
 };  
 
 // 주변 노드 정보 얻기
-/* return [ {name, kind, chapter, id, content, **have(해당 노드 얻었는지 여부), visited(노드 읽었는지 여부)**}, ...] */
+/* return [ id: {name, kind, chapter,  content, **have(해당 노드 얻었는지 여부), visited(노드 읽었는지 여부)**}, ...] */
 export const getNodes = async (chapter) => {
     const have_nodeIds =  await getItems(chapter);
     const visited_nodeIds = await getVisitItems(chapter);
@@ -50,6 +66,19 @@ export const visitNode = (chapter, id) => {
         console.log(error);
     });    
 }
+
+export const existNewNode = async (chapter) => {
+    const mainNodes = await getMainNodes(chapter);
+    for(const {have, visited} of Object.values(mainNodes)) {
+        if(have && !visited) return true;
+    }
+
+    const nodes = await getNodes(chapter);
+    for(const {have, visited} of Object.values(nodes)) {
+        if(have && !visited) return true;
+    }
+    return false;
+};
 
 const getMeets = (chapter) => {
     return new Promise((resolve) =>
@@ -147,5 +176,10 @@ const mappingDatas = (have_nodeIds, visited_nodeIds, all_nodes) => {
             break;
         }
     }
-    return all_nodes;   
+
+    const result = {};
+    for(let node of all_nodes) {
+        result[node.id] = {...node};
+    }
+    return result;
 }

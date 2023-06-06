@@ -1,6 +1,20 @@
+@font-face {
+    font-family: 'GyeonggiBatang';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/GyeonggiBatang.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Pretendard';
+    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Medium.woff') format('woff');
+    font-style: normal;
+}
+
 div#backgroundS, div#pop{
     position: absolute;
     top: 0%;
+    z-index: 3000;
 }
 
 #pop, #backgroundS, #step1, #step2, #result{
@@ -69,7 +83,20 @@ div#backgroundS, div#pop{
     left: 556px;
     top: 579px;
 }
-
+div#fBtn1{
+    position: absolute;
+    width: 340px;
+    height: 60px;
+    left: 556px;
+    top: 579px;
+}
+div#fBtn2{
+    position: absolute;
+    width: 340px;
+    height: 60px;
+    left: 1025px;
+    top: 579px;
+}
 .button-txt{
     position: absolute;
     width: 140px;
@@ -77,7 +104,7 @@ div#backgroundS, div#pop{
     left: 661px;
     top: 595px;
 
-    font-family: 'Pretendard';
+    font-family: 'GyeonggiBatang';
     font-style: normal;
     font-weight: 700;
     font-size: 24px;
@@ -120,7 +147,7 @@ div#backgroundS, div#pop{
     left: 706px;
     top: 468px;
 
-    font-family: 'Pretendard';
+    font-family: 'GyeonggiBatang';
     font-style: normal;
     font-weight: 700;
     font-size: 24px;
@@ -133,7 +160,7 @@ div#backgroundS, div#pop{
 }
 .banner-txt2 {
     position: absolute;
-    width: 700px;
+    width: 800px;
     height: 30px;
     left: 645.56px;
     top: 508px;
@@ -150,9 +177,9 @@ div#backgroundS, div#pop{
 .banner2 {
     position: absolute;
     width: 1716px;
-    height: 216px;
-    left: calc(50% - 1716px/2);
-    top: 800px;
+    height: 215px;
+    left: 102px;
+    top: 828px;
 }
 .namePos{
     position: absolute;
@@ -166,19 +193,19 @@ div#backgroundS, div#pop{
     width: 43px;
     height: 24px;
     left: 407px;
-    top: 843px;
+    top: 845px;
 
-    font-family: 'GyeonggiBatang';
+    font-family: "GyeonggiBatang";
     font-style: normal;
     font-weight: 400;
     font-size: 24px;
     line-height: 24px;
-    color: #DAD5AB;
+    color: #000000;
 }
 .banner-txtB{
     position: absolute;
-    width: 800px;
-    height: 68px;
+    width: 1200px;
+    height: 111px;
     left: 377px;
     top: 894px;
 
@@ -187,7 +214,6 @@ div#backgroundS, div#pop{
     font-weight: 500;
     font-size: 24px;
     line-height: 29px;
-
     color: #FFFFFF;
 }
 img, p, h2{

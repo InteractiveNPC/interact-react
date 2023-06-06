@@ -22,10 +22,10 @@ function Dialogue(props) {
   useEffect(() => {
     if(props.idx != null) {
       $("#dialogue_container").hide().fadeIn(500);
-      setData({"id":props.idx, "scene":props.scene, "flag":props.flag, "index":props.index})
-      chapterHandler(props.idx, props.scene, props.flag, props.index, 2)
+      setData({"id":props.idx, "scene":props.scene, "flag":props.flag, "index":props.index});
+      chapterHandler(props.idx, props.scene, props.flag, props.index, 2);
     } else {
-      chapterHandler(data.id, data.scene, data.flag, data.index, data.len)
+      chapterHandler(data.id, data.scene, data.flag, data.index, data.len);
     }
     if($("#dialogue_container").css("display") == "none") {
       $("#dialogue_container").fadeIn(500);
@@ -77,7 +77,7 @@ function Dialogue(props) {
       return;
     }
     if(hold != true) {
-      axios.get('/chapter?id=' + id + "&scene=" + scene + "&flag=" + flag + "&index=" + index)
+      axios.get("/chapter?id=" + id + "&scene=" + scene + "&flag=" + flag + "&index=" + index)
       .then(async (res) => {
         console.log(res);
 
@@ -99,7 +99,10 @@ function Dialogue(props) {
         if(size < index && res.data.scene >= end) {
           $("#dialogue").off("click").on("click", {code: 0, scene: scene}, clickHandler);
         }
-        if(scene == 0 && res.data.index == 0 && size+1 >= res.data.len) {
+        if((
+            (scene == 0 && res.data.index == 0) ||
+            (scene == 7 && res.data.index == 0)
+          ) && size+1 >= res.data.len) {
           $("#dialogue").off("click").on("click", {code: 0, scene: scene}, clickHandler);
           setHold(true);
         }
@@ -118,14 +121,17 @@ function Dialogue(props) {
             }
           }
         }, 5);
+
         var voice_src = "image/Investigation/Talk/Sound/dubbing/" + (id==1 ? "FairyNWoodcutter" : "TwoSisters") + "/voice_" + id + "_" + scene + "_" + flag + "_" + index + ".mp3";
-      
         var voice_audio = '<audio id="voice" autoplay>' + 
           '<source id="voice_src" src="' + voice_src + '" type="audio/mp3"/>' +
           '</audio>';
-        $.get(voice_src).done(function() {
+        $.get(voice_src)
+        .done(function() {
           setVoice(voice_audio);
-        })
+        }).fail(function() {
+          setVoice(null);
+        });
       })
       .catch(error => console.log(error));
     }
@@ -166,6 +172,15 @@ function Dialogue(props) {
       <div id="dialogue_container">
         {show ? (
           <div id="dialogue" onClick={dialogueHandler}>
+            {
+              (data.scene != 0
+                && data.scene != -1
+                && data.scene != -2
+                && !( data.scene == 1 && data.index == 0 )
+                && !( data.id == 1 && ( data.scene == 9 || data.scene == 10 ) )
+                && !( data.id == 3 && ( data.scene == 11 || data.scene == 12 ) )
+              ) && <div className="blur"></div>
+            }
             <img id="character" src={data.image}/>
             <div id="dialogue_bg"></div>
             <div className="dialogue_name"><span>{data.name}</span></div>
@@ -185,7 +200,7 @@ function Dialogue(props) {
             <div className="blur"></div>
             <div className="question"></div>
             {data.choice && data.choice.map(({content, visited}, idx) => (
-              <div className="answer" id={answerId(idx)} key={answerId(idx)} onClick={() => answerHandler(idx)}>
+              <div className="answer" id={answerId(idx)} onClick={() => answerHandler(idx)}>
                 {visited && <img src="/image/Investigation/Talk/UI/optionbox_check.png"/>}
                 <span>{content}</span>
               </div>

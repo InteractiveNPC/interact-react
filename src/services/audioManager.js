@@ -3,7 +3,6 @@ import { VolumeContext } from "../contexts";
 
 export const useVolumeSetting = () => {
     const [volume, setVolume] = useContext(VolumeContext);
-
     useEffect(() => setAudioVolume(volume));
 };
 
@@ -16,7 +15,8 @@ export const setAudioVolume = (volume) => {
     for(let e of videoElements) {
         if(e.volume) e.volume = volume[0];
     }
-    const effectElements = document.querySelectorAll("#effect");
+    document.querySelector("#effect").className = volume[1];
+    const effectElements = document.querySelector("#effect").childNodes;
     for(let e of effectElements) {
         if(e.volume) e.volume = volume[1];
     }
@@ -24,4 +24,30 @@ export const setAudioVolume = (volume) => {
     for(let e of voiceElements) {
         if(e.volume) e.volume = volume[2];
     }
-}
+};
+
+export const useBGM = (bgm) => {
+    useEffect(()=>{
+        const src = `/sound/bgm_${bgm}.mp3`;
+        const audio = document.querySelector("#bgm");
+
+        if(!audio.src.endsWith(src)) {
+            audio.src = src
+            audio.loop = true;
+
+            audio.load();
+        }
+    });
+};
+
+export const effectPlay = (effect) => {  
+    const src = `/sound/effect_${effect}.mp3`;
+    const div = document.querySelector("#effect");
+
+    const audio = new Audio(src);
+    audio.volume = div.className;
+    console.log(audio.volume);
+    div.appendChild(audio);
+    audio.onended = () => div.removeChild(audio);
+    audio.play();
+};

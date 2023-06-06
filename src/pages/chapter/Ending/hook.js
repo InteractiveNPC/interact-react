@@ -35,23 +35,24 @@ export const resetChapterSession = (chapter) => {
 export const useCourtData = (chapter) => {
   const [data, setData] = useState(null);
   const [dialogueData, setDialogueData] = useState({});
+  let result = 0;
 
   useEffect(() => {
     (async () => {
       if (!data) {
         const data = await getCourtResult(chapter);
-        console.log(data);
         setData(data);
 
-        const result = data.reduce((acc, cur) => acc + (cur.guilty ? 0 : 1), 0);
-
+        const guiltyN = data.reduce((acc, cur) => acc + (cur.guilty ? 1 : 0), 0);
+        if(guiltyN === 0) result = 1;
+        if(guiltyN === 1 || guiltyN === 2) result = 2;
+        if(guiltyN === 3) result = 3;
         setDialogueData(endingDialog[chapter][result]);
-        console.log(dialogueData);
       }
     })();
   });
 
-  return [data, dialogueData];
+  return [data, dialogueData, result];
 };
 
 export const setButtonEvent = (target, src) => {

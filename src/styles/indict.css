@@ -19,6 +19,17 @@
     z-index: 100;
 }
 
+#paper_make {
+    position: absolute;
+    width: 244px;
+    height: 51px;
+    left: 1629px;
+    top: 985px;
+    
+    background: rgba(23, 18, 14, 0.7);
+    border-radius: 125px;
+    z-index: 100;   
+}
 
 #book {
     position: absolute;
@@ -253,6 +264,15 @@
     z-index: 9;
 }
 
+#indict_click {
+    position: absolute;
+    width: 293px;
+    height: 84px;
+    left: calc(50% - 293px/2 + 174.5px);
+    top: calc(50% - 84px/2 + 416px);
+    opacity: 0;
+    z-index: 8;
+}
 
 #indict_normal {
     position: absolute;
@@ -375,7 +395,7 @@
 
 }
 
-.proof2{
+.proof2_0{
     position: absolute;
     width: 376px;
     height: 54px;

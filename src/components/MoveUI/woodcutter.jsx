@@ -1,11 +1,12 @@
 import { useState } from "react";
+import { useHaveItem } from "./config";
 import { divToImg } from "../../services/propsFormat";
 import Find from "../../pages/Find";
+import $ from 'jquery';
 
-import Bhelp from '../../pages/Help';
-import $ from "jquery";
 
 import styles from "./style.module.scss";
+import { useBGM } from "../../services/audioManager";
 
 const BackgroundImgBase =
   "/image/Investigation/Talk/Background/FairyNWoodcutter/";
@@ -25,16 +26,13 @@ const setPosWithIdx = (x, y, idx) => {
 export default [
   // 수사실
   ({ onTalk, hero }) => {
+    useBGM("NakhwaNansangji");
+    const have = useHaveItem("선녀옷");
+
     const [heroDisabled, setHeroDisabled] = useState(hero);
-    const [ bHelpDisabled, setbHelpDisabled ] = useState(true);
-    const settingbHelpDisabled=()=>{
-      setbHelpDisabled(!bHelpDisabled);
-    };
-    //const [clickCount, setClickCount] = useState(0);
     console.log(hero);
     return (
       <div className={styles.location}>
-        <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
           <video muted autoPlay loop playsInline>
           <source
             src={`${
@@ -46,35 +44,27 @@ export default [
           
           {heroDisabled ? null : (
             <div>
-            <img
-              src={halfWebpBase + "Fairy_normal_X_office.webp"}
-              {...setPosWithIdx(0, 0, 1000)}
-              onClick={() => {
-                onTalk({ idx: "1", scene: "-1", "flag": "0", index: "0" });
-              }} onMouseOver={()=>{
-                $('div#bHelp').fadeIn(1000);
-                setTimeout(()=>{$('div#bHelp').removeClass('display-none');}, 1000);
-              }}
-            />
+              <img
+                src={halfWebpBase + "Fairy_normal_X_office.webp"}
+                {...setPosWithIdx(0, 0, 1000)}
+                onClick={() => {
+                  const scene = have ? "-2" : "-1";
+                  onTalk({ idx: "1", scene: scene, "flag": "0", index: "0" });
+                }}
+              />
             </div>
           )}
           <div
             className={styles.desk}
             {...divToImg(BackgroundImgBase + "illust_FairyNWoodcutter_desk.png")}
           />
-          <div id='bHelp' className="display-none" style={{zIndex:'1000'}}
-          onClick={()=>{
-            if(!bHelpDisabled){
-              $('div#bHelp').css('zIndex','500');
-            }
-          }}>
-            {bHelpDisabled? <Bhelp who={'선녀'} setActive={settingbHelpDisabled}/> : null}
-          </div>
       </div>
     );
   },
   // 나무꾼의 집
   ({ onTalk }) => {
+    useBGM("spring_reunion");
+
     return (
       <div className={styles.location}>
         <video muted autoPlay loop playsInline>
@@ -104,16 +94,25 @@ export default [
   },
   // 나무꾼의 방 (증거 찾기)
   ({ onTalk, goOffice }) => {
+    useBGM("spring_reunion");
+    const have = useHaveItem("선녀옷");
+
     return (
       <div className={styles.location}
         {...divToImg(BackgroundImgBase + "illust_FairyNWoodcutter_Woodcutter_room.png")}
         >
-        <Find goOffice={goOffice} />
+        {have || 
+        <Find
+          goOffice={() => {
+            onTalk({ idx: "1", scene: "-2", flag: "0", index: "0" });
+            goOffice();
+          }}/>}
       </div>
     );
   },
   // 연못
   ({ onTalk }) => {
+    useBGM("spring_reunion");
     return (
       <div className={styles.location}>
         <video muted autoPlay loop playsInline>
@@ -136,6 +135,7 @@ export default [
   },
   // 천계
   ({ onTalk }) => {
+    useBGM("spring_reunion");
     return (
       <div className={styles.location}>
         <video muted autoPlay loop playsInline>

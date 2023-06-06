@@ -4,13 +4,17 @@ import Chapter from "../../pages/chapter";
 import $ from "jquery";
 import axios from "axios";
 import "./home.css";
-import Nav from "components/Nav";
+import Nav from "../../components/Nav";
+
+import { useBGM, effectPlay } from "../../services/audioManager";
 
 function Home(props) {
+  useBGM("gearsoftime");
+  
   const [data, setData] = useState({ chapter1: 0, chapter2: 0, chapter3: 0 });
   const [next, setNext] = useState(1);
   const [show, setShow] = useState(true);
-
+  
   useEffect(() => {
     axios
       .get("/intro" + window.location.search)
@@ -62,28 +66,12 @@ function Home(props) {
       }
 
       var name = "#res" + props.idx;
-      console.log(data);
-      console.log(name);
-      $(name).removeClass("rotate");
-      $(name).position({
-        of: $(name).parent(),
-        my: "left top",
-        at: "left top",
-        offset: "-75 -75",
-      });
       switch (props.res) {
         case 1:
           $(name).on("load", function () {
             setTimeout(function () {
               $(name).off("load");
               $(name).attr("src", "image/Home/Source/Stamp_bad.png");
-              $(name).addClass("rotate");
-              $(name).position({
-                of: $(name).parent(),
-                my: "left top",
-                at: "left top",
-                offset: "75 75",
-              });
             }, 400);
           });
           $(name).attr("src", "image/Home/Source/Stamp_bad.webp");
@@ -93,13 +81,6 @@ function Home(props) {
             setTimeout(function () {
               $(name).off("load");
               $(name).attr("src", "image/Home/Source/Stamp_average.png");
-              $(name).addClass("rotate");
-              $(name).position({
-                of: $(name).parent(),
-                my: "left top",
-                at: "left top",
-                offset: "75 75",
-              });
             }, 400);
           });
           $(name).attr("src", "image/Home/Source/Stamp_average.webp");
@@ -109,13 +90,6 @@ function Home(props) {
             setTimeout(function () {
               $(name).off("load");
               $(name).attr("src", "image/Home/Source/Stamp_good.png");
-              $(name).addClass("rotate");
-              $(name).position({
-                of: $(name).parent(),
-                my: "left top",
-                at: "left top",
-                offset: "75 75",
-              });
             }, 400);
           });
           $(name).attr("src", "image/Home/Source/Stamp_good.webp");
@@ -127,6 +101,7 @@ function Home(props) {
 
     if (props.init != null) {
       $("#ch1").on("load", function () {
+        effectPlay("mainroll");
         setTimeout(function () {
           $("#ch1").off("load");
           $("#ch1").attr("src", "image/Home/Source/Title_FairyNWoodcutter.png");
@@ -138,6 +113,7 @@ function Home(props) {
 
       setTimeout(function () {
         $("#ch3").on("load", function () {
+          effectPlay("mainroll");
           setTimeout(function () {
             $("#ch3").off("load");
             $("#ch3").attr("src", "image/Home/Source/Title_TwoSisters.png");
