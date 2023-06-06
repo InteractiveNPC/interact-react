@@ -72,12 +72,8 @@ function Dialogue(props) {
 
   const chapterHandler = (id, scene, flag, index, size) => {
     var end = endCheck(id, scene)
-    if(size == -1) {
-      clickHandler({"data":{"code":0, scene: scene}});
-      return;
-    }
     if(hold != true) {
-      axios.get('/chapter?id=' + id + "&scene=" + scene + "&flag=" + flag + "&index=" + index)
+      axios.get("/chapter?id=" + id + "&scene=" + scene + "&flag=" + flag + "&index=" + index)
       .then(async (res) => {
         console.log(res);
 
