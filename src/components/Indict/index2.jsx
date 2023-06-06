@@ -1,6 +1,7 @@
 import React, { useState,  useEffect } from "react";
 import axios from 'axios';
 import styles from '../../styles/indict2.css';
+import { effectPlay } from "../../services/audioManager";
 
 const chapter = "1_1"
 function Indict(){
@@ -63,7 +64,30 @@ function Indict(){
       }
     };
 
+    const [isImageChanged, setIsImageChanged] = useState(false);
+      const [isImageChanged2, setIsImageChanged2] = useState(false);
+    
+      const handleClick = () => {
+        setIsImageChanged(prevState => !prevState);
+      };
 
+      const handleClick2 = () => {
+        setIsImageChanged2(prevState => !prevState);
+      };
+      const getImageSource = () => {
+        if (isImageChanged) {
+          return '/image/indict/indict_click.png';
+        } else {
+          return '/image/indict/indict_normal.png';
+        }
+      };
+      const getImageSource2 = () => {
+        if (isImageChanged2) {
+          return '/image/indict/indict_click.png';
+        } else {
+          return '/image/indict/indict_normal.png';
+        }
+      };
 
 
 
@@ -159,8 +183,9 @@ function Indict(){
         <img src={checkbox} id="checkbox3" />
 
         <img src={check}  
-        onClick={() => decreaseOpacity('check1', 'crimenormal1')}
-                   
+        onClick={() => { effectPlay("paperbutton");
+        decreaseOpacity('check1', 'crimenormal1')
+        } }
         data-id="check1"
         className="my-image"
         id="check1" />
@@ -171,9 +196,10 @@ function Indict(){
         className="my-image"
         id="crime_click1" />
 
-        <img src={check} 
-        onClick={() => decreaseOpacity('check2')}
-        
+      <img src={check} 
+        onClick={() => {
+          effectPlay("paperbutton");
+          decreaseOpacity('check2'); } }
         className="my-image"
         data-id="check2"
          id="check2">
@@ -185,9 +211,9 @@ function Indict(){
         id="crime_click2" />
 
         
-        <img src={check}
-        onClick={() => decreaseOpacity('check3')}
-        
+      <img src={check}
+        onClick={() => {decreaseOpacity('check3');
+        effectPlay("paperbutton");}}
         className="my-image"
         data-id="check3"
         id="check3" />
@@ -213,8 +239,20 @@ function Indict(){
         data-id2="crimenormal" id = "crimenormal1"/>
         <img src={crimenormal} id = "crimenormal2"/>
         <img src={crimenormal} id = "crimenormal3"/>
-        <img src={indict_normal} id = "indict_normal"/>
-        <img src={indict_normal} id = "indict_normal2"/>
+        <img src={getImageSource()} id = "indict_normal"
+        alt={isImageChanged ? 'Changed Image' : 'Original Image'}
+        onClick={()=> {
+          effectPlay("paperbutton");
+          handleClick();}}>
+        </img>
+
+        <img src={getImageSource2()} id = "indict_normal2"
+        alt={isImageChanged2 ? 'Changed Image' : 'Original Image'}
+        onClick={()=> {
+          effectPlay("paperbutton");
+          handleClick2();
+          }}>
+        </img>
         <div className="bg">
           <img src={background} id="background" 
            style={{filter: "brightness(80%)",
