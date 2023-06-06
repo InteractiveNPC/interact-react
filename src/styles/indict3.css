@@ -1,7 +1,9 @@
 @font-face {
-    font-family: 'Inter';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/GyeonggiBatang.woff') format('woff');
-} 
+    font-family: 'MaruBuri-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-10-21@1.0/MaruBuri-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
 
 #next {
     position: absolute;
@@ -332,38 +334,41 @@
     color: #000000;
 }
 
-.proof1{
+.proof1_0{
     position: absolute;
     width: 376px;
-    height: 54px;
+    height: 63px;
     left: 505px;
     top: 574px;
     
-    font-family: 'Inter';
+    font-family: 'MaruBuri-Regular';
     font-style: normal;
     font-weight: 400;
-    font-size: 12px;
+    font-size: 14px;
     line-height: 150%;
+    /* or 21px */
+    
+    color: #000000;
+ 
     z-index:1000;
-    /* or 18px */
-    color: #000000; 
 }
 
-.proof2{
+.proof2_0{
     position: absolute;
     width: 376px;
     height: 54px;
     left: 505px;
     top: 692px;
-
-    font-family: 'Inter';
+    font-family: 'MaruBuri-Regular';
     font-style: normal;
     font-weight: 400;
-    font-size: 12px;
+    font-size: 14px;
     line-height: 150%;
+    /* or 21px */
+    
+    color: #000000;
     /* or 18px */
     z-index:1000;
-    color: #000000;
 }
 .proof3{
     position: absolute;

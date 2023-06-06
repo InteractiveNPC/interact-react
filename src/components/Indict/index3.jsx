@@ -8,7 +8,7 @@ import styles from '../../styles/indict3.css';
 function Indict(){
   const chapter = "1_2"
     const [ data, setData] = useState(
-      {"chapter":1_2, "scene": 37, "name":"", "item": "",
+      {"chapter":1_2, "scene": 37, "name":"", "item": [{}, {}],
        "court":"", "script": ""}
     ) // 초기화
     const [items, setItems] = useState(new Map());
@@ -16,9 +16,9 @@ function Indict(){
     useEffect(() => {
       axios.get('/document?chapter=' + chapter + '&scene=37')
       .then(res => {
-        const itemData = res.data.item;
+        
         setData({"chapter": res.data.chapter, "scene": res.data.scene,
-                  "name": res.data.name, "item": itemData,
+                  "name": res.data.name, "item": [res.data.item6, res.data.item2],
                   "court": res.data.court, "script": res.data.script
                 })
         console.log(data.item) //여기까진 잘 받아짐..
@@ -149,11 +149,11 @@ const handleClick_change = () => {
       <div className="title" >
         <p>{data.name}</p>
       </div>
-      <div className="proof1">
-        <p>{proof1}</p>
+      <div className="proof1_0">
+        <p>{data.item[0].info}</p>
       </div>
-      <div className="proof2">
-        <p>{proof2}</p>
+      <div className="proof2_0">
+        <p>{data.item[1].info}</p>
       </div>
       <div className="sageonseosul" dangerouslySetInnerHTML={ {__html: data.script} }>
         {/* <p>{data.script}</p> */}

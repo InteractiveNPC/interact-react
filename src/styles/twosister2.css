@@ -1,6 +1,8 @@
 @font-face {
-    font-family: 'Inter';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/GyeonggiBatang.woff') format('woff');
+    font-family: 'MaruBuri-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-10-21@1.0/MaruBuri-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
 } 
 
 #next {
@@ -398,36 +400,41 @@
     z-index:1000;
 }
 
-.crime1 {
+.crime1_0 {
     position: absolute;
     width: 501px;
-    height: 72px;
+    height: 96px;
     left: 1055px;
     top: 168px;
-
-    font-family: 'Inter';
+    
+    font-family: 'MaruBuri-Regular';
     font-style: normal;
     font-weight: 400;
-    font-size: 12px;
-    line-height: 150%;
+    font-size: 13px;
+    line-height: 170%;
+    white-space: pre-line;
+    /* or 24px */
+    
+    
     color: #000000;
     z-index: 1000;
 
 }
 
-.crime2 {
+.crime2_0 {
+    white-space: pre-line;
     position: absolute;
     width: 501px;
-    height: 72px;
+    height: 96px;
     left: 1055px;
     top: 328px;
     
-    font-family: 'Inter';
+    font-family: 'MaruBuri-Regular';
     font-style: normal;
     font-weight: 400;
-    font-size: 12px;
-    line-height: 150%;
-    /* or 18px */
+    font-size: 13px;
+    line-height: 170%;
+    /* or 24px */
     
     
     color: #000000;
@@ -435,52 +442,34 @@
 
 }
 
-.crime3 {
+.crime3_0 {
+    white-space: pre-line;
     position: absolute;
     width: 501px;
-    height: 72px;
+    height: 96px;
     left: 1055px;
     top: 488px;
     
-    font-family: 'Inter';
+    font-family: 'MaruBuri-Regular';
     font-style: normal;
     font-weight: 400;
-    font-size: 12px;
-    line-height: 150%;
-    /* or 18px */
+    font-size: 13px;
+    line-height: 170%;
+    /* or 24px */
     
+    letter-spacing: -0.02em;
     
     color: #000000;
     z-index: 1000;
 
 }
 
-.crimeTitle1 {
+.crimeTitle1_0 {
     position: absolute;
-    width: 43px;
+    width: 150px;
     height: 24px;
-    left: 1108px;
-    top: 120px;
-    
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 1px;
-    line-height: 133.02%;
-    /* identical to box height, or 24px */
-    
-    text-align: center;
-    
-    color: #000000;
-    z-index: 1000;
-}
-
-.crimeTitle2 {
-    position: absolute;
-    width: 43px;
-    height: 24px;
-    left: 1108px;
-    top: 275px;
+    left: 1055px;
+    top: 133px;
     
     font-family: 'Inter';
     font-style: normal;
@@ -495,12 +484,32 @@
     z-index: 1000;
 }
 
-.crimeTitle3 {
+.crimeTitle2_0 {
     position: absolute;
-    width: 43px;
+    width: 100px;
     height: 24px;
-    left: 1108px;
-    top: 435px;
+    left: 1080px;
+    top: 292px;
+    
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 133.02%;
+    /* identical to box height, or 24px */
+    
+    text-align: center;
+    
+    color: #000000;
+    z-index: 1000;
+}
+
+.crimeTitle3_0 {
+    position: absolute;
+    width: 100px;
+    height: 24px;
+    left: 1080px;
+    top: 453px;
     
     font-family: 'Inter';
     font-style: normal;

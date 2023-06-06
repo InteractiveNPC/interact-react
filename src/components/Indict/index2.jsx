@@ -6,7 +6,7 @@ import { effectPlay } from "../../services/audioManager";
 const chapter = "1_1"
 function Indict(){
   const [ data, setData] = useState(
-    {"chapter":1_1, "scene": 36, "name":"", "item": "",
+    {"chapter":1_1, "scene": 36, "name":"", "item": [{}, {}],
      "court":"", "script": ""}
   ) // 초기화
 
@@ -29,13 +29,12 @@ function Indict(){
   useEffect(() => {
     axios.get('/document?chapter=' + chapter + '&scene=36')
     .then(res => {
-      const itemData = res.data.item;
       console.log(res.data)
       setData({"chapter": res.data.chapter, "scene": res.data.scene,
-                "name": res.data.name, "item": itemData,
+                "name": res.data.name,"item": [res.data.item5, res.data.item6],
                 "court": res.data.court, "script": res.data.script
               })
-      console.log(data.item) //여기까진 잘 받아짐..
+      console.log(res.data.item5) //여기까진 잘 받아짐..
 
     })
     .catch(error => console.log(error))
@@ -137,6 +136,10 @@ function Indict(){
   const crime2 = data.court["감금죄"];
   const crime3 = data.court["추행등목적약취유인죄"];
 
+  console.log(data.item)
+  console.log(data.item[0].info);
+  console.log(data.item[1].info);
+
   return (
     <div className="Indict">
 
@@ -145,11 +148,11 @@ function Indict(){
       <div className="title2">
         <p>{data.name}</p>
       </div>
-      <div className="proof1">
-        <p>{proof1}</p>
+      <div className="proof1_0">
+        <p>{data.item[1].info}</p>
       </div>
-      <div className="proof2">
-        <p>{proof2}</p>
+      <div className="proof2_0">
+        <p>{data.item[0].info}</p>
       </div>
       <div className="sageonseosul" dangerouslySetInnerHTML={ {__html: data.script} }>
         {/* <p>{data.script}</p> */}

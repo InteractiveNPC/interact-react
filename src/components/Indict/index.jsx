@@ -46,7 +46,7 @@ const handleChecked = (checkid) => {
 const chapter = "1_0"
 function Indict(){
   const [ data, setData] = useState(
-    {"chapter":1_0, "scene": 35, "name":"", "item": "",
+    {"chapter":1_0, "scene": 35, "name":"", "item": [{}, {}],
      "court":"", "script": ""}
   ) // 초기화
 
@@ -55,18 +55,18 @@ function Indict(){
     axios.get('/document?chapter=' + chapter + '&scene=35')
     .then(res => {
       console.log(res.data)
-      const itemData = res.data.item;
       setData({"chapter": res.data.chapter, "scene": res.data.scene,
-                "name": res.data.name, "item": res.data.item,
+                "name": res.data.name, "item": [res.data.item4, res.data.item5],
                 "court": res.data.court, "script": res.data.script
               })
-             
-              console.log(res.data.item5.info); //이건 출력이 잘 됨.  
-              //그러나 밑에서 item을 사용하려고 하면 읽어지지 않음. 
+
     })
     .catch(error => console.log(error))
     
   }, []);  //json에서 데이터 불러옴
+
+ // const [item, setItem] = useState(
+
   
 
   const [paper, setPaper] = useState(
@@ -141,22 +141,22 @@ const handleClick_change = () => {
     };
   }, []);
 
-  useEffect(() => {
-    // 데이터를 가져오는 함수를 정의
-    const fetchData = async () => {
-      try {
-        const response = await axios.get('/document?chapter=' + chapter + '&scene=35'); 
-        const data = response.data; 
+  // useEffect(() => {
+  //   // 데이터를 가져오는 함수를 정의
+  //   const fetchData = async () => {
+  //     try {
+  //       const response = await axios.get('/document?chapter=' + chapter + '&scene=35'); 
+  //       const data = response.data; 
   
-        // 데이터를 파싱하여 Map으로 변환
-        const itemMap = new Map(Object.entries(data.item));
-        setItems(itemMap);
-      } catch (error) {
-        console.error(error);
-      }
-    };
-    fetchData();
-  }, []);
+  //       // 데이터를 파싱하여 Map으로 변환
+  //       const itemMap = new Map(Object.entries(data.item));
+  //       setItems(itemMap);
+  //     } catch (error) {
+  //       console.error(error);
+  //     }
+  //   };
+  //   fetchData();
+  // }, []);
 
   ////////////////////////////////////////
  
@@ -260,7 +260,7 @@ const handleClick_change = () => {
   const crime2 = data.court["감금죄"];
   const crime3 = data.court["추행등목적약취유인죄"];
   console.log(data.item);
-  const item4_info = data.item;
+ // const item4_info = data.item4["info"]; //state
   //const item4info = data.item4.info;
   
  
@@ -274,10 +274,10 @@ const handleClick_change = () => {
 
 
        <div className="proof1_0" >
-        <p>{item4_info}</p>
+        <p>{data.item[1].info}</p>
       </div> 
       <div className="proof2_0">
-        <p>임시2</p>
+        <p>{data.item[0].info}</p>
       </div>
 
       <div className="sageonseosul" dangerouslySetInnerHTML={ {__html: data.script} }>
