@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useHaveItem } from "./config";
 import { divToImg } from "../../services/propsFormat";
 
 import Find3 from "pages/Find3";
@@ -91,6 +92,7 @@ export default [
   ({ onTalk, goOffice }) => {
     useBGM("biga");
     const [ disabled, setDisabled ] = useState(false);
+    const item = useHaveItem("비녀");
 
     return (
       <div className={styles.location}>
@@ -111,7 +113,7 @@ export default [
             }
           }}
         />
-        <Find3 goOffice={goOffice} setActive={setDisabled}/>
+        {item && <Find3 goOffice={goOffice} setActive={setDisabled}/>}
       </div>
     );
   },
@@ -141,12 +143,14 @@ export default [
   // 관아 안
   ({ onTalk, moveRecord }) => {
     useBGM("biga");
+    const item = useHaveItem("부검서");
+
     return (
       <div
         className={styles.location}
         {...divToImg(BackgroundImgBase + "illust_TwoSisters_police_room.png")}
       >
-        <Find3_2 moveRecord={moveRecord}/>
+        {item && <Find3_2 moveRecord={moveRecord}/>}
       </div>
     );
   },

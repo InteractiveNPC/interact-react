@@ -2,9 +2,11 @@ import axios from "axios";
 
 // getMainNodes와 getNodes는 async 함수 내에서 await으로 값을 기다려서 받기 (스프링에서 값을 가져오는 시간)
 /* example
-    useEffect(async () => {
-        const mainNodes = await getMainNodes();
-        setMainNodes(mainNodes);
+    useEffect() => {
+        (async () => {
+            const mainNodes = await getMainNodes();
+            setMainNodes(mainNodes);
+        })();
     });
 */
 
