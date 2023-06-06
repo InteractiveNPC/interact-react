@@ -72,6 +72,10 @@ function Dialogue(props) {
 
   const chapterHandler = (id, scene, flag, index, size) => {
     var end = endCheck(id, scene)
+    if(size == -1) {
+      clickHandler({"data":{"code":0, scene: scene}});
+      return;
+    }
     if(hold != true) {
       axios.get("/chapter?id=" + id + "&scene=" + scene + "&flag=" + flag + "&index=" + index)
       .then(async (res) => {
@@ -166,8 +170,13 @@ function Dialogue(props) {
         {show ? (
           <div id="dialogue" onClick={dialogueHandler}>
             {
-              (data.scene != -1 && data.scene != 0 && !( data.scene == 1 && data.index == 0 ) ) &&
-              <div className="blur"></div>
+              (data.scene != 0
+                && data.scene != -1
+                && data.scene != -2
+                && !( data.id == 1 && data.scene == 9 )
+                && !( data.id == 3 && data.scene == 11 )
+                && !( data.scene == 1 && data.index == 0 )
+              ) && <div className="blur"></div>
             }
             <img id="character" src={data.image}/>
             <div id="dialogue_bg"></div>
