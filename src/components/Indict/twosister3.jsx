@@ -72,11 +72,11 @@ const handleChecked = (checkid) => {
     console.log("isCheck3: " + isCheck3)
   }
 }
-function Indict(){
+function Indict(props){
   const chapter = "3_2"
   const [ data, setData] = useState(
     {"chapter":3_2, "scene": 37, "name":"", "item": [{}, {}],
-     "court":"", "script": ""}
+     "court":"", "script": "", "met": ""}
   )
 
   useEffect(() => {
@@ -85,7 +85,7 @@ function Indict(){
       console.log(res.data)
       setData({"chapter": res.data.chapter, "scene": res.data.scene,
                 "name": res.data.name,"item": [res.data.item7, res.data.item4],
-                "court": res.data.court, "script": res.data.script
+                "court": res.data.court, "script": res.data.script, "met": res.data.met
               })
       
 
@@ -126,7 +126,7 @@ function Indict(){
       $(document).find(".proof1_0").hide();
       $(document).find(".proof2_0").hide();
     }
-    
+
   const [imageOpacity, setImageOpacity] = useState({ 
     check1: 0, check2: 0, check3: 0,
   crimenormal: 1 });
@@ -278,7 +278,8 @@ function Indict(){
         onMouseLeave={handleMouseLeave}
         onClick={() => {
           handleClick_change();
-          session_crime(1);
+          props.onSubmit() 
+         
         }}
       />
     </div>
@@ -317,9 +318,8 @@ function Indict(){
         </div>
       </div>
 
-      {/* checkbox Event */}
       <div className="imgs">
-        <img src={crime01} id="crime03"/>
+        <img src={crime01} id="crime01"/>
         <img src={CrimeScenebg} id="crimescene" />
         <img src={book} id="book" />
 
@@ -327,11 +327,11 @@ function Indict(){
         <img src={checkbox} id="checkbox2" />
         <img src={checkbox} id="checkbox3" />
 
-
         <img src={check}  
         onClick={() => { effectPlay("paperbutton");
         decreaseOpacity('check1', 'crimenormal1');
         handleChecked(1);
+        session_crime(1);
         } }
         data-id="check1"
         className="my-image"
@@ -340,8 +340,9 @@ function Indict(){
         <img src={check} 
         onClick={() => {
           effectPlay("paperbutton");
-          decreaseOpacity('check2');
+          decreaseOpacity('check2'); 
           handleChecked(2);
+          session_crime(1);
         } }
         className="my-image"
         data-id="check2"
@@ -352,11 +353,13 @@ function Indict(){
         onClick={() => {decreaseOpacity('check3');
         effectPlay("paperbutton");
         handleChecked(3);
+        session_crime(1);
       }}
         className="my-image"
         data-id="check3"
         id="check3" />
-        
+
+
         <img src={crime_click}
         data-id="check1"
         className="my-image"
@@ -368,8 +371,6 @@ function Indict(){
         data-id="check2"
         className="my-image"
         id="crime_click2" />
-
-
 
         <img src={crime_click}
         data-id="check3"
