@@ -125,25 +125,25 @@ function Indict(props){
         }));
       }
     };
-    const session_crime = (giso) => {
-      if(isCheck1 == 1 && giso == 1)
-        axios.get('/document/1_1?crime=' + "재물손괴죄")
+    const session_crime = () => {
+      if(isCheck1 == 1 )
+        axios.get('/document/1_1?crime=' + '재물손괴죄')
         .then(function (response) {
           console.log(response);
         })
         .catch(function (error) {
           console.log(error);
         })
-      if(isCheck2 == 1 && giso == 1)
-        axios.get('/document/1_1?crime=' + "감금죄")
+      if(isCheck2 == 1 )
+        axios.get('/document/1_1?crime=' + '감금죄')
         .then(function (response) {
           console.log(response);
         })
         .catch(function (error) {
           console.log(error);
         })
-      if(isCheck3 == 1 && giso == 1)
-        axios.get('/document/1_1?crime=' + "추행 등 목적 약취 유인죄")
+      if(isCheck3 == 1 )
+        axios.get('/document/1_1?crime=' + '추행 등 목적 약취 유인죄')
         .then(function (response) {
           console.log(response);
         })
@@ -331,7 +331,7 @@ function Indict(props){
         onClick={() => { effectPlay("paperbutton");
         decreaseOpacity('check1', 'crimenormal1')
         handleChecked(1);
-        session_crime(1);
+        session_crime();
         } }
         data-id="check1"
         className="my-image"
@@ -348,7 +348,7 @@ function Indict(props){
           effectPlay("paperbutton");
           decreaseOpacity('check2'); 
           handleChecked(2);
-          session_crime(1);
+          session_crime();
         } 
           
         }
@@ -367,7 +367,7 @@ function Indict(props){
         onClick={() => {decreaseOpacity('check3');
         effectPlay("paperbutton");
         handleChecked(3);
-        session_crime(1);
+        session_crime();
       }}
         className="my-image"
         data-id="check3"
@@ -381,8 +381,8 @@ function Indict(props){
       {/* checkbox Event */}
 
 
-        <img src={cloth} id="sister" />
-        <img src={sister} id="deer" />
+        <img src={cloth} id="cloth" />
+        <img src={sister} id="sister" />
 
         <img src={proofpic} id="proofpic1"/>
         <img src={proofpic} id="proofpic2"/>

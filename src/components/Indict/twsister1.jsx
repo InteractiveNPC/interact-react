@@ -333,6 +333,7 @@ const handleClick_change = () => {
         onClick={() => { effectPlay("paperbutton");
         decreaseOpacity('check1', 'crimenormal1');
         handleChecked(1);
+        session_crime(1);
         } }
         data-id="check1"
         className="my-image"
@@ -342,6 +343,7 @@ const handleClick_change = () => {
         onClick={() => {
           effectPlay("paperbutton");
           decreaseOpacity('check2'); 
+          session_crime(2);
           handleChecked(2);
         } }
         className="my-image"
@@ -352,6 +354,7 @@ const handleClick_change = () => {
          <img src={check}
         onClick={() => {decreaseOpacity('check3');
         effectPlay("paperbutton");
+        session_crime(3);
         handleChecked(3);
       }}
         className="my-image"
