@@ -262,6 +262,7 @@
 
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
 }
 
 .td3Container {
@@ -272,6 +273,7 @@
 
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
 }
 
 .subtitle2 {
