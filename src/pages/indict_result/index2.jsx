@@ -9,6 +9,8 @@ export default function Indict_Result() {
     const $contents = document.getElementById('contents')
 
     const background = '/image/IndictResult/background/background-long.png';
+    const background_top = '/image/IndictResult/background/background_top.png';
+    const background_bottom = '/image/IndictResult/background/background_bottom.png';
     const document_FairyNWoodcutter_long = '/image/IndictResult/source/document_FairyNWoodcutter_long-1.png';
     const prevbutton_click = '/image/IndictResult/ui/Paper_result_prevbutton_click.png';
     const prevbutton_normal = '/image/IndictResult/ui/Paper_result_prevbutton_normal.png';
@@ -162,7 +164,7 @@ export default function Indict_Result() {
             <div className={styles.barWrap}><div class={styles.bar}></div></div>
             <div className={styles.document_container}>
                 
-                <img src={background} className={styles.topSpace} />
+                <img src={background_top} className={styles.topSpace} />
                 <img src={document_FairyNWoodcutter_long} className={styles.document_FairyWoodcutter}/>
                 <div className={styles.position_setting}>
                     <div className={styles.title}>공소장</div>
@@ -229,7 +231,7 @@ export default function Indict_Result() {
                     
                     </div>
                     <div className={styles.end}>피고인 {accused}에게 위와 같은 죄명으로 공소를 제기합니다.</div>
-                    <img src={background} className={styles.bottomSpace} />
+                    <img src={background_bottom} className={styles.bottomSpace} />
                 </div>
             </div>
             </div>
