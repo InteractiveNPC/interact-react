@@ -71,6 +71,7 @@
   > img {
     position: absolute;
     cursor: pointer;
+    z-index: 2500;
   }
   .background,
   video {
