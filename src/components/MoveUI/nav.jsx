@@ -34,6 +34,26 @@ export default ({ locationNames, idx, setIdx, disabled }) => {
     setDropdown(!dropdown);
   };
 
+  const resetDropdown = () => {
+    const divs = dropdownRef.current.childNodes;
+    
+    divs.forEach((div, i) => {
+      anime({
+        targets: div,
+        top: [`${50 * (i + 1)}px`, "0"],
+        easing: "linear",
+        duration: 0,
+        delay: 0,
+      });
+    });
+    anime({
+      targets: arrowRef.current,
+      rotate: [180, 0],
+      duration: 0,
+    });
+    setDropdown(false);
+  }
+
   useEffect(() => {
     const divs = dropdownRef.current.childNodes;
     divs.forEach((div) => {
@@ -86,6 +106,7 @@ export default ({ locationNames, idx, setIdx, disabled }) => {
             : () => {
               if (idx > 0) setIdx(idx - 1);
               else setIdx(locationNames.length - 1);
+              resetDropdown();
             }}
             src={`${process.env.PUBLIC_URL + img_base}Arrow_left.png`}
         />
@@ -96,6 +117,7 @@ export default ({ locationNames, idx, setIdx, disabled }) => {
               : () => {
                 if (idx < locationNames.length - 1) setIdx(idx + 1);
                 else setIdx(0);
+                resetDropdown();
               }
           }
           src={`${process.env.PUBLIC_URL + img_base}Arrow_right.png`}
