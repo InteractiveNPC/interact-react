@@ -27,9 +27,6 @@ function Dialogue(props) {
     } else {
       chapterHandler(data.id, data.scene, data.flag, data.index, data.len);
     }
-    if($("#dialogue_container").css("display") == "none") {
-      $("#dialogue_container").fadeIn(500);
-    }
   }, []);
 
   const endCheck = (id, scene) => {
@@ -50,12 +47,12 @@ function Dialogue(props) {
         setTimeout(function() {
           $("#dialogue").off("click").on("click", dialogueHandler);
           setShow(false);
-          //setHome(true); : 팝업창에 props 전달하도록 해야함
           props.onClose();
         }, 2000);
         break;
       case 0:
         if(event.data.scene == 0) {
+          $("#hero").trigger("hero");
           props.onInit();
         }
         $("#dialogue_container").fadeOut(500);
@@ -161,10 +158,6 @@ function Dialogue(props) {
 
   const answerId = (idx) => {
     return "answer" + idx;
-  }
-
-  if($("#dialogue_container").css("display") == "none") {
-    $("#dialogue_container").fadeIn(1000);
   }
 
   if (data.choice == null) {

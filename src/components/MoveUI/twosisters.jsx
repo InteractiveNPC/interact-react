@@ -1,9 +1,10 @@
 import { useState } from "react";
-import { useHaveItem } from "./config";
+import { useHaveItem, meet_character } from "./config";
 import { divToImg } from "../../services/propsFormat";
 
 import Find3 from "pages/Find3";
 import Find3_2 from "pages/Find3_2";
+import $ from 'jquery';
 
 import styles from "./style.module.scss";
 import { useBGM } from "../../services/audioManager";
@@ -23,8 +24,10 @@ export default [
   ({ onTalk, hero }) => {
     useBGM("NakhwaNansangji");
     const have = useHaveItem("비녀");
-
     const [heroDisabled, setHeroDisabled] = useState(hero);
+    $("#hero").bind("hero", function() {
+      setHeroDisabled(false);
+    });
     return (
       <div className={styles.location}>
         <video muted autoPlay loop playsInline>
@@ -35,19 +38,21 @@ export default [
             type="video/mp4"
           />
         </video>
-        {heroDisabled ? null : (
+        {!heroDisabled && (
           <div>
             <img
               src={halfWebpBase + "Hongryeon_normal_X_office.webp"}
               {...setPosWithIdx(0, 0, 1000)}
               onClick={() => {
                 const scene = have ? "-2" : "-1";
+                setHeroDisabled(true);
                 onTalk({ idx: "3", scene: scene, "flag": "0", index: "0" });
               }}
             />
           </div>
         )}
         <div
+          id="hero"
           className={styles.desk}
           {...divToImg(BackgroundImgBase + "illust_TwoSisters_desk.png")}
         />
@@ -72,6 +77,7 @@ export default [
           src={fullWebpBase + "Mrs.Heo.webp"}
           {...setPos(645, 607)}
           onClick={() => {
+            meet_character(3, 2);
             onTalk({ idx: "3", scene: "1", flag: "0", index: "0" });
           }}
         />
@@ -79,6 +85,7 @@ export default [
           src={fullWebpBase + "Jangsoe.webp"}
           {...setPos(1181, 613)}
           onClick={() => {
+            meet_character(3, 3);
             onTalk({ idx: "3", scene: "3", flag: "0", index: "0" });
           }}
         />
@@ -86,6 +93,7 @@ export default [
           src={fullWebpBase + "Mr.Bae.webp"}
           {...setPos(1508, 607)}
           onClick={() => {
+            meet_character(3, 4);
             onTalk({ idx: "3", scene: "5", flag: "0", index: "0" });
           }}
         />
@@ -113,6 +121,7 @@ export default [
           {...setPos(594, 284)}
           onClick={() => {
             if(!disabled) {
+              meet_character(3, 5);
               onTalk({ idx: "3", scene: "7", flag: "0", index: "0" });
             }
           }}
@@ -147,6 +156,7 @@ export default [
           src={fullWebpBase + "Maid.webp"}
           {...setPos(720, 620)}
           onClick={() => {
+            meet_character(3, 6);
             onTalk({ idx: "3", scene: "9", flag: "0", index: "0" });
           }}
         />

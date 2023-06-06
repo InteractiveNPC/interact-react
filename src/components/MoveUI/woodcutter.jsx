@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useHaveItem } from "./config";
+import { useHaveItem, meet_character } from "./config";
 import { divToImg } from "../../services/propsFormat";
 import Find from "../../pages/Find";
 import $ from 'jquery';
@@ -28,9 +28,10 @@ export default [
   ({ onTalk, hero }) => {
     useBGM("NakhwaNansangji");
     const have = useHaveItem("선녀옷");
-
     const [heroDisabled, setHeroDisabled] = useState(hero);
-    console.log(hero);
+    $("#hero").bind("hero", function() {
+      setHeroDisabled(false);
+    });
     return (
       <div className={styles.location}>
           <video muted autoPlay loop playsInline>
@@ -42,19 +43,21 @@ export default [
           />
           </video>
           
-          {heroDisabled ? null : (
+          {!heroDisabled && (
             <div>
               <img
                 src={halfWebpBase + "Fairy_normal_X_office.webp"}
                 {...setPosWithIdx(0, 0, 1000)}
                 onClick={() => {
                   const scene = have ? "-2" : "-1";
+                  setHeroDisabled(true);
                   onTalk({ idx: "1", scene: scene, "flag": "0", index: "0" });
                 }}
               />
             </div>
           )}
           <div
+            id="hero"
             className={styles.desk}
             {...divToImg(BackgroundImgBase + "illust_FairyNWoodcutter_desk.png")}
           />
@@ -79,6 +82,7 @@ export default [
           src={fullWebpBase + "Woodcutter.webp"}
           {...setPos(468, 562)}
           onClick={() => {
+            meet_character(1, 3);
             onTalk({ idx: "1", scene: "3", flag: "0", index: "0" });
           }}
         />
@@ -86,6 +90,7 @@ export default [
           src={fullWebpBase + "Woodcutter_Mother.webp"}
           {...setPos(1330, 605)}
           onClick={() => {
+            meet_character(1, 2);
             onTalk({ idx: "1", scene: "1", flag: "0", index: "0" });
           }}
         />
@@ -127,6 +132,7 @@ export default [
           src={fullWebpBase + "Deer.webp"}
           {...setPos(1190, 539)}
           onClick={() => {
+            meet_character(1, 4);
             onTalk({ idx: "1", scene: "5", flag: "0", index: "0" });
           }}
         />
@@ -150,6 +156,7 @@ export default [
           src={fullWebpBase + "Fairy_Sister.webp"}
           {...setPos(744, 493)}
           onClick={() => {
+            meet_character(1, 5);
             onTalk({ idx: "1", scene: "7", flag: "0", index: "0" });
           }}
         />
