@@ -28,6 +28,11 @@ export default ({ chapter, moveRecord }) => {
   };
   const [who, setWho] = useState('temp');
 
+<<<<<<< HEAD
+  const settingDdata = (idx, scene, flag, index)=>{
+    setDialogueData(idx, scene, flag, index);
+  }
+=======
   useEffect(() => {
     if (process == 0 && chapterContext[chapter]) {
       settingbHelpDisabled();
@@ -35,6 +40,7 @@ export default ({ chapter, moveRecord }) => {
       setProcess(2);
     }
   });
+>>>>>>> 8d3495ba68bbbf50231577b733c2da5cdea6284e
 
   return (
     <>
