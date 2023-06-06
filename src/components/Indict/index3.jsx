@@ -141,6 +141,10 @@ function Indict(props){
 
 const [isClicked, setIsClicked] = useState(false);
 
+const session_bulgiso = () => {
+  axios.get('/document/"1_0"/false')
+}
+
 const handleClick_change = () => {
   setIsClicked(!isClicked);
 };
@@ -398,6 +402,7 @@ const handleClick_change = () => {
         alt={isImageChanged2 ? 'Changed Image' : 'Original Image'}
         onClick={()=> {
           effectPlay("paperbutton");
+          session_bulgiso();
           handleClick2();
           }}>
         </img>

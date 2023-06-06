@@ -96,6 +96,10 @@ function Indict(props){
 
  // const [item, setItem] = useState(
 
+    const session_bulgiso = () => {
+      axios.get('/document/"1_0"/false')
+    }
+    
     const session_crime = (giso) => {
       if(isCheck1 == 1 && giso == 1)
         axios.get('/document/"1_0"?crime=' + "재물손괴죄")
@@ -472,7 +476,7 @@ const handleClick_change = () => {
         alt={isImageChanged2 ? 'Changed Image' : 'Original Image'}
         onClick={()=> {
           effectPlay("paperbutton");
-          handleGiso(0);
+          session_bulgiso();
           handleClick2();
           }}>
         </img>

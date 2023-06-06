@@ -45,6 +45,10 @@ function Indict(props){
 
   const [isHovered, setIsHovered] = useState(false);
 
+  const session_bulgiso = () => {
+    axios.get('/document/"1_0"/false')
+  }
+  
   const handleMouseEnter = () => {
     setIsHovered(true);
   };
@@ -390,6 +394,7 @@ function Indict(props){
         alt={isImageChanged2 ? 'Changed Image' : 'Original Image'}
         onClick={()=> {
           effectPlay("paperbutton");
+          session_bulgiso();
           handleClick2();
           }}>
         </img>
