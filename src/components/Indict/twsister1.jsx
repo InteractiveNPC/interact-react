@@ -289,7 +289,7 @@ const handleClick_change = () => {
         onMouseLeave={handleMouseLeave}
         onClick={() => {
           handleClick_change();
-          session_crime(1);
+         
         }}
       />
     </div>

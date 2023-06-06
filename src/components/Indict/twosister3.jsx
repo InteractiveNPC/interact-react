@@ -72,7 +72,7 @@ const handleChecked = (checkid) => {
     console.log("isCheck3: " + isCheck3)
   }
 }
-function Indict(){
+function Indict(props){
   const chapter = "3_2"
   const [ data, setData] = useState(
     {"chapter":3_2, "scene": 37, "name":"", "item": [{}, {}],
@@ -278,6 +278,7 @@ function Indict(){
         onMouseLeave={handleMouseLeave}
         onClick={() => {
           handleClick_change();
+          props.onSubmit() 
          
         }}
       />
