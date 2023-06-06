@@ -1,9 +1,13 @@
 import { useState, useEffect } from "react";
 import styles from './paperResult.module.css';
 import Axios from "axios";
+import $ from 'jquery';
+
 <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
 
 export default function Indict_Result() {
+    const $contents = document.getElementById('contents')
+
     const background = '/image/IndictResult/background/background-long.png';
     const document_FairyNWoodcutter_long = '/image/IndictResult/source/document_FairyNWoodcutter_long-1.png';
     const prevbutton_click = '/image/IndictResult/ui/Paper_result_prevbutton_click.png';
@@ -27,30 +31,24 @@ export default function Indict_Result() {
 
     let [sin_src, setSin_src] = useState(['', '', '']);
     let [sin_summary, setSin_summary] = useState(['', '', '']);
+    let [sin_name, setSin_name] = useState(['', '', '']);
+    let [sin_relative, setSin_relative] = useState(['', '', '']);
+    let [sin_title, setSin_title] = useState(['', '', '']);
+    let [sin_detail, setSin_detail] = useState(['', '', '']);
+    let [sin_result, setSin_result] = useState(['', '', '']);
+
+    let [content_1, setContent1] = useState(['', '', '']);
+    let [content_2, setContent2] = useState(['', '', '']);
+    let [content_3, setContent3] = useState(['', '', '']);
+    let [content_4, setContent4] = useState(['', '', '']);
+
     let [sin_name_1, setSin_name_1] = useState('');
     let [sin_name_2, setSin_name_2] = useState('');
     let [sin_name_3, setSin_name_3] = useState('');
-    let [sin_relative_1, setSin_relative_1] = useState('');
-    let [sin_relative_2, setSin_relative_2] = useState('');
-    let [sin_relative_3, setSin_relative_3] = useState('');
-    let [sin_title_1, setSin_title_1] = useState('');
-    let [sin_title_2, setSin_title_2] = useState('');
-    let [sin_title_3, setSin_title_3] = useState('');
-    let [sin_detail_1, setSin_detail_1] = useState('');
-    let [sin_detail_2, setSin_detail_2] = useState('');
-    let [sin_detail_3, setSin_detail_3] = useState('');
-    let [sin_result_1, setSin_result_1] = useState('');
-    let [sin_result_2, setSin_result_2] = useState('');
-    let [sin_result_3, setSin_result_3] = useState('');
-    let [sin_related_1, setSin_related_1] = useState('');
-    let [sin_related_2, setSin_related_2] = useState('');
-    let [sin_related_3, setSin_related_3] = useState('');
-    let [sin_content_1, setSin_content_1] = useState('');
-    let [sin_content_2, setSin_content_2] = useState('');
-    let [sin_content_3, setSin_content_3] = useState('');
 
-    let [Loop, setLoop] = useState();
+    let [Loop, setLoop] = useState(0);
     let [select_list, set_select_list] = useState([]);
+    let [content, setContent] = useState([]);
 
 
     let accused_info = [];
@@ -77,6 +75,7 @@ export default function Indict_Result() {
 
         let sinName;
         let flag;
+        
         for (let i = 0; i < Object.keys(select_list).length; i++) {
             flag = Object.keys(select_list)[i];
             console.log(flag);
@@ -86,51 +85,39 @@ export default function Indict_Result() {
             if (i == 0) {
                 setSin_name_1(sinName);
                 setImageLink(sinName, i);
-                setSin_relative_1(crime_list[sinName]['relative']);
-                setSin_title_1(crime_list[sinName]['title']);
-                setSin_detail_1(crime_list[sinName]['detail']);
-                setSin_result_1(crime_list[sinName]['result']);
-                setSin_content_1(crime_list[sinName]['content']);
-                // setSin_related_1(crime_list[Object.keys(crime_list)[i]]['related']);
-                // console.log(sin_related_1);
+                sin_relative[i] = crime_list[sinName]['relative'];
+                sin_title[i] = crime_list[sinName]['title'];
+                sin_detail[i] = crime_list[sinName]['detail'];
+                sin_result[i] = crime_list[sinName]['result'];
+                // sin_content[i] = crime_list[sinName]['content'];
             }
             else if (i == 1) {
                 setSin_name_2(sinName);
                 setImageLink(sinName, i);
-                setSin_relative_2(crime_list[sinName]['relative']);
-                setSin_title_2(crime_list[sinName]['title']);
-                setSin_detail_2(crime_list[sinName]['detail']);
-                setSin_result_2(crime_list[sinName]['result']);
-                setSin_content_2(crime_list[sinName]['content']);
-                // setSin_related_2(crime_list[Object.keys(crime_list)[i]]['related']);
+                sin_relative[i] = crime_list[sinName]['relative'];
+                sin_title[i] = crime_list[sinName]['title'];
+                sin_detail[i] = crime_list[sinName]['detail'];
+                sin_result[i] = crime_list[sinName]['result'];
+                // sin_content[i] = crime_list[sinName]['content'];
             }
             else {
                 setSin_name_3(sinName);
                 setImageLink(sinName, i);
-                setSin_relative_3(crime_list[sinName]['relative']);
-                setSin_title_3(crime_list[sinName]['title']);
-                setSin_detail_3(crime_list[sinName]['detail']);
-                setSin_result_3(crime_list[sinName]['result']);
-                setSin_content_3(crime_list[sinName]['content']);
-                // setSin_related_3(crime_list[Object.keys(crime_list)[i]]['related']);
+                sin_relative[i] = crime_list[sinName]['relative'];
+                sin_title[i] = crime_list[sinName]['title'];
+                sin_detail[i] = crime_list[sinName]['detail'];
+                sin_result[i] = crime_list[sinName]['result'];
+                // sin_content[i] = crime_list[sinName]['content'];
             }
-        } 
-        if(Object.keys(select_list).length == 1) {
-            console.log(1111);
-            setLoop(() => {
-                return(
-                    <div className={styles.sinContainer}>
-                        <div className={styles.sinSubContainer}>
-                            <div className={styles.sin_related_1}>1. 피고인 {accused}의 {sin_name_1}</div>
-                            <div className={styles.sin_detail_1}>피고인 {accused}은 xxxx.xx.x일 아래와 같이 {sin_result_1}</div>
-                        </div>
-                        <div className={styles.sinSubContainer}>
-                            <div>가. {sin_title_1}</div>
-                            <div className={styles.sinDetail}>피고인 {accused}은 {sin_detail_1}<br/><br/>이로써 피고인 {accused}은 {sin_result_1}</div>
-                        </div>
-                    </div>
-                );
-            });
+        }
+
+        setLoop(Object.keys(select_list).length);
+        console.log("loop length is" + Loop)
+        if (Loop == 1) {
+            $(document).find("#sinContainer2").hide();
+            $(document).find("#sinContainer3").hide();
+        } else if (Loop == 2) {
+            $(document).find("#sinContainer3").hide();
         }
     }
 
@@ -154,7 +141,7 @@ export default function Indict_Result() {
     
             setData();
         })
-    }, []);
+    });
 
     //event function
     function onClick_prev() {
@@ -196,44 +183,46 @@ export default function Indict_Result() {
 
                 <div className={styles.th3}>적용법조</div>
                 <div>
-                    <div className={styles.td3_1}>{sin_relative_1}</div>
-                    <div className={styles.td3_2}>{sin_relative_2}</div>
-                    <div className={styles.td3_3}>{sin_relative_3}</div>
+                    <div className={styles.td3_1}>{sin_relative[0]}</div>
+                    <div className={styles.td3_2}>{sin_relative[1]}</div>
+                    <div className={styles.td3_3}>{sin_relative[2]}</div>
                 </div>
                 <div className={styles.subtitle2}>2. 공소 사실</div>
                 <div className={styles.subtitle2_1}>범죄 사실</div>
                 <div className={styles.sinWrap}>
-                <Loop />
-                {/* <div className={styles.sinContainer}>
+
+                {/* <div id="contents"></div> */}
+                <div className={styles.sinContainer} id="sinContainer1">
                     <div className={styles.sinSubContainer}>
                         <div className={styles.sin_related_1}>1. 피고인 {accused}의 {sin_name_1}</div>
-                        <div className={styles.sin_detail_1}>피고인 {accused}은 xxxx.xx.x일 아래와 같이 {sin_result_1}</div>
+                        <div className={styles.sin_detail_1}>피고인 {accused}은 xxxx.xx.x일 아래와 같이 {sin_result[0]}</div>
                     </div>
                     <div className={styles.sinSubContainer}>
-                        <div>가. {sin_title_1}</div>
-                        <div className={styles.sinDetail}>피고인 {accused}은 {sin_detail_1}<br/><br/>이로써 피고인 {accused}은 {sin_result_1}</div>
+                        <div>가. {sin_title[0]}</div>
+                        <div className={styles.sinDetail}>피고인 {accused}은 {sin_detail[0]}<br/><br/>이로써 피고인 {accused}은 {sin_result[0]}</div>
                     </div>
                 </div>
-                <div className={styles.sinContainer}>
+                <div className={styles.sinContainer} id="sinContainer2">
                     <div className={styles.sinSubContainer}>
                         <div className={styles.sin_related_2}>2. 피고인 {accused}의 {sin_name_2}</div>
-                        <div className={styles.sin_detail_2}>피고인 {accused}은 xxxx.xx.x일 아래와 같이 {sin_result_2}</div>
+                        <div className={styles.sin_detail_2}>피고인 {accused}은 xxxx.xx.x일 아래와 같이 {sin_result[1]}</div>
                     </div>
                     <div className={styles.sinSubContainer}>
-                        <div>가. {sin_title_2}</div>
-                        <div className={styles.sinDetail}>피고인 {accused}은 {sin_detail_2}<br/><br/>이로써 피고인 {accused}은 {sin_result_2}</div>
+                        <div>가. {sin_title[1]}</div>
+                        <div className={styles.sinDetail}>피고인 {accused}은 {sin_detail[1]}<br/><br/>이로써 피고인 {accused}은 {sin_result[1]}</div>
                     </div>
                 </div>
-                <div className={styles.sinContainer}>
+                <div className={styles.sinContainer} id="sinContainer3">
                     <div className={styles.sinSubContainer}>
                         <div className={styles.sin_related_3}>3. 피고인 {accused}의 {sin_name_3}</div>
-                        <div className={styles.sin_detail_3}>피고인 {accused}은 xxxx.xx.x일 아래와 같이 {sin_result_3}</div>
+                        <div className={styles.sin_detail_3}>피고인 {accused}은 xxxx.xx.x일 아래와 같이 {sin_result[2]}</div>
                     </div>
                     <div className={styles.sinSubContainer}>
-                        <div>가. {sin_title_3}</div>
-                        <div className={styles.sinDetail}>피고인 {accused}은 {sin_detail_3}<br/><br/>이로써 피고인 {accused}은 {sin_result_3}</div>
+                        <div>가. {sin_title[2]}</div>
+                        <div className={styles.sinDetail}>피고인 {accused}은 {sin_detail[2]}<br/><br/>이로써 피고인 {accused}은 {sin_result[2]}</div>
                     </div>
-                </div> */}
+                </div>
+                
                 </div>
                 <div className={styles.end}>피고인 {accused}에게 위와 같은 죄명으로 공소를 제기합니다.</div>
             </div>
