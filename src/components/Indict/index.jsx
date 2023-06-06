@@ -10,8 +10,6 @@ let isCheck1 = 0;
 let isCheck2 = 0;
 let isCheck3 = 0;
 
-
-
 const handleChecked = (checkid) => {
   if (checkid == 1) {
     if(isCheck1 == 0)
@@ -51,6 +49,25 @@ function Indict(){
     {"chapter":1_0, "scene": 35, "name":"", "item": "",
      "court":"", "script": ""}
   ) // 초기화
+
+   
+  useEffect(() => {
+    axios.get('/document?chapter=' + chapter + '&scene=35')
+    .then(res => {
+      console.log(res.data)
+      const itemData = res.data.item;
+      setData({"chapter": res.data.chapter, "scene": res.data.scene,
+                "name": res.data.name, "item": res.data.item,
+                "court": res.data.court, "script": res.data.script
+              })
+             
+              console.log(res.data.item5.info); //이건 출력이 잘 됨.  
+              //그러나 밑에서 item을 사용하려고 하면 읽어지지 않음. 
+    })
+    .catch(error => console.log(error))
+    
+  }, []);  //json에서 데이터 불러옴
+  
 
   const [paper, setPaper] = useState(
     {"chapter": 35, "scene": 35, "crime": "" }
@@ -142,22 +159,7 @@ const handleClick_change = () => {
   }, []);
 
   ////////////////////////////////////////
-  
-  useEffect(() => {
-    axios.get('/document?chapter=' + chapter + '&scene=35')
-    .then(res => {
-      console.log(res.data)
-      const itemData = res.data.item;
-      setData({"chapter": res.data.chapter, "scene": res.data.scene,
-                "name": res.data.name, "item": res.data.item,
-                "court": res.data.court, "script": res.data.script
-              })
-             
-              console.log(res.data.item["4"].info); //이건 출력이 잘 됨.
-    })
-    .catch(error => console.log(error))
-    
-  }, []);  //json에서 데이터 불러옴
+ 
 
   
  
@@ -257,8 +259,10 @@ const handleClick_change = () => {
   const crime1 = data.court["재물손괴죄"];
   const crime2 = data.court["감금죄"];
   const crime3 = data.court["추행등목적약취유인죄"];
-  const item4 = data.item["4"];
-  const item5 = data.item["5"];
+  console.log(data.item);
+  const item4_info = data.item;
+  //const item4info = data.item4.info;
+  
  
   return (
     <div className="Indict">
@@ -268,16 +272,10 @@ const handleClick_change = () => {
         <p>{data.name}</p>
       </div>
 
-      {Array.from(items.entries()).map(([key, value]) => (
-      <div className="proof1_0" key={key}>
-       <p>{value.info}</p>
-      </div>
-    ))}
 
-
-      {/* <div className="proof1_0" key={4}>
-        <p>임시1</p>
-      </div> */}
+       <div className="proof1_0" >
+        <p>{item4_info}</p>
+      </div> 
       <div className="proof2_0">
         <p>임시2</p>
       </div>
@@ -397,9 +395,6 @@ const handleClick_change = () => {
         data-id="check2"
         className="my-image"
         id="crime_click2" />
-
-        
-
 
         <img src={crime_click}
         data-id="check3"
