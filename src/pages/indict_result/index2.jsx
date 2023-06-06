@@ -132,7 +132,7 @@ export default function Indict_Result() {
     }
 
     //axios
-    let chapter=2
+    let chapter=3
     useEffect(() => {
         Axios.get('/document/result/' + chapter)
             .then(response => {
