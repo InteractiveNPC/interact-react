@@ -98,6 +98,7 @@ function Indict(props){
     
     
   }, []);  //json에서 데이터 불러옴
+  console.log(data)
 
   if(data.met == null) {
     $(document).find("#sister").hide();
