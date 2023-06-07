@@ -51,7 +51,7 @@ export default function Indict_Result(props) {
     let accused_info = [];
     let crime_list = [];
     let name_list = [];
-    // let select_list = [];
+    let select_keySet = [];
 
     function setImageLink(sinName, idx) {
         if (sinName == '아동복지법위반죄') {
@@ -71,13 +71,17 @@ export default function Indict_Result(props) {
         select_list = data['selectedCrime'];
         name_list = data['nameList'];
 
+        for (let i = 0; i < Object.keys(select_list).length; i++) {
+            select_keySet.push(Object.keys(select_list)[i]);
+        }
+
         let sinName;
         let flag;
         
         for (let i = 0; i < Object.keys(select_list).length; i++) {
             flag = Object.keys(select_list)[i];
             // console.log(flag);
-            sinName = select_list[i + 1];
+            sinName = select_list[select_keySet[i]];
             console.log(sinName);
 
             if (i == 0) {
