@@ -43,7 +43,7 @@ const chapter = "1_1"
 function Indict(props){
   const [ data, setData] = useState(
     {"chapter":1_1, "scene": 36, "name":"", "item": [{}, {}],
-     "court":"", "script": ""}
+     "court":"", "script": "", "met": ""}
   ) // 초기화
 
   const [isHovered, setIsHovered] = useState(false);
@@ -72,7 +72,7 @@ function Indict(props){
       console.log(res.data)
       setData({"chapter": res.data.chapter, "scene": res.data.scene,
                 "name": res.data.name,"item": [res.data.item5, res.data.item6],
-                "court": res.data.court, "script": res.data.script
+                "court": res.data.court, "script": res.data.script, "met": res.data.met
               })
       console.log(res.data.item5) //여기까진 잘 받아짐..
 

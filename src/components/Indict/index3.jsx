@@ -77,7 +77,7 @@ function Indict(props){
   const chapter = "1_2"
     const [ data, setData] = useState(
       {"chapter":1_2, "scene": 37, "name":"", "item": [{}, {}],
-       "court":"", "script": ""}
+       "court":"", "script": "", "met": ""}
     ) // 초기화
     const [items, setItems] = useState(new Map());
 
@@ -87,7 +87,7 @@ function Indict(props){
         
         setData({"chapter": res.data.chapter, "scene": res.data.scene,
                   "name": res.data.name, "item": [res.data.item6, res.data.item2],
-                  "court": res.data.court, "script": res.data.script
+                  "court": res.data.court, "script": res.data.script, "met": res.data.met
                 })
         console.log(data.item) //여기까진 잘 받아짐..
         const itemMap = new Map(data.item);
