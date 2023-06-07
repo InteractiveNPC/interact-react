@@ -1,4 +1,5 @@
 import { useState, useContext, useEffect } from "react";
+import axios from "axios";
 import MoveUI from "../../../components/MoveUI";
 import Dialogue from "../../../components/DialogueUI/Dialogue";
 import { divToImg } from "services/propsFormat";
@@ -30,9 +31,13 @@ export default ({ chapter, moveRecord }) => {
   const [who, setWho] = useState('temp');
 
   useEffect(() => {
-    if (process == 0 && chapterContext[chapter]) {
-      setHeroDisabled(false);
-      setProcess(3);
+    if (process == 0){
+      if (chapterContext[chapter]) {
+        setHeroDisabled(false);
+        setProcess(3);
+      } else {
+        meet_character(chapter, 1);
+      }
     }
   });
 
@@ -132,3 +137,14 @@ export default ({ chapter, moveRecord }) => {
     </>
   );
 };
+
+const meet_character = (chapter, chapter_id) => {
+  axios
+  .get(`/meet/${chapter}/${chapter_id}`)
+  .then((res) => {
+    console.log(res);
+  })
+  .catch((error) => {
+    console.log(error);
+  });
+}
