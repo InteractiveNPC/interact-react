@@ -5,7 +5,7 @@ import $ from 'jquery';
 
 <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
 
-export default function Indict_Result() {
+export default function Indict_Result(props) {
     const $contents = document.getElementById('contents')
 
     const background = '/image/IndictResult/background/background-long.png';
