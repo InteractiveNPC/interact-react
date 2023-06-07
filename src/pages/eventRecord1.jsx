@@ -18,6 +18,8 @@ export default function Record(){
     4. 사슴
     5. 선녀 언니
     6. 비단 옷
+
+    4->1->5->2->3->6
     */
     const node = [['','image/Record/Source/FairyNWoodcutter/Fairy_node_glow.png', 'image/Record/Source/FairyNWoodcutter/Fairy_node_normal.png'],
                   ['image/Record/Source/FairyNWoodcutter/Woodcutter_Mother_node_dark.png', 'image/Record/Source/FairyNWoodcutter/Woodcutter_Mother_node_glow.png', 'image/Record/Source/FairyNWoodcutter/Woodcutter_Mother_node_normal.png'],
@@ -58,27 +60,27 @@ export default function Record(){
     });
 
     const mainNodeChange = (id) => {
-      return node[0][0];
-      // let img_src = "";
+      // return node[0][0];
+      let img_src = "";
 
-      // console.log("error : " + id, mainNodes[id]);
+      console.log("error : " + id, mainNodes[id].have, mainNodes[id].visited);
 
-      // if (mainNodes[id].have && mainNodes[id].visit)
-      //   img_src = node[id - 1][2];
-      // else if (mainNodes[id].have && !mainNodes[id].visit)
-      //   img_src = node[id - 1][1];
-      // else
-      //   img_src = node[id - 1][0];
+      if (mainNodes[id].have && mainNodes[id].visited)
+        img_src = node[id - 1][2];
+      else if (mainNodes[id].have && !mainNodes[id].visited)
+        img_src = node[id - 1][1];
+      else
+        img_src = node[id - 1][0];
 
-      // return img_src;
+      return img_src;
     }
 
     const subNodeChange = (id) => {
       let img_src = subNode[0];
 
-      if (subNodes[id].have && subNodes[id].visit)
+      if (subNodes[id].have && subNodes[id].visited)
         img_src = subNode[1];
-      else if (subNodes[id].have && !subNodes[id].visit)
+      else if (subNodes[id].have && !subNodes[id].visited)
         img_src = subNode[0];
 
       return img_src;
@@ -87,7 +89,7 @@ export default function Record(){
     const infoNodeChange = (node_id, img_id) => {
       let img_src = "";
 
-      if (mainNodes[node_id].have && mainNodes[node_id].visit)
+      if (mainNodes[node_id].have && mainNodes[node_id].visited)
         img_src = infoNode[img_id][1];
       else 
         img_src = infoNode[img_id][0];
