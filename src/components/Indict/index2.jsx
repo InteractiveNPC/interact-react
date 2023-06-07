@@ -83,7 +83,7 @@ function Indict(props){
   
     if(data.met == null) {
    $(document).find("#sister").hide();
-    $(document).find("#cloth").hide();
+    $(document).find("#cloth_0").hide();
     $(document).find(".proof1_0").hide();
     $(document).find(".proof2_0").hide();
     }
@@ -381,7 +381,7 @@ function Indict(props){
       {/* checkbox Event */}
 
 
-        <img src={cloth} id="cloth" />
+        <img src={cloth} id="cloth_0" />
         <img src={sister} id="sister" />
 
         <img src={proofpic} id="proofpic1"/>
