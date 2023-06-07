@@ -33,8 +33,8 @@ export default ({ chapter, replay }) => {
         buttonRef2.current,
         "/image/Notice/proof_find_info_button"
       );
+      if(chapterContext[chapter]) setChapterContext(chapter, false);
     }
-    if(chapterContext[chapter]) setChapterContext(chapter, false);
   });
 
   return (
