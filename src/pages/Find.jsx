@@ -56,6 +56,7 @@ export default function Find(props){
     return (
         <div style={{position:'absolute', zIndex:'3000'}}>
             <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"></script>
             <img id="find" src="/image/clothes/cloth_00.png" style={{ position: "absolute", top:"641px", left:"1327px"}} onClick={()=>{
                 $('div#backgroundS').fadeIn({fadeT});
                 $('div#etc').addClass('display-none');

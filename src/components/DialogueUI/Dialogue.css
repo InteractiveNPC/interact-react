@@ -164,32 +164,45 @@ audio { display:none; }
 	transform: translateY(-50%);
 }
 
+#answer0 {
+	top: 277px;
+}
+#answer1 {
+	top: 407px;
+}
+#answer2 {
+	top: 537px;
+}
+#answer3 {
+	top: 667px;
+}
+
 div:nth-child(1 of .answer):nth-last-child(2 of .answer) {
-	top: 403px;
+	top: 403px !important;
 }
 div:nth-child(2 of .answer):nth-last-child(1 of .answer) {
-	top: 533px;
+	top: 533px !important;
 }
 
 div:nth-child(1 of .answer):nth-last-child(3 of .answer) {
-	top: 338px;
+	top: 338px !important;
 }
 div:nth-child(2 of .answer):nth-last-child(2 of .answer) {
-	top: 468px;
+	top: 468px !important;
 }
 div:nth-child(3 of .answer):nth-last-child(1 of .answer) {
-	top: 598px;
+	top: 598px !important;
 }
 
 div:nth-child(1 of .answer):nth-last-child(4 of .answer) {
-	top: 277px;
+	top: 277px !important;
 }
 div:nth-child(2 of .answer):nth-last-child(3 of .answer) {
-	top: 407px;
+	top: 407px !important;
 }
 div:nth-child(3 of .answer):nth-last-child(2 of .answer) {
-	top: 537px;
+	top: 537px !important;
 }
 div:nth-child(4 of .answer):nth-last-child(1 of .answer) {
-	top: 667px;
+	top: 667px !important;
 }

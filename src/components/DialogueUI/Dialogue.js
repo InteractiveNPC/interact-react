@@ -76,8 +76,6 @@ function Dialogue(props) {
     if(hold != true) {
       axios.get("/chapter?id=" + id + "&scene=" + scene + "&flag=" + flag + "&index=" + index)
       .then(async (res) => {
-        console.log(res);
-
         let choice = null;
         if (res.data.choice) {
           choice = await setChoiceData(id, scene, res.data.choice);
@@ -98,7 +96,7 @@ function Dialogue(props) {
         }
         if((
             (scene == 0 && res.data.index == 0) ||
-            (scene == 7 && res.data.index == 0 && flag == 0)
+            (id == 1 && scene == 7 && res.data.index == 0 && flag == 0)
           ) && size+1 >= res.data.len) {
           $("#dialogue").off("click").on("click", {code: 0, scene: scene}, clickHandler);
           setHold(true);
@@ -130,7 +128,7 @@ function Dialogue(props) {
           setVoice(null);
         });
       })
-      .catch(error => console.log(error));
+      //.catch(error => console.log(error));
     }
   }
 

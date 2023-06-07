@@ -77,7 +77,6 @@ export default ({ chapter, moveRecord }) => {
                 setHeroDisabled(false);
               }}
               onClose={() => {
-                console.log("close!!!!");
                 if(chapter==1)
                   setWho('선녀');
                 else setWho('홍련');
@@ -142,7 +141,7 @@ const meet_character = (chapter, chapter_id) => {
   axios
   .get(`/meet/${chapter}/${chapter_id}`)
   .then((res) => {
-    console.log(res);
+    //console.log(res);
   })
   .catch((error) => {
     console.log(error);
