@@ -161,22 +161,22 @@ export default function Indict_Result(props) {
         props.onSubmit();
     }
 
-    // $('#document_container').scroll(function(){
-    //     var scrT = $('#document_container').scrollTop();
-    //     // console.log(scrT); //스크롤 값 확인용
-    //     if(scrT >= 1300){
-    //         //스크롤이 끝에 도달했을때 실행될 이벤트
-    //         $("#stamp2").on("load", function () {
-    //             setTimeout(function () {
-    //                 $("#stamp2").off("load");
-    //                 $("#stamp2").attr("src", '/image/IndictResult/source/stamp.png');
-    //             }, 200);
-    //             });
-    //         $("#stamp2").attr("src", '/image/IndictResult/source/paper_result_stamp.webp');
+    $('#document_container').scroll(function(){
+        var scrT = $('#document_container').scrollTop();
+        console.log(scrT); //스크롤 값 확인용
+        if(scrT >= 1300){
+            //스크롤이 끝에 도달했을때 실행될 이벤트
+            $("#stamp2").on("load", function () {
+                setTimeout(function () {
+                    $("#stamp2").off("load");
+                    $("#stamp2").attr("src", '/image/IndictResult/source/stamp.png');
+                }, 200);
+                });
+            $("#stamp2").attr("src", '/image/IndictResult/source/paper_result_stamp.webp');
 
-    //         $('#document_container').off("scroll");
-    //     }
-    // })
+            $('#document_container').off("scroll");
+        }
+    })
 
     return (
         <div>
@@ -187,7 +187,7 @@ export default function Indict_Result(props) {
             <img src={go_court_src} className={styles.go_court} onClick={onClick_go_court}/>
             <div className={styles.wrap}>
             <div className={styles.barWrap}><div class={styles.bar}></div></div>
-            <div className={styles.document_container}>
+            <div className={styles.document_container} id="document_container">
                 
                 <img src={background_top} className={styles.topSpace} />
                 <img src={document_FairyNWoodcutter_long} className={styles.document_FairyWoodcutter}/>
@@ -256,7 +256,7 @@ export default function Indict_Result(props) {
                     </div>
                     <div className={styles.end}>피고인 {accused}에게 위와 같은 죄명으로 공소를 제기합니다.</div>
                     <img src={background_bottom} className={styles.bottomSpace} />
-                    <img src='/image/IndictResult/source/stamp.png' className={styles.stamp} id="stamp2"/>
+                    <img src='' className={styles.stamp} id="stamp2"/>
                 </div>
             </div>
             </div>
