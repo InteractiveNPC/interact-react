@@ -46,8 +46,8 @@ export const effectPlay = (effect) => {
 
     const audio = new Audio(src);
     audio.volume = div.className;
-    console.log(audio.volume);
+    audio.autoplay = true;
+    console.log(audio);
     div.appendChild(audio);
     audio.onended = () => div.removeChild(audio);
-    audio.play();
 };
