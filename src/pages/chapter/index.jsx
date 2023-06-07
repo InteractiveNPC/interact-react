@@ -25,7 +25,7 @@ export default ({ chapter }) => {
               if(!record) setDocument(!document);
             }}
             moveRecord={() => {
-              if(!document) setRecord(!record);
+              alert("추후 업데이트 예정입니다!");
             }}
             goHome={() => setProcess(-1)}
             ending={process === 1}
