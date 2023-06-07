@@ -43,7 +43,7 @@ const chapter = "1_1"
 function Indict(props){
   const [ data, setData] = useState(
     {"chapter":1_1, "scene": 36, "name":"", "item": [{}, {}],
-     "court":"", "script": "", "met": ""}
+     "court":"", "script": "", "met": "", "found": ""}
   ) // 초기화
 
   const [isHovered, setIsHovered] = useState(false);
@@ -73,20 +73,20 @@ function Indict(props){
       setData({"chapter": res.data.chapter, "scene": res.data.scene,
                 "name": res.data.name,"item": [res.data.item5, res.data.item6],
                 "court": res.data.court, "script": res.data.script, "met": res.data.met
-              })
-      console.log(res.data.item5) //여기까진 잘 받아짐..
+              ,"found": res.data.found })
+     
 
     })
     .catch(error => console.log(error))
   }, []);  //json에서 데이터 불러옴
 
   
-  if(data.met == null) {
-  $(document).find("#sister").hide();
-  $(document).find("#cloth").hide();
-  $(document).find(".proof1_0").hide();
-  $(document).find(".proof2_0").hide();
-  }
+    if(data.met == null) {
+   $(document).find("#sister").hide();
+    $(document).find("#cloth").hide();
+    $(document).find(".proof1_0").hide();
+    $(document).find(".proof2_0").hide();
+    }
 
   const [imageOpacity, setImageOpacity] = useState({ 
     check1: 0, check2: 0, check3: 0,
