@@ -33,32 +33,33 @@ export default function Record(){
     // 획득한 노드 획득 시 이미지 변경(glow->normal)
 
     // 새로고침마다 적용 useEffect 안에 넣기
-    const [chapter, setChapter] = useState(1); 
-    const maindata = getMainNodes(chapter);
-    
-    console.log(maindata);
-
+    // 예외처리
+    const [mainNodes, setMainNodes] = useState({});
+    const [subNodes, setSubNodes] = useState({});
   
+    useEffect(() => {
+        (async () => {
+            const mainNodes = await getMainNodes(1);
+            const subNodes = await getNodes(1);
 
-    // useEffect() => {
-    //     (async () => {
-    //         const mainNodes = await getMainNodes();
-    //         setMainNodes(mainNodes);
+            setMainNodes(mainNodes);
+            setSubNodes(subNodes);
 
-    //         mainNodes[id];
-
-    //     })();
-    // });
+            console.log("mainNodes", mainNodes);
+            console.log("subNodes", subNodes);
+        })();
+    });
 
     const [message, setMessage] = useState('');
-    const clickPreNode  = (num) => {
+    const clickPreNode  = (num, id) => {
       if (num === 0) {
-        setMessage('이 노드는 ' + '에 있습니다\n해당 장소로 이동하여 노드를 획득해보세요.');
+        const place = mainNodes[id].place;
+        setMessage('이 노드는 ' + place  + '에 있습니다<br>\n해당 장소로 이동하여 노드를 획득해보세요.');
       }
     };
 
     return (
-        
+      <> { (Object.keys(mainNodes) > 0 && Object.keys(subNodes) > 0 ) &&   
       <div>
         <div>
           <img id="backgroud" src="image/Record/Background/Background.png"></img>
@@ -66,7 +67,7 @@ export default function Record(){
 
         <div>
         <img src={node1[nodeIndex[0]]} style={{ position: "absolute", top:"360px", left:"1425px"}} />
-        <button onClick={() => visitMainNode(1, 4) && clickPreNode(nodeIndex[0])}></button>
+        <button onClick={() => {visitMainNode(1, 4); clickPreNode(nodeIndex[0], 1);}}></button>
           <div className="node1_behind">
           <img src={tape} className="tape1_1"></img>
           <img src={tape} className="tape1_2"></img>
@@ -74,37 +75,37 @@ export default function Record(){
           <p className="name_1">사슴</p>
 
           <img src={infoNode4[0]} className="node1_info"></img>
-          <p className="node1_info_content">{maindata[4].content}</p>
+          <p className="node1_info_content">{mainNodes[4].content}</p>
           <img src={subNode[0]} className="node1_1"/>
           <button onClick={() => visitNode(1, 4_1)}></button>
-          <p className="node1_1_title">임시</p>
-          <p className="node1_1_content">임시</p>
+          <p className="node1_1_title">{subNodes[4_1].name}</p>
+          <p className="node1_1_content">{subNodes[4_1].content}</p>
           <img src={subNode[0]} className="node1_2" />
           <button onClick={() => visitNode(1, 4_2)}></button>
-          <p className="node1_2_title">임시</p>
-          <p className="node1_2_content">임시</p>
+          <p className="node1_2_title">{subNodes[4_2].name}</p>
+          <p className="node1_2_content">{subNodes[4_2].content}</p>
           <img src={subNode[0]} className="node1_3"/>
           <button onClick={() => visitNode(1, 4_3)}></button>
-          <p className="node1_3_title">임시</p>
-          <p className="node1_3_content">임시</p>
+          <p className="node1_3_title">{subNodes[4_3].name}</p>
+          <p className="node1_3_content">{subNodes[4_3].content}</p>
           </div></div>
 
         <div>
         <img src={node2[nodeIndex[1]]} style={{ position: "absolute", width: "137px",
 height: "182px", top:"198px", left:"438px"}}/>
-        <button onClick={() => visitMainNode(1, 1) && clickPreNode(nodeIndex[1])}></button>
+        <button onClick={() => {visitMainNode(1, 1); clickPreNode(nodeIndex[1]);}}></button>
           <img src={tape} className="tape2_1"></img>
           <img src={tape} className="tape2_2"></img>
           <img src={nameUI} className="name_ui_2"></img>
           <p className="name_2">선녀</p>
           <img src={infoNode2[0]} className="node2_info"></img>
-          <p className="node2_info_content">{maindata[1].content}</p>
+          <p className="node2_info_content">{mainNodes[1].content}</p>
 
           <div className="node2_behind">
           <img src={subNode[0]} className="node2_1"/>
           <button onClick={() => visitNode(1, 1_1)}></button>
-          <p className="node2_1_title">임시</p>
-          <p className="node2_1_content">임시</p>
+          <p className="node2_1_title">{subNodes[1_1].name}</p>
+          <p className="node2_1_content">{subNodes[1_1].content}</p>
           <img src={subNode[0]} className="node2_2"/>
           <button onClick={() => visitNode(1, 1_2)}></button>
           <p className="node2_1_title">임시</p>
@@ -117,7 +118,7 @@ height: "182px", top:"198px", left:"438px"}}/>
 
         <div>
         <img src={node3[nodeIndex[2]]} style={{ position: "absolute", top:"28px", left:"1192px"}}/>
-        <button onClick={() => visitMainNode(1, 5) && clickPreNode(nodeIndex[2])}></button>
+        <button onClick={() => {visitMainNode(1, 5); clickPreNode(nodeIndex[2]);}}></button>
         <div className="node3_behind">
           <img src={tape} className="tape3_1"></img>
             <img src={nameUI} className="name_ui_3"></img>
@@ -137,7 +138,7 @@ height: "182px", top:"198px", left:"438px"}}/>
 
         <div>
         <img src={node4[nodeIndex[3]]} style={{ position: "absolute", top:"502px", left:"371px"}} />
-        <button onClick={() => visitMainNode(1, 2) && clickPreNode(nodeIndex[3])}></button>
+        <button onClick={() => {visitMainNode(1, 2); clickPreNode(nodeIndex[3]);}}></button>
         <div className="node4_behind">
           <img src={tape} className="tape4_1"></img>
             <img src={nameUI} className="name_ui_4"></img>
@@ -161,7 +162,7 @@ height: "182px", top:"198px", left:"438px"}}/>
 
         <div>
         <img src={node5[nodeIndex[4]]} style={{ position: "absolute", top:"379px", left:"672px"}}/>
-        <button onClick={() => visitMainNode(1, 3) && clickPreNode(nodeIndex[4])}></button>
+        <button onClick={() => {visitMainNode(1, 3); clickPreNode(nodeIndex[4]);}}></button>
         <div className="node5_behind">
           <img src={tape} className="tape5_1"></img>
             <img src={nameUI} className="name_ui_5"></img>
@@ -185,7 +186,7 @@ height: "182px", top:"198px", left:"438px"}}/>
 
         <div>
         <img src={node6[nodeIndex[5]]} style={{ position: "absolute", top:"900px", left:"1060px"}} />
-        <button onClick={() => visitMainNode(1, 6) && clickPreNode(nodeIndex[5])}></button>
+        <button onClick={() => {visitMainNode(1, 6); clickPreNode(nodeIndex[5]);}}></button>
         <div className="node6_behind">
           <img src={tape} className="tape6_1"></img>
             <img src={nameUI} className="name_ui_6"></img>
@@ -229,5 +230,7 @@ height: "182px", top:"198px", left:"438px"}}/>
         <p>{message}</p>
       </div>
       </div>
+}
+    </>
     )
 }

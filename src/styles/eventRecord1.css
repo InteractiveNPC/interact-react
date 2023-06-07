@@ -383,3 +383,60 @@
     top: 868px;
     transform: rotate(4.5deg);
 }
+
+.node1_info_content {
+    position: absolute;
+    width: 311px;
+    height: 40px;
+    left: 1539.95px;
+    top: 419.99px;
+
+    font-family: 'Kim jung chul Script';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 26px;
+
+    color: #1C0707;
+
+    transform: rotate(-3.5deg);
+}
+
+.node1_1_title {
+    position: absolute;
+    width: 83px;
+    height: 21px;
+    left: 1402.47px;
+    top: 537.62px;
+
+    font-family: 'Kim jung chul Script';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 21px;
+    /* identical to box height */
+
+    text-align: center;
+
+    color: #000000;
+
+    transform: rotate(10.1deg);
+}
+
+.node1_1_content {
+    position: absolute;
+    width: 214px;
+    height: 101px;
+    left: 1327.35px;
+    top: 555.73px;
+
+    font-family: 'Kim jung chul Script';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 18px;
+
+    color: #34210B;
+
+    transform: rotate(10.1deg);
+}
