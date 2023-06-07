@@ -121,8 +121,8 @@ function Indict(props){
     }
 
     if(data.met == null) {
-      $(document).find("#sister").hide();
-      $(document).find("#deer").hide();
+      $(document).find("#bae0").hide();
+      $(document).find("#corpse0").hide();
       $(document).find(".proof1_0").hide();
       $(document).find(".proof2_0").hide();
     }
@@ -378,8 +378,8 @@ function Indict(props){
         id="crime_click3" /> 
 
 
-        <img src={corpse} id="sister" />
-        <img src={bae} id="deer" />
+        <img src={corpse} id="corpse0" />
+        <img src={bae} id="bae0" />
         <img src={proofpic} id="proofpic1"/>
         <img src={proofpic} id="proofpic2"/>
 

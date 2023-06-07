@@ -122,8 +122,8 @@ function Indict(props){
     }
 
     if(data.met == null) {
-      $(document).find("#hairpin").hide();
-      $(document).find("#tiger").hide();
+      $(document).find("#hairpin0").hide();
+      $(document).find("#tiger0").hide();
       $(document).find(".proof1_0").hide();
       $(document).find(".proof2_0").hide();
     }
@@ -384,8 +384,8 @@ const handleClick_change = () => {
       {/* checkbox Event */}
 
 
-        <img src={hairpin} id="hairpin" />
-        <img src={tiger} id="tiger" />
+        <img src={hairpin} id="hairpin0" />
+        <img src={tiger} id="tiger0" />
         <img src={proofpic} id="proofpic1"/>
         <img src={proofpic} id="proofpic2"/>
 

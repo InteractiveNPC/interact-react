@@ -4,7 +4,7 @@ import Indict2 from './index2'
 import axios from 'axios';
 import $ from 'jquery';
 
-import styles from '../../styles/twsister1.css';
+import styles from '../../styles/twosister2.css';
 let isCheck1 = 0;
 let isCheck2 = 0;
 let isCheck3 = 0;
@@ -121,8 +121,8 @@ function Indict(props){
     }
 
     if(data.met == null) {
-      $(document).find("#maid").hide();
-      $(document).find("#bae").hide();
+      $(document).find("#maid0").hide();
+      $(document).find("#bae0").hide();
       $(document).find(".proof1_0").hide();
       $(document).find(".proof2_0").hide();
     }
@@ -379,8 +379,8 @@ function Indict(props){
       {/* checkbox Event */}
 
 
-        <img src={maid} id="maid" />
-        <img src={bae} id="bae" />
+        <img src={maid} id="maid0" />
+        <img src={bae} id="bae0" />
 
         <img src={proofpic} id="proofpic1"/>
         <img src={proofpic} id="proofpic2"/>
