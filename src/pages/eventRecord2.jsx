@@ -29,7 +29,7 @@ export default function Record(){
     const infoNode5 = ['image/Record/UI/information_05_glow.png', 'image/Record/UI/information_05_normal.png'];
     
     // 홍련은 시작부터 있으므로 1부터 시작
-    const nodeIndex = [0, 1, 0, 0, 0, 0, 0, 0, 0];
+    const nodeIndex = [0, 0, 1, 0, 0, 0, 0, 0, 0];
 
     // 노드 획득 시 이미지 변경(pre->glow), 이름표 추가, 선 추가
     // 획득한 노드 획득 시 이미지 변경(glow->normal)
@@ -58,20 +58,26 @@ export default function Record(){
           <p className="name_1">사체 부검결과서</p>
 
           <img src={infoNode3[0]} className="node1_info"></img>
+          <p className="node1_info_content">임시</p>
           <img src={subNode[0]} className="node1_1" />
           <button onClick={() => visitNode(3, 7_1)}></button>
+          <p className="node1_1_title">임시</p>
+          <p className="node1_1_content">임시</p>
           </div></div>
 
         <div>
         <img src={node2[nodeIndex[1]]} style={{ position: "absolute", top:"413px", left:"119px"}} />
-        <button onClick={() => visitMainNode(3, 7) && clickPreNode(nodeIndex[0])}></button>
-          <img src={nameUI} className="name_ui_1"></img>
-          <p className="name_1">사체 부검결과서</p>
+        <button onClick={() => visitMainNode(3, 8) && clickPreNode(nodeIndex[0])}></button>
+        <div className="node2_behind">
+          <img src={nameUI} className="name_ui_2"></img>
+          <p className="name_1">보따리 속 비녀</p>
 
           <img src={infoNode3[0]} className="node1_info"></img>
-          <div className="node2_behind">
-          <img src={subNode[0]} className="node1_1"/>
-          <button onClick={() => visitNode(3, 7_1)}></button>
+          <p className="node2_info_content">임시</p>
+          <img src={subNode[0]} className="node2_1"/>
+          <button onClick={() => visitNode(3, 8_1)}></button>
+          <p className="node2_1_title">임시</p>
+          <p className="node2_1_content">임시</p>
           </div></div>
 
         <div>
