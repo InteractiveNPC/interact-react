@@ -40,14 +40,16 @@ export const useCourtData = (chapter) => {
   useEffect(() => {
     (async () => {
       if (!data) {
-        const data = await getCourtResult(chapter);
-        setData(data);
+        if (chapter.id != -1) {
+          const data = await getCourtResult(chapter);
+          setData(data);
 
-        const guiltyN = data.reduce((acc, cur) => acc + (cur.guilty ? 1 : 0), 0);
-        if(guiltyN === 0) result = 1;
-        if(guiltyN === 1 || guiltyN === 2) result = 2;
-        if(guiltyN === 3) result = 3;
-        setDialogueData(endingDialog[chapter][result]);
+          const guiltyN = data.reduce((acc, cur) => acc + (cur.guilty ? 1 : 0), 0);
+          if(guiltyN === 0) result = 1;
+          if(guiltyN === 1 || guiltyN === 2) result = 2;
+          if(guiltyN === 3) result = 3;
+          setDialogueData(endingDialog[chapter][result]);
+        }
       }
     })();
   });
