@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from 'axios';
 import styles from '../styles/eventRecord1.css';
 import { getMainNodes, getNodes, visitMainNode, visitNode } from "components/Record/hook";
+import { useHaveItem } from "components/MoveUI/config";
 
 export default function Record(){
     const background = 'image/Record/Background/Background.png'
@@ -34,7 +35,10 @@ export default function Record(){
     // 새로고침마다 적용 useEffect 안에 넣기
     const [chapter, setChapter] = useState(1); 
     const maindata = getMainNodes(chapter);
+    
     console.log(maindata);
+
+  
 
     // useEffect() => {
     //     (async () => {
@@ -70,7 +74,7 @@ export default function Record(){
           <p className="name_1">사슴</p>
 
           <img src={infoNode4[0]} className="node1_info"></img>
-          <p className="node1_info_content">임시</p>
+          <p className="node1_info_content">{maindata[4].content}</p>
           <img src={subNode[0]} className="node1_1"/>
           <button onClick={() => visitNode(1, 4_1)}></button>
           <p className="node1_1_title">임시</p>
@@ -94,7 +98,7 @@ height: "182px", top:"198px", left:"438px"}}/>
           <img src={nameUI} className="name_ui_2"></img>
           <p className="name_2">선녀</p>
           <img src={infoNode2[0]} className="node2_info"></img>
-          <p className="node2_info_content">임시</p>
+          <p className="node2_info_content">{maindata[1].content}</p>
 
           <div className="node2_behind">
           <img src={subNode[0]} className="node2_1"/>
@@ -219,6 +223,10 @@ height: "182px", top:"198px", left:"438px"}}/>
         <img src="image/Record/UI/FairyNWoodcutter/line_11.png" className="line11"></img>
 
 
+      </div>
+      <div className="hideNodeNoti">
+        <img></img>
+        <p>{message}</p>
       </div>
       </div>
     )
