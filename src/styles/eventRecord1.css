@@ -1,9 +1,3 @@
-@font-face {
-    font-family: 'KimjungchulGothic-Bold';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302_01@1.0/KimjungchulGothic-Bold.woff2') format('woff2');
-    font-weight: normal;
-    font-style: normal;
-}
 
 .node1_behind {
     display: none;
@@ -37,8 +31,7 @@
     left: 1541.94px;
     top: 373.72px;
     
-    font-family: 'Kim jung chul Script';
-    font-style: normal;
+  font-family: 'KimjungchulScript';    font-style: normal;
     font-weight: 700;
     font-size: 18px;
     line-height: 23px;
@@ -103,8 +96,7 @@
     left: 497.7px;
     top: 372.28px;
 
-    font-family: 'Kim jung chul Script';
-    font-style: normal;
+  font-family: 'KimjungchulScript';    font-style: normal;
     font-weight: 700;
     font-size: 18px;
     line-height: 23px;
@@ -172,8 +164,7 @@
     left: 1211.52px;
     top: 187.9px;
     
-    font-family: 'Kim jung chul Script';
-    font-style: normal;
+  font-family: 'KimjungchulScript';    font-style: normal;
     font-weight: 700;
     font-size: 18px;
     line-height: 23px;
@@ -226,8 +217,7 @@
     left: 413.01px;
     top: 667.43px;
     
-    font-family: 'Kim jung chul Script';
-    font-style: normal;
+  font-family: 'KimjungchulScript';    font-style: normal;
     font-weight: 700;
     font-size: 18px;
     line-height: 23px;
@@ -293,7 +283,7 @@
     left: 725.96px;
     top: 530.17px;
     
-    font-family: 'Kim jung chul Script';
+  font-family: 'KimjungchulMyungjo';
     font-style: normal;
     font-weight: 700;
     font-size: 18px;
@@ -358,7 +348,7 @@
     left: 1117.89px;
     top: 999.82px;
 
-    font-family: 'Kim jung chul Script';
+  font-family: 'KimjungchulMyungjo';
     font-style: normal;
     font-weight: 700;
     font-size: 18px;
@@ -391,7 +381,7 @@
     left: 1539.95px;
     top: 419.99px;
 
-    font-family: 'Kim jung chul Script';
+  font-family: 'KimjungchulMyungjo';
     font-style: normal;
     font-weight: 400;
     font-size: 20px;
@@ -409,7 +399,7 @@
     left: 1402.47px;
     top: 537.62px;
 
-    font-family: 'Kim jung chul Script';
+  font-family: 'KimjungchulMyungjo';
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
@@ -430,7 +420,7 @@
     left: 1327.35px;
     top: 555.73px;
 
-    font-family: 'Kim jung chul Script';
+  font-family: 'KimjungchulMyungjo';
     font-style: normal;
     font-weight: 400;
     font-size: 14px;
@@ -439,4 +429,21 @@
     color: #34210B;
 
     transform: rotate(10.1deg);
+}
+
+.node2_info_content {
+    position: absolute;
+    width: 282.22px;
+    height: 108.47px;
+    left: 127.95px;
+    top: 247.84px;
+    
+  font-family: 'KimjungchulScript';    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 26px;
+    
+    color: #1C0707;
+    
+    transform: rotate(-4.24deg);
 }
