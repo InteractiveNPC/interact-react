@@ -17,6 +17,7 @@ export default function Indict_Result(props) {
     const go_court_click = '/image/IndictResult/ui/Paper_result_go_court_click.png';
     const go_court_normal = '/image/IndictResult/ui/Paper_result_go_court_normal.png';
     const stamp_link = '/image/IndictResult/source/stamp.png';
+    const stamp_webp_link = '/image/IndictResult/source/paper_result_stamp.webp';
 
     const [prevbutton_src, click_prevbutton] = useState(prevbutton_normal);
     const [go_court_src, click_go_court] = useState(go_court_normal);
@@ -165,16 +166,24 @@ export default function Indict_Result(props) {
     }
 
     //나중에 시간 되면 바로 구현
-    // $('#document_container').scroll(function(){
-    //     var scrT = $('#document_container').scrollTop();
-    //     console.log(scrT); //스크롤 값 확인용
-    //     if(scrT >= 1300){
-    //         //스크롤이 끝에 도달했을때 실행될 이벤트
-    //         console.log("도장");
-    //     } else {
-    //         //아닐때 이벤트
-    //     }
-    // })
+    $('#document_container').scroll(function(){
+        var scrT = $('#document_container').scrollTop();
+        // console.log(scrT); //스크롤 값 확인용
+        if(scrT >= 1300){
+            //스크롤이 끝에 도달했을때 실행될 이벤트
+            $("#stamp").on("load", function () {
+                  setTimeout(function () {
+                    $("#stamp").off("load");
+                    $("#stamp").attr("src", '/image/IndictResult/source/stamp.png');
+                  }, 200);
+                });
+            $("#stamp").attr("src", '/image/IndictResult/source/paper_result_stamp.webp');
+
+            $('#document_container').off("scroll");
+        } else {
+            //아닐때 이벤트
+        }
+    })
 
     return (
         <div>
@@ -251,7 +260,7 @@ export default function Indict_Result(props) {
                         </div>
                     </div>
                     </div>
-                    <img src={stamp_link} className={styles.stamp} />
+                    <img src='' className={styles.stamp} id="stamp"/>
                     <div className={styles.end}>피고인 {accused}에게 위와 같은 죄명으로 공소를 제기합니다.</div>
                     <img src={background_bottom} className={styles.bottomSpace} />
                 </div>

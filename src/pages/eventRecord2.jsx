@@ -102,6 +102,34 @@ export default function Record(){
         <img src={node9[nodeIndex[8]]} style={{ position: "absolute", top:"1100px", left:"874px"}}  />
         <button onClick={() => getMainNodes('have')}></button>
       </div>
+      <div className="line">
+        <div className="lines01">
+          <img src="image/Record/UI/FairyNWoodcutter/line_01.png" className="line1"></img>
+          <img src={pin} className="pin1_1"></img>
+          <img src={pin} className="pin1_2"></img>
+          <img src={pin} className="pin1_3"></img>
+        </div>
+        <div className="lines02">
+          <img src="image/Record/UI/FairyNWoodcutter/line_02.png" className="line2"></img>
+          <img src={pin} className="pin2_1"></img>
+          <img src={pin} className="pin2_2"></img>
+        </div>
+        <img src="image/Record/UI/FairyNWoodcutter/line_03.png" className="line3"></img>
+        <img src="image/Record/UI/FairyNWoodcutter/line_04.png" className="line4"></img>
+        <img src="image/Record/UI/FairyNWoodcutter/line_05.png" className="line5"></img>
+        <img src="image/Record/UI/FairyNWoodcutter/line_06.png" className="line6"></img>
+        <img src="image/Record/UI/FairyNWoodcutter/line_07.png" className="line7"></img>
+        <img src="image/Record/UI/FairyNWoodcutter/line_08.png" className="line8"></img>
+        <img src="image/Record/UI/FairyNWoodcutter/line_09.png" className="line9"></img>
+        <img src="image/Record/UI/FairyNWoodcutter/line_10.png" className="line10"></img>
+        <img src="image/Record/UI/FairyNWoodcutter/line_11.png" className="line11"></img>
+
+
+      </div>
+      <div className="hideNodeNoti">
+        <img></img>
+        <p>{message}</p>
+      </div>
       </div>
     )
 }
