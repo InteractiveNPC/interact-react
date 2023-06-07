@@ -243,9 +243,8 @@ function Indict(props){
         }
       }
 
-  const selectComponent = {
-    second: <Indict2 />
-  };
+      const [buttonOnClick, setButtonOnClick]=useState(false);
+      const [buttonOnClick2, setButtonOnClick2]=useState(false); 
 
   const background = '/image/indict/illust_indictbg.png';
   const CrimeScenebg = '/image/indict/CrimeScene_picture.png';
@@ -368,7 +367,7 @@ function Indict(props){
             effectPlay("paperbutton");
             decreaseOpacity('check1', 'crimenormal1');
             handleChecked(1);
-            session_crime(1);
+           // session_crime(1);
           }
         } }
         data-id="check1"
@@ -382,7 +381,7 @@ function Indict(props){
             effectPlay("paperbutton");
             decreaseOpacity('check2'); 
             handleChecked(2);
-            session_crime(1);
+            //session_crime(1);
           }
         } }
         className="my-image"
@@ -397,7 +396,7 @@ function Indict(props){
             decreaseOpacity('check3');
             effectPlay("paperbutton");
             handleChecked(3);
-            session_crime(1);
+            //session_crime(1);
           }
         }}
         className="my-image"
@@ -435,21 +434,45 @@ function Indict(props){
         data-id2="crimenormal" id = "crimenormal1"/>
         <img src={crimenormal} id = "crimenormal2"/>
         <img src={crimenormal} id = "crimenormal3"/>
-        <img src={getImageSource()} id = "indict_normal"
+
+       <img src={getImageSource()} id = "indict_normal"
         alt={isImageChanged ? 'Changed Image' : 'Original Image'}
-        onClick={()=> {
-          effectPlay("paperbutton");
-          handleClick();}}>
-        </img>
+        onClick={()=> { //buttonOnClick
+          if(!buttonOnClick2 && !buttonOnClick){  //둘 다 안 눌림
+            setButtonOnClick(!buttonOnClick);
+            session_crime(1);
+            effectPlay("paperbutton");
+            handleGiso(1);
+            handleClick();
+            //여기 기소
+            }else if(!buttonOnClick2 && buttonOnClick){  //불기소 안 눌리고 기소 눌림
+              setButtonOnClick(!buttonOnClick);
+              effectPlay("paperbutton");
+              handleClick();
+              session_crime(1);
+            }
+          }}>
+        </img> 
 
         <img src={getImageSource2()} id = "indict_normal2"
         alt={isImageChanged2 ? 'Changed Image' : 'Original Image'}
-        onClick={()=> {
-          effectPlay("paperbutton");
-          session_bulgiso();
-          handleClick2();
+        onClick={()=> { //buttonOnClick2
+          if(!buttonOnClick && !buttonOnClick2){
+            setButtonOnClick2(!buttonOnClick2);
+            effectPlay("paperbutton");
+            session_bulgiso();
+            handleClick2();
+            //여기 불기소
+          } else if(!buttonOnClick && buttonOnClick2){  //불기소만 눌림
+            setButtonOnClick2(!buttonOnClick2);
+            effectPlay("paperbutton");
+            handleClick2();
+            session_bulgiso();
+          }
+          
           }}>
-        </img>
+        </img> 
+
         <div className="bg">
           <img src={background} id="background"
           style={{filter: "brightness(80%)",
