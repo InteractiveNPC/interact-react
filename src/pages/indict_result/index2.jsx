@@ -161,6 +161,23 @@ export default function Indict_Result(props) {
         props.onSubmit();
     }
 
+    // $('#document_container').scroll(function(){
+    //     var scrT = $('#document_container').scrollTop();
+    //     // console.log(scrT); //스크롤 값 확인용
+    //     if(scrT >= 1300){
+    //         //스크롤이 끝에 도달했을때 실행될 이벤트
+    //         $("#stamp2").on("load", function () {
+    //             setTimeout(function () {
+    //                 $("#stamp2").off("load");
+    //                 $("#stamp2").attr("src", '/image/IndictResult/source/stamp.png');
+    //             }, 200);
+    //             });
+    //         $("#stamp2").attr("src", '/image/IndictResult/source/paper_result_stamp.webp');
+
+    //         $('#document_container').off("scroll");
+    //     }
+    // })
+
     return (
         <div>
             <div className={styles.container}>
@@ -239,7 +256,7 @@ export default function Indict_Result(props) {
                     </div>
                     <div className={styles.end}>피고인 {accused}에게 위와 같은 죄명으로 공소를 제기합니다.</div>
                     <img src={background_bottom} className={styles.bottomSpace} />
-                    <img src={stamp_link} className={styles.stamp} />
+                    <img src='/image/IndictResult/source/stamp.png' className={styles.stamp} id="stamp2"/>
                 </div>
             </div>
             </div>
