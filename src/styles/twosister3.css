@@ -35,7 +35,7 @@
     z-index: 7;
 }
 
-#sister{
+#sister0{
     position: absolute;
     width: 115px;
     height: 112px;
@@ -62,7 +62,7 @@
     z-index: 6;  
 }
 
-#deer{
+#deer0{
     position: absolute;
     width: 115px;
     height: 112px;
@@ -80,22 +80,22 @@
     z-index: 6;
 }
 
-#prTextImg2{
-    position: absolute;
-    width: 459px;
-    height: 118px;
-    left: calc(50% - 459px/2 - 262.5px);
-    top: calc(50% - 118px/2 + 178px);
-    z-index: 6;
-}
-
-#mom{
+#bae0{
     position: absolute;
     width: 115px;
     height: 112px;
     left: calc(50% - 115px/2 - 552.5px);
-    top: calc(50% - 112px/2 + 299px);
-    z-index: 7;
+    top: calc(50% - 112px/2 + 63px);
+    z-index: 1000;
+}
+
+#corpse0{
+    position: absolute;
+    width: 115px;
+    height: 112px;
+    left: calc(50% - 115px/2 - 552.5px);
+    top: calc(50% - 112px/2 + 181px);
+    z-index: 1000;
 }
 
 #proofpic3{

@@ -98,13 +98,13 @@
     z-index: 6;
 }
 
-#mom{
+#bae0{
     position: absolute;
     width: 115px;
     height: 112px;
     left: calc(50% - 115px/2 - 552.5px);
-    top: calc(50% - 112px/2 + 299px);
-    z-index: 7;
+    top: calc(50% - 112px/2 + 63px);
+    z-index: 10;
 }
 
 #proofpic3{
@@ -126,12 +126,12 @@
 }
 
 
-#cloth{
+#maid0{
     position: absolute;
     width: 115px;
     height: 112px;
     left: calc(50% - 115px/2 - 552.5px);
-    top: calc(50% - 112px/2 + 417px);
+    top: calc(50% - 112px/2 + 181px);
     z-index: 7;
 }
 

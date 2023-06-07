@@ -209,8 +209,8 @@ const handleClick_change = () => {
 
       
     if(data.met == null) {
-      $(document).find("#mom").hide();
-      $(document).find("#cloth").hide();
+      $(document).find("#mom0").hide();
+      $(document).find("#cloth0").hide();
       $(document).find(".proof1_0").hide();
       $(document).find(".proof2_0").hide();
     }
@@ -386,8 +386,8 @@ const handleClick_change = () => {
       {/* checkbox Event */}
 
 
-        <img src={cloth} id="cloth" />
-        <img src={mom} id="mom" />
+        <img src={mom} id="cloth0" />
+        <img src={cloth} id="mom0" />
         <img src={proofpic} id="proofpic1"/>
         <img src={proofpic} id="proofpic2"/>
 
