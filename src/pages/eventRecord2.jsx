@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from 'axios';
 import styles from '../styles/eventRecord1.css';
 import { getMainNodes, getNodes, visitMainNode, visitNode } from "components/Record/hook";
+import { useHaveItem } from "components/MoveUI/config";
 
 export default function Record(){
     const background = 'image/Record/Background/Background.png'
@@ -33,18 +34,33 @@ export default function Record(){
 
     // 노드 획득 시 이미지 변경(pre->glow), 이름표 추가, 선 추가
     // 획득한 노드 획득 시 이미지 변경(glow->normal)
-    // const [sessionValue, setSessionValue] = useState(true);
-    // const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  
+    const [mainNodes, setMainNodes] = useState({});
+    const [subNodes, setSubNodes] = useState({});
+
+    useEffect(() => {
+        (async () => {
+            const mainNodes = await getMainNodes(3);
+            const subNodes = await getNodes(3);
+
+            setMainNodes(mainNodes);
+            setSubNodes(subNodes);
+
+            console.log("mainNodes", mainNodes);
+            console.log("subNodes", subNodes);
+        })();
+    });
   
     const [message, setMessage] = useState('');
-    const clickPreNode  = (num) => {
+    const clickPreNode  = (num, id) => {
       if (num === 0) {
-        setMessage('이 노드는 ' + '에 있습니다\n해당 장소로 이동하여 노드를 획득해보세요.');
+        const place = mainNodes[id].place;
+        setMessage('이 노드는 ' + place  + '에 있습니다<br>\n해당 장소로 이동하여 노드를 획득해보세요.');
       }
     };
   
     return (
-        
+      <> { (Object.keys(mainNodes) > 0 && Object.keys(subNodes) > 0 ) &&    
       <div>
         <div>
           <img id="backgroud" src="image/Record/Background/Background.png" style={{ position: "absolute"}}></img>
@@ -131,5 +147,7 @@ export default function Record(){
         <p>{message}</p>
       </div>
       </div>
+      }
+      </>
     )
 }

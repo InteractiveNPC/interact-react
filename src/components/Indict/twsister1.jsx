@@ -42,8 +42,9 @@ const handleGiso = (id) => {
 
 const handleChecked = (checkid) => {
   if (checkid == 1) {
-    if(isCheck1 == 0)
+    if(isCheck1 == 0) {
       isCheck1 = 1;
+    }
     else if(isCheck1 == 1)
       isCheck1 = 0;
 
@@ -52,8 +53,9 @@ const handleChecked = (checkid) => {
     console.log("isCheck3: " + isCheck3)
   }
   if (checkid == 2) {
-    if(isCheck2 == 0)
+    if(isCheck2 == 0) {
         isCheck2 = 1;
+    }
     else if(isCheck2 == 1)
         isCheck2 = 0;
 
@@ -62,8 +64,9 @@ const handleChecked = (checkid) => {
     console.log("isCheck3: " + isCheck3)
   }
   if (checkid == 3) {
-    if(isCheck3 == 0)
+    if(isCheck3 == 0) {
         isCheck3 = 1;
+    }
     else if(isCheck3 == 1)
         isCheck3 = 0;
     
@@ -164,6 +167,7 @@ function Indict(props){
           [id]: prevOpacity[id] + 1,
         }));
       }
+      // preventDup(id);
     };
 
     const [isHovered, setIsHovered] = useState(false);
@@ -211,9 +215,43 @@ const handleClick_change = () => {
         }
       };
 
-  const selectComponent = {
-    second: <Indict2 />
-  };
+function checkDuplicate(checkid) {
+  //체크
+  if (checkid == 1) {
+    if (isCheck1 == 1) return true;  //체크 -> 체크해제
+    else {
+      console.log("check 1 check Duplicatie")
+      if (isCheck2 == 1 || isCheck3 == 1) {
+        alert('죄목은 하나만 선택할 수 있습니다.');
+        return false;
+      }
+      return true;
+    }
+  } else if (checkid == 2) {
+    if (isCheck2 == 1) return true;
+    else {
+      console.log("check 2 check Duplicatie")
+      if (isCheck1 == 1 || isCheck3 == 1) {
+        alert('죄목은 하나만 선택할 수 있습니다.');
+        return false;
+      }
+      return true;
+    }
+  } else if (checkid == 3) {
+    if (isCheck3 == 1) return true;
+    else {
+      console.log("check 3 check Duplicatie")
+      if (isCheck1 == 1 || isCheck2 == 1) {
+        alert('죄목은 하나만 선택할 수 있습니다.');
+        return false;
+      }
+      return true;
+    }
+  }
+}
+  
+  const [buttonOnClick, setButtonOnClick]=useState(false);
+  const [buttonOnClick2, setButtonOnClick2]=useState(false); 
 
   const background = '/image/indict/illust_indictbg.png';
   const CrimeScenebg = '/image/indict/CrimeScene_picture.png';
@@ -289,7 +327,7 @@ const handleClick_change = () => {
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
         onClick={() => {
-          session_crime(1);
+          //session_crime(1);
           props.onSubmit()
           handleClick_change();
          
@@ -332,10 +370,14 @@ const handleClick_change = () => {
         <img src={checkbox} id="checkbox3" />
 
         <img src={check}  
-        onClick={() => { effectPlay("paperbutton");
-        decreaseOpacity('check1', 'crimenormal1');
-        handleChecked(1);
-        session_crime(1);
+        onClick={() => { 
+          let check = checkDuplicate(1);
+          if (check) {
+            effectPlay("paperbutton");
+            decreaseOpacity('check1', 'crimenormal1');
+            handleChecked(1);
+            //session_crime(1);
+          }
         } }
         data-id="check1"
         className="my-image"
@@ -343,10 +385,13 @@ const handleClick_change = () => {
         
         <img src={check} 
         onClick={() => {
-          effectPlay("paperbutton");
-          decreaseOpacity('check2'); 
-          handleChecked(2);
-          session_crime(1);
+          let check = checkDuplicate(2);
+          if (check) {
+            effectPlay("paperbutton");
+            decreaseOpacity('check2'); 
+            handleChecked(2);
+            //session_crime(1);
+          }
         } }
         className="my-image"
         data-id="check2"
@@ -354,11 +399,15 @@ const handleClick_change = () => {
          </img>
 
          <img src={check}
-        onClick={() => {decreaseOpacity('check3');
-        effectPlay("paperbutton");
-        handleChecked(3);
-        session_crime(1);
-      }}
+        onClick={() => {
+          let check = checkDuplicate(3);
+          if (check) {
+            decreaseOpacity('check3');
+            effectPlay("paperbutton");
+            handleChecked(3);
+            //session_crime(1);
+          }
+        }}
         className="my-image"
         data-id="check3"
         id="check3" />
@@ -396,21 +445,44 @@ const handleClick_change = () => {
         data-id2="crimenormal" id = "crimenormal1"/>
         <img src={crimenormal} id = "crimenormal2"/>
         <img src={crimenormal} id = "crimenormal3"/>
+
         <img src={getImageSource()} id = "indict_normal"
         alt={isImageChanged ? 'Changed Image' : 'Original Image'}
-        onClick={()=> {
-          effectPlay("paperbutton");
-          handleClick();}}>
-        </img>
+        onClick={()=> { //buttonOnClick
+          if(!buttonOnClick2 && !buttonOnClick){  //둘 다 안 눌림
+            setButtonOnClick(!buttonOnClick);
+            session_crime(1);
+            effectPlay("paperbutton");
+            handleGiso(1);
+            handleClick();
+            //여기 기소
+            }else if(!buttonOnClick2 && buttonOnClick){  //불기소 안 눌리고 기소 눌림
+              setButtonOnClick(!buttonOnClick);
+              effectPlay("paperbutton");
+              handleClick();
+              session_crime(1);
+            }
+          }}>
+        </img> 
 
         <img src={getImageSource2()} id = "indict_normal2"
         alt={isImageChanged2 ? 'Changed Image' : 'Original Image'}
-        onClick={()=> {
-          effectPlay("paperbutton");
-          session_bulgiso();
-          handleClick2();
+        onClick={()=> { //buttonOnClick2
+          if(!buttonOnClick && !buttonOnClick2){
+            setButtonOnClick2(!buttonOnClick2);
+            effectPlay("paperbutton");
+            session_bulgiso();
+            handleClick2();
+            //여기 불기소
+          } else if(!buttonOnClick && buttonOnClick2){  //불기소만 눌림
+            setButtonOnClick2(!buttonOnClick2);
+            effectPlay("paperbutton");
+            handleClick2();
+            session_bulgiso();
+          }
+          
           }}>
-        </img>
+        </img> 
         <div className="bg">
           <img src={background} id="background" 
           style={{filter: "brightness(80%)",

@@ -18,7 +18,7 @@ export default ({ data, onNext }) => {
     const button = buttonRef.current;
     setButtonEvent(button, imgBase + "UI/Court_nextbutton");
   });
-
+  
   return (
     <>
       <div

@@ -44,7 +44,7 @@ export default ({ chapter }) => {
               replay={() => setProcess(0)}
             />
           )}
-          {document && <Document chapter={chapter} onSubmit={() => setProcess(1)}/>}
+          {document && <Document chapter={chapter} onSubmit={() => { setProcess(1); setDocument(false); }}/>}
           {record && 
             <>
               {chapter === 1 && <Record1/>}
