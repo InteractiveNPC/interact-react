@@ -208,6 +208,40 @@ function Indict(props){
         }
       };
 
+      function checkDuplicate(checkid) {
+        //체크
+        if (checkid == 1) {
+          if (isCheck1 == 1) return true;  //체크 -> 체크해제
+          else {
+            console.log("check 1 check Duplicatie")
+            if (isCheck2 == 1 || isCheck3 == 1) {
+              alert('죄목은 하나만 선택할 수 있습니다.');
+              return false;
+            }
+            return true;
+          }
+        } else if (checkid == 2) {
+          if (isCheck2 == 1) return true;
+          else {
+            console.log("check 2 check Duplicatie")
+            if (isCheck1 == 1 || isCheck3 == 1) {
+              alert('죄목은 하나만 선택할 수 있습니다.');
+              return false;
+            }
+            return true;
+          }
+        } else if (checkid == 3) {
+          if (isCheck3 == 1) return true;
+          else {
+            console.log("check 3 check Duplicatie")
+            if (isCheck1 == 1 || isCheck2 == 1) {
+              alert('죄목은 하나만 선택할 수 있습니다.');
+              return false;
+            }
+            return true;
+          }
+        }
+      }
 
   const selectComponent = {
     second: <Indict2 />
@@ -328,10 +362,14 @@ function Indict(props){
         <img src={checkbox} id="checkbox3" />
 
         <img src={check}  
-        onClick={() => { effectPlay("paperbutton");
-        decreaseOpacity('check1', 'crimenormal1');
-        handleChecked(1);
-        session_crime(1);
+        onClick={() => { 
+          let check = checkDuplicate(1);
+          if (check) {
+            effectPlay("paperbutton");
+            decreaseOpacity('check1', 'crimenormal1');
+            handleChecked(1);
+            session_crime(1);
+          }
         } }
         data-id="check1"
         className="my-image"
@@ -339,10 +377,13 @@ function Indict(props){
         
         <img src={check} 
         onClick={() => {
-          effectPlay("paperbutton");
-          decreaseOpacity('check2'); 
-          handleChecked(2);
-          session_crime(1);
+          let check = checkDuplicate(2);
+          if (check) {
+            effectPlay("paperbutton");
+            decreaseOpacity('check2'); 
+            handleChecked(2);
+            session_crime(1);
+          }
         } }
         className="my-image"
         data-id="check2"
@@ -350,11 +391,15 @@ function Indict(props){
          </img>
 
          <img src={check}
-        onClick={() => {decreaseOpacity('check3');
-        effectPlay("paperbutton");
-        handleChecked(3);
-        session_crime(1);
-      }}
+        onClick={() => {
+          let check = checkDuplicate(3);
+          if (check) {
+            decreaseOpacity('check3');
+            effectPlay("paperbutton");
+            handleChecked(3);
+            session_crime(1);
+          }
+        }}
         className="my-image"
         data-id="check3"
         id="check3" />
