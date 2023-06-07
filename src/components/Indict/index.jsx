@@ -19,24 +19,25 @@ const handleGiso = (id) => {
   if (id == 1) {
     if(giso == 0)
       {giso = 1;
-        console.log(giso)
-        console.log(bulgiso)} 
+        // console.log(giso)
+        // console.log(bulgiso)
+      } 
     else if (giso == 1) {
       giso = 0;
-      console.log(giso)
-      console.log(bulgiso)
+      // console.log(giso)
+      // console.log(bulgiso)
       } 
     }
   else if (id == 0) {
     if(bulgiso == 0) {
       bulgiso = 1;
-      console.log(giso)
-      console.log(bulgiso)
+      // console.log(giso)
+      // console.log(bulgiso)
     }
     else if(bulgiso == 1) {
       bulgiso = 0;
-      console.log(giso)
-      console.log(bulgiso)
+      // console.log(giso)
+      // console.log(bulgiso)
     }
       
   }
@@ -49,9 +50,9 @@ const handleChecked = (checkid) => {
     else if(isCheck1 == 1)
       isCheck1 = 0;
 
-    console.log("isCheck1: " + isCheck1)
-    console.log("isCheck2: " + isCheck2)
-    console.log("isCheck3: " + isCheck3)
+    // console.log("isCheck1: " + isCheck1)
+    // console.log("isCheck2: " + isCheck2)
+    // console.log("isCheck3: " + isCheck3)
   }
   if (checkid == 2) {
     if(isCheck2 == 0)
@@ -59,9 +60,9 @@ const handleChecked = (checkid) => {
     else if(isCheck2 == 1)
         isCheck2 = 0;
 
-    console.log("isCheck1: " + isCheck1)
-    console.log("isCheck2: " + isCheck2)
-    console.log("isCheck3: " + isCheck3)
+    // console.log("isCheck1: " + isCheck1)
+    // console.log("isCheck2: " + isCheck2)
+    // console.log("isCheck3: " + isCheck3)
   }
   if (checkid == 3) {
     if(isCheck3 == 0)
@@ -69,9 +70,9 @@ const handleChecked = (checkid) => {
     else if(isCheck3 == 1)
         isCheck3 = 0;
     
-    console.log("isCheck1: " + isCheck1)
-    console.log("isCheck2: " + isCheck2)
-    console.log("isCheck3: " + isCheck3)
+    // console.log("isCheck1: " + isCheck1)
+    // console.log("isCheck2: " + isCheck2)
+    // console.log("isCheck3: " + isCheck3)
   }
 }
 
@@ -141,26 +142,26 @@ function Indict(props){
       if(checked==1)
         axios.get('/document/1_0?crime=' + '재물손괴죄')
         .then(function (response) {
-          console.log(response);
+          // console.log(response);
         })
         .catch(function (error) {
-          console.log(error);
+          // console.log(error);
         })
       if(checked==2)
         axios.get('/document/1_0?crime=' + '감금죄')
         .then(function (response) {
-          console.log(response);
+          // console.log(response);
         })
         .catch(function (error) {
-          console.log(error);
+          // console.log(error);
         })
       if(checked == 3)
         axios.get('/document/1_0?crime=' + '추행 등 목적 약취 유인죄')
         .then(function (response) {
-          console.log(response);
+          // console.log(response);
         })
         .catch(function (error) {
-          console.log(error);
+          // console.log(error);
         })
       }
 

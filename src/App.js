@@ -16,6 +16,8 @@ export default () => {
     const FixRatio = getResizeEventListener(1920, 1080);
     window.onresize = FixRatio;
     FixRatio();
+
+    
   });
 
    return (

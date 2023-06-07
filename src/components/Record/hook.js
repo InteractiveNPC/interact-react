@@ -49,7 +49,7 @@ export const visitMainNode = (chapter, id) => {
     axios
     .get(`node/meet/${chapter}/${id}`)
     .then((res) => {
-        console.log("챕터 " + chapter + "의 중심 노드 " + id + "획득!!");
+        //console.log("챕터 " + chapter + "의 중심 노드 " + id + "획득!!");
     })
     .catch((error) => {
         console.log(error);
@@ -60,7 +60,7 @@ export const visitNode = (chapter, id) => {
     axios
     .get(`node/item/${chapter}/${id}`)
     .then((res) => {
-        console.log("챕터 " + chapter + "의 주변 노드 " + id + "획득!!");
+        //console.log("챕터 " + chapter + "의 주변 노드 " + id + "획득!!");
     })
     .catch((error) => {
         console.log(error);

@@ -17,24 +17,25 @@ const handleGiso = (id) => {
   if (id == 1) {
     if(giso == 0)
       {giso = 1;
-        console.log(giso)
-        console.log(bulgiso)} 
+        // console.log(giso)
+        // console.log(bulgiso)
+      } 
     else if (giso == 1) {
       giso = 0;
-      console.log(giso)
-      console.log(bulgiso)
+      // console.log(giso)
+      // console.log(bulgiso)
       } 
     }
   else if (id == 0) {
     if(bulgiso == 0) {
       bulgiso = 1;
-      console.log(giso)
-      console.log(bulgiso)
+      // console.log(giso)
+      // console.log(bulgiso)
     }
     else if(bulgiso == 1) {
       bulgiso = 0;
-      console.log(giso)
-      console.log(bulgiso)
+      // console.log(giso)
+      // console.log(bulgiso)
     }
       
   }
@@ -47,9 +48,9 @@ const handleChecked = (checkid) => {
     else if(isCheck1 == 1)
       isCheck1 = 0;
 
-    console.log("isCheck1: " + isCheck1)
-    console.log("isCheck2: " + isCheck2)
-    console.log("isCheck3: " + isCheck3)
+    // console.log("isCheck1: " + isCheck1)
+    // console.log("isCheck2: " + isCheck2)
+    // console.log("isCheck3: " + isCheck3)
   }
   if (checkid == 2) {
     if(isCheck2 == 0)
@@ -57,9 +58,9 @@ const handleChecked = (checkid) => {
     else if(isCheck2 == 1)
         isCheck2 = 0;
 
-    console.log("isCheck1: " + isCheck1)
-    console.log("isCheck2: " + isCheck2)
-    console.log("isCheck3: " + isCheck3)
+    // console.log("isCheck1: " + isCheck1)
+    // console.log("isCheck2: " + isCheck2)
+    // console.log("isCheck3: " + isCheck3)
   }
   if (checkid == 3) {
     if(isCheck3 == 0)
@@ -67,9 +68,9 @@ const handleChecked = (checkid) => {
     else if(isCheck3 == 1)
         isCheck3 = 0;
     
-    console.log("isCheck1: " + isCheck1)
-    console.log("isCheck2: " + isCheck2)
-    console.log("isCheck3: " + isCheck3)
+    // console.log("isCheck1: " + isCheck1)
+    // console.log("isCheck2: " + isCheck2)
+    // console.log("isCheck3: " + isCheck3)
   }
 }
 function Indict(props){
@@ -82,7 +83,7 @@ function Indict(props){
   useEffect(() => {
     axios.get('/document?chapter=' + chapter + '&scene=37')
     .then(res => {
-      console.log(res.data)
+      // console.log(res.data)
       setData({"chapter": res.data.chapter, "scene": res.data.scene,
                 "name": res.data.name,"item": [res.data.item7, res.data.item4],
                 "court": res.data.court, "script": res.data.script, "met": res.data.met
@@ -97,26 +98,26 @@ function Indict(props){
     if(isCheck1 == 1 && giso == 1)
       axios.get('/document/3_2?crime=' + "아동복지법위반죄")
       .then(function (response) {
-        console.log(response);
+        // console.log(response);
       })
       .catch(function (error) {
-        console.log(error);
+        // console.log(error);
       })
     if(isCheck2 == 1 && giso == 1)
       axios.get('/document/3_2?crime=' + "살인교사죄")
       .then(function (response) {
-        console.log(response);
+        // console.log(response);
       })
       .catch(function (error) {
-        console.log(error);
+        // console.log(error);
       })
     if(isCheck3 == 1 && giso == 1)
       axios.get('/document/3_2?crime=' + "살인죄")
       .then(function (response) {
-        console.log(response);
+        // console.log(response);
       })
       .catch(function (error) {
-        console.log(error);
+        // console.log(error);
       })
     }
 
@@ -213,7 +214,7 @@ function Indict(props){
         if (checkid == 1) {
           if (isCheck1 == 1) return true;  //체크 -> 체크해제
           else {
-            console.log("check 1 check Duplicatie")
+            // console.log("check 1 check Duplicatie")
             if (isCheck2 == 1 || isCheck3 == 1) {
               alert('죄목은 하나만 선택할 수 있습니다.');
               return false;
@@ -223,7 +224,7 @@ function Indict(props){
         } else if (checkid == 2) {
           if (isCheck2 == 1) return true;
           else {
-            console.log("check 2 check Duplicatie")
+            // console.log("check 2 check Duplicatie")
             if (isCheck1 == 1 || isCheck3 == 1) {
               alert('죄목은 하나만 선택할 수 있습니다.');
               return false;
@@ -233,7 +234,7 @@ function Indict(props){
         } else if (checkid == 3) {
           if (isCheck3 == 1) return true;
           else {
-            console.log("check 3 check Duplicatie")
+            // console.log("check 3 check Duplicatie")
             if (isCheck1 == 1 || isCheck2 == 1) {
               alert('죄목은 하나만 선택할 수 있습니다.');
               return false;
