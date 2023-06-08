@@ -1,9 +1,0 @@
-/image/Intro/title.mp4
-/image/Investigation/Talk/Background/FairyNWoodcutter/FairyNWoodcutter_House.mp4
-/image/Investigation/Talk/Background/FairyNWoodcutter/illust_FairyNWoodcutter_Heaven.mp4
-/image/Investigation/Talk/Background/FairyNWoodcutter/illust_FairyNWoodcutter_office_back.mp4
-/image/Investigation/Talk/Background/FairyNWoodcutter/illust_FairyNWoodcutter_pond.mp4
-/image/Investigation/Talk/Background/TwoSisters/illust_TwoSisters_office_back.mp4
-/image/Investigation/Talk/Background/TwoSisters/illust_TwoSisters_police_outside.mp4
-/image/Investigation/Talk/Background/TwoSisters/illust_TwoSisters_pond.mp4
-/image/Investigation/Talk/Background/TwoSisters/illust_TwoSisters_TwoSisters_home.mp4
