@@ -13,10 +13,14 @@ function Intro(props) {
     $("#begin").hide();
 
     $(".background").click(function () {
+      $(".introClick").css('display', 'none');
+
       $(".background").off("click");
       $("video").fadeIn(2000);
       $("video").get(0).play();
-      $("video").on("click", next);
+      $("video").on("click", () => {
+        next();
+      });
       setTimeout(next, 10000);
     });
 
@@ -42,6 +46,7 @@ function Intro(props) {
     <div>
       {show ? (
         <div className="background">
+          <div className="introClick">화면을 클릭하면 시작합니다.</div>
           { audio &&
             <audio id="bgm" src="/sound/bgm_intro.mp3" autoPlay/>
           }

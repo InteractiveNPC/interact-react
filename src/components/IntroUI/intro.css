@@ -64,3 +64,20 @@ video {
 
 	text-align: center;
 }
+
+.introClick {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+
+	color: white;
+	font-size: 22px;
+	font-family: "Pretendard";
+
+	animation: introClickappear 1s;
+}
+@keyframes introClickappear {
+	from { opacity: 0; }
+	to { opacity: 1; }
+}
