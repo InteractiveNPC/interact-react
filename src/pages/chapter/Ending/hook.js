@@ -16,16 +16,15 @@ export const getCourtResult = (tale) => {
 };
 
 export const resetChapterSession = (chapter) => {
-  return new Promise((resolve) =>
-    axios
-      .get(`/reset/${chapter}`)
-      .then(({ data }) => {
-        resolve(data);
-      })
-      .catch((error) => {
-        resolve();
-      })
-  );
+  axios
+    .get(`/reset/${chapter}`)
+    .then(({ data }) => {
+      console.log("chapter " + chapter + " 리셋!!");
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+
 }
 
 export const useCourtData = (chapter) => {

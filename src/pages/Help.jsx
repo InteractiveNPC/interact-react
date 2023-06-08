@@ -1,12 +1,8 @@
 import styles from '../styles/info.css';
-import { useState, useContext } from "react";
+import { useState } from "react";
 import $ from 'jquery';
 
-import { ChapterContext } from "contexts";
-
 export default function Help(props){
-    const [chapterContext, setChapterContext] = useContext(ChapterContext);
-
     //const back = 'image/Investigation/Talk/Background/FairyNWoodcutter/illust_FairyNWoodcutter_office_back.png';
     const fadeT = 2000;
     const [bClick, setBClick] = useState(true);
@@ -73,7 +69,6 @@ export default function Help(props){
                     $('div#step3').fadeOut({fadeT});
                     setTimeout(()=>{
                         props.setActive();
-                        setChapterContext(props.chapter, true);
                     }, 1000);
                 }
                 

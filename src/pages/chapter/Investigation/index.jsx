@@ -1,4 +1,4 @@
-import { useState, useContext, useEffect } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 import MoveUI from "../../../components/MoveUI";
 import Dialogue from "../../../components/DialogueUI/Dialogue";
@@ -9,11 +9,7 @@ import $ from "jquery";
 import Bhelp from '../../Help';
 import styles from "./style.module.scss";
 
-import { ChapterContext } from "contexts";
-
 export default ({ chapter, moveRecord }) => {
-  const [chapterContext, setChapterContext] = useContext(ChapterContext);
-
   const [dialogueData, setDialogueData] = useState({
     idx: chapter,
     scene: "0",
