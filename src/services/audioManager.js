@@ -41,12 +41,17 @@ export const useBGM = (bgm) => {
 };
 
 export const effectPlay = (effect) => {  
-    const src = `/sound/effect_${effect}.mp3`;
-    const div = document.querySelector("#effect");
+    try {
+        const src = `/sound/effect_${effect}.mp3`;
+        const div = document.querySelector("#effect");
 
-    const audio = new Audio(src);
-    audio.volume = div.className;
-    audio.autoplay = true;
-    div.appendChild(audio);
-    audio.onended = () => div.removeChild(audio);
+        const audio = new Audio(src);
+        audio.volume = div.className;
+        audio.autoplay = true;
+        div.appendChild(audio);
+        audio.onended = () => div.removeChild(audio);
+        
+    } catch (error) {
+        console.log(error);
+    }
 };
