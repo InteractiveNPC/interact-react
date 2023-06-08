@@ -128,7 +128,7 @@ function Dialogue(props) {
           setVoice(null);
         });
       })
-      //.catch(error => console.log(error));
+      .catch(error => console.log(error));
     }
   }
 

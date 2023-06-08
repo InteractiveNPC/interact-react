@@ -3,6 +3,7 @@ import axios from "axios";
 import MoveUI from "../../../components/MoveUI";
 import Dialogue from "../../../components/DialogueUI/Dialogue";
 import { divToImg } from "services/propsFormat";
+import { chapterProgressed } from "../Ending/hook";
 
 import $ from "jquery";
 import Bhelp from '../../Help';
@@ -21,7 +22,7 @@ export default ({ chapter, moveRecord }) => {
   });
   const [heroDisabled, setHeroDisabled] = useState(true);
   const [dialogueDisabled, setDialogueDisabled] = useState(true);
-  const [process, setProcess] = useState(0);
+  const [process, setProcess] = useState(-1);
 
   const [ bHelpDisabled, setbHelpDisabled ] = useState(true);
   const settingbHelpDisabled=()=>{
@@ -31,19 +32,22 @@ export default ({ chapter, moveRecord }) => {
   const [who, setWho] = useState('temp');
 
   useEffect(() => {
-    if (process == 0){
-      if (chapterContext[chapter]) {
-        setHeroDisabled(false);
-        setProcess(3);
-      } else {
-        meet_character(chapter, 1);
-      }
+    if (process == -1){
+      (async () => {
+        if(await chapterProgressed(chapter)) {
+          setHeroDisabled(false);
+          setProcess(3);
+        } else {
+          setProcess(0);
+          meet_character(chapter, 1);
+        }
+      })();
     }
   });
 
   return (
     <>
-    { (process < 2  && !chapterContext[chapter]) &&
+    { (process < 2) &&
       <>
          <MoveUI
           chapter={chapter}

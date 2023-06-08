@@ -7,11 +7,9 @@ export const getCourtResult = (tale) => {
     axios
       .get(`/court/${tale}`)
       .then(({ data }) => {
-        console.log(data);
         resolve(data);
       })
       .catch((error) => {
-        console.log(error);
         resolve([]);
       })
   );
@@ -22,11 +20,9 @@ export const resetChapterSession = (chapter) => {
     axios
       .get(`/reset/${chapter}`)
       .then(({ data }) => {
-        console.log(data);
         resolve(data);
       })
       .catch((error) => {
-        console.log(error);
         resolve();
       })
   );
@@ -56,6 +52,19 @@ export const useCourtData = (chapter) => {
 
   return [data, dialogueData, result];
 };
+
+export const chapterProgressed = (chapter) => {
+  return new Promise((resolve) =>
+    axios
+      .get(`/item/${chapter}`)
+      .then(({ data }) => {
+        resolve(data.length > 0);
+      })
+      .catch((error) => {
+        resolve(false);
+      })
+  );
+}
 
 export const setButtonEvent = (target, src) => {
   target.onmousedown = () =>
