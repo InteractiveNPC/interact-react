@@ -11,17 +11,26 @@ function Intro(props) {
     $("#start").hide();
     $("#info").hide();
     $("#begin").hide();
-
     $(".background").click(function () {
       $(".introClick").css('display', 'none');
-
       $(".background").off("click");
-      $("video").fadeIn(2000);
-      $("video").get(0).play();
-      $("video").on("click", () => {
-        next();
+      if($("video")[0].readyState == 4) {
+        $("video").fadeIn(2000);
+        $("video").get(0).play();
+        $("video").on("click", () => {
+          next();
+        });
+        setTimeout(next, 4000);
+      }
+      $("video").on("load", function() {
+        $("video").fadeIn(2000);
+        $("video").get(0).play();
+        $("video").on("click", () => {
+          next();
+        });
+        setTimeout(next, 4000);
       });
-      setTimeout(next, 10000);
+      console.log($("video")[0].readyState);
     });
 
     function next() {
@@ -46,9 +55,12 @@ function Intro(props) {
     <div>
       {show ? (
         <div className="background">
-          <div className="introClick">화면을 클릭하면 시작합니다.</div>
+          <div className="introClick">
+            <p>화면을 클릭하면 시작합니다.</p>
+            <p>※ PC: Chrome 최적화 / Mobile: Galaxy 최적화</p>
+          </div>
           { audio &&
-            <audio id="bgm" src="/sound/bgm_intro.mp3" autoPlay/>
+            <audio id="bgm" src="/sound/bgm_intro.mp3" preload="auto" autoPlay loop/>
           }
           <video preload="auto">
             <source type="video/mp4" src="image/Intro/title.mp4" />
