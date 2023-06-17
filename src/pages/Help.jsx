@@ -5,7 +5,7 @@ import $ from 'jquery';
 export default function Help(props){
     //const back = 'image/Investigation/Talk/Background/FairyNWoodcutter/illust_FairyNWoodcutter_office_back.png';
     const fadeT = 2000;
-    const [bClick, setBClick] = useState(true);
+    const [bClick, setBClick] = useState(false);
 
     const info1='image/Help/start-help/Background_help_info01.png';
     const info2='image/Help/start-help/Background_help_info02.png';
