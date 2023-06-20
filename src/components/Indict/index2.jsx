@@ -14,6 +14,7 @@ let isCheck3 = 0;
 let giso = 0;
 let bulgiso = 0;
 
+let selected = 0;
 
 const handleGiso = (id) => {
   if (id == 1) {
@@ -251,9 +252,14 @@ const handleClick_change = () => {
       };
 
       function checkDuplicate(checkid) {
+        if(selected==1)
+          return false;
         //체크
         if (checkid == 1) {
-          if (isCheck1 == 1) return true;  //체크 -> 체크해제
+          if (isCheck1 == 1){
+            setChecked(0);
+            return true;  //체크 -> 체크해제
+          }
           else {
             setChecked(1);
             console.log("check 1 check Duplicatie")
@@ -264,7 +270,10 @@ const handleClick_change = () => {
             return true;
           }
         } else if (checkid == 2) {
-          if (isCheck2 == 1) return true;
+          if (isCheck2 == 1) {
+            setChecked(0);
+            return true;  //체크 -> 체크해제
+          }
           else {
             setChecked(2);
             console.log("check 2 check Duplicatie")
@@ -275,7 +284,10 @@ const handleClick_change = () => {
             return true;
           }
         } else if (checkid == 3) {
-          if (isCheck3 == 1) return true;
+          if (isCheck3 == 1) {
+            setChecked(0);
+            return true;  //체크 -> 체크해제
+          }
           else {
             setChecked(3);
             console.log("check 3 check Duplicatie")
@@ -335,7 +347,13 @@ const handleClick_change = () => {
       
       <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
 
-      <img id='dummy' src='/image/indict/check.png' style={{zIndex:'1000',position:'absolute',left:'973px',top:'100px'}}></img>
+      <img id='dummy' src='/image/indict/check.png' style={{zIndex:'1000',position:'absolute',left:'973px',top:'100px'}} onClick={()=>{
+        //hide
+        effectPlay("paperbutton");
+        selected = 0;
+        $('img#dummy').hide();
+        $('img#dummy2').hide();
+      }}></img>
       <img id='dummy2'src='/image/indict/indict_click.png'  style={{zIndex:'1000',position:'absolute', width:'212px',height:'62px', left: 'calc(50% - 212px/2 + 171px)', top: 'calc(50% - 62px/2 - 398px)'}}></img>
 
       <div className="title" >
@@ -432,8 +450,8 @@ const handleClick_change = () => {
         <img src={check}  
         onClick={() => {
           console.log("check1");
-          $(document).find("#dummy").hide();
-          $(document).find("#dummy2").hide();
+          //$(document).find("#dummy").hide();
+          //$(document).find("#dummy2").hide();
           let check = checkDuplicate(1);
           if (check) {
             effectPlay("paperbutton");
@@ -449,8 +467,8 @@ const handleClick_change = () => {
         <img src={check} 
         onClick={() => {
           console.log("check2");
-          $(document).find("#dummy").hide();
-          $(document).find("#dummy2").hide();
+          //$(document).find("#dummy").hide();
+          //$(document).find("#dummy2").hide();
           let check = checkDuplicate(2);
           if (check) {
             effectPlay("paperbutton");
@@ -469,8 +487,8 @@ const handleClick_change = () => {
          <img src={check}
          onClick={() => {
           console.log("check3");
-          $(document).find("#dummy").hide();
-    $(document).find("#dummy2").hide();
+          //$(document).find("#dummy").hide();
+    //$(document).find("#dummy2").hide();
           let check = checkDuplicate(3);
           if (check) {
             decreaseOpacity('check3');
@@ -520,10 +538,13 @@ const handleClick_change = () => {
         <img src={getImageSource()} id = "indict_normal"
         alt={isImageChanged ? 'Changed Image' : 'Original Image'}
         onClick={()=> { //buttonOnClick
-          if(!buttonOnClick2 && !buttonOnClick){  //둘 다 안 눌림
+          if(checked == 0 && selected==0){
+            alert("죄목을 먼저 선택하세요");
+          } else if(!buttonOnClick2 && !buttonOnClick){  //둘 다 안 눌림
             setButtonOnClick(!buttonOnClick);
             session_crime(1);
             effectPlay("paperbutton");
+            selected=1;
             //handleGiso(1);
             handleClick();
             //여기 기소
