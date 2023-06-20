@@ -1,6 +1,7 @@
 // 2023-06-09
 
 export const all_files = [
+    "/favicon.ico",
     "/image/clothes/cloth_00.png",
     "/image/clothes/cloth_01.png",
     "/image/clothes/cloth_02.png",
