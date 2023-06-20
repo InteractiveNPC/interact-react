@@ -37,7 +37,7 @@ export default () => {
             onChange={(e) => {
               const newVolume = volume;
               newVolume[i] = Math.floor(e.target.value / 10) / 10;
-              if(newVolume[i] === 0) newVolume[i] = "0.0";
+              if(newVolume[i] === 0) newVolume[i] = "0.01";
               setVolume(newVolume);
               setAudioVolume(newVolume);
             }}
