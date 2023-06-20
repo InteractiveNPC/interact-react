@@ -31,11 +31,11 @@ export default ({ chapter, onSubmit }) => {
           }}
           onPrev={() => {
             effectPlay("papernext");
-            setIdx(idx-1);
+            if(idx > 0) setIdx(idx-1);
           }}
           onNext={() => {
             effectPlay("papernext");
-            setIdx(idx+1);
+            if(idx < indictComponent[chapter].length - 1) setIdx(idx+1);
           }}
         />
         <div className={styles.nav}>
