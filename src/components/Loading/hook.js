@@ -1,3 +1,4 @@
+import axios from "axios";
 import { useState, useEffect } from "react";
 import { prefetch } from "remotion";
 
@@ -6,6 +7,9 @@ export const usePreload = ( files ) => {
     const [ idx, setIdx ] = useState(0);
 
     useEffect(() => {
+        if(idx === 0) {
+            axios.get("/resetall").then(() => {}).catch(() => {});
+        }
         if(idx < files.length) {
             const { waitUntilDone } = prefetch(files[idx]);
             waitUntilDone()
