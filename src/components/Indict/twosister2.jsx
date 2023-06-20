@@ -131,7 +131,7 @@ function Indict(props){
   }
 
     const session_bulgiso = () => {
-      axios.get('/document/1_0/false')
+      axios.get('/document/3_1/false')
     }
 
     
