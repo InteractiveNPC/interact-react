@@ -60,6 +60,13 @@ export default function Record(){
     };
   
     return (
+      <div style={{position :"absolute", zIndex:"3000"}}>
+      <div>
+        <img src="image/Record/Background/Background3.png"></img>
+      </div>
+      </div>
+    )
+    {/* </div>
       <> { (Object.keys(mainNodes) > 0 && Object.keys(subNodes) > 0 ) &&    
       <div>
         <div>
@@ -148,6 +155,5 @@ export default function Record(){
       </div>
       </div>
       }
-      </>
-    )
+      </> */}
 }

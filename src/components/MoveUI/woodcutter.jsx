@@ -48,12 +48,13 @@ export default [
               <img
                 src={halfWebpBase + "Fairy_normal_X_office.webp"}
                 {...setPosWithIdx(0, 0, 1000)}
+              />
+              <div className={styles.hero}
                 onClick={() => {
                   const scene = have ? "-2" : "-1";
                   setHeroDisabled(true);
                   onTalk({ idx: "1", scene: scene, "flag": "0", index: "0" });
-                }}
-              />
+                }}/>
             </div>
           )}
           <div

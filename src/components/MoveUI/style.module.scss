@@ -98,3 +98,15 @@
   top: 200px;
   left: 300px;
 }
+
+.hero {
+  position: absolute;
+  z-index: 1000;
+
+  // background: blue;
+  width: 500px;
+  height: 600px;
+  top: 95px;
+  left: 50%;
+  transform: translateX(-50%);
+}

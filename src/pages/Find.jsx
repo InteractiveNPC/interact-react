@@ -54,16 +54,17 @@ export default function Find(props){
     const [fClick, setFClick] = useState(false);
 
     return (
-        <div style={{position:'absolute', zIndex:'3000'}}>
+        <div>
             <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"></script>
             <img id="find" src="/image/clothes/cloth_00.png" style={{ position: "absolute", top:"641px", left:"1327px"}} onClick={()=>{
                 $('div#backgroundS').fadeIn({fadeT});
-                $('div#etc').addClass('display-none');
+                $('div#etcF').addClass('display-none');
                 $('img#find').fadeOut({fadeT});
             }}></img>
             
             <div id="backgroundS" className="display-none App">
-                <div id="step1">
+                <div id="step1" style={{position:'absolute', zIndex:'3000'}}>
                     <div id='makeDark'/>
                     <img id='shine' src="/image/clothes/Fairyclothes.png" className="clue" onMouseOver={()=>{
                         $('img#shine').addClass('shining');
@@ -102,7 +103,7 @@ export default function Find(props){
                         </animated.div>
                     </div>
                 </div>
-                <div id="step2" className="display-none">
+                <div id="step2" className="display-none" style={{position:'absolute', zIndex:'3000'}}>
                     <div id='makeDark'/>
                     <img id='shine2' src="/image/clothes/Fairyclothes.png" alt="find" className="clue"
                         onMouseOver={()=>{
@@ -145,7 +146,7 @@ export default function Find(props){
                                 if(!fClick){
                                     setFClick(!fClick);
                                     $('div#result').fadeOut({fadeT});
-                                    $('div#etc').removeClass('display-none');
+                                    $('div#etcF').removeClass('display-none');
                                 }
                         }}></div>
                     </div>          
@@ -153,7 +154,7 @@ export default function Find(props){
                     <p className='banner-txt2'>{explain}</p>
                 </div>
             </div>
-            <div id='etc' className='etc' onClick={()=>{
+            <div id='etcF' className='etcF' onClick={()=>{
                         $('div#pop').removeClass("display-none");
                 }}>
             </div>

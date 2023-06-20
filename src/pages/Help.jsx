@@ -1,17 +1,12 @@
 import styles from '../styles/info.css';
-import { useState, useContext } from "react";
+import { useState, useEffect } from "react";
 import $ from 'jquery';
 
-import { ChapterContext } from "contexts";
-
 export default function Help(props){
-    const [chapterContext, setChapterContext] = useContext(ChapterContext);
-
     //const back = 'image/Investigation/Talk/Background/FairyNWoodcutter/illust_FairyNWoodcutter_office_back.png';
     const fadeT = 2000;
-    const [bClick, setBClick] = useState(true);
+    const [bClick, setBClick] = useState(false);
 
-    const btn = 'image/Help/setting-credit/Setting_X.png';
     const info1='image/Help/start-help/Background_help_info01.png';
     const info2='image/Help/start-help/Background_help_info02.png';
     const info3='image/Help/start-help/Background_help_info03.png';
@@ -20,20 +15,20 @@ export default function Help(props){
     const arrow2 = 'image/Help/start-help/help_info_arrow02.png';
     const arrow3 = 'image/Help/start-help/help_info_arrow03.png';
 
+    useEffect(()=>{
+        let timer = setTimeout(()=>{
+            $('div#startH').fadeOut({fadeT});
+            setTimeout(()=>{
+                $('div#step1').fadeIn({fadeT});
+            }, 1000);
+        }, 2000);
+
+        return ()=>{ clearTimeout(timer) }
+    },[]);
     return (
         <div id='bHelp'>
             <div id='startH'>
-                <div id='infoH'></div>
-                <img src={btn} className='close' onClick={()=>{
-                    if(bClick){
-                        setBClick(!bClick);
-                        $('div#startH').fadeOut({fadeT});
-                        setTimeout(()=>{
-                            $('div#step1').fadeIn({fadeT});
-                        }, 1000);
-                    }
-                    
-                }}></img>
+                <div id='infoH' ></div>
                 <p className='textH0'>{props.who}의 원통함을 풀어주기 위한 수사를 진행하세요.</p>
             </div>
             <div id='step1' className='display-none' onClick={()=>{
@@ -73,7 +68,6 @@ export default function Help(props){
                     $('div#step3').fadeOut({fadeT});
                     setTimeout(()=>{
                         props.setActive();
-                        setChapterContext(props.chapter, true);
                     }, 1000);
                 }
                 

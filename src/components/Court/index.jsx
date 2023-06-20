@@ -53,6 +53,7 @@ export default ({ data, onNext }) => {
               __html: data[idx].reason,
             }}
           ></div>
+          <br/>
         </div>
 
         <div className={styles.crimeInfo}>

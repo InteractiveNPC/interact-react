@@ -1,18 +1,15 @@
-import { useState, useContext, useEffect } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 import MoveUI from "../../../components/MoveUI";
 import Dialogue from "../../../components/DialogueUI/Dialogue";
 import { divToImg } from "services/propsFormat";
+import { chapterProgressed } from "../Ending/hook";
 
 import $ from "jquery";
 import Bhelp from '../../Help';
 import styles from "./style.module.scss";
 
-import { ChapterContext } from "contexts";
-
 export default ({ chapter, moveRecord }) => {
-  const [chapterContext, setChapterContext] = useContext(ChapterContext);
-
   const [dialogueData, setDialogueData] = useState({
     idx: chapter,
     scene: "0",
@@ -21,7 +18,7 @@ export default ({ chapter, moveRecord }) => {
   });
   const [heroDisabled, setHeroDisabled] = useState(true);
   const [dialogueDisabled, setDialogueDisabled] = useState(true);
-  const [process, setProcess] = useState(0);
+  const [process, setProcess] = useState(-1);
 
   const [ bHelpDisabled, setbHelpDisabled ] = useState(true);
   const settingbHelpDisabled=()=>{
@@ -31,19 +28,22 @@ export default ({ chapter, moveRecord }) => {
   const [who, setWho] = useState('temp');
 
   useEffect(() => {
-    if (process == 0){
-      if (chapterContext[chapter]) {
-        setHeroDisabled(false);
-        setProcess(3);
-      } else {
-        meet_character(chapter, 1);
-      }
+    if (process == -1){
+      (async () => {
+        if(await chapterProgressed(chapter)) {
+          setHeroDisabled(false);
+          setProcess(3);
+        } else {
+          setProcess(0);
+          meet_character(chapter, 1);
+        }
+      })();
     }
   });
 
   return (
     <>
-    { (process < 2  && !chapterContext[chapter]) &&
+    { (process < 2) &&
       <>
          <MoveUI
           chapter={chapter}
@@ -77,7 +77,6 @@ export default ({ chapter, moveRecord }) => {
                 setHeroDisabled(false);
               }}
               onClose={() => {
-                console.log("close!!!!");
                 if(chapter==1)
                   setWho('선녀');
                 else setWho('홍련');
@@ -142,7 +141,7 @@ const meet_character = (chapter, chapter_id) => {
   axios
   .get(`/meet/${chapter}/${chapter_id}`)
   .then((res) => {
-    console.log(res);
+    //console.log(res);
   })
   .catch((error) => {
     console.log(error);

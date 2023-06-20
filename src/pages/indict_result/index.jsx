@@ -165,7 +165,6 @@ export default function Indict_Result(props) {
         props.onSubmit();
     }
 
-    //나중에 시간 되면 바로 구현
     $('#document_container').scroll(function(){
         var scrT = $('#document_container').scrollTop();
         // console.log(scrT); //스크롤 값 확인용
@@ -180,8 +179,6 @@ export default function Indict_Result(props) {
             $("#stamp").attr("src", '/image/IndictResult/source/paper_result_stamp.webp');
 
             $('#document_container').off("scroll");
-        } else {
-            //아닐때 이벤트
         }
     })
 

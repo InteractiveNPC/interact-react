@@ -19,7 +19,6 @@ function Home(props) {
     axios
       .get("/intro" + window.location.search)
       .then((res) => {
-        console.log(res.data);
         setData({
           chapter1: res.data.chapter1,
           chapter2: res.data.chapter2,
@@ -46,9 +45,6 @@ function Home(props) {
         });
       })
       .catch((error) => console.log(error));
-
-    console.log(props);
-    console.log(data);
 
     if (props.idx != null) {
       switch (props.idx) {

@@ -10,6 +10,7 @@ let isCheck1 = 0;
 let isCheck2 = 0;
 let isCheck3 = 0;
 
+
 let giso = 0;
 let bulgiso = 0;
 
@@ -18,24 +19,25 @@ const handleGiso = (id) => {
   if (id == 1) {
     if(giso == 0)
       {giso = 1;
-        console.log(giso)
-        console.log(bulgiso)} 
+        // console.log(giso)
+        // console.log(bulgiso)
+      } 
     else if (giso == 1) {
       giso = 0;
-      console.log(giso)
-      console.log(bulgiso)
+      // console.log(giso)
+      // console.log(bulgiso)
       } 
     }
   else if (id == 0) {
     if(bulgiso == 0) {
       bulgiso = 1;
-      console.log(giso)
-      console.log(bulgiso)
+      // console.log(giso)
+      // console.log(bulgiso)
     }
     else if(bulgiso == 1) {
       bulgiso = 0;
-      console.log(giso)
-      console.log(bulgiso)
+      // console.log(giso)
+      // console.log(bulgiso)
     }
       
   }
@@ -48,9 +50,9 @@ const handleChecked = (checkid) => {
     else if(isCheck1 == 1)
       isCheck1 = 0;
 
-    console.log("isCheck1: " + isCheck1)
-    console.log("isCheck2: " + isCheck2)
-    console.log("isCheck3: " + isCheck3)
+    // console.log("isCheck1: " + isCheck1)
+    // console.log("isCheck2: " + isCheck2)
+    // console.log("isCheck3: " + isCheck3)
   }
   if (checkid == 2) {
     if(isCheck2 == 0)
@@ -58,9 +60,9 @@ const handleChecked = (checkid) => {
     else if(isCheck2 == 1)
         isCheck2 = 0;
 
-    console.log("isCheck1: " + isCheck1)
-    console.log("isCheck2: " + isCheck2)
-    console.log("isCheck3: " + isCheck3)
+    // console.log("isCheck1: " + isCheck1)
+    // console.log("isCheck2: " + isCheck2)
+    // console.log("isCheck3: " + isCheck3)
   }
   if (checkid == 3) {
     if(isCheck3 == 0)
@@ -68,34 +70,58 @@ const handleChecked = (checkid) => {
     else if(isCheck3 == 1)
         isCheck3 = 0;
     
-    console.log("isCheck1: " + isCheck1)
-    console.log("isCheck2: " + isCheck2)
-    console.log("isCheck3: " + isCheck3)
+    // console.log("isCheck1: " + isCheck1)
+    // console.log("isCheck2: " + isCheck2)
+    // console.log("isCheck3: " + isCheck3)
   }
 }
 
 const chapter = "1_0"
 function Indict(props){
+  
   const [ data, setData] = useState(
     {"chapter":1_0, "scene": 35, "name":"", "item": [{}, {}],
-     "court":"", "script": "", "found": "", "met": ""}
+     "court":"", "script": "", "found": "", "met": "", "crime1_0":""}
   ) // 초기화
 
-   
   useEffect(() => {
+    //여기
+    isCheck1 = 0;
+    isCheck2 = 0;
+    isCheck3 = 0;
     axios.get('/document?chapter=' + chapter + '&scene=35')
     .then(res => {
       setData({"chapter": res.data.chapter, "scene": res.data.scene,
                 "name": res.data.name, "item": [res.data.item4, res.data.item5],
                 "court": res.data.court, "script": res.data.script,
-                "found": res.data.found, "met": res.data.met
-              })
+                "found": res.data.found, "met": res.data.met,
+                "crime1_0":res.data.crime1_0
+              });
+
+      console.log(res.data);
     })
-    .catch(error => console.log(error))
+    .catch(error => console.log(error));
     
+    console.log('useEffect ', data.crime1_0);
     
   }, []);  //json에서 데이터 불러옴
   
+  if(data.crime1_0 != ""){
+    console.log("빈칸아님", data.crime1_0);
+    if(data.crime1_0=="감금죄"){
+        $(document).find("#dummy").css("top","260px");
+        $(document).find("#dummy2").css("top","calc(50% - 62px/2 - 238px)");
+    }
+    else if(data.crime1_0=="추행 등 목적 약취 유인죄"){
+        $(document).find("#dummy").css("top","420px");
+        $(document).find("#dummy2").css("top","calc(50% - 62px/2 - 78px)");
+        console.log("추행 등 목적 약취 유인죄");
+    }
+  }else {
+    $(document).find("#dummy").hide();
+    $(document).find("#dummy2").hide();
+    console.log("빈칸");
+  }
 
   if(data.met == null) {
     $(document).find("#sister").hide();
@@ -107,31 +133,35 @@ function Indict(props){
     const session_bulgiso = () => {
       axios.get('/document/1_0/false')
     }
+
     
-    const session_crime = (giso) => {
-      if(isCheck1 == 1 && giso == 1)
+  const [checked, setChecked] = useState(0);
+    
+    const session_crime = () => {
+      console.log("checked ",checked);
+      if(checked==1)
         axios.get('/document/1_0?crime=' + '재물손괴죄')
         .then(function (response) {
-          console.log(response);
+          // console.log(response);
         })
         .catch(function (error) {
-          console.log(error);
+          // console.log(error);
         })
-      if(isCheck2 == 1 && giso == 1)
+      if(checked==2)
         axios.get('/document/1_0?crime=' + '감금죄')
         .then(function (response) {
-          console.log(response);
+          // console.log(response);
         })
         .catch(function (error) {
-          console.log(error);
+          // console.log(error);
         })
-      if(isCheck3 == 1 && giso == 1)
+      if(checked == 3)
         axios.get('/document/1_0?crime=' + '추행 등 목적 약취 유인죄')
         .then(function (response) {
-          console.log(response);
+          // console.log(response);
         })
         .catch(function (error) {
-          console.log(error);
+          // console.log(error);
         })
       }
 
@@ -166,12 +196,11 @@ const handleClick_change = () => {
   useEffect(() => {
     const updateImageOpacity = () => {
       const images = document.querySelectorAll('.my-image');
-
       images.forEach((image) => {
-        const id = image.getAttribute('data-id');
-        const id2 = image.getAttribute('data-id2');
-        image.style.opacity = imageOpacity[id];
-        image.style.opacity = imageOpacity[id2];
+          const id = image.getAttribute('data-id');
+          const id2 = image.getAttribute('data-id2');
+          image.style.opacity = imageOpacity[id];
+          image.style.opacity = imageOpacity[id2];
       });
     };
 
@@ -226,9 +255,10 @@ const handleClick_change = () => {
         if (checkid == 1) {
           if (isCheck1 == 1) return true;  //체크 -> 체크해제
           else {
+            setChecked(1);
             console.log("check 1 check Duplicatie")
             if (isCheck2 == 1 || isCheck3 == 1) {
-              alert('죄목은 하나만 선택할 수 있습니다.');
+              //alert('죄목은 하나만 선택할 수 있습니다.');
               return false;
             }
             return true;
@@ -236,9 +266,10 @@ const handleClick_change = () => {
         } else if (checkid == 2) {
           if (isCheck2 == 1) return true;
           else {
+            setChecked(2);
             console.log("check 2 check Duplicatie")
             if (isCheck1 == 1 || isCheck3 == 1) {
-              alert('죄목은 하나만 선택할 수 있습니다.');
+              //alert('죄목은 하나만 선택할 수 있습니다.');
               return false;
             }
             return true;
@@ -246,9 +277,10 @@ const handleClick_change = () => {
         } else if (checkid == 3) {
           if (isCheck3 == 1) return true;
           else {
+            setChecked(3);
             console.log("check 3 check Duplicatie")
             if (isCheck1 == 1 || isCheck2 == 1) {
-              alert('죄목은 하나만 선택할 수 있습니다.');
+              //alert('죄목은 하나만 선택할 수 있습니다.');
               return false;
             }
             return true;
@@ -295,11 +327,18 @@ const handleClick_change = () => {
  // const item4_info = data.item4["info"]; //state
   //const item4info = data.item4.info;
   
+  /*
+
+  */
  
   return (
     <div className="Indict">
       
       <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+
+      <img id='dummy' src='/image/indict/check.png' style={{zIndex:'1000',position:'absolute',left:'973px',top:'100px'}}></img>
+      <img id='dummy2'src='/image/indict/indict_click.png'  style={{zIndex:'1000',position:'absolute', width:'212px',height:'62px', left: 'calc(50% - 212px/2 + 171px)', top: 'calc(50% - 62px/2 - 398px)'}}></img>
+
       <div className="title" >
         <p>{data.name}</p>
       </div>
@@ -392,7 +431,10 @@ const handleClick_change = () => {
         <img src={checkbox} id="checkbox3" />
 
         <img src={check}  
-        onClick={() => { 
+        onClick={() => {
+          console.log("check1");
+          $(document).find("#dummy").hide();
+          $(document).find("#dummy2").hide();
           let check = checkDuplicate(1);
           if (check) {
             effectPlay("paperbutton");
@@ -407,6 +449,9 @@ const handleClick_change = () => {
         
         <img src={check} 
         onClick={() => {
+          console.log("check2");
+          $(document).find("#dummy").hide();
+          $(document).find("#dummy2").hide();
           let check = checkDuplicate(2);
           if (check) {
             effectPlay("paperbutton");
@@ -424,6 +469,9 @@ const handleClick_change = () => {
 
          <img src={check}
          onClick={() => {
+          console.log("check3");
+          $(document).find("#dummy").hide();
+    $(document).find("#dummy2").hide();
           let check = checkDuplicate(3);
           if (check) {
             decreaseOpacity('check3');
@@ -477,7 +525,7 @@ const handleClick_change = () => {
             setButtonOnClick(!buttonOnClick);
             session_crime(1);
             effectPlay("paperbutton");
-            handleGiso(1);
+            //handleGiso(1);
             handleClick();
             //여기 기소
             }else if(!buttonOnClick2 && buttonOnClick){  //불기소 안 눌리고 기소 눌림

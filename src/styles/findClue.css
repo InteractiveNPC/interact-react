@@ -36,12 +36,12 @@ div#makeDark{
     display: block;
 }
 
-.etc{
+.etcF{
     position: absolute;
-    width: 370px;
-    height: 250px;
     top: 60%;
     left: 0%;
+    width: 370px;
+    height: 250px;
 }
 
 .obj2 {
