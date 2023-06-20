@@ -39,7 +39,7 @@ const handleGiso = (id) => {
     }
       
   }
-}
+  }
 
 const handleChecked = (checkid) => {
   if (checkid == 1) {
