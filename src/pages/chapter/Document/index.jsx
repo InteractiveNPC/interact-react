@@ -23,11 +23,21 @@ export default ({ chapter, onSubmit }) => {
     <div className={styles.background}>
       { process === 0 &&
         <>
-        <Indict onSubmit={async () => {
-          if((await getCourtResult(chapter)).length > 0)
-           setProcess(1);
-          else setWarning(true);
-        }}/>
+        <Indict 
+          onSubmit={async () => {
+            if((await getCourtResult(chapter)).length > 0)
+            setProcess(1);
+            else setWarning(true);
+          }}
+          onPrev={() => {
+            effectPlay("papernext");
+            setIdx(idx-1);
+          }}
+          onNext={() => {
+            effectPlay("papernext");
+            setIdx(idx+1);
+          }}
+        />
         <div className={styles.nav}>
           {["공소사건 01", "공소사건 02", "공소사건 03"].map((title, i) => 
             <div key={title} onClick={() => {
@@ -43,7 +53,7 @@ export default ({ chapter, onSubmit }) => {
               </div>
           )}
         </div>
-        <div className={styles.arrow_nav}>
+        {/* <div className={styles.arrow_nav}>
           {idx > 0 && 
             <img 
               className={styles.prev} 
@@ -61,7 +71,7 @@ export default ({ chapter, onSubmit }) => {
                 setIdx(idx+1);
               }} 
               src="/image/Paper/Paper_make/UI/paper_make_next_page.png"/>}
-        </div>
+        </div> */}
         {warning && 
           <div className={styles.warning}
             {...divToImg("/image/Notice/proof_find_info_background.png")}>
