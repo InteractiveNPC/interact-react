@@ -11,37 +11,14 @@ let isCheck2 = 0;
 let isCheck3 = 0;
 
 
-let giso = 0;
+let giso_ = 0;
 let bulgiso = 0;
 
 let selected = 0;
 
-const handleGiso = (id) => {
-  if (id == 1) {
-    if(giso == 0)
-      {giso = 1;
-        // console.log(giso)
-        // console.log(bulgiso)
-      } 
-    else if (giso == 1) {
-      giso = 0;
-      // console.log(giso)
-      // console.log(bulgiso)
-      } 
-    }
-  else if (id == 0) {
-    if(bulgiso == 0) {
-      bulgiso = 1;
-      // console.log(giso)
-      // console.log(bulgiso)
-    }
-    else if(bulgiso == 1) {
-      bulgiso = 0;
-      // console.log(giso)
-      // console.log(bulgiso)
-    }
-      
-  }
+const handleGiso = () => {
+  giso_ = 1;
+  
 }
 
 const handleChecked = (checkid) => {
@@ -345,6 +322,15 @@ const handleClick_change = () => {
       
       <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
 
+      <img id = 'pre' onClick={() => {
+          handleClick_change();
+          //session_crime(1);
+          props.onPrev() 
+        }}
+        
+      src="/image/Paper/Paper_make/UI/paper_make_prev_page.png"
+      />
+
       <img id='dummy' src='/image/indict/check.png' style={{zIndex:'1000',position:'absolute',left:'973px',top:'100px'}} onClick={()=>{
         //hide
         effectPlay("paperbutton");
@@ -550,6 +536,7 @@ const handleClick_change = () => {
               setButtonOnClick(!buttonOnClick);
               effectPlay("paperbutton");
               handleClick();
+              handleGiso(1);
               session_crime(1);
             }
           }}>

@@ -331,6 +331,9 @@ const handleClick_change = () => {
       const crime1 = data.court["아동복지법위반죄"];
       const crime2 = data.court["살인교사죄"];
       const crime3 = data.court["살인죄"];
+      const next = '/image/indict/paper_make_next_page.png'
+      const pre = '/image/indict/paper_make_prev_page.png'
+
  // const item4_info = data.item4["info"]; //state
   //const item4info = data.item4.info;
   
@@ -342,6 +345,22 @@ const handleClick_change = () => {
     <div className="Indict">
       
       <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+
+      <img id = 'next' onClick={() => {
+        if(selected === 0) { 
+          alert('기소, 불기소 여부를 먼저 선택하세요')
+        }
+        if(selected === 1) {
+          handleClick_change();
+          //session_crime(1);
+          props.onNext() 
+        } 
+        }}
+        
+      src="/image/Paper/Paper_make/UI/paper_make_next_page.png"
+      />
+
+  
 
       <img id='dummy' src='/image/indict/check.png' style={{zIndex:'1000',position:'absolute',left:'973px',top:'100px'}} onClick={()=>{
         //hide

@@ -11,20 +11,20 @@ let isCheck2 = 0;
 let isCheck3 = 0;
 
 
-let giso = 0;
+let giso_ = 0;
 let bulgiso = 0;
 
 let selected = 0;
 
 const handleGiso = (id) => {
   if (id == 1) {
-    if(giso == 0)
-      {giso = 1;
+    if(giso_ == 1)
+      {giso_ = 1;
         // console.log(giso)
         // console.log(bulgiso)
       } 
-    else if (giso == 1) {
-      giso = 0;
+    else if (giso_ == 1) {
+      giso_ = 0;
       // console.log(giso)
       // console.log(bulgiso)
       } 
@@ -51,9 +51,6 @@ const handleChecked = (checkid) => {
     else if(isCheck1 == 1)
       isCheck1 = 0;
 
-    // console.log("isCheck1: " + isCheck1)
-    // console.log("isCheck2: " + isCheck2)
-    // console.log("isCheck3: " + isCheck3)
   }
   if (checkid == 2) {
     if(isCheck2 == 0)
@@ -61,19 +58,13 @@ const handleChecked = (checkid) => {
     else if(isCheck2 == 1)
         isCheck2 = 0;
 
-    // console.log("isCheck1: " + isCheck1)
-    // console.log("isCheck2: " + isCheck2)
-    // console.log("isCheck3: " + isCheck3)
   }
   if (checkid == 3) {
     if(isCheck3 == 0)
         isCheck3 = 1;
     else if(isCheck3 == 1)
         isCheck3 = 0;
-    
-    // console.log("isCheck1: " + isCheck1)
-    // console.log("isCheck2: " + isCheck2)
-    // console.log("isCheck3: " + isCheck3)
+
   }
 }
 
@@ -98,12 +89,10 @@ function Indict(props){
                 "found": res.data.found, "met": res.data.met,
                 "crime1_0":res.data.crime1_0
               });
-
-      console.log(res.data);
     })
     .catch(error => console.log(error));
     
-    console.log('useEffect ', data.crime1_0);
+    //console.log('useEffect ', data.crime1_0);
     
   }, []);  //json에서 데이터 불러옴
   
@@ -326,7 +315,9 @@ const handleClick_change = () => {
   const crime_click = '/image/indict/crime_click.png'
   const title = "공소사건 01. 갑자기 사라진 선녀의 날개옷";
   const proof1 = "(임시 텍스트입니다. 최대 3줄입니다.) 나무꾼은 사건 장소에 우연히 갔다고 주장하지만, 선녀 언니의 증언으로 사건 장소는 숨겨진 장소로 우연히 갈 수 없는 장소라는 사실이 밝혀졌습니다.";
-
+  
+  const next = '/image/indict/paper_make_next_page.png'
+  const pre = '/image/indict/paper_make_prev_page.png'
   
   
   const crimeTitle1 = "재물손괴죄";
@@ -348,6 +339,24 @@ const handleClick_change = () => {
     <div className="Indict">
       
       <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+
+    
+      <img id = 'next' onClick={() => {
+        if(selected === 0) { 
+          alert('기소, 불기소 여부를 먼저 선택하세요')
+        }
+        if(selected === 1) {
+          handleClick_change();
+          //session_crime(1);
+          props.onNext() 
+        } 
+        }}
+        
+      src="/image/Paper/Paper_make/UI/paper_make_next_page.png"
+      />
+     
+      
+
 
       <img id='dummy' src='/image/indict/check.png' style={{zIndex:'1000',position:'absolute',left:'973px',top:'100px'}} onClick={()=>{
         //hide
@@ -554,6 +563,7 @@ const handleClick_change = () => {
               setButtonOnClick(!buttonOnClick);
               effectPlay("paperbutton");
               handleClick();
+              //handleGiso(1);
               session_crime(1);
             }
           }}>

@@ -11,36 +11,17 @@ let isCheck2 = 0;
 let isCheck3 = 0;
 
 
-let giso = 0;
+let giso_ = 0;
 let bulgiso = 0;
 
 let selected = 0;
 
 const handleGiso = (id) => {
-  if (id == 1) {
-    if(giso == 0)
-      {giso = 1;
-        // console.log(giso)
-        // console.log(bulgiso)
-      } 
-    else if (giso == 1) {
-      giso = 0;
-      // console.log(giso)
-      // console.log(bulgiso)
-      } 
-    }
-  else if (id == 0) {
-    if(bulgiso == 0) {
-      bulgiso = 1;
-      // console.log(giso)
-      // console.log(bulgiso)
-    }
-    else if(bulgiso == 1) {
-      bulgiso = 0;
-      // console.log(giso)
-      // console.log(bulgiso)
-    }
-      
+  if(id === 1) {
+    giso_ = 1
+  }
+  else if(id === 0) {
+    giso_ = 0
   }
 }
 
@@ -331,7 +312,8 @@ const handleClick_change = () => {
   const crimeTitle3 = "추행등목적약취유인죄";
   const giso = "기소"
   const bulgiso = "불기소"
-
+  const next = '/image/indict/paper_make_next_page.png'
+  const pre = '/image/indict/paper_make_prev_page.png'
   const crime1 = data.court["재물손괴죄"];
   const crime2 = data.court["감금죄"];
   const crime3 = data.court["추행 등 목적 약취 유인죄"];
@@ -346,6 +328,29 @@ const handleClick_change = () => {
     <div className="Indict">
       
       <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+
+      <img id = 'next' onClick={() => {
+        if(selected === 0) { 
+          alert('기소, 불기소 여부를 먼저 선택하세요')
+        }
+        if(selected === 1) {
+          handleClick_change();
+          //session_crime(1);
+          props.onNext() 
+        } 
+        }}
+        
+      src="/image/Paper/Paper_make/UI/paper_make_next_page.png"
+      />
+
+    <img id = 'pre' onClick={() => {
+          handleClick_change();
+          //session_crime(1);
+          props.onPrev() 
+        }}
+        
+      src="/image/Paper/Paper_make/UI/paper_make_prev_page.png"
+      />
 
       <img id='dummy' src='/image/indict/check.png' style={{zIndex:'1000',position:'absolute',left:'973px',top:'100px'}} onClick={()=>{
         //hide
@@ -545,14 +550,16 @@ const handleClick_change = () => {
             session_crime(1);
             effectPlay("paperbutton");
             selected=1;
-            //handleGiso(1);
+           //handleGiso(1);
             handleClick();
             //여기 기소
             }else if(!buttonOnClick2 && buttonOnClick){  //불기소 안 눌리고 기소 눌림
               setButtonOnClick(!buttonOnClick);
               effectPlay("paperbutton");
               handleClick();
+             // handleGiso(1);
               session_crime(1);
+
             }
           }}>
         </img> 
