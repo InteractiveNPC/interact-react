@@ -339,6 +339,15 @@ const handleClick_change = () => {
       
       <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
 
+      <img id = 'pre' onClick={() => {
+          handleClick_change();
+          //session_crime(1);
+          props.onPrev() 
+        }}
+        
+      src="/image/Paper/Paper_make/UI/paper_make_prev_page.png"
+      />
+
       <img id='dummy' src='/image/indict/check.png' style={{zIndex:'1000',position:'absolute',left:'973px',top:'100px'}} onClick={()=>{
         //hide
         effectPlay("paperbutton");
