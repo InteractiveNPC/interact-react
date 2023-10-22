@@ -54,7 +54,7 @@ export default ({ chapter, moveRecord }) => {
           <div
             className={styles.background}
             onClick={() => {
-              const info = document.querySelector(`.${styles.info}`);
+              const info = document.querySelector(".styles.info");
               if(info) {
                 info.className = styles.disappear;
               }
